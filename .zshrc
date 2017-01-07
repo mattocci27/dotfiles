@@ -11,12 +11,12 @@ colors
 
 # Vi mode
 bindkey -v
-bindkey -M viins 'C-j' vi-cmd-mode
+bindkey -M viins '^j' vi-cmd-mode
 function zle-line-init zle-keymap-select {
  # VIM_PROMPT="%{$fg_bold[yellow]%} [% NORMAL]%  %{$reset_color%}"
  # RPS1="${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/}$(git_custom_status) $EPS1"
-  VIM_NORMAL="%K{208}%F{black}⮀%k%f%K{208}%F{white} % NORMAL %k%f%K{black}%F{208}⮀%k%f"
-  VIM_INSERT="%K{075}%F{black}⮀%k%f%K{075}%F{white} % INSERT %k%f%K{black}%F{075}⮀%k%f"
+  VIM_NORMAL="%K{120}%F{black}⮀%k%f%K{120}%F{235} % NORMAL %k%f%K{black}%F{120}⮀%k%f"
+  VIM_INSERT="%K{075}%F{black}⮀%k%f%K{075}%F{235} % INSERT %k%f%K{black}%F{075}⮀%k%f"
   RPS1="${${KEYMAP/vicmd/$VIM_NORMAL}/(main|viins)/$VIM_INSERT}"
   RPS2=$RPS1 
   zle reset-prompt
