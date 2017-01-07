@@ -1,20 +1,32 @@
-# 少し凝った zshrc
-# License : MIT
-# http://mollifier.mit-license.org/
+# enviromeant variables
+# export LANG=ja_JP.UTF-8
+export PATH=$HOME/.nodebrew/current/bin:$PATH
+export PYTHONPATH=/usr/local/lib/python2.7/site-packages:$PYTHONPATH
+export PATH=/usr/local/opt/qt5/bin:$PATH
+export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
-########################################
-# 環境変数
-# # # export LANG=ja_JP.UTF-8
-
-
-# 色を使用出来るようにする
+# colors
 autoload -Uz colors
 colors
 
-# emacs 風キーバインドにする
-bindkey -e
+# Vi mode
+bindkey -v
+bindkey -M viins 'C-j' vi-cmd-mode
+function zle-line-init zle-keymap-select {
+ # VIM_PROMPT="%{$fg_bold[yellow]%} [% NORMAL]%  %{$reset_color%}"
+ # RPS1="${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/}$(git_custom_status) $EPS1"
+  VIM_NORMAL="%K{208}%F{black}⮀%k%f%K{208}%F{white} % NORMAL %k%f%K{black}%F{208}⮀%k%f"
+  VIM_INSERT="%K{075}%F{black}⮀%k%f%K{075}%F{white} % INSERT %k%f%K{black}%F{075}⮀%k%f"
+  RPS1="${${KEYMAP/vicmd/$VIM_NORMAL}/(main|viins)/$VIM_INSERT}"
+  RPS2=$RPS1 
+  zle reset-prompt
+}
 
-# ヒストリの設定
+zle -N zle-line-init
+zle -N zle-keymap-select
+export KEYTIMEOUT=1
+
+# hitory
 HISTFILE=~/.zsh_history
 HISTSIZE=1000000
 SAVEHIST=1000000
@@ -36,8 +48,8 @@ zstyle ':zle:*' word-chars " /=;@:{},|"
 zstyle ':zle:*' word-style unspecified
 
 ########################################
-# 補完
-# 補完機能を有効にする
+# autocomplete
+# 
 autoload -Uz compinit
 compinit
 
