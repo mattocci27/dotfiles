@@ -41,6 +41,7 @@ nnoremap <S-h>   ^
 nnoremap <S-j>   }
 nnoremap <S-k>   {
 nnoremap <S-l>   $
+set backspace=indent,eol,start "enable delete key
 
 " Filetypes -----------------------------------------------------------
 
