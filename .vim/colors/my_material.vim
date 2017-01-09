@@ -21,17 +21,17 @@
 " |--------------+--------------------+---------|
 " | Light Red    | rgb(224, 108, 117) | #e06c75 |
 " |--------------+--------------------+---------|
-" | Dark Red     | rgb(190, 80, 70)   | #be5046 |
+" | Dark Red     | rgb(190, 80, 70)   | #ff5370 |
 " |--------------+--------------------+---------|
 " | Green        | rgb(152, 195, 121) | #98c379 |
 " |--------------+--------------------+---------|
-" | Light Yellow | rgb(229, 192, 123) | #e5c07b |
+" | Light Yellow | rgb(229, 192, 123) | #C3E88D |
 " |--------------+--------------------+---------|
 " | Dark Yellow  | rgb(209, 154, 102) | #d19a66 |
 " |--------------+--------------------+---------|
 " | Blue         | rgb(97, 175, 239)  | #61afef |
 " |--------------+--------------------+---------|
-" | Magenta      | rgb(198, 120, 221) | #c678dd |
+" | Magenta      | rgb(198, 120, 221) | #c792ea |
 " |--------------+--------------------+---------|
 " | Cyan         | rgb(86, 182, 194)  | #56b6c2 |
 " |--------------+--------------------+---------|
@@ -39,6 +39,11 @@
 " |--------------+--------------------+---------|
 " | Comment Grey | rgb(92, 99, 112)   | #5c6370 |
 " +---------------------------------------------+
+
+" add
+" light blue #89DDFF
+
+
 
 " +----------------+
 " | Initialization |
@@ -110,17 +115,21 @@ endfunction
 " | Color Variables |
 " +-----------------+
 
-let s:red = { "gui": "#E06C75", "cterm": "204", "cterm16": "1" } " Alternate cterm: 168
-let s:dark_red = { "gui": "#BE5046", "cterm": "196", "cterm16": "9" }
+"add
+let s:light_blue = {"gui": "#89DDFF", "cterm":39, "cterm16": "4"}
+
+"default
+let s:red = { "gui": "#F77669", "cterm": "204", "cterm16": "1" } " Alternate cterm: 168
+let s:dark_red = { "gui": "#ff5370", "cterm": "196", "cterm16": "9" }
 
 let s:green = { "gui": "#98C379", "cterm": "114", "cterm16": "2" }
 
-let s:yellow = { "gui": "#E5C07B", "cterm": "180", "cterm16": "3" }
+let s:yellow = { "gui": "#C3E88D", "cterm": "180", "cterm16": "3" }
 let s:dark_yellow = { "gui": "#D19A66", "cterm": "173", "cterm16": "11" }
 
-let s:blue = { "gui": "#61AFEF", "cterm": "39", "cterm16": "4" } " Alternate cterm: 75
+let s:blue = { "gui": "#82AAFF", "cterm": "39", "cterm16": "4" } " Alternate cterm: 75
 
-let s:purple = { "gui": "#C678DD", "cterm": "170", "cterm16": "5" } " Alternate cterm: 176
+let s:purple = { "gui": "#c792ea", "cterm": "170", "cterm16": "5" } " Alternate cterm: 176
 
 let s:cyan = { "gui": "#56B6C2", "cterm": "38", "cterm16": "6" } " Alternate cterm: 73
 
@@ -143,26 +152,26 @@ let s:vertsplit = { "gui": "#181A1F", "cterm": "59", "cterm16": "15" }
 
 call s:h("Comment", { "fg": s:comment_grey, "gui": "italic", "cterm": "italic" }) " any comment
 call s:h("Constant", { "fg": s:cyan }) " any constant
-call s:h("String", { "fg": s:green }) " a string constant: "this is a string"
-call s:h("Character", { "fg": s:green }) " a character constant: 'c', '\n'
-call s:h("Number", { "fg": s:dark_yellow }) " a number constant: 234, 0xff
+call s:h("String", { "fg": s:yellow }) " a string constant: "this is a string"
+call s:h("Character", { "fg": s:yellow }) " a character constant: 'c', '\n'
+call s:h("Number", { "fg": s:red }) " a number constant: 234, 0xff
 call s:h("Boolean", { "fg": s:dark_yellow }) " a boolean constant: TRUE, false
-call s:h("Float", { "fg": s:dark_yellow }) " a floating point constant: 2.3e10
+call s:h("Float", { "fg": s:red }) " a floating point constant: 2.3e10
 call s:h("Identifier", { "fg": s:red }) " any variable name
 call s:h("Function", { "fg": s:blue }) " function name (also: methods for classes)
 call s:h("Statement", { "fg": s:purple }) " any statement
 call s:h("Conditional", { "fg": s:purple }) " if, then, else, endif, switch, etc.
 call s:h("Repeat", { "fg": s:purple }) " for, do, while, etc.
 call s:h("Label", { "fg": s:purple }) " case, default, etc.
-call s:h("Operator", { "fg": s:purple }) " sizeof", "+", "*", etc.
+call s:h("Operator", { "fg": s:blue }) " sizeof", "+", "*", etc.
 call s:h("Keyword", { "fg": s:red }) " any other keyword
 call s:h("Exception", { "fg": s:purple }) " try, catch, throw
-call s:h("PreProc", { "fg": s:yellow }) " generic Preprocessor
+call s:h("PreProc", { "fg": s:purple }) " generic Preprocessor
 call s:h("Include", { "fg": s:blue }) " preprocessor #include
 call s:h("Define", { "fg": s:purple }) " preprocessor #define
 call s:h("Macro", { "fg": s:purple }) " same as Define
 call s:h("PreCondit", { "fg": s:yellow }) " preprocessor #if, #else, #endif, etc.
-call s:h("Type", { "fg": s:yellow }) " int, long, char, etc.
+call s:h("Type", { "fg": s:purple }) " int, long, char, etc.
 call s:h("StorageClass", { "fg": s:yellow }) " static, register, volatile, etc.
 call s:h("Structure", { "fg": s:yellow }) " struct, union, enum, etc.
 call s:h("Typedef", { "fg": s:yellow }) " A typedef
