@@ -5,6 +5,9 @@ export PYTHONPATH=/usr/local/lib/python2.7/site-packages:$PYTHONPATH
 export PATH=/usr/local/opt/qt5/bin:$PATH
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
+export R_LIBS_USER R_LIBS=Testing_Tmux
+
+
 # colors
 autoload -Uz colors
 colors

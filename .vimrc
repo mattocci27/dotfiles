@@ -2,7 +2,7 @@
 syntax enable
 
 set background=dark
-colorscheme my_material
+colorscheme my_material2
 "colorscheme material-theme
 
 set t_ut= "clearing uses the current background color
@@ -41,7 +41,8 @@ set expandtab " tab -> space
 set tabstop=2 " 
 set shiftwidth=2
 set smartindent "
-set linespace=10
+set linespace=3
+set textwidth=80
 
 set list
 set listchars=tab:\|\ ,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
@@ -90,6 +91,8 @@ Plugin 'Lokaltog/powerline-fontpatcher'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'Yggdroot/indentLine'
 Plugin 'rking/ag.vim'
+Plugin 'terryma/vim-multiple-cursors'
+"Plugin 'mattn/benchvimrc-vim'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
@@ -132,5 +135,6 @@ let g:airline_powerline_fonts=1
 " }}}
 " indentLine{{{
 let g:indetLine_char = '*'
-"set listchars=tab:\|\ 
 " }}}
+
+
