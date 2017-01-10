@@ -2,8 +2,8 @@
 syntax enable
 
 set background=dark
-"colorscheme my_material
-colorscheme material-theme
+colorscheme my_material
+"colorscheme material-theme
 
 set t_ut= "clearing uses the current background color
 
@@ -37,10 +37,18 @@ set cmdheight=2 "height for cmd
 set laststatus=2 "position for status line  
 set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c%V%8P " contens for status line
 set title " show file path in title
-set tabstop=2 " 
 set expandtab " tab -> space 
+set tabstop=2 " 
+set shiftwidth=2
 set smartindent "
+set linespace=10
 
+set list
+set listchars=tab:\|\ ,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
+
+set foldmethod=indent
+set foldlevel=2
+set foldcolumn=3
 
 " keybinding
 noremap! <C-j> <Esc>
@@ -59,7 +67,6 @@ augroup filetype_r
   au BufNewFile,BufReadPost *.r,*R, setl foldmethod=indent nofoldenable
 augroup END
 " }}}
-
 
 "Plugin
 set nocompatible              " be iMproved, required
@@ -81,6 +88,8 @@ Plugin 'alpaca-tc/alpaca_powertabline'
 Plugin 'Lokaltog/powerline', { 'rtp' : 'powerline/bindings/vim'}
 Plugin 'Lokaltog/powerline-fontpatcher'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plugin 'Yggdroot/indentLine'
+Plugin 'rking/ag.vim'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
@@ -120,4 +129,8 @@ endif
 " }}}
 " powerline{{{
 let g:airline_powerline_fonts=1
+" }}}
+" indentLine{{{
+let g:indetLine_char = '*'
+"set listchars=tab:\|\ 
 " }}}
