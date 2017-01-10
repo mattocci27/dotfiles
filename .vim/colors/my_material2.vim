@@ -1,8 +1,12 @@
-" Material Theme (https://github.com/equinusocio/material-theme)
-" Scheme: Mattia Astorino
+" Material Theme (https://github.com/atom-material/atom-material-syntax)
+" Name: my_material2.vim
+" Maintainer: ***
+" Based on: https://github.com/MaxSt/FlatColor/
+            https://github.com/jdkanani/vim-material-theme
 
 " This enables the coresponding base16-shell script to run so that
 " :colorscheme works in terminals supported by base16-shell scripts
+" "
 " User must set this variable in .vimrc
 "   let g:base16_shell_path=base16-builder/output/shell/
 " if !has('gui_running')
@@ -11,6 +15,32 @@
 "  endif
 " endif
 
+" Color Reference
+"gui00 = "#263238"
+"gui01 = "#37474F"
+"gui02 = "#546E7A"
+"gui03 = "#5C7E8C"
+"gui04 = "#80CBC4"
+"gui05 = "#C792EA"
+"gui06 = "#7986CB"
+"gui07 = "#82B1FF"
+"gui08 = "#8BD649"
+"gui09 = "#C3E88D"
+"gui0A = "#CDD3DE"
+"gui0B = "#EC5F67"
+"gui0C = "#F1E655"
+"gui0D = "#F77669"
+"gui0E = "#F8E71C"
+"gui0F = "#AABBC3"
+
+" +---------------+
+" |Initialization |
+" +---------------+
+
+" Theme setup
+hi clear
+syntax reset
+let g:colors_name = "material-theme2"
 
 " This function is based on one from FlatColor: https://github.com/MaxSt/FlatColor/
 " Which in turn was based on one found in hemisu: https://github.com/noahfrederick/vim-hemisu/
@@ -48,22 +78,9 @@ endfunction
 
 "public end }}
 
-"let s:gui00 = "#263238"
-"let s:gui01 = "#37474F"
-"let s:gui02 = "#546E7A"
-"let s:gui03 = "#5C7E8C"
-"let s:gui04 = "#80CBC4"
-"let s:gui05 = "#C792EA"
-"let s:gui06 = "#7986CB"
-"let s:gui07 = "#82B1FF"
-"let s:gui08 = "#8BD649"
-"let s:gui09 = "#C3E88D"
-"let s:gui0A = "#CDD3DE"
-"let s:gui0B = "#EC5F67"
-"let s:gui0C = "#F1E655"
-"let s:gui0D = "#F77669"
-"let s:gui0E = "#F8E71C"
-"let s:gui0F = "#AABBC3"
+" +-----------------+
+" | Color Variables |
+" +-----------------+
 
 " GUI color definitions
 let s:gui00 = "263238"
@@ -128,11 +145,6 @@ endif
 "let s:cterm0E = "F8E71C"
 "let s:cterm0F = "FFFFFF"
 
-
-" Theme setup
-hi clear
-syntax reset
-let g:colors_name = "material-theme2"
 
 " Highlighting function
 fun <sid>hi(group, guifg, guibg, ctermfg, ctermbg, attr)
