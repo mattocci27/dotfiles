@@ -1,14 +1,13 @@
 " Vim Color File
 " Name:       my_material.vim
-" Maintainer: https://github.com/joshdick/my_material.vim/
+" Maintainer: https://github.com/mattocci27/my_material.vim/
 " License:    The MIT License (MIT)
 " Based On:   https://github.com/MaxSt/FlatColor/
-
-" A companion [vim-airline](https://github.com/bling/vim-airline) theme is available at: https://github.com/joshdick/airline-my_material.vim
 
 " +-----------------+
 " | Color Reference |
 " +-----------------+
+
 
 " The following colors were measured inside Atom using its built-in inspector.
 
@@ -23,13 +22,13 @@
 " |--------------+--------------------+---------|
 " | Dark Red     | rgb(190, 80, 70)   | #ff5370 |
 " |--------------+--------------------+---------|
-" | Green        | rgb(152, 195, 121) | #98c379 |
+" | Green        | rgb(152, 195, 121) | #9CCC65 |
 " |--------------+--------------------+---------|
 " | Light Yellow | rgb(229, 192, 123) | #C3E88D |
 " |--------------+--------------------+---------|
 " | Dark Yellow  | rgb(209, 154, 102) | #d19a66 |
 " |--------------+--------------------+---------|
-" | Blue         | rgb(97, 175, 239)  | #61afef |
+" | Blue         | rgb(97, 175, 239)  | #82b1ff |
 " |--------------+--------------------+---------|
 " | Magenta      | rgb(198, 120, 221) | #c792ea |
 " |--------------+--------------------+---------|
@@ -118,28 +117,22 @@ endfunction
 "add
 let s:light_blue = {"gui": "#89DDFF", "cterm":39, "cterm16": "4"}
 
+
+
 "default
-let s:red = { "gui": "#F77669", "cterm": "204", "cterm16": "1" } " Alternate cterm: 168
+let s:red = { "gui": "#F77669", "cterm": "204", "cterm16": "1" } "
 let s:dark_red = { "gui": "#ff5370", "cterm": "196", "cterm16": "9" }
-
-let s:green = { "gui": "#98C379", "cterm": "114", "cterm16": "2" }
-
+let s:green = { "gui": "#9CCC65", "cterm": "114", "cterm16": "2" }
 let s:yellow = { "gui": "#C3E88D", "cterm": "180", "cterm16": "3" }
 let s:dark_yellow = { "gui": "#D19A66", "cterm": "173", "cterm16": "11" }
-
-let s:blue = { "gui": "#82AAFF", "cterm": "39", "cterm16": "4" } " Alternate cterm: 75
-
-let s:purple = { "gui": "#c792ea", "cterm": "170", "cterm16": "5" } " Alternate cterm: 176
-
-let s:cyan = { "gui": "#56B6C2", "cterm": "38", "cterm16": "6" } " Alternate cterm: 73
-
+let s:blue = { "gui": "#82b1ff", "cterm": "39", "cterm16": "4" } "
+let s:purple = { "gui": "#c792ea", "cterm": "170", "cterm16": "5" } "
+let s:cyan = { "gui": "#56B6C2", "cterm": "38", "cterm16": "6" } "
 let s:white = { "gui": "#AABBC3", "cterm": "145", "cterm16" : "7" }
-
 let s:black = { "gui": "#263238", "cterm": "235", "cterm16": "0" }
 let s:visual_black = { "gui": "NONE", "cterm": "NONE", "cterm16": s:black.cterm16 } " Black out selected text in 16-color visual mode
-
-let s:comment_grey = { "gui": "#5C6370", "cterm": "59", "cterm16": "15" }
-let s:gutter_fg_grey = { "gui": "#636D83", "cterm": "238", "cterm16": "15" }
+let s:comment_grey = { "gui": "#49656f", "cterm": "59", "cterm16": "15" }
+let s:gutter_fg_grey = { "gui": "#49656f", "cterm": "238", "cterm16": "15" }
 let s:cursor_grey =  { "gui": "#2C323C", "cterm": "236", "cterm16": "8" }
 let s:visual_grey = { "gui": "#3E4452", "cterm": "237", "cterm16": "15" }
 let s:menu_grey = { "gui": s:visual_grey.gui, "cterm": s:visual_grey.cterm, "cterm16": "8" }
