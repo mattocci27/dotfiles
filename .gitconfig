@@ -1,0 +1,11 @@
+[user]
+	name = Masatoshi Katabuchi
+	email = mattocci27@gmail.com
+
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	required = true
+	process = git-lfs filter-process
+[core]
+	editor = vim
