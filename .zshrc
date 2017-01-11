@@ -1,4 +1,4 @@
-# enviromeant variables
+# enviromeant variables -------------------------------------------------------
 # export LANG=ja_JP.UTF-8
 export PATH=$HOME/.nodebrew/current/bin:$PATH
 export PYTHONPATH=/usr/local/lib/python2.7/site-packages:$PYTHONPATH
@@ -8,7 +8,8 @@ export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 export R_LIBS_USER R_LIBS=Testing_Tmux
 
 
-# colors
+
+# colors ---------------------------------------------------------------------
 autoload -Uz colors
 colors
 
@@ -130,7 +131,7 @@ setopt extended_glob
 # キーバインド
 
 # ^R で履歴検索をするときに * でワイルドカードを使用出来るようにする
-bindkey '^R' history-incremental-pattern-search-backward
+# bindkey '^R' history-incremental-pattern-search-backward
 
 ########################################
 # エイリアス
@@ -150,6 +151,10 @@ alias sudo='sudo '
 # グローバルエイリアス
 alias -g L='| less'
 alias -g G='| grep'
+
+# vim
+alias v='vim'
+
 
 # C で標準出力をクリップボードにコピーする
 # mollifier delta blog : http://mollifier.hatenablog.com/entry/20100317/p1
@@ -180,4 +185,24 @@ case ${OSTYPE} in
         ;;
 esac
 
+#
+#
 # vim:set ft=zsh:
+
+# PECO ------------------------------------------------------------------------
+# function for peco
+function peco-select-history() {
+    local tac
+    if which tac > /dev/null; then
+        tac="tac"
+    else
+        tac="tail -r"
+    fi
+    BUFFER=$(\history -n 1 | \
+      eval $tac | \
+      peco --query "$LBUFFER")
+    CURSOR=$#BUFFER
+    zle clear-screen
+}
+zle -N peco-select-history
+bindkey '^r' peco-select-history

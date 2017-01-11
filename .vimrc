@@ -45,7 +45,7 @@ set linespace=3
 set textwidth=80
 
 set list
-set listchars=tab:\|\ ,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
+set listchars=tab:\|\ ,trail:·,eol:↲,extends:»,precedes:«,nbsp:%
 
 set foldmethod=indent
 set foldlevel=2
