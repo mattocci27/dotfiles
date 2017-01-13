@@ -33,7 +33,9 @@ export KEYTIMEOUT=1
 
 # hitory
 HISTFILE=~/.zsh_history
+# This is about for a month
 HISTSIZE=1000000
+# This is about for a year
 SAVEHIST=1000000
 
 # プロンプト
@@ -56,7 +58,8 @@ zstyle ':zle:*' word-style unspecified
 # autocomplete
 # 
 autoload -Uz compinit
-compinit
+# give -C to ignore compinit security check
+compinit -C
 
 # 補完で小文字でも大文字にマッチさせる
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'

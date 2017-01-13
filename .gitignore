@@ -6,3 +6,4 @@ packages
 .apm
 .node-gyp
 .npm
+.ssh
