@@ -1,0 +1,5 @@
+
+CXXFLAGS=-O3 -mtune=native -march=native -Wno-unused-variable -Wno-unused-function
+
+CC=clang
+CXX=clang++ -arch x86_64 -ftemplate-depth-256
