@@ -95,6 +95,7 @@ Plugin 'severin-lemaignan/vim-minimap'
 "Plugin 'thinca/vim-quickrun'
 Plugin 'Townk/vim-autoclose'
 Plugin 'tpope/vim-fugitive'
+Plugin 'airblade/vim-gitgutter'
 Plugin 'itchyny/lightline.vim'
 Plugin 'alpaca-tc/alpaca_powertabline'
 Plugin 'Lokaltog/powerline', { 'rtp' : 'powerline/bindings/vim'}
@@ -178,4 +179,7 @@ au FileType unite inoremap <silent> <buffer> <expr> <C-K> unite#do_action('vspli
 au FileType unite nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
 au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
 "}}}
-
+" gitgutter{{{
+let g:gitgutter_override_sign_column_highlight = 0
+highlight SignColumn guibg='#263238'   " terminal Vim "
+" }}}
