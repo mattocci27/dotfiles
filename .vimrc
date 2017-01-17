@@ -7,13 +7,13 @@ colorscheme my_material2
 
 set t_ut= "clearing uses the current background color
 
-"if has('tmux')
-  set termguicolors
-"endif 
 
-if has('nvim')
-  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+if (v:version >= 800)
+  set termguicolors
+else
+  set t_Co=256
 endif
+
 
 set t_8b=[48;2;%lu;%lu;%lum
 set t_8f=[38;2;%lu;%lu;%lum
@@ -24,8 +24,10 @@ set t_8f=[38;2;%lu;%lu;%lum
 
 " base setting
 " -------------------------------------------------------------------
+"I don't want to use backup and undo files.
 set nobackup
 set noswapfile
+set noundofile
 set guifont=MyricaM\ Monospace:h15
 "set guifont=Arial:h15
 "set guifont=Richty\ Regular\ for\ Powerline\ Nerd\ Font\ Plus\ Font\ Awesome\ Plus\ Octicons\ Plus\ Pomicons\ Plus\ Font\ Linux:h15
@@ -43,6 +45,7 @@ set shiftwidth=2
 set smartindent "
 set linespace=3
 set textwidth=80
+set wrap
 
 set list
 set listchars=tab:\|\ ,trail:·,eol:↲,extends:»,precedes:«,nbsp:%
@@ -52,15 +55,23 @@ set foldlevel=2
 set foldcolumn=3
 
 " keybinding
-noremap! <C-j> <Esc>
-vmap<C-j> <Esc>
-nnoremap <S-h>   ^
-nnoremap <S-j>   }
-nnoremap <S-k>   {
-nnoremap <S-l>   $
-set backspace=indent,eol,start "enable delete key
+noremap! <c-j> <esc>
+vmap<c-j> <esc>
+nnoremap <s-h>   ^
+nnoremap <s-j>   }
+nnoremap <s-k>   {
+nnoremap <s-l>   $
 
-" Filetypes -----------------------------------------------------------
+set backspace=indent,eol,start "enable delete key
+let mapleader = "\<space>"
+
+"copy one line
+noremap <leader>v 0v$h
+noremap <leader>o :<c-p> <cr>
+noremap <leader>w :w <CR>
+
+"map <s>co <s-i># <esc>
+" filetypes -----------------------------------------------------------
 
 " Coffee {{{
 augroup filetype_r
@@ -82,7 +93,7 @@ Plugin 'tiagofumo/vim-nerdtree-syntax-highlight' "
 Plugin 'jalvesaq/Nvim-R'
 Plugin 'severin-lemaignan/vim-minimap'
 "Plugin 'thinca/vim-quickrun'
-Plugin 'Townk/vim-autoclose'  
+Plugin 'Townk/vim-autoclose'
 Plugin 'tpope/vim-fugitive'
 Plugin 'itchyny/lightline.vim'
 Plugin 'alpaca-tc/alpaca_powertabline'
@@ -92,6 +103,10 @@ Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'Yggdroot/indentLine'
 Plugin 'rking/ag.vim'
 Plugin 'terryma/vim-multiple-cursors'
+Plugin 'cohama/agit.vim'
+Plugin 'Shougo/unite.vim'
+Plugin 'Shougo/neomru.vim'
+
 "Plugin 'mattn/benchvimrc-vim'
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -111,8 +126,15 @@ let g:NERDTreePatternMatchHighlightColor = {} " this line is needed to avoid err
 let g:NERDTreePatternMatchHighlightColor['.*_spec\.rb$'] = s:rspec_red " sets the color for files ending with _spec.rb
 "}}}
 " Nvim-R{{{ 
-vmap <C-r> <Plug>RSendLine
-nmap <C-r> <Plug>RSendLine
+vmap <leader>r <Plug>RSendLine
+nmap <leader>r <Plug>RSendLine
+nmap <leader>sr <Plug>RStart
+imap <leader>sr <Plug>RStart
+vmap <leader>sr <Plug>RStart
+nmap <leader>qr <Plug>RClose
+imap <leader>qr <Plug>RClose
+vmap <leader>qr <Plug>RClose
+
 let R_in_buffer = 0
 let R_applescript = 0
 let R_tmux_split = 1
@@ -136,5 +158,24 @@ let g:airline_powerline_fonts=1
 " indentLine{{{
 let g:indetLine_char = '*'
 " }}}
-
+" unit.vim{{{
+let g:unite_enable_start_insert=1
+" バッファ一覧
+noremap <C-P> :Unite buffer<CR>
+" ファイル一覧
+noremap <C-N> :Unite -buffer-name=file file<CR>
+" 最近使ったファイルの一覧
+noremap <C-Z> :Unite file_mru<CR>
+" sourcesを「今開いているファイルのディレクトリ」とする
+noremap :uff :<C-u>UniteWithBufferDir file -buffer-name=file<CR>
+" ウィンドウを分割して開く
+au FileType unite nnoremap <silent> <buffer> <expr> <C-J> unite#do_action('split')
+au FileType unite inoremap <silent> <buffer> <expr> <C-J> unite#do_action('split')
+" ウィンドウを縦に分割して開く
+au FileType unite nnoremap <silent> <buffer> <expr> <C-K> unite#do_action('vsplit')
+au FileType unite inoremap <silent> <buffer> <expr> <C-K> unite#do_action('vsplit')
+" ESCキーを2回押すと終了する
+au FileType unite nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
+au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
+"}}}
 
