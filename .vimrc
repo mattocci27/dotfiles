@@ -18,6 +18,13 @@ endif
 set t_8b=[48;2;%lu;%lu;%lum
 set t_8f=[38;2;%lu;%lu;%lum
 
+" change cursor
+let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+
+set cursorline
+highlight CursorLine guibg='#292929'
+
 "let g:lightline = {
 "  \ 'colorscheme': 'material-theme',
 "  \ }
@@ -130,10 +137,10 @@ let g:NERDTreePatternMatchHighlightColor['.*_spec\.rb$'] = s:rspec_red " sets th
 vmap <leader>r <Plug>RSendLine
 nmap <leader>r <Plug>RSendLine
 nmap <leader>sr <Plug>RStart
-imap <leader>sr <Plug>RStart
+"imap <leader>sr <Plug>RStart
 vmap <leader>sr <Plug>RStart
 nmap <leader>qr <Plug>RClose
-imap <leader>qr <Plug>RClose
+"imap <leader>qr <Plug>RClose
 vmap <leader>qr <Plug>RClose
 
 let R_in_buffer = 0
