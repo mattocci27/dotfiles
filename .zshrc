@@ -23,7 +23,7 @@ function zle-line-init zle-keymap-select {
   VIM_NORMAL="%K{120}%F{black}⮀%k%f%K{120}%F{235} % NORMAL %k%f%K{black}%F{120}⮀%k%f"
   VIM_INSERT="%K{075}%F{black}⮀%k%f%K{075}%F{235} % INSERT %k%f%K{black}%F{075}⮀%k%f"
   RPS1="${${KEYMAP/vicmd/$VIM_NORMAL}/(main|viins)/$VIM_INSERT}"
-  RPS2=$RPS1 
+  RPS2=$RPS1
   zle reset-prompt
 }
 
@@ -56,7 +56,7 @@ zstyle ':zle:*' word-style unspecified
 
 ########################################
 # autocomplete
-# 
+#
 autoload -Uz compinit
 # give -C to ignore compinit security check
 compinit -C
@@ -209,3 +209,18 @@ function peco-select-history() {
 }
 zle -N peco-select-history
 bindkey '^r' peco-select-history
+
+# display ssh
+# -----------------------------------------------------------------
+function ssh() {
+  if [[ -n $(printenv TMUX) ]]
+  then
+    local window_name=$(tmux display -p '#{window_name}')
+    tmux rename-window -- "$@[-1]" # zsh specified
+    # tmux rename-window -- "${!#}" # for bash
+    command ssh $@
+    tmux rename-window $window_name
+  else
+    command ssh $@
+  fi
+}
