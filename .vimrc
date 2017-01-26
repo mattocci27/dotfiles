@@ -23,7 +23,7 @@ let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
 let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
 
 set cursorline
-highlight CursorLine guibg='#292929'
+highlight CursorLine guibg='#292930'
 
 "let g:lightline = {
 "  \ 'colorscheme': 'material-theme',
@@ -43,11 +43,11 @@ set number " put line numbers
 set clipboard=unnamed,autoselect " use clipboard
 set ruler "use ruler
 set cmdheight=2 "height for cmd
-set laststatus=2 "position for status line  
+set laststatus=2 "position for status line
 set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c%V%8P " contens for status line
 set title " show file path in title
-set expandtab " tab -> space 
-set tabstop=2 " 
+set expandtab " tab -> space
+set tabstop=2 "
 set shiftwidth=2
 set smartindent "
 set linespace=3
@@ -68,6 +68,14 @@ nnoremap <s-h>   ^
 nnoremap <s-j>   }
 nnoremap <s-k>   {
 nnoremap <s-l>   $
+vmap <s-h>       ^
+vmap <s-l>       $
+
+
+inoremap { {}<Left>
+inoremap {<Enter> {}<Left><CR><ESC><S-o>
+inoremap ( ()<ESC>i
+inoremap (<Enter> ()<Left><CR><ESC><S-o>))}}
 
 set backspace=indent,eol,start "enable delete key
 let mapleader = "\<space>"
@@ -77,6 +85,8 @@ noremap <leader>v 0v$h
 noremap <leader>o :<c-p> <cr>
 noremap <leader>w :w <CR>
 
+
+autocmd BufWritePre * :%s/\s\+$//ge
 "map <s>co <s-i># <esc>
 " filetypes -----------------------------------------------------------
 
@@ -96,7 +106,7 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
 "Plugin 'ryanoasis/vim-devicons'
-Plugin 'tiagofumo/vim-nerdtree-syntax-highlight' " 
+Plugin 'tiagofumo/vim-nerdtree-syntax-highlight' "
 Plugin 'jalvesaq/Nvim-R'
 Plugin 'severin-lemaignan/vim-minimap'
 "Plugin 'thinca/vim-quickrun'
@@ -105,8 +115,10 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'itchyny/lightline.vim'
 Plugin 'alpaca-tc/alpaca_powertabline'
-Plugin 'Lokaltog/powerline', { 'rtp' : 'powerline/bindings/vim'}
-Plugin 'Lokaltog/powerline-fontpatcher'
+"Plugin 'Lokaltog/powerline', { 'rtp' : 'powerline/bindings/vim'}
+"Plugin 'Lokaltog/powerline-fontpatcher'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'Yggdroot/indentLine'
 Plugin 'rking/ag.vim'
@@ -133,7 +145,7 @@ let g:NERDTreeExactMatchHighlightColor['.gitignore'] = s:git_orange " sets the c
 let g:NERDTreePatternMatchHighlightColor = {} " this line is needed to avoid error
 let g:NERDTreePatternMatchHighlightColor['.*_spec\.rb$'] = s:rspec_red " sets the color for files ending with _spec.rb
 "}}}
-" Nvim-R{{{ 
+" Nvim-R{{{
 vmap <leader>r <Plug>RSendLine
 nmap <leader>r <Plug>RSendLine
 nmap <leader>sr <Plug>RStart
@@ -146,9 +158,10 @@ vmap <leader>qr <Plug>RClose
 let R_in_buffer = 0
 let R_applescript = 0
 let R_tmux_split = 1
-let R_assign = 0 "do not use <- 
+let R_vsplit = 1
+let R_assign = 0 "do not use <-
 " }}}
-" vim-minimap{{{ 
+" vim-minimap{{{
 let g:minimap_show='<leader>ms'
 let g:minimap_update='<leader>mu'
 let g:minimap_close='<leader>gc'
@@ -161,7 +174,7 @@ if isdirectory(expand('~/.vim/bundle/vim-fugitive'))
 endif
 " }}}
 " powerline{{{
-let g:airline_powerline_fonts=1
+" let g:airline_powerline_fonts=1
 " }}}
 " indentLine{{{
 let g:indetLine_char = '*'
@@ -190,3 +203,9 @@ au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
 let g:gitgutter_override_sign_column_highlight = 0
 highlight SignColumn guibg='#263238'   " terminal Vim "
 " }}}
+" vim-airline{{{
+"let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#buffer_idx_mode = 2
+let g:airline_theme='bubblegum'
+let g:airline_powerline_fonts = 1
+"}}}
