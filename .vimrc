@@ -2,16 +2,16 @@
 syntax enable
 
 set background=dark
-colorscheme my_material2
-"colorscheme material-theme
 
 set t_ut= "clearing uses the current background color
 
 
 if (v:version >= 800)
   set termguicolors
+  colorscheme my_material2
 else
   set t_Co=256
+  colorscheme material-theme
 endif
 
 
