@@ -2,7 +2,7 @@
 " Name: my_material2.vim
 " Maintainer: ***
 " Based on: https://github.com/MaxSt/FlatColor/
-            https://github.com/jdkanani/vim-material-theme
+"            https://github.com/jdkanani/vim-material-theme
 
 " This enables the coresponding base16-shell script to run so that
 " :colorscheme works in terminals supported by base16-shell scripts
@@ -17,7 +17,7 @@
 
 " Color Reference
 "gui00 = "#263238"
-"gui01 = "#37474F"
+"gui01 = "#404C52"
 "gui02 = "#546E7A"
 "gui03 = "#5C7E8C"
 "gui04 = "#80CBC4"
@@ -32,6 +32,7 @@
 "gui0D = "#F77669"
 "gui0E = "#F8E71C"
 "gui0F = "#AABBC3"
+
 
 " +---------------+
 " |Initialization |
@@ -84,7 +85,8 @@ endfunction
 
 " GUI color definitions
 let s:gui00 = "263238"
-let s:gui01 = "37474F"
+let s:gui01 = "404C52"
+
 let s:gui02 = "546E7A"
 let s:gui03 = "5C7E8C"
 let s:gui04 = "80CBC4"
@@ -233,16 +235,16 @@ call <sid>hi("ModeMsg",       s:gui04, "", s:cterm04, "", "")
 call <sid>hi("MoreMsg",       s:gui04, "", s:cterm04, "", "")
 call <sid>hi("Question",      s:gui0D, "", s:cterm0D, "", "")
 call <sid>hi("Search",        s:gui03, s:gui0A, s:cterm03, s:cterm0A,  "")
-call <sid>hi("SpecialKey",    s:gui03, "", s:cterm03, "", "")
+call <sid>hi("specialkey",    s:gui03, "", s:cterm03, "", "")
 call <sid>hi("TooLong",       s:gui08, "", s:cterm08, "", "")
 call <sid>hi("Underlined",    s:gui08, "", s:cterm08, "", "")
-call <sid>hi("Visual",        "", s:gui01, "", s:cterm01, "")
-call <sid>hi("VisualNOS",     "", s:gui01, "", s:cterm01, "")
+call <sid>hi("Visual",        "", s:gui02, "", s:cterm01, "none")
+call <sid>hi("VisualNOS",     "", s:gui02, "", s:cterm01, "")
 call <sid>hi("WarningMsg",    s:gui08, "", s:cterm08, "", "")
 call <sid>hi("WildMenu",      s:gui08, "", s:cterm08, "", "")
 call <sid>hi("Title",         s:gui04, "", s:cterm04, "", "none")
 call <sid>hi("Conceal",       s:gui04, s:gui00, s:cterm04, s:cterm00, "")
-call <sid>hi("Cursor",        "", s:gui04, "", s:cterm03, "")
+call <sid>hi("Cursor",        "", s:gui02, "", s:cterm01, "")
 call <sid>hi("NonText",       s:gui03, "", s:cterm03, "", "")
 call <sid>hi("Normal",        s:gui0F, s:gui00, s:cterm0F, s:cterm00, "")
 call <sid>hi("LineNr",        s:gui03, s:gui00, s:cterm01, s:cterm00, "")
@@ -251,10 +253,10 @@ call <sid>hi("SpecialKey",    s:gui04, "", s:cterm04, "", "")
 call <sid>hi("StatusLine",    s:gui04, s:gui02, s:cterm04, s:cterm02, "none")
 call <sid>hi("StatusLineNC",  s:gui03, s:gui01, s:cterm03, s:cterm01, "none")
 call <sid>hi("VertSplit",     s:gui00, s:gui00, s:cterm00, s:cterm00, "none")
-call <sid>hi("ColorColumn",   "", s:gui01, "", s:cterm01, "none")
-call <sid>hi("CursorColumn",  "", s:gui01, "", s:cterm01, "none")
-call <sid>hi("CursorLine",    "", s:gui01, "", s:cterm01, "none")
-call <sid>hi("CursorLineNr",  s:gui03, s:gui01, s:cterm03, s:cterm01, "")
+call <sid>hi("ColorColumn",   "", s:gui02, "", s:cterm01, "none")
+call <sid>hi("CursorColumn",  "", s:gui02, "", s:cterm01, "none")
+call <sid>hi("CursorLine",    "", s:gui02, "", s:cterm01, "none")
+call <sid>hi("CursorLineNr",  s:gui04, s:gui00, "", s:cterm01, "none")
 call <sid>hi("PMenu",         s:gui04, s:gui01, s:cterm04, s:cterm01, "none")
 call <sid>hi("PMenuSel",      s:gui0A, s:gui01, s:cterm0A, s:cterm01, "")
 call <sid>hi("TabLine",       s:gui03, s:gui01, s:cterm03, s:cterm01, "none")
@@ -381,6 +383,10 @@ call <sid>hi("phpBoolean",        s:gui05, "", s:cterm05, "", "")
 " Python highlighting
 call <sid>hi("pythonOperator",  s:gui04, "", s:cterm04, "", "")
 call <sid>hi("pythonRepeat",    s:gui04, "", s:cterm04, "", "")
+
+" R highlighting
+call <sid>hi("rOperator",  s:gui07, "", s:cterm07, "", "")
+
 
 " Ruby highlighting
 call <sid>hi("rubyAttribute",               s:gui0D, "", s:cterm0D, "", "")
