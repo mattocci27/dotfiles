@@ -1,7 +1,13 @@
 # enviromeant variables -------------------------------------------------------
 # export LANG=ja_JP.UTF-8
+#export PYTHONPATH=/usr/local/lib/python3.6/site-packages:$PYTHONPATH
+
+# Python version management: pyenv
+export PYENV_ROOT="${HOME}/.pyenv"
+export PATH="${PYENV_ROOT}/bin:$PATH"
+eval "$(pyenv init -)"
+
 export PATH=$HOME/.nodebrew/current/bin:$PATH
-export PYTHONPATH=/usr/local/lib/python2.7/site-packages:$PYTHONPATH
 export PATH=/usr/local/opt/qt5/bin:$PATH
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
