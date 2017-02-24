@@ -7,11 +7,14 @@ export PYENV_ROOT="${HOME}/.pyenv"
 export PATH="${PYENV_ROOT}/bin:$PATH"
 eval "$(pyenv init -)"
 
+
 export PATH=$HOME/.nodebrew/current/bin:$PATH
 export PATH=/usr/local/opt/qt5/bin:$PATH
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
 export R_LIBS_USER R_LIBS=Testing_Tmux
+
+export PATH=/Library/TeX/Root/bin/x86_64-darwin:$PATH
 
 
 
