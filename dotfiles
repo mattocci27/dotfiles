@@ -76,6 +76,7 @@ link_files() {
       # If you have ignore files, add file/directory name here
       [[ ${f} = ".git" ]] && continue
       [[ ${f} = ".gitignore" ]] && continue
+      [[ ${f} = ".ssh" ]] && continue
       ln -snfv ${DOT_DIRECTORY}/${f} ${HOME}/${f}
     fi
   done
