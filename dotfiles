@@ -8,6 +8,7 @@ has() {
   type "$1" > /dev/null 2>&1
 }
 
+# how to use
 usage() {
   name=`basename $0`
   cat <<EOF
