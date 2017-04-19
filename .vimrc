@@ -63,6 +63,7 @@ set foldmethod=indent
 set foldlevel=2
 set foldcolumn=3
 
+set tw=0
 " keybinding
 noremap! <c-j> <esc>
 vmap<c-j> <esc>
@@ -129,6 +130,8 @@ Plugin 'cohama/agit.vim'
 Plugin 'Shougo/unite.vim'
 Plugin 'Shougo/neomru.vim'
 Plugin 'Shougo/neocomplete.vim'
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
 
 "Plugin 'mattn/benchvimrc-vim'
 call vundle#end()            " required
