@@ -1,4 +1,9 @@
 #!/bin/sh
+set -e
+DOT_DIRECTORY="${HOME}/dotfiles"
+
+cd ${DOT_DIRECTORY}
+
 link_files() {
   for f in .??*
   do
@@ -15,3 +20,5 @@ link_files() {
 
   echo $(tput setaf 2)Deploy dotfiles complete!. ✔︎$(tput sgr0)
 }
+
+link_files
