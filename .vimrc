@@ -1,6 +1,6 @@
 " colors ---------------------------------------------------------------
 syntax enable
-
+"test
 set background=dark
 
 set t_ut= "clearing uses the current background color
@@ -89,7 +89,7 @@ noremap <leader>o :<c-p> <cr>
 noremap <leader>w :w <CR>
 
 
-autocmd BufWritePre * :%s/\s\+$//ge
+"autocmd BufWritePre * :%s/\s\+$//ge
 "map <s>co <s-i># <esc>
 " filetypes -----------------------------------------------------------
 
