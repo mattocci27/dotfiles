@@ -1,4 +1,7 @@
 #!/bin/sh
-while read list
-  do brew install $list
-done < brewlist
+brew update
+
+brew upgrade
+
+# update file list
+brew list > brewlist
