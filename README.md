@@ -12,7 +12,7 @@ Following commonds will clone the repository and automatically make symbolik lin
 % ./brew_install.sh
 
 ```
-This keeps brew and brewlist updated.
+This keeps brew and brewlist up to date.
 ```
 % ./brew.sh
 ```
