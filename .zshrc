@@ -16,7 +16,6 @@ export R_LIBS_USER R_LIBS=Testing_Tmux
 
 export PATH=/Library/TeX/Root/bin/x86_64-darwin:$PATH
 
-
 export PATH=$HOME/.cabal/bin:$PATH
 
 # colors ---------------------------------------------------------------------
