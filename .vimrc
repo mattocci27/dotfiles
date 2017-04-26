@@ -271,3 +271,8 @@ let g:neocomplete#sources#omni#functions.r = 'rcomplete#CompleteR'
 "endif
 "let g:neocomplete#keyword_patterns['default'] = '\h\w*'
 "}}}
+"vim_markdown{{{
+let g:vim_markdown_folding_disabled = 1
+let g:vim_markdown_conceal = 0
+"}}}
+"}
