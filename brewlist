@@ -42,6 +42,7 @@ libvterm
 libxml2
 libxslt
 libyaml
+llvm-4.0
 llvm37-julia
 macvim
 mas

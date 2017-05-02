@@ -65,14 +65,20 @@ set foldcolumn=3
 
 set tw=0
 " keybinding
-noremap! <c-j> <esc>
-vmap<c-j> <esc>
+"noremap! <c-j> <esc>
+"vmap<c-j> <esc>
 nnoremap <s-h>   ^
 nnoremap <s-j>   }
 nnoremap <s-k>   {
 nnoremap <s-l>   $
 vmap <s-h>       ^
 vmap <s-l>       $
+
+"Easier split navigations
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+nnoremap <C-h> <C-w>h
 
 
 inoremap { {}<Left>
@@ -88,6 +94,9 @@ noremap <leader>v 0v$h
 noremap <leader>o :<c-p> <cr>
 noremap <leader>w :w <CR>
 
+
+" vv to generate new vertical split 
+nnoremap <silent> vv <C-w>v
 
 "autocmd BufWritePre * :%s/\s\+$//ge
 "map <s>co <s-i># <esc>
@@ -132,6 +141,7 @@ Plugin 'Shougo/neomru.vim'
 Plugin 'Shougo/neocomplete.vim'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
+Plugin 'christoomey/vim-tmux-navigator'
 
 "Plugin 'mattn/benchvimrc-vim'
 call vundle#end()            " required
