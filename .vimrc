@@ -5,7 +5,6 @@ set background=dark
 
 set t_ut= "clearing uses the current background color
 
-
 if (v:version >= 800)
   set termguicolors
   colorscheme my_material2
@@ -23,7 +22,38 @@ set t_8f=[38;2;%lu;%lu;%lum
 let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
 let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
 
-set cursorline
+"set cursorline
+
+set updatetime=200
+augroup vimrc-auto-cursorline
+  autocmd CursorMoved,CursorMovedI * call s:auto_cursorline('CursorMoved')
+  autocmd CursorHold,CursorHoldI * call s:auto_cursorline('CursorHold')
+  autocmd WinEnter,BufEnter,CmdwinLeave * call s:auto_cursorline('WinEnter,BufEnter,CmdwinLeave')
+  autocmd WinLeave * call s:auto_cursorline('WinLeave')
+
+  let s:cursorline_lock = 0
+  function! s:auto_cursorline(event)
+    if a:event ==# 'WinEnter,BufEnter,CmdwinLeave'
+      setlocal cursorline
+      let s:cursorline_lock = 2
+    elseif a:event ==# 'WinLeave'
+      setlocal nocursorline
+    elseif a:event ==# 'CursorMoved'
+      if s:cursorline_lock
+        if 1 < s:cursorline_lock
+          let s:cursorline_lock = 1
+        else
+          setlocal nocursorline
+          let s:cursorline_lock = 0
+        endif
+      endif
+    elseif a:event ==# 'CursorHold'
+      setlocal cursorline
+      let s:cursorline_lock = 1
+    endif
+  endfunction
+augroup END
+
 highlight CursorLine guibg='#292930'
 
 "let g:lightline = {
@@ -120,7 +150,7 @@ Plugin 'scrooloose/nerdtree'
 "Plugin 'ryanoasis/vim-devicons'
 Plugin 'tiagofumo/vim-nerdtree-syntax-highlight' "
 Plugin 'jalvesaq/Nvim-R'
-Plugin 'severin-lemaignan/vim-minimap'
+"Plugin 'severin-lemaignan/vim-minimap'
 "Plugin 'thinca/vim-quickrun'
 Plugin 'Townk/vim-autoclose'
 Plugin 'tpope/vim-fugitive'
@@ -178,11 +208,11 @@ let R_tmux_split = 1
 let R_assign = 0 "do not use <-
 " }}}
 " vim-minimap{{{
-let g:minimap_show='<leader>ms'
-let g:minimap_update='<leader>mu'
-let g:minimap_close='<leader>gc'
-let g:minimap_toggle='<leader>gt'
-let g:minimap_highlight='Visual'
+"let g:minimap_show='<leader>ms'
+"let g:minimap_update='<leader>mu'
+"let g:minimap_close='<leader>gc'
+"let g:minimap_toggle='<leader>gt'
+"let g:minimap_highlight='Visual'
 " }}}
 " vim-fugitive{{{ show git brunch
 if isdirectory(expand('~/.vim/bundle/vim-fugitive'))
