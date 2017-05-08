@@ -1393,7 +1393,7 @@
 	<key>NSFontPanelSizeSliderParams</key>
 	<string>2 0 100</string>
 	<key>NSNavLastRootDirectory</key>
-	<string>~</string>
+	<string>~/dotfiles</string>
 	<key>NSNavPanelExpandedSizeForOpenMode</key>
 	<string>{712, 448}</string>
 	<key>NSNavPanelExpandedSizeForSaveMode</key>
@@ -1441,9 +1441,9 @@
 	<key>NSWindow Frame NSFontPanel</key>
 	<string>730 -786 866 77 308 -1050 1680 1050 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>317 313 918 381 0 0 1920 1080 </string>
+	<string>258 -726 918 495 111 -1050 1680 1050 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>531 -567 650 452 111 -1050 1680 1027 </string>
+	<string>772 -475 650 452 308 -1050 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>247 107 650 452 0 0 1920 1057 </string>
 	<key>New Bookmarks</key>
@@ -2274,11 +2274,13 @@
 		</dict>
 	</dict>
 	<key>PrefsCustomFolder</key>
-	<string>/Users/mattocci</string>
+	<string>/Users/mattocci/dotfiles</string>
 	<key>QuickPasteBytesPerCall</key>
 	<integer>252</integer>
 	<key>QuickPasteDelayBetweenCalls</key>
 	<real>0.011510845273733139</real>
+	<key>QuitWhenAllWindowsClosed</key>
+	<true/>
 	<key>SUEnableAutomaticChecks</key>
 	<false/>
 	<key>SUFeedAlternateAppNameKey</key>
@@ -2302,7 +2304,7 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>3.0.13</string>
+	<string>3.0.14</string>
 	<key>kCPFavoritesUserDefaultsKey</key>
 	<array>
 		<data>

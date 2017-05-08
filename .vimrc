@@ -5,7 +5,7 @@ set background=dark
 
 set t_ut= "clearing uses the current background color
 
-if (v:version >= 800)
+if (v:version >= 800) && has("termguicolors")
   set termguicolors
   colorscheme my_material2
   "colorscheme solarized8_light
@@ -23,7 +23,6 @@ let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
 let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
 
 "set cursorline
-
 set updatetime=200
 augroup vimrc-auto-cursorline
   autocmd CursorMoved,CursorMovedI * call s:auto_cursorline('CursorMoved')
@@ -66,9 +65,9 @@ highlight CursorLine guibg='#292930'
 set nobackup
 set noswapfile
 set noundofile
-set guifont=MyricaM\ Monospace:h15
+"set guifont=MyricaM\ Monospace:h15
 "set guifont=Arial:h15
-"set guifont=Richty\ Regular\ for\ Powerline\ Nerd\ Font\ Plus\ Font\ Awesome\ Plus\ Octicons\ Plus\ Pomicons\ Plus\ Font\ Linux:h15
+set guifont=Richty\ Regular\ for\ Powerline\ Nerd\ Font\ Plus\ Font\ Awesome\ Plus\ Octicons\ Plus\ Pomicons\ Plus\ Font\ Linux\ Windows\ Compatible:h15
 set encoding=utf-8
 set number " put line numbers
 set clipboard=unnamed,autoselect " use clipboard
@@ -147,7 +146,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
-"Plugin 'ryanoasis/vim-devicons'
+Plugin 'ryanoasis/vim-devicons'
 Plugin 'tiagofumo/vim-nerdtree-syntax-highlight' "
 Plugin 'jalvesaq/Nvim-R'
 "Plugin 'severin-lemaignan/vim-minimap'
@@ -201,6 +200,7 @@ nmap <leader>qr <Plug>RClose
 "imap <leader>qr <Plug>RClose
 vmap <leader>qr <Plug>RClose
 
+"Not to use the R.app
 let R_in_buffer = 0
 let R_applescript = 0
 let R_tmux_split = 1
@@ -223,7 +223,7 @@ endif
 " let g:airline_powerline_fonts=1
 " }}}
 " indentLine{{{
-let g:indetLine_char = '*'
+let g:indetLine_char = '|'
 " }}}
 " unit.vim{{{
 let g:unite_enable_start_insert=1
@@ -316,3 +316,5 @@ let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_conceal = 0
 "}}}
 "}
+
+
