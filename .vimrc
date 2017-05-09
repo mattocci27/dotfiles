@@ -156,8 +156,6 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'itchyny/lightline.vim'
 Plugin 'alpaca-tc/alpaca_powertabline'
-"Plugin 'Lokaltog/powerline', { 'rtp' : 'powerline/bindings/vim'}
-"Plugin 'Lokaltog/powerline-fontpatcher'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
@@ -171,7 +169,6 @@ Plugin 'Shougo/neocomplete.vim'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'christoomey/vim-tmux-navigator'
-
 "Plugin 'mattn/benchvimrc-vim'
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -316,5 +313,9 @@ let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_conceal = 0
 "}}}
 "}
-
+"vim_devicons{{{
+autocmd FileType nerdtree setlocal nolist
+let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '
+"}}}
+"}
 
