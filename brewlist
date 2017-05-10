@@ -17,6 +17,7 @@ gcc
 gdbm
 gettext
 ghc
+git
 git-lfs
 glib
 gmp

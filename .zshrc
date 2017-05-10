@@ -18,6 +18,9 @@ export PATH=/Library/TeX/Root/bin/x86_64-darwin:$PATH
 
 export PATH=$HOME/.cabal/bin:$PATH
 
+#git
+export PATH="/usr/local/Cellar/git:$PATH"
+
 # colors ---------------------------------------------------------------------
 autoload -Uz colors
 colors

@@ -1439,11 +1439,13 @@
 	<key>NSWindow Frame NSColorPanel</key>
 	<string>497 332 228 349 0 0 1920 1057 </string>
 	<key>NSWindow Frame NSFontPanel</key>
-	<string>730 -786 866 77 308 -1050 1680 1050 </string>
+	<string>533 -926 866 77 111 -1050 1680 1050 </string>
+	<key>NSWindow Frame SessionsPreferences</key>
+	<string>380 -911 606 456 111 -1050 1680 1050 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>258 -726 918 495 111 -1050 1680 1050 </string>
+	<string>421 198 918 495 0 0 1680 1050 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>772 -475 650 452 308 -1050 1680 1027 </string>
+	<string>6 17 1674 1000 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>247 107 650 452 0 0 1920 1057 </string>
 	<key>New Bookmarks</key>
@@ -2106,7 +2108,7 @@
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>RictyForPowerline-Regular 15</string>
+			<string>RictyNerdFontAOPL-RegularForPowerline 15</string>
 			<key>Option Key Sends</key>
 			<integer>0</integer>
 			<key>Prompt Before Closing 2</key>
