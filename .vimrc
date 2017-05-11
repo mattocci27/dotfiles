@@ -170,7 +170,7 @@ Plugin 'godlygeek/tabular'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'vim-pandoc/vim-pandoc'
 Plugin 'vim-pandoc/vim-pandoc-syntax'
-Plugin 'vim-pandoc/vim-rmarkdown'
+"Plugin 'vim-pandoc/vim-rmarkdown'
 "Plugin 'plasticboy/vim-markdown'
 Plugin 'mattocci27/vim-markdown'
 Plugin 'vim-scripts/SyntaxRange'
@@ -206,7 +206,8 @@ vmap <leader>qr <Plug>RClose
 let R_in_buffer = 0
 let R_applescript = 0
 let R_tmux_split = 1
-"let R_vsplit = 1
+let R_nvimpager = "tab"
+let R_rconsole_width = 0 
 let R_assign = 0 "do not use <-
 " }}}
 " vim-minimap{{{
