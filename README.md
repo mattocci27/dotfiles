@@ -6,7 +6,7 @@ Following commonds will clone the repository and automatically make symbolik lin
 ```shell
 % git clone git://github.com/mattocci27/dotfiles.git ~/dotfiles
 % cd dotfiles
-% ./ditfilesLink.sh
+% ./dotfilesLink.sh
 % ln -s brew.sh ~/brew.sh
 % ln -s brewlist ~/brewlist
 % ./brew_install.sh
