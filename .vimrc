@@ -7,20 +7,21 @@ set t_ut= "clearing uses the current background color
 
 if (v:version >= 800) && has("termguicolors")
   set termguicolors
+  set t_8b=[48;2;%lu;%lu;%lum
+  set t_8f=[38;2;%lu;%lu;%lum
+
+  " change cursor
+  let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+  let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
   colorscheme my_material2
   "colorscheme solarized8_light
+  highlight CursorLine guibg='#292930'
 else
   set t_Co=256
   colorscheme material-theme
 endif
 
 
-set t_8b=[48;2;%lu;%lu;%lum
-set t_8f=[38;2;%lu;%lu;%lum
-
-" change cursor
-let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
-let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
 
 "set cursorline
 set updatetime=200
@@ -53,7 +54,6 @@ augroup vimrc-auto-cursorline
   endfunction
 augroup END
 
-highlight CursorLine guibg='#292930'
 
 "let g:lightline = {
 "  \ 'colorscheme': 'material-theme',
@@ -172,8 +172,9 @@ Plugin 'vim-pandoc/vim-pandoc'
 Plugin 'vim-pandoc/vim-pandoc-syntax'
 "Plugin 'vim-pandoc/vim-rmarkdown'
 "Plugin 'plasticboy/vim-markdown'
-Plugin 'mattocci27/vim-markdown'
+"Plugin 'mattocci27/vim-markdown'
 Plugin 'vim-scripts/SyntaxRange'
+Plugin 'shime/vim-livedown'
 "Plugin 'mattn/benchvimrc-vim'
 call vundle#end()            " required
 filetype plugin indent on    " required
