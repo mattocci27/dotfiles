@@ -176,6 +176,7 @@ Plugin 'vim-pandoc/vim-pandoc-syntax'
 Plugin 'vim-scripts/SyntaxRange'
 Plugin 'shime/vim-livedown'
 "Plugin 'mattn/benchvimrc-vim'
+Plugin 'tpope/vim-surround'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
