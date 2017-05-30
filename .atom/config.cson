@@ -2,6 +2,10 @@
   Hydrogen: {}
   "atom-pronama-chan":
     images: {}
+  "autocomplete-bibtex":
+    references: [
+      "~/Dropbox/MS/LES_MS/LMAps_MS/ECY/ref_LES.bib"
+    ]
   "autocomplete-python":
     useKite: false
   core:
@@ -15,6 +19,11 @@
       "atom-pronama-chan"
       "script"
       "Hydrogen"
+      "language-gfm"
+      "markdown-preview-enhanced"
+      "markdown-preview"
+      "minimap"
+      "minimap-autohide"
     ]
     ignoredNames: [
       ".git"
@@ -31,11 +40,11 @@
     telemetryConsent: "no"
     themes: [
       "atom-material-ui"
-      "atom-material-syntax"
+      "solarized-light-syntax"
     ]
   editor:
-    fontFamily: "MyricaMM"
-    fontSize: 15
+    fontFamily: "cousine"
+    fontSize: 16
     invisibles: {}
     lineHeight: 1.2
     showIndentGuide: true
@@ -48,8 +57,14 @@
   "git-plus":
     general:
       _analyticsUserId: "afc7f700-1cd7-492d-b6b0-8100961f6b65"
-  linter:
-    errorPanelHeight: 127
+  linter: {}
+  "linter-ui-default":
+    panelHeight: 81
+  "markdown-preview-plus":
+    enablePandoc: true
+    pandocBIBFile: "ref_LES.bib"
+    pandocCSLFile: "ecology.csl"
+    useGitHubStyle: true
   minimap:
     plugins:
       "minimap-autohide": true
@@ -62,14 +77,15 @@
   "r-exec":
     whichApp: "Terminal"
   "terminal-plus":
-    core:
-      autoRunCommand: "tmux attach -t 0"
+    core: {}
+    style:
+      theme: "solarized_light"
+    toggles: {}
   "tool-bar":
     position: "Left"
   "tree-view":
     hideIgnoredNames: true
     hideVcsIgnoredFiles: true
-  "vim-mode-plus":
-    showCursorInVisualMode: false
+  "vim-mode-plus": {}
   welcome:
     showOnStartup: false

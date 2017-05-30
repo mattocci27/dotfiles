@@ -8,3 +8,6 @@ brew list > brewlist
 
 # delete old apps
 brew cleanup
+
+# update packages.list
+apm list --installed --bare > ~/dotfiles/.atom/packages.txt

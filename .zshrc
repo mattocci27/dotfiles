@@ -160,6 +160,10 @@ alias mv='mv -i'
 
 alias mkdir='mkdir -p'
 
+alias vms='vim -c "source ~/dotfiles/.vimrc_w"'
+
+alias mvim='mvim -c "source ~/dotfiles/.vimrc_w"'
+
 # sudo の後のコマンドでエイリアスを有効にする
 alias sudo='sudo '
 

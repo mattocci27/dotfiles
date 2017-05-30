@@ -1,9 +1,9 @@
 " colors ---------------------------------------------------------------
 syntax enable
 "test
-set background=dark
-
 set t_ut= "clearing uses the current background color
+
+set background=light
 
 if (v:version >= 800) && has("termguicolors")
   set termguicolors
@@ -13,54 +13,16 @@ if (v:version >= 800) && has("termguicolors")
   " change cursor
   let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
   let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
-  colorscheme my_material2
-  "colorscheme solarized8_light
-  highlight CursorLine guibg='#292930'
+  colorscheme solarized8_light
+  "highlight CursorLine guibg='#292930'
 else
   set t_Co=256
   colorscheme material-theme
 endif
 
-if has("gui_macvim")
-  source ~/dotfiles/.vimrc_w
-  
-endif
 
 "set cursorline
 set updatetime=200
-augroup vimrc-auto-cursorline
-  autocmd CursorMoved,CursorMovedI * call s:auto_cursorline('CursorMoved')
-  autocmd CursorHold,CursorHoldI * call s:auto_cursorline('CursorHold')
-  autocmd WinEnter,BufEnter,CmdwinLeave * call s:auto_cursorline('WinEnter,BufEnter,CmdwinLeave')
-  autocmd WinLeave * call s:auto_cursorline('WinLeave')
-
-  let s:cursorline_lock = 0
-  function! s:auto_cursorline(event)
-    if a:event ==# 'WinEnter,BufEnter,CmdwinLeave'
-      setlocal cursorline
-      let s:cursorline_lock = 2
-    elseif a:event ==# 'WinLeave'
-      setlocal nocursorline
-    elseif a:event ==# 'CursorMoved'
-      if s:cursorline_lock
-        if 1 < s:cursorline_lock
-          let s:cursorline_lock = 1
-        else
-          setlocal nocursorline
-          let s:cursorline_lock = 0
-        endif
-      endif
-    elseif a:event ==# 'CursorHold'
-      setlocal cursorline
-      let s:cursorline_lock = 1
-    endif
-  endfunction
-augroup END
-
-
-"let g:lightline = {
-"  \ 'colorscheme': 'material-theme',
-"  \ }
 
 " base setting
 " -------------------------------------------------------------------
@@ -68,25 +30,25 @@ augroup END
 set nobackup
 set noswapfile
 set noundofile
-"set guifont=MyricaM\ Monospace:h15
-"set guifont=Arial:h15
-set guifont=Richty\ Regular\ for\ Powerline\ Nerd\ Font\ Plus\ Font\ Awesome\ Plus\ Octicons\ Plus\ Pomicons\ Plus\ Font\ Linux\ Windows\ Compatible:h15
+"set guifont=Richty\ Regular\ for\ Powerline\ Nerd\ Font\ Plus\ Font\ Awesome\ Plus\ Octicons\ Plus\ Pomicons\ Plus\ Font\ Linux\ Windows\ Compatible:h15
+set guifont=Cousine:h15
 set encoding=utf-8
-set number " put line numbers
+set nonumber " put line numbers
 set clipboard=unnamed,autoselect " use clipboard
 set ruler "use ruler
 set cmdheight=2 "height for cmd
 set laststatus=2 "position for status line
-set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c%V%8P " contens for status line
+"set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c%V%8P " contens for status line
 set title " show file path in title
 set expandtab " tab -> space
 set tabstop=2 "
 set shiftwidth=2
 set smartindent "
-set linespace=3
-set textwidth=0
-set synmaxcol=200
+set linespace=1
 set wrap
+set textwidth=0
+set columns=80
+set synmaxcol=200
 
 set list
 set listchars=tab:\|\ ,trail:·,eol:↲,extends:»,precedes:«,nbsp:%
@@ -134,10 +96,10 @@ nnoremap <silent> vv <C-w>v
 " filetypes -----------------------------------------------------------
 
 " Coffee {{{
-augroup filetype_r
-  autocmd!
-  au BufNewFile,BufReadPost *.r,*R, setl foldmethod=indent nofoldenable
-augroup END
+"augroup filetype_r
+"  autocmd!
+"  au BufNewFile,BufReadPost *.r,*R, setl foldmethod=indent nofoldenable
+"augroup END
 " }}}
 
 "Plugin
@@ -148,7 +110,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
-Plugin 'ryanoasis/vim-devicons'
+"Plugin 'ryanoasis/vim-devicons'
 Plugin 'tiagofumo/vim-nerdtree-syntax-highlight' "
 Plugin 'jalvesaq/Nvim-R'
 "Plugin 'severin-lemaignan/vim-minimap'
@@ -156,10 +118,10 @@ Plugin 'jalvesaq/Nvim-R'
 Plugin 'Townk/vim-autoclose'
 Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'itchyny/lightline.vim'
-Plugin 'alpaca-tc/alpaca_powertabline'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
+"Plugin 'itchyny/lightline.vim'
+"Plugin 'alpaca-tc/alpaca_powertabline'
+"Plugin 'vim-airline/vim-airline'
+"Plugin 'vim-airline/vim-airline-themes'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'Yggdroot/indentLine'
 Plugin 'rking/ag.vim'
@@ -258,9 +220,9 @@ highlight SignColumn guibg='#263238'   " terminal Vim "
 " }}}
 " vim-airline{{{
 "let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#buffer_idx_mode = 2
-let g:airline_theme='bubblegum'
-let g:airline_powerline_fonts = 1
+"let g:airline#extensions#tabline#buffer_idx_mode = 2
+"let g:airline_theme='bubblegum'
+"let g:airline_powerline_fonts = 1
 "}}}
 
 
@@ -324,8 +286,8 @@ let g:vim_markdown_conceal = 0
 "}}}
 "}
 "vim_devicons{{{
-autocmd FileType nerdtree setlocal nolist
-let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '
+"autocmd FileType nerdtree setlocal nolist
+"let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '
 "}}}
 "}
 

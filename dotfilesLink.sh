@@ -22,3 +22,17 @@ link_files() {
 }
 
 link_files
+
+link_files_atom() {
+  for FILE in config.cson init.coffee keymap.cson snippets.cson styles.less packages.txt
+  do 
+    rm -f ${HOME}/.atom/${FILE}
+    if [ ! -e ${HOME}/.atom/${FILE} ]; then
+      ln -snfv ${DOT_DIRECTORY}/.atom/${FILE} ${HOME}/.atom/${FILE}
+    fi
+  done
+  echo $(tput setaf 2)Deploy atom configs complete!. ✔︎$(tput sgr0)
+}
+
+link_files_atom
+
