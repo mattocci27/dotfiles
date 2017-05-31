@@ -23,7 +23,6 @@ endif
 
 if has("gui_macvim")
   source ~/dotfiles/.vimrc_w
-  
 endif
 
 "set cursorline
