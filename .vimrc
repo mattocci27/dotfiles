@@ -1,8 +1,8 @@
 let OSTYPE = system('uname')
 
 if OSTYPE == "Darwin\n"
-  source ~/.vimrc_mac
+  source ~/dotfiles/.vimrc_mac
 elseif OSTYPE == "Linux\n"
-  source ~/.vimrc_linux
+  source ~/dotfiles/.vimrc_linux
 endif
 
