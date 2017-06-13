@@ -64,7 +64,6 @@
     enablePandoc: true
     pandocBIBFile: "ref_LES.bib"
     pandocCSLFile: "ecology.csl"
-    useGitHubStyle: true
   minimap:
     plugins:
       "minimap-autohide": true
@@ -76,6 +75,15 @@
       autoRunCommand: "export PATH=/Users/mattocci/.atom/packages/platformio-ide/penv/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
   "r-exec":
     whichApp: "Terminal"
+  "spell-check":
+    grammars: [
+      "source.asciidoc"
+      "source.gfm"
+      "text.git-commit"
+      "text.plain"
+      "text.plain.null-grammar"
+      "text.md"
+    ]
   "terminal-plus":
     core: {}
     style:

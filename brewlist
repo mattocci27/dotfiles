@@ -1,6 +1,7 @@
 arpack-julia
 autoconf
 automake
+boost
 cabal-install
 cairo
 cmake
