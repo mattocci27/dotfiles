@@ -21,12 +21,12 @@ else
   colorscheme material-theme
 endif
 
-if has("gui_macvim")
-  source ~/dotfiles/.vimrc_w
-endif
+"if has("gui_macvim")
+"  source ~/dotfiles/.vimrc_mac
+"endif
 
 "set cursorline
-set updatetime=200
+set updatetime=4000
 augroup vimrc-auto-cursorline
   autocmd CursorMoved,CursorMovedI * call s:auto_cursorline('CursorMoved')
   autocmd CursorHold,CursorHoldI * call s:auto_cursorline('CursorHold')
@@ -69,7 +69,8 @@ set noswapfile
 set noundofile
 "set guifont=MyricaM\ Monospace:h15
 "set guifont=Arial:h15
-set guifont=Richty\ Regular\ for\ Powerline\ Nerd\ Font\ Plus\ Font\ Awesome\ Plus\ Octicons\ Plus\ Pomicons\ Plus\ Font\ Linux\ Windows\ Compatible:h15
+"set guifont=Richty\ Regular\ for\ Powerline\ Nerd\ Font\ Plus\ Font\ Awesome\ Plus\ Octicons\ Plus\ Pomicons\ Plus\ Font\ Linux\ Windows\ Compatible:h15
+set guifont=Ricty\ Regular\ for\ Powerline\ Nerd\ Font\ Plus\ Font\ Awesome\ Plus\ Octicons\ Plus\ Pomicons\ Plus\ Font\ Linux\ Windows\ Compatible:h16
 set encoding=utf-8
 set number " put line numbers
 set clipboard=unnamed,autoselect " use clipboard
@@ -133,11 +134,13 @@ nnoremap <silent> vv <C-w>v
 " filetypes -----------------------------------------------------------
 
 " Coffee {{{
-augroup filetype_r
-  autocmd!
-  au BufNewFile,BufReadPost *.r,*R, setl foldmethod=indent nofoldenable
-augroup END
+"augroup filetype_r
+"  autocmd!
+"  au BufNewFile,BufReadPost *.r,*R, setl foldmethod=indent nofoldenable
+"augroup END
 " }}}
+
+au FileType vim setl foldmethod=marker
 
 "Plugin
 set nocompatible              " be iMproved, required
@@ -162,15 +165,15 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'Yggdroot/indentLine'
 Plugin 'rking/ag.vim'
-Plugin 'terryma/vim-multiple-cursors'
+"Plugin 'terryma/vim-multiple-cursors'
 Plugin 'cohama/agit.vim'
-Plugin 'Shougo/unite.vim'
-Plugin 'Shougo/neomru.vim'
+"Plugin 'Shougo/unite.vim'
+"Plugin 'Shougo/neomru.vim'
 Plugin 'Shougo/neocomplete.vim'
 Plugin 'godlygeek/tabular'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'vim-pandoc/vim-pandoc'
-Plugin 'vim-pandoc/vim-pandoc-syntax'
+"Plugin 'vim-pandoc/vim-pandoc-syntax'
 "Plugin 'vim-pandoc/vim-rmarkdown'
 "Plugin 'plasticboy/vim-markdown'
 "Plugin 'mattocci27/vim-markdown'
@@ -211,15 +214,8 @@ let R_in_buffer = 0
 let R_applescript = 0
 let R_tmux_split = 1
 let R_nvimpager = "tab"
-let R_rconsole_width = 0 
+let R_rconsole_width = 0
 let R_assign = 0 "do not use <-
-" }}}
-" vim-minimap{{{
-"let g:minimap_show='<leader>ms'
-"let g:minimap_update='<leader>mu'
-"let g:minimap_close='<leader>gc'
-"let g:minimap_toggle='<leader>gt'
-"let g:minimap_highlight='Visual'
 " }}}
 " vim-fugitive{{{ show git brunch
 if isdirectory(expand('~/.vim/bundle/vim-fugitive'))
@@ -232,26 +228,6 @@ endif
 " indentLine{{{
 let g:indetLine_char = '|'
 " }}}
-" unit.vim{{{
-let g:unite_enable_start_insert=1
-" バッファ一覧
-noremap <C-P> :Unite buffer<CR>
-" ファイル一覧
-noremap <C-N> :Unite -buffer-name=file file<CR>
-" 最近使ったファイルの一覧
-noremap <C-Z> :Unite file_mru<CR>
-" sourcesを「今開いているファイルのディレクトリ」とする
-noremap :uff :<C-u>UniteWithBufferDir file -buffer-name=file<CR>
-" ウィンドウを分割して開く
-au FileType unite nnoremap <silent> <buffer> <expr> <C-J> unite#do_action('split')
-au FileType unite inoremap <silent> <buffer> <expr> <C-J> unite#do_action('split')
-" ウィンドウを縦に分割して開く
-au FileType unite nnoremap <silent> <buffer> <expr> <C-K> unite#do_action('vsplit')
-au FileType unite inoremap <silent> <buffer> <expr> <C-K> unite#do_action('vsplit')
-" ESCキーを2回押すと終了する
-au FileType unite nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
-au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
-"}}}
 " gitgutter{{{
 let g:gitgutter_override_sign_column_highlight = 0
 highlight SignColumn guibg='#263238'   " terminal Vim "
@@ -268,13 +244,11 @@ let g:vim_markdown_conceal = 0
 "}}}
 "vim_devicons{{{
 autocmd FileType nerdtree setlocal nolist
-let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '
+let g:WebDevIconsNerdTreeAfterGlyphPadding = '  '
 "}}}
 "goyo{{{
 let g:goyo_width = 80
 "}}}
-
-
 " neocomplete{{{
 highlight Pmenu ctermbg=4
 highlight PmenuSel ctermbg=1

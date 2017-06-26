@@ -41,7 +41,7 @@
 " Theme setup
 hi clear
 syntax reset
-let g:colors_name = "material-theme2"
+let g:colors_name = "my_material2"
 
 " This function is based on one from FlatColor: https://github.com/MaxSt/FlatColor/
 " Which in turn was based on one found in hemisu: https://github.com/noahfrederick/vim-hemisu/

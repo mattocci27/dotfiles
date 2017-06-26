@@ -1,3 +1,4 @@
+alacritty
 arpack-julia
 autoconf
 automake
@@ -23,7 +24,10 @@ git-lfs
 glib
 gmp
 gobject-introspection
+graphite2
+grc
 harfbuzz
+hyper
 icu4c
 ilmbase
 isl
@@ -46,12 +50,15 @@ libxslt
 libyaml
 llvm-4.0
 llvm37-julia
+lua
+luajit
 macvim
 mas
 mbedtls
 mpfr
 msgpack
 neovim
+node
 nodebrew
 numpy
 openblas-julia

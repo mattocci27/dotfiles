@@ -10,3 +10,5 @@ export PATH=/usr/local/opt/qt5/bin:$PATH
 eval $(gdircolors ~/.dircolors-solarized)
 
 QT_API=pyqt5
+
+export PATH="$HOME/.cargo/bin:$PATH"
