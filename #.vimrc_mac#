@@ -89,7 +89,7 @@ set synmaxcol=200
 set wrap
 
 set list
-set listchars=tab:\|\ ,trail:Â·,eol:â†²,extends:Â»,precedes:Â«,nbsp:%
+set listchars=tab:\|\ ,trail:·,eol:œô÷²,extends:»,precedes:«,nbsp:%
 
 set foldmethod=indent
 set foldlevel=2
@@ -169,7 +169,7 @@ Plugin 'rking/ag.vim'
 Plugin 'cohama/agit.vim'
 "Plugin 'Shougo/unite.vim'
 "Plugin 'Shougo/neomru.vim'
-"Plugin 'Shougo/neocomplete.vim'
+Plugin 'Shougo/neocomplete.vim'
 Plugin 'godlygeek/tabular'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'vim-pandoc/vim-pandoc'
@@ -182,7 +182,6 @@ Plugin 'shime/vim-livedown'
 "Plugin 'mattn/benchvimrc-vim'
 Plugin 'tpope/vim-surround'
 Plugin 'junegunn/goyo.vim'
-"Plugin 'Valloric/YouCompleteMe'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
@@ -250,57 +249,57 @@ let g:WebDevIconsNerdTreeAfterGlyphPadding = '  '
 "goyo{{{
 let g:goyo_width = 80
 "}}}
-"" neocomplete{{{
-"highlight Pmenu ctermbg=4
-"highlight PmenuSel ctermbg=1
-"highlight PMenuSbar ctermbg=4
-"
-"" è£œå®Œã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®è¨­å®š
-"set completeopt=menuone
-"
-"" rsenseã§ã®è‡ªå‹•è£œå®Œæ©Ÿèƒ½ã‚’æœ‰åŠ¹åŒ–
-"let g:rsenseUseOmniFunc = 1
-"" let g:rsenseHome = '/usr/local/lib/rsense-0.3'
-"
-"" auto-ctagsã‚’ä½¿ã£ã¦ãƒ•ã‚¡ã‚¤ãƒ«ä¿å­˜æ™‚ã«tagsãƒ•ã‚¡ã‚¤ãƒ«ã‚’æ›´æ–°
-"let g:auto_ctags = 1
-"
-"" èµ·å‹•æ™‚ã«æœ‰åŠ¹åŒ–
-"let g:neocomplcache_enable_at_startup = 1
-"
-"" å¤§æ–‡å­—ãŒå…¥åŠ›ã•ã‚Œã‚‹ã¾ã§å¤§æ–‡å­—å°æ–‡å­—ã®åŒºåˆ¥ã‚’ç„¡è¦–ã™ã‚‹
-"let g:neocomplcache_enable_smart_case = 1
-"
-"" _(ã‚¢ãƒ³ãƒ€ãƒ¼ã‚¹ã‚³ã‚¢)åŒºåˆ‡ã‚Šã®è£œå®Œã‚’æœ‰åŠ¹åŒ–
-"let g:neocomplcache_enable_underbar_completion = 1
-"
-"let g:neocomplcache_enable_camel_case_completion  =  1
-"
-"" æœ€åˆã®è£œå®Œå€™è£œã‚’é¸æŠçŠ¶æ…‹ã«ã™ã‚‹
-"let g:neocomplcache_enable_auto_select = 1
-"
-"" ãƒãƒƒãƒ—ã‚¢ãƒƒãƒ—ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã§è¡¨ç¤ºã•ã‚Œã‚‹å€™è£œã®æ•°
-"let g:neocomplcache_max_list = 20
-"
-"" ã‚·ãƒ³ã‚¿ãƒƒã‚¯ã‚¹ã‚’ã‚­ãƒ£ãƒƒã‚·ãƒ¥ã™ã‚‹ã¨ãã®æœ€å°æ–‡å­—é•·
-"let g:neocomplcache_min_syntax_length = 3
-"
-"" è£œå®Œã®è¨­å®š
-""autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
-""autocmd FileType r setlocal omnifunc=rcomplete#Complete
-"if !exists('g:neocomplete#force_omni_input_patterns')
-"  let g:neocomplete#force_omni_input_patterns = {}
-"endif
-"if !exists('g:neocomplete#sources#omni#functions')
-"  let g:neocomplete#sources#omni#functions = {}
-"endif
-""let g:neocomplete#force_omni_input_patterns.ruby = '[^.*\t]\.\w*\|\h\w*::'
-""let g:neocomplete#sources#omni#input_patterns.r = '[[:alnum:].\\]\+'
-""let g:neocomplete#sources#omni#functions.r = 'rcomplete#CompleteR'
-"let g:neocomplete#force_omni_input_patterns.r = '[[:alnum:].\\]\+'
+" neocomplete{{{
+highlight Pmenu ctermbg=4
+highlight PmenuSel ctermbg=1
+highlight PMenuSbar ctermbg=4
+
+" ’Êä’´°’¥¦’¥£’¥ó’¥É’¥¦’¤Î’Àß’Äê
+set completeopt=menuone
+
+" rsense’¤Ç’¤Î’¼«’Æ°’Êä’´°’µ¡’Ç½’¤ò’Í­’¸ú’²½
+let g:rsenseUseOmniFunc = 1
+" let g:rsenseHome = '/usr/local/lib/rsense-0.3'
+
+" auto-ctags’¤ò’»È’¤Ã’¤Æ’¥Õ’¥¡’¥¤’¥ë’Êİ’Â¸’»ş’¤Ëtags’¥Õ’¥¡’¥¤’¥ë’¤ò’¹¹’¿·
+let g:auto_ctags = 1
+
+" ’µ¯’Æ°’»ş’¤Ë’Í­’¸ú’²½
+let g:neocomplcache_enable_at_startup = 1
+
+" ’Âç’Ê¸’»ú’¤¬’Æş’ÎÏ’¤µ’¤ì’¤ë’¤Ş’¤Ç’Âç’Ê¸’»ú’¾®’Ê¸’»ú’¤Î’¶è’ÊÌ’¤ò’Ìµ’»ë’¤¹’¤ë
+let g:neocomplcache_enable_smart_case = 1
+
+" _(’¥¢’¥ó’¥À’¡¼’¥¹’¥³’¥¢)’¶è’ÀÚ’¤ê’¤Î’Êä’´°’¤ò’Í­’¸ú’²½
+let g:neocomplcache_enable_underbar_completion = 1
+
+let g:neocomplcache_enable_camel_case_completion  =  1
+
+" ’ºÇ’½é’¤Î’Êä’´°’¸õ’Êä’¤ò’Áª’Âò’¾õ’ÂÖ’¤Ë’¤¹’¤ë
+let g:neocomplcache_enable_auto_select = 1
+
+" ’¥İ’¥Ã’¥×’¥¢’¥Ã’¥×’¥á’¥Ë’¥å’¡¼’¤Ç’É½’¼¨’¤µ’¤ì’¤ë’¸õ’Êä’¤Î’¿ô
+let g:neocomplcache_max_list = 20
+
+" ’¥·’¥ó’¥¿’¥Ã’¥¯’¥¹’¤ò’¥­’¥ã’¥Ã’¥·’¥å’¤¹’¤ë’¤È’¤­’¤Î’ºÇ’¾®’Ê¸’»ú’Ä¹
+let g:neocomplcache_min_syntax_length = 3
+
+" ’Êä’´°’¤Î’Àß’Äê
+"autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
+"autocmd FileType r setlocal omnifunc=rcomplete#Complete
+if !exists('g:neocomplete#force_omni_input_patterns')
+  let g:neocomplete#force_omni_input_patterns = {}
+endif
+if !exists('g:neocomplete#sources#omni#functions')
+  l
+endif
+"let g:neocomplete#force_omni_input_patterns.ruby = '[^.*\t]\.\w*\|\h\w*::'
+"let g:neocomplete#sources#omni#input_patterns.r = '[[:alnum:].\\]\+'
 "let g:neocomplete#sources#omni#functions.r = 'rcomplete#CompleteR'
-""if !exists('g:neocomplete#keyword_patterns')
-""        let g:neocomplete#keyword_patterns = {}
-""endif
-""let g:neocomplete#keyword_patterns['default'] = '\h\w*'
-""}}}
+let g:neocomplete#force_omni_input_patterns.r = '[[:alnum:].\\]\+'
+let g:neocomplete#sources#omni#functions.r = 'rcomplete#CompleteR'
+"if !exists('g:neocomplete#keyword_patterns')
+"        let g:neocomplete#keyword_patterns = {}
+"endif
+"let g:neocomplete#keyword_patterns['default'] = '\h\w*'
+"}}}

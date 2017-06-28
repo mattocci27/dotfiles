@@ -26,6 +26,9 @@ export PATH=/usr/local/bin:/usr/bin:$PATH
 
 export PATH=$HOME/.cabal/bin:$PATH
 
+
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+ w
 #locale
 # without this, tmux does not recognize some fonts
 export LANG=en_US.UTF-8

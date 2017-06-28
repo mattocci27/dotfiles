@@ -1379,6 +1379,8 @@
 		<string>12</string>
 		<string>13</string>
 		<string>14</string>
+		<string>15</string>
+		<string>16</string>
 		<string>18</string>
 		<string>24</string>
 		<string>36</string>
@@ -1388,7 +1390,7 @@
 		<string>96</string>
 		<string>144</string>
 		<string>288</string>
-		<string>15</string>
+		<string>16</string>
 	</array>
 	<key>NSFontPanelSizeSliderParams</key>
 	<string>2 0 100</string>
@@ -1439,17 +1441,17 @@
 	<key>NSWindow Frame NSColorPanel</key>
 	<string>497 332 228 349 0 0 1920 1057 </string>
 	<key>NSWindow Frame NSFontPanel</key>
-	<string>490 286 866 77 0 0 1920 1080 </string>
+	<string>650 -383 866 77 129 -1050 1680 1050 </string>
 	<key>NSWindow Frame SessionsPreferences</key>
 	<string>269 134 606 456 0 0 1680 1027 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>339 474 918 495 0 0 1920 1057 </string>
+	<string>489 -867 918 495 129 -1050 1680 1050 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>698 7 930 1013 0 0 1680 1027 </string>
+	<string>575 318 650 452 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>623 29 1026 813 0 0 1680 1027 </string>
+	<string>969 -475 650 452 129 -1050 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
-	<string>111 -1036 834 1013 111 -1050 1680 1027 </string>
+	<string>779 403 650 452 0 0 1680 1027 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -2110,7 +2112,7 @@
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>RictyNerdFontAOPL-RegularForPowerline 15</string>
+			<string>RictyNerdFontAOPL-RegularForPowerline 16</string>
 			<key>Option Key Sends</key>
 			<integer>0</integer>
 			<key>Prompt Before Closing 2</key>
@@ -2962,7 +2964,7 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>3.0.14</string>
+	<string>3.0.15</string>
 	<key>kCPFavoritesUserDefaultsKey</key>
 	<array>
 		<data>
