@@ -76,10 +76,14 @@ SAVEHIST=1000000
 autoload -Uz vcs_info
 setopt prompt_subst
 zstyle ':vcs_info:git:*' check-for-changes true
-zstyle ':vcs_info:git:*' stagedstr "%F{yellow}!"
-zstyle ':vcs_info:git:*' unstagedstr "%F{red}+"
-zstyle ':vcs_info:*' formats "%F{green}%c%u[%b]%f"
-zstyle ':vcs_info:*' actionformats '[%b|%a]'
+zstyle ':vcs_info:*' use-simple true
+#zstyle ':vcs_info:git:*' stagedstr "%F{yellow}!"
+#zstyle ':vcs_info:git:*' unstagedstr "%F{red}+"
+#zstyle ':vcs_info:*' formats "%F{green}%c%u%b%f" "%R"
+zstyle ':vcs_info:git:*' stagedstr "%F{242}!"
+zstyle ':vcs_info:git:*' unstagedstr "%F{242}+"
+zstyle ':vcs_info:*' formats "%F{242}%c%u%b%f" "%R"
+zstyle ':vcs_info:*' actionformats '%b|%a' '%R'
 precmd () { vcs_info }
 PROMPT='%{${fg[blue]}%}
 %~%{${reset_color}%  ${vcs_info_msg_0_}
