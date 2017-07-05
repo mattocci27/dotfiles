@@ -66,8 +66,26 @@ SAVEHIST=1000000
 # 1行表示
 # PROMPT="%~ %# "
 # 2行表示
-PROMPT="%{${fg[green]}%}[%n@%m]%{${reset_color}%} %~
-%# "
+#PROMPT="%{${fg[green]}%}[%n@%m]%{${reset_color}%} %~
+#%# "
+
+
+#PROMPT=$RPROMPT'${vcs_info_msg_0_}'
+#RPROMPT="%{${fg[blue]}%}[%~]%{${reset_color}%}
+#%#"
+autoload -Uz vcs_info
+setopt prompt_subst
+zstyle ':vcs_info:git:*' check-for-changes true
+zstyle ':vcs_info:git:*' stagedstr "%F{yellow}!"
+zstyle ':vcs_info:git:*' unstagedstr "%F{red}+"
+zstyle ':vcs_info:*' formats "%F{green}%c%u[%b]%f"
+zstyle ':vcs_info:*' actionformats '[%b|%a]'
+precmd () { vcs_info }
+PROMPT='%{${fg[blue]}%}
+%~%{${reset_color}%  ${vcs_info_msg_0_}
+%{${fg[magenta]}%}> %{${reset_color}%}'
+
+#PROMPT='${vcs_info_msg_0_}'
 
 
 # 単語の区切り文字を指定する
@@ -101,17 +119,17 @@ zstyle ':completion:*:processes' command 'ps x -o pid,s,args'
 
 ########################################
 # vcs_info
-autoload -Uz vcs_info
-autoload -Uz add-zsh-hook
-
-zstyle ':vcs_info:*' formats '%F{green}(%s)-[%b]%f'
-zstyle ':vcs_info:*' actionformats '%F{red}(%s)-[%b|%a]%f'
-
-function _update_vcs_info_msg() {
-    LANG=en_US.UTF-8 vcs_info
-    RPROMPT="${vcs_info_msg_0_}"
-}
-add-zsh-hook precmd _update_vcs_info_msg
+#autoload -Uz vcs_info
+#autoload -Uz add-zsh-hook
+#
+#zstyle ':vcs_info:*' formats '%F{green}(%s)-[%b]%f'
+#zstyle ':vcs_info:*' actionformats '%F{red}(%s)-[%b|%a]%f'
+#
+#function _update_vcs_info_msg() {
+#    LANG=en_US.UTF-8 vcs_info
+#    RPROMPT="${vcs_info_msg_0_}"
+#}
+#add-zsh-hook precmd _update_vcs_info_msg
 
 
 ########################################

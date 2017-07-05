@@ -129,6 +129,13 @@ noremap <leader>w :w <CR>
 " vv to generate new vertical split 
 nnoremap <silent> vv <C-w>v
 
+" new tab
+nnoremap <C-c> :tabclose<CR>
+nnoremap <C-n> :tabnew<CR>
+nnoremap <C-h> :tabprevious<CR>
+nnoremap <C-l> :tabnext<CR>
+
+
 "autocmd BufWritePre * :%s/\s\+$//ge
 "map <s>co <s-i># <esc>
 " filetypes -----------------------------------------------------------
@@ -167,12 +174,12 @@ Plugin 'Yggdroot/indentLine'
 Plugin 'rking/ag.vim'
 "Plugin 'terryma/vim-multiple-cursors'
 Plugin 'cohama/agit.vim'
-"Plugin 'Shougo/unite.vim'
+Plugin 'Shougo/unite.vim'
 "Plugin 'Shougo/neomru.vim'
 "Plugin 'Shougo/neocomplete.vim'
 Plugin 'godlygeek/tabular'
 Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'vim-pandoc/vim-pandoc'
+"Plugin 'vim-pandoc/vim-pandoc'
 "Plugin 'vim-pandoc/vim-pandoc-syntax'
 "Plugin 'vim-pandoc/vim-rmarkdown'
 "Plugin 'plasticboy/vim-markdown'
