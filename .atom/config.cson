@@ -40,11 +40,11 @@
     telemetryConsent: "no"
     themes: [
       "atom-material-ui"
-      "atom-material-syntax"
+      "solarized-light-syntax"
     ]
   editor:
-    fontFamily: "ricty nerd font"
-    fontSize: 16
+    fontFamily: "cousine"
+    fontSize: 15
     invisibles: {}
     lineHeight: 1.2
     showIndentGuide: true

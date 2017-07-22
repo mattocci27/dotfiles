@@ -85,10 +85,11 @@ zstyle ':vcs_info:git:*' unstagedstr "%F{242}+"
 zstyle ':vcs_info:*' formats "%F{242}%c%u%b%f" "%R"
 zstyle ':vcs_info:*' actionformats '%b|%a' '%R'
 precmd () { vcs_info }
-PROMPT='%{${fg[blue]}%}
-%~%{${reset_color}%  ${vcs_info_msg_0_}
+PROMPT='
+%{${fg[blue]}%}%~%{${reset_color}%  ${vcs_info_msg_0_}
 %{${fg[magenta]}%}> %{${reset_color}%}'
 
+#PROMPT='%{${fg[blue]}%}%~%{${reset_color}% %{${fg[magenta]}%}> %{${reset_color}%}'
 #PROMPT='${vcs_info_msg_0_}'
 
 

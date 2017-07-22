@@ -2,6 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>AboutToPasteTabsWithCancel</key>
+	<true/>
+	<key>AboutToPasteTabsWithCancel_selection</key>
+	<integer>2</integer>
 	<key>AppleAntiAliasingThreshold</key>
 	<integer>1</integer>
 	<key>AppleScrollAnimationEnabled</key>
@@ -1445,11 +1449,11 @@
 	<key>NSWindow Frame SessionsPreferences</key>
 	<string>269 134 606 456 0 0 1680 1027 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>544 368 918 495 0 0 1920 1080 </string>
+	<string>498 -674 918 495 129 -1050 1680 1050 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>542 137 650 477 0 0 1680 1027 </string>
+	<string>729 -758 650 452 136 -1050 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>770 -733 650 452 129 -1050 1680 1027 </string>
+	<string>963 -710 650 452 129 -1050 1680 1050 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
 	<string>779 403 650 452 0 0 1680 1027 </string>
 	<key>New Bookmarks</key>
@@ -2113,6 +2117,8 @@
 			<true/>
 			<key>Normal Font</key>
 			<string>RictyNerdFontAOPL-RegularForPowerline 15</string>
+			<key>Only The Default BG Color Uses Transparency</key>
+			<false/>
 			<key>Option Key Sends</key>
 			<integer>0</integer>
 			<key>Prompt Before Closing 2</key>

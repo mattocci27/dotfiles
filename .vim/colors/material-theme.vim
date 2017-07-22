@@ -56,25 +56,6 @@ else
   let s:cterm0F = "14"
 endif
 
-" Terminal color definitions
-"let s:cterm00 = "263238"
-"let s:cterm01 = "37474F"
-"let s:cterm02 = "546E7A"
-"let s:cterm03 = "5C7E8C"
-"let s:cterm04 = "80CBC4"
-"let s:cterm05 = "C792EA"
-"let s:cterm06 = "7986CB"
-"let s:cterm07 = "82B1FF"
-"let s:cterm08 = "8BD649"
-"let s:cterm09 = "C3E88D"
-"let s:cterm0A = "CDD3DE"
-"let s:cterm0B = "EC5F67"
-"let s:cterm0C = "F1E655"
-"let s:cterm0D = "F77669"
-"let s:cterm0E = "F8E71C"
-"let s:cterm0F = "FFFFFF"
-
-
 " Theme setup
 hi clear
 syntax reset

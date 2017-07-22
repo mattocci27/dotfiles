@@ -17,6 +17,8 @@ if (v:version >= 800) && has("termguicolors")
   "colorscheme solarized8_light
   highlight CursorLine guibg='#292930'
 else
+  autocmd ColorScheme * highlight Normal ctermbg=none
+  autocmd ColorScheme * highlight LineNr ctermbg=none
   set t_Co=256
   colorscheme material-theme
 endif
@@ -224,6 +226,8 @@ let R_tmux_split = 1
 let R_nvimpager = "tab"
 let R_rconsole_width = 0
 let R_assign = 0 "do not use <-
+let R_source_args = "echo=TRUE, print.eval=TRUE"
+
 " }}}
 " vim-fugitive{{{ show git brunch
 if isdirectory(expand('~/.vim/bundle/vim-fugitive'))
@@ -238,7 +242,8 @@ let g:indetLine_char = '|'
 " }}}
 " gitgutter{{{
 let g:gitgutter_override_sign_column_highlight = 0
-highlight SignColumn guibg='#263238'   " terminal Vim "
+"highlight SignColumn guibg='#263238'   " terminal Vim "
+highlight SignColumn ctermbg=red   " terminal Vim "
 " }}}
 " vim-airline{{{
 "let g:airline#extensions#tabline#enabled = 1
@@ -309,5 +314,3 @@ let g:goyo_width = 80
 ""if !exists('g:neocomplete#keyword_patterns')
 ""        let g:neocomplete#keyword_patterns = {}
 ""endif
-""let g:neocomplete#keyword_patterns['default'] = '\h\w*'
-""}}}

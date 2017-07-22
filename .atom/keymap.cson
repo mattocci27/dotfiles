@@ -80,5 +80,6 @@
 '.project-folder atom-text-editor[mini]':
   'cmd-enter': 'project-folder:replace'
 
+
 'atom-text-editor#choose-pane-editor':
   '-': 'choose-pane:last-focused'
