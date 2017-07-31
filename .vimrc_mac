@@ -119,6 +119,8 @@ inoremap {<Enter> {}<Left><CR><ESC><S-o>
 inoremap ( ()<ESC>i
 inoremap (<Enter> ()<Left><CR><ESC><S-o>))}}
 
+inoremap <silent> jj <ESC>
+
 set backspace=indent,eol,start "enable delete key
 let mapleader = "\<space>"
 
