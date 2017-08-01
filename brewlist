@@ -19,6 +19,7 @@ gcc
 gdbm
 gettext
 ghc
+ghc@8.0
 git
 git-lfs
 glib
