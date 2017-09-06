@@ -195,6 +195,7 @@ Plugin 'shime/vim-livedown'
 Plugin 'tpope/vim-surround'
 Plugin 'junegunn/goyo.vim'
 "Plugin 'Valloric/YouCompleteMe'
+Plugin 'wavded/vim-stylus'
 call vundle#end()            " required
 filetype plugin indent on    " required
 

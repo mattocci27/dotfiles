@@ -1,4 +1,6 @@
 alacritty
+armadillo
+arpack
 arpack-julia
 autoconf
 automake
@@ -8,7 +10,11 @@ cairo
 cmake
 coreutils
 cscope
+docker
+docker-compose
+docker-machine
 eigen
+ffmpeg
 fftw
 fish
 fontconfig
@@ -28,6 +34,7 @@ gobject-introspection
 graphite2
 grc
 harfbuzz
+hdf5
 hyper
 icu4c
 ilmbase
@@ -35,6 +42,7 @@ isl
 jemalloc
 jpeg
 julia
+lame
 libevent
 libffi
 libgit2
@@ -62,6 +70,7 @@ neovim
 node
 nodebrew
 numpy
+openblas
 openblas-julia
 opencv
 openexr
@@ -83,7 +92,6 @@ python3
 qt
 qt5
 qt@5.7
-r
 rbenv
 readline
 reattach-to-user-namespace
@@ -93,11 +101,17 @@ ruby-build
 sip
 sqlite
 suite-sparse-julia
+superlu
+szip
 texinfo
 the_silver_searcher
 tmux
 tree
 unibilium
+v8@3.15
+veclibfort
 vim
+x264
+xvid
 xz
 zsh

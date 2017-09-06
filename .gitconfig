@@ -9,3 +9,6 @@
 	process = git-lfs filter-process
 [core]
 	editor = vim
+
+[ghq]
+  root = ~/src
