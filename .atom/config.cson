@@ -24,6 +24,7 @@
       "markdown-preview"
       "minimap"
       "minimap-autohide"
+      "atom-ide-ui"
     ]
     ignoredNames: [
       ".git"

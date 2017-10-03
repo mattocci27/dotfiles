@@ -1367,6 +1367,8 @@
 			<string></string>
 		</dict>
 	</dict>
+	<key>HotkeyMigratedFromSingleToMulti</key>
+	<true/>
 	<key>LoadPrefsFromCustomFolder</key>
 	<true/>
 	<key>NSColorPanelMode</key>
@@ -1446,14 +1448,16 @@
 	<string>497 332 228 349 0 0 1920 1057 </string>
 	<key>NSWindow Frame NSFontPanel</key>
 	<string>712 415 866 77 0 0 1920 1080 </string>
+	<key>NSWindow Frame SUUpdateAlert</key>
+	<string>939 768 620 392 0 0 2560 1417 </string>
 	<key>NSWindow Frame SessionsPreferences</key>
 	<string>269 134 606 456 0 0 1680 1027 </string>
 	<key>NSWindow Frame SharedPreferences</key>
 	<string>498 -674 918 495 129 -1050 1680 1050 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>729 -758 650 452 136 -1050 1680 1027 </string>
+	<string>592 672 650 452 0 0 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>963 -710 650 452 129 -1050 1680 1050 </string>
+	<string>1547 549 650 452 0 0 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
 	<string>779 403 650 452 0 0 1680 1027 </string>
 	<key>New Bookmarks</key>
@@ -2956,9 +2960,13 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2017-01-09T23:33:55Z</date>
+	<date>2017-09-20T03:40:22Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
+	<key>SlowPasteBytesPerCall</key>
+	<integer>16</integer>
+	<key>SlowPasteDelayBetweenCalls</key>
+	<real>0.125</real>
 	<key>TabStyle</key>
 	<integer>0</integer>
 	<key>TabViewType</key>
@@ -2970,7 +2978,7 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>3.0.15</string>
+	<string>3.1.1</string>
 	<key>kCPFavoritesUserDefaultsKey</key>
 	<array>
 		<data>

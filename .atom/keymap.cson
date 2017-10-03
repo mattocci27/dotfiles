@@ -31,11 +31,9 @@
 # Atom Flight Manual:
 # http://flight-manual.atom.io/using-atom/sections/basic-customization/#_cson
 
-'atom-text-editor':
-  'ctrl-r': 'r-exec:send-command'
 
-# 'atom-text-editor':
-  # 'ctrl-r': 'terminal-plus:insert-selected-text'
+#'atom-text-editor':
+#  'ctrl-space': 'r-exec:send-command'
 
 '.autocomplete atom-text-editor[mini]':
   'ctrl-j': 'core:move-down'

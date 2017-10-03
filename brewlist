@@ -30,6 +30,7 @@ git
 git-lfs
 glib
 gmp
+go
 gobject-introspection
 graphite2
 grc
@@ -38,6 +39,7 @@ hdf5
 hyper
 icu4c
 ilmbase
+imagemagick
 isl
 jemalloc
 jpeg
