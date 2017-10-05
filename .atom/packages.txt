@@ -15,7 +15,7 @@ autocomplete-clang@0.11.3
 autocomplete-emojis@2.5.0
 autocomplete-paths@2.11.0
 autocomplete-python@1.10.3
-build@0.68.0
+build@0.69.0
 busy@0.7.0
 busy-signal@1.4.3
 ex-mode@0.18.0
@@ -34,7 +34,7 @@ linter@2.2.0
 linter-gcc@0.7.1
 linter-lintr@1.1.4
 linter-ui-default@1.6.10
-markdown-preview-enhanced@0.14.10
+markdown-preview-enhanced@0.14.11
 markdown-preview-plus@2.4.10
 minimap@4.29.7
 minimap-autohide@0.10.1
@@ -53,7 +53,7 @@ tabs-to-spaces@1.0.3
 tool-bar@1.1.0
 typewriter@0.7.0
 vim-mode@0.66.0
-vim-mode-plus@1.8.0
+vim-mode-plus@1.8.1
 vim-surround@0.8.1
 wordcount@2.10.4
 zentabs@0.8.8

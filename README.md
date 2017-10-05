@@ -15,4 +15,10 @@ Following commonds will clone the repository and automatically make symbolik lin
 This keeps brew and brewlist up to date.
 ```
 % ./brew.sh
+
+```
+
+Install R packages.
+```
+% ./r_lib.sh
 ```

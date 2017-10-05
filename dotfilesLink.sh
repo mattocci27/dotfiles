@@ -36,3 +36,13 @@ link_files_atom() {
 
 link_files_atom
 
+# R
+link_files_R() {
+  [ -n "${OVERWRITE}" -a -e ${HOME}/.R/Makevars ] && rm -f ${HOME}/.R/Makevars]
+  if [ ! -e ${HOME}/.R/Makevars ]; then
+    ln -snfv ${DOT_DIRECTORY}/.R/Makevars /.R/Makevars
+  fi
+  echo $(tput setaf 2)Deploy R Makevars complete!. ✔︎$(tput sgr0)
+}
+
+link_files_R

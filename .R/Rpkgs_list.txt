@@ -1,0 +1,16 @@
+vegan
+snowfall
+tidyverse
+sads
+ggthemes
+shiny
+cowplot
+rmarkdown
+picante
+LeafArea
+lme4
+provenance
+kableExtra
+ggrepel
+bookdown
+rstan

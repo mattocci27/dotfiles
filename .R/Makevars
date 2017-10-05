@@ -1,6 +1,5 @@
-
 CXXFLAGS=-O3 -mtune=native -march=native -Wno-unused-variable -Wno-unused-function
 
-CC=clang-4.0
-CXX=clang++-4.0 -arch x86_64 -ftemplate-depth-256
+CC=clang-5.0
+CXX=clang++-5.0 -arch x86_64 -ftemplate-depth-256
 LDFLAGS = -L/opt/X11/lib -lX11 -lpthread
