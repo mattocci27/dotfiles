@@ -59,7 +59,7 @@ libvterm
 libxml2
 libxslt
 libyaml
-llvm-4.0
+llvm-5.0
 llvm37-julia
 lua
 luajit
@@ -94,6 +94,7 @@ python3
 qt
 qt5
 qt@5.7
+r
 rbenv
 readline
 reattach-to-user-namespace
@@ -105,6 +106,7 @@ sqlite
 suite-sparse-julia
 superlu
 szip
+tcl-tk
 texinfo
 the_silver_searcher
 tmux
