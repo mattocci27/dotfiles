@@ -1,24 +1,56 @@
 # dotfiles
-This repository includes mainly configuraiton files.
+This repository includes mainly configuration files.
+
+# Requirement for macOS
+- command line tools
+- homebrew
+
+```shell
+# command line tools
+sudo xcode-select --install
+
+# homebrew
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+```
+
 
 # Usage
-Following commonds will clone the repository and automatically make symbolik links.Some packages will be also installed via brew.
+Following commands will clone the repository and automatically make symbolic links. Some packages will be also installed via brew.
 ```shell
-% git clone git://github.com/mattocci27/dotfiles.git ~/dotfiles
-% cd dotfiles
-% ./dotfilesLink.sh
-% ln -s brew.sh ~/brew.sh
-% ln -s brewlist ~/brewlist
-% ./brew_install.sh
+# clone this repo
+git clone git://github.com/mattocci27/dotfiles.git ~/dotfiles
 
+cd dotfiles
+
+# make symbolic links
+./dotfilesLink.sh
+
+# install brew packages
+./brew_install.sh
 ```
+
 This keeps brew and brewlist up to date.
-```
-% ./brew.sh
-
+```shell
+./brew.sh
 ```
 
 Install R packages.
+```shell
+./Rpkg_install.sh
 ```
-% ./r_lib.sh
+
+
+# Other setup
+```shell
+# tex
+brew cask install basictex
+
+
+
+m <- matrix(runif(1000^2), nrow = 1000)
+
+microbenchmark(
+  m %*% m,
+  m * m
+)
 ```
