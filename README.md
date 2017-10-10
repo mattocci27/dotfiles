@@ -26,7 +26,6 @@ cd dotfiles
 
 # make symbolic links
 ./dotfilesLink.sh deploy
-
 ```
 
 This keeps brew and brewlist up to date.
