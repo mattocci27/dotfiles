@@ -45,7 +45,7 @@ Install R packages.
 # Other setup
 - setup [nerd-font](https://qiita.com/sizukutamago/items/2ba906ab3fa404eac02d)
 - [Alacritty](https://github.com/jwilm/alacritty)
-- [pyenv] (https://qiita.com/crankcube@github/items/15f06b32ec56736fc43a)
+- [pyenv](https://qiita.com/crankcube@github/items/15f06b32ec56736fc43a)
 
 ```shell
 # tex
