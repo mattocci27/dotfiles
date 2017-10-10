@@ -87,14 +87,14 @@
     ]
   "terminal-plus":
     core: {}
-    style:
-      theme: "solarized_light"
+    style: {}
     toggles: {}
   "tool-bar":
     position: "Left"
   "tree-view":
     hideIgnoredNames: true
     hideVcsIgnoredFiles: true
-  "vim-mode-plus": {}
+  "vim-mode-plus":
+    notifiedCoffeeScriptNoLongerSupportedToExtendVMP: true
   welcome:
     showOnStartup: false

@@ -19,12 +19,9 @@ export R_LIBS_USER R_LIBS=Testing_Tmux
 export PATH=/Library/TeX/Root/bin/x86_64-darwin:$PATH
 
 
-#git
-export PATH=/usr/local/Cellar:$PATH
-export PATH=/usr/local/Cellar/git:$PATH
-export PATH=/usr/local/Cellar/r:$PATH
-
+# use home brew packages
 export PATH=/usr/local/bin:/usr/bin:$PATH
+export PATH=/usr/local/opt/llvm/bin:$PATH
 
 export PATH=$HOME/.cabal/bin:$PATH
 
@@ -34,7 +31,7 @@ export PATH=$PATH:$GOPATH/bin
 
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
  w
-#locale
+
 # without this, tmux does not recognize some fonts
 export LANG=en_US.UTF-8
 

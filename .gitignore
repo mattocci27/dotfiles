@@ -4,4 +4,5 @@ packages
 .npm
 .ssh
 .DS_Store
+.vim/bundle/
 

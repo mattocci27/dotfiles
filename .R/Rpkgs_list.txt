@@ -6,6 +6,7 @@ sads
 ggthemes
 shiny
 cowplot
+microbenchmark
 rmarkdown
 picante
 LeafArea

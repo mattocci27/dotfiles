@@ -69,10 +69,7 @@ augroup END
 set nobackup
 set noswapfile
 set noundofile
-"set guifont=MyricaM\ Monospace:h15
-"set guifont=Arial:h15
-"set guifont=Richty\ Regular\ for\ Powerline\ Nerd\ Font\ Plus\ Font\ Awesome\ Plus\ Octicons\ Plus\ Pomicons\ Plus\ Font\ Linux\ Windows\ Compatible:h15
-set guifont=Ricty\ Regular\ for\ Powerline\ Nerd\ Font\ Plus\ Font\ Awesome\ Plus\ Octicons\ Plus\ Pomicons\ Plus\ Font\ Linux\ Windows\ Compatible:h16
+set guifont=Ricty\ Regular\ Nerd\ Font\ Plus\ Font\ Awesome\ Plus\ Octicons\ Plus\ Pomicons\ Plus\ Font\ Linux:h16
 set encoding=utf-8
 set number " put line numbers
 set clipboard=unnamed,autoselect " use clipboard

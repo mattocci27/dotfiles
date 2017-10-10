@@ -13,7 +13,6 @@ sudo xcode-select --install
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 
-
 # Usage
 Following commands will clone the repository and automatically make symbolic links. Some packages will be also installed via brew.
 ```shell
@@ -22,11 +21,12 @@ git clone git://github.com/mattocci27/dotfiles.git ~/dotfiles
 
 cd dotfiles
 
-# make symbolic links
-./dotfilesLink.sh
-
 # install brew packages
 ./brew_install.sh
+
+# make symbolic links
+./dotfilesLink.sh deploy
+
 ```
 
 This keeps brew and brewlist up to date.
@@ -36,21 +36,22 @@ This keeps brew and brewlist up to date.
 
 Install R packages.
 ```shell
-./Rpkg_install.sh
+# install packages in .R/Rpkgs_list.txt
+./Rpkg.sh install
+
+# update installed packages
+./Rpkg.sh update
 ```
 
-
 # Other setup
+- setup [nerd-font](https://qiita.com/sizukutamago/items/2ba906ab3fa404eac02d)
+- [Alacritty](https://github.com/jwilm/alacritty)
+
 ```shell
 # tex
 brew cask install basictex
 
+# vim plug-in manager
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
-
-m <- matrix(runif(1000^2), nrow = 1000)
-
-microbenchmark(
-  m %*% m,
-  m * m
-)
 ```
