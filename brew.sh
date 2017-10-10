@@ -10,4 +10,5 @@ brew list > brewlist
 brew cleanup
 
 # update packages.list
+apm upgrade --no-confirm
 apm list --installed --bare > ~/dotfiles/.atom/packages.txt
