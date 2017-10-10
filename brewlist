@@ -1,7 +1,5 @@
-alacritty
 armadillo
 arpack
-arpack-julia
 autoconf
 automake
 boost
@@ -30,6 +28,7 @@ git
 git-lfs
 glib
 gmp
+gnu-sed
 go
 gobject-introspection
 graphite2
@@ -43,7 +42,6 @@ imagemagick
 isl
 jemalloc
 jpeg
-julia
 lame
 libevent
 libffi
@@ -59,8 +57,7 @@ libvterm
 libxml2
 libxslt
 libyaml
-llvm-5.0
-llvm37-julia
+llvm
 lua
 luajit
 macvim
@@ -73,7 +70,6 @@ node
 nodebrew
 numpy
 openblas
-openblas-julia
 opencv
 openexr
 openssl
@@ -88,11 +84,9 @@ pixman
 pkg-config
 pyenv
 pyqt
-pyqt5
 python
 python3
 qt
-qt5
 qt@5.7
 r
 rbenv
@@ -103,7 +97,6 @@ ruby
 ruby-build
 sip
 sqlite
-suite-sparse-julia
 superlu
 szip
 tcl-tk

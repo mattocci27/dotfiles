@@ -1,7 +1,7 @@
 Hydrogen@1.23.0
-Remote-FTP@1.1.3
+Remote-FTP@1.2.4
 Zen@0.18.0
-advanced-open-file@0.16.6
+advanced-open-file@0.16.7
 ariake-dark-syntax@0.1.3
 atom-beautify@0.30.5
 atom-ide-ui@0.4.0
@@ -13,7 +13,7 @@ autocomplete-R@0.6.0
 autocomplete-bibtex@0.7.0
 autocomplete-clang@0.11.3
 autocomplete-emojis@2.5.0
-autocomplete-paths@2.11.0
+autocomplete-paths@2.12.0
 autocomplete-python@1.10.3
 build@0.69.0
 busy@0.7.0
@@ -43,21 +43,20 @@ pigments@0.40.2
 r-exec@0.5.0
 regex-railroad-diagram@0.19.4
 remote-edit@1.9.0
-remote-edit2
+remote-edit2@3.0.0
 script@3.16.0
+seti-syntax@1.1.3
 show-ideographic-space@1.0.2
-sort-lines@0.15.0
+sort-lines@0.17.0
 split-diff@1.5.1
 symbols-tree-view@0.14.0
 tabs-to-spaces@1.0.3
+terminal-plus@0.14.5
 tool-bar@1.1.0
 typewriter@0.7.0
 vim-mode@0.66.0
-vim-mode-plus@1.8.1
+vim-mode-plus@1.9.0
 vim-surround@0.8.1
 wordcount@2.10.4
 zentabs@0.8.8
-
-seti-syntax@1.0.1
-terminal-plus@0.14.5
 
