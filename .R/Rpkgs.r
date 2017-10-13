@@ -7,8 +7,10 @@ my_lib <- argv[1]
 
 # list of installed packages
 lib <- .libPaths()[1]
-tmp <- as.data.frame(installed.packages(lib), stringsAsFactors=FALSE)
-pkg_list <- tmp$Package
+tmp0 <- as.data.frame(installed.packages(lib), stringsAsFactors=FALSE)
+tmp <- tmp0[tmp0$Package != "nvimcom", ] # remove nvimcom to avoid erro
+pkg_list <- tmp$Package 
+   
 
 res <- sum(grepl(my_lib, pkg_list))
 
