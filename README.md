@@ -53,6 +53,7 @@ brew cask install basictex
 sudo tlmgr update --self
 sudo tlmgr update --all
 sudo tlmgr install titling framed inconsolata
+sudo tlmgr install collection-fontsrecommended
 
 # japanese
 brew cask install google-japanese-ime
