@@ -50,6 +50,9 @@ Install R packages.
 ```shell
 # tex
 brew cask install basictex
+sudo tlmgr update --self
+sudo tlmgr update --all
+sudo tlmgr install titling framed inconsolata
 
 # japanese
 brew cask install google-japanese-ime
