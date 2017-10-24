@@ -19,7 +19,5 @@ fi
 
 if ! [ -e $HOME/.R/Makevars ]; then
   echo $MAKEVARS > $HOME/.R/Makevars
-  echo $MAKEVARS >  moge.txt
-  $HOME/.R/Makevars
 fi
 
