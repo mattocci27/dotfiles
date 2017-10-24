@@ -1,15 +1,16 @@
 #!/bin/sh
 
-# for linux
 MAKEVARS="CXXFLAGS=-O3 -mtune=native -march=native -Wno-unused-variable -Wno-unused-function"
 
+# for linux
+if [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
+  MAKEVARS="${MAKEVARS} -DBOOST_PHOENIX_NO_VARIADIC_EXPRESSION"
 # additional for mac
-if [ "$(uname)" == 'Darwin' ]; then
+elif [ "$(uname)" == 'Darwin' ]; then
   MAKEVARS="${MAKEVARS}
   \nCC=clang
   \nCXX=clang++ -arch x86_64 -ftemplate-depth-256"
 fi
-
 
 # create Makevars in .R
 if ! [ -e $HOME/.R ]; then
