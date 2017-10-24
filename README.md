@@ -35,6 +35,10 @@ This keeps brew and brewlist up to date.
 
 Install R packages.
 ```shell
+
+# create makevars file
+./makevers.sh
+
 # install packages in .R/Rpkgs_list.txt
 ./Rpkg.sh install
 

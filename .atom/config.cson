@@ -24,7 +24,8 @@
       "markdown-preview"
       "minimap"
       "minimap-autohide"
-      "atom-ide-ui"
+      "linter"
+      "terminal-plus"
     ]
     ignoredNames: [
       ".git"
@@ -87,8 +88,13 @@
     ]
   "terminal-plus":
     core: {}
-    style: {}
+    style:
+      theme: "solarized_light"
     toggles: {}
+  termination:
+    core: {}
+    style:
+      theme: "solarized-light"
   "tool-bar":
     position: "Left"
   "tree-view":

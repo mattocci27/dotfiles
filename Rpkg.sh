@@ -1,6 +1,6 @@
 #!/bin/sh
-
-DOTR_DIRECTORY="${HOME}/dotfiles/.R"
+set -e
+DOT_DIRECTORY="${HOME}/dotfiles"
 
 usage() {
   name=`basename $0`
@@ -30,12 +30,12 @@ install_pkg() {
   do
     echo $line
     export line
-    Rscript ${DOTR_DIRECTORY}/Rpkgs.r $line
-  done < ${DOTR_DIRECTORY}/Rpkgs_list.txt
+    Rscript ${DOT_DIRECTORY}/Rpkgs.r $line
+  done < ${DOT_DIRECTORY}/Rpkgs_list.txt
 }
 
 update_pkg() {
-  Rscript ${DOTR_DIRECTORY}/Rpkgs.r
+  Rscript ${DOT_DIRECTORY}/Rpkgs.r
 }
 
 command=$1

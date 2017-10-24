@@ -5,6 +5,11 @@ set background=dark
 
 set t_ut= "clearing uses the current background color
 
+" alacritty Operator Mono and VIM #489
+"https://github.com/jwilm/alacritty/issues/489
+hi Comment gui=italic cterm=italic
+hi htmlArg gui=italic cterm=italic
+
 if (v:version >= 800) && has("termguicolors")
   set termguicolors
   set t_8b=[48;2;%lu;%lu;%lum

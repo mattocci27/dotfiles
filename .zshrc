@@ -24,7 +24,8 @@ export R_LIBS_USER R_LIBS=Testing_Tmux
 
 export PATH=/Library/TeX/Root/bin/x86_64-darwin:$PATH
 
-
+# rsut
+export PATH="$HOME/.cargo/bin:$PATH"
 
 #go
 export GOPATH=$HOME
@@ -49,7 +50,7 @@ bindkey -M vicmd 'H' vi-first-non-blank
 
 function zle-line-init zle-keymap-select {
   VIM_NORMAL="%K{120}%F{235}⮀%k%f%K{120}%F{235} % NORMAL %k%f%K{263238}%F{120}⮀%k%f"
-  VIM_INSERT="%K{075}%F{235}%k%f%K{075}%F{235} % INSERT %k%f%K{263238}%F{075}{\ue0b0}%k%f"
+  VIM_INSERT="%K{075}%F{235}%k%f%K{075}%F{235} % INSERT %k%f%K{263238}%F{075}%k%f"
   RPS1="${${KEYMAP/vicmd/$VIM_NORMAL}/(main|viins)/$VIM_INSERT}"
   RPS2=$RPS1
   zle reset-prompt
