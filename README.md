@@ -37,7 +37,7 @@ Install R packages.
 ```shell
 
 # create makevars file
-./makevers.sh
+./makevars.sh
 
 # install packages in .R/Rpkgs_list.txt
 ./Rpkg.sh install
