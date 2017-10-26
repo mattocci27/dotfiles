@@ -16,3 +16,5 @@ kableExtra
 ggrepel
 bookdown
 rstan
+loo
+rstanarm
