@@ -24,6 +24,7 @@ gdbm
 gettext
 ghc
 ghc@8.0
+ghq
 git
 git-lfs
 glib
@@ -87,6 +88,7 @@ pkg-config
 pyenv
 pyqt
 python
+python3
 qt
 qt@5.7
 r
@@ -100,6 +102,7 @@ sip
 sqlite
 superlu
 szip
+tbb
 tcl-tk
 texinfo
 the_silver_searcher

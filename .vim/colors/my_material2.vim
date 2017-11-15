@@ -30,10 +30,27 @@
 "gui0B = "#EC5F67"
 "gui0C = "#F1E655"
 "gui0D = "#F77669"
-"gui0E = "#F8E71C"
+"gui0E = "#FFE082"
 "gui0F = "#AABBC3"
 
-
+"@very-light-gray:   #EEFFFF;
+"@light-gray:        #B2CCD6;
+"@gray:              #373b41;
+"@dark-gray:         #282a2e;
+"@very-dark-gray:    #263238;
+"
+"@green:             #C3E88D;
+"@teal:              #009688;
+"@light-teal:        #73d1c8;
+"@cyan:              #89DDF3;
+"@blue:              #82AAFF;
+"@indigo:            #7986CB;
+"@purple:            #C792EA;
+"@pink:              #FF5370;
+"@red:               #F07178;
+"@strong-orange:     #F78C6A;
+"@orange:            #FFCB6B;
+"@light-orange:      #FFE082;
 " +---------------+
 " |Initialization |
 " +---------------+

@@ -15,22 +15,33 @@ if (v:version >= 800) && has("termguicolors")
   set t_8b=[48;2;%lu;%lu;%lum
   set t_8f=[38;2;%lu;%lu;%lum
 
-  " change cursor
-  " for iTerm2 and Tmux
-  "let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
-  "let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
-  " for alacritty and Tmux
-  let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=\e[6q\x7\<Esc>\\"
-  let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=\e[2q\x7\<Esc>\\"
+  "if exists('$TMUX')
+    " change cursor
+    " for iTerm2 and Tmux
+    "let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+    "let &t_SR = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=2\x7\<Esc>\\"
+    "let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+    " for alacritty and Tmux
+    "let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=\e[6 q\x7\<Esc>\\"
+    "let &t_SR = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=\e[4 q\x7\<Esc>\\"
+    "let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=\e[2 q\x7\<Esc>\\"
+    let &t_SI = "\<Esc>]50;CursorShape=\e[6 q\x7"
+    let &t_SR = "\<Esc>]50;CursorShape=\e[4 q\x7"
+    let &t_EI = "\<Esc>]50;CursorShape=\e[2 q\x7"
+
   colorscheme my_material2
+  "colorscheme iceberg
   "colorscheme solarized8_light
   highlight CursorLine guibg='#292930'
+  "highlight CursorLine guibg='#c6c8d1'
 else
   autocmd ColorScheme * highlight Normal ctermbg=none
   autocmd ColorScheme * highlight LineNr ctermbg=none
   set t_Co=256
   colorscheme material-theme
 endif
+
+"hi! Normal ctermbg=NONE guifg=NONE guibg=NONE
 
 "if has("gui_macvim")
 "  source ~/dotfiles/.vimrc_mac
@@ -119,7 +130,12 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 nnoremap <C-h> <C-w>h
 
-"autocomplete for {} () 
+nnoremap sJ <C-w>J
+nnoremap sK <C-w>K
+nnoremap sL <C-w>L
+nnoremap sH <C-w>H
+
+"autocomplete for {} ()
 inoremap { {}<Left>
 inoremap {<Enter> {}<Left><CR><ESC><S-o>
 inoremap ( ()<ESC>i
@@ -127,6 +143,12 @@ inoremap (<Enter> ()<Left><CR><ESC><S-o>))}}
 
 "jj for ESC
 inoremap <silent> jj <ESC>
+
+" j/k for displayed line
+nnoremap j gj
+nnoremap k gk
+nnoremap <Down> gj
+nnoremap <Up>   gk
 
 set backspace=indent,eol,start "enable delete key
 let mapleader = "\<space>"
@@ -137,7 +159,7 @@ noremap <leader>o :<c-p> <cr>
 noremap <leader>w :w <CR>
 
 
-" vv to generate new vertical split 
+" vv to generate new vertical split
 nnoremap <silent> vv <C-w>v
 
 " new tab
@@ -146,6 +168,8 @@ nnoremap <C-n> :tabnew<CR>
 nnoremap <C-h> :tabprevious<CR>
 nnoremap <C-l> :tabnext<CR>
 
+" color
+nnoremap <leader>B :<c-u>exe "source ~/.vimrc_w" <cr>
 
 "autocmd BufWritePre * :%s/\s\+$//ge
 "map <s>co <s-i># <esc>
@@ -171,8 +195,6 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'ryanoasis/vim-devicons'
 Plugin 'tiagofumo/vim-nerdtree-syntax-highlight' "
 Plugin 'jalvesaq/Nvim-R'
-"Plugin 'severin-lemaignan/vim-minimap'
-"Plugin 'thinca/vim-quickrun'
 Plugin 'Townk/vim-autoclose'
 Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
@@ -183,10 +205,8 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'Yggdroot/indentLine'
 Plugin 'rking/ag.vim'
-"Plugin 'terryma/vim-multiple-cursors'
 Plugin 'cohama/agit.vim'
 Plugin 'Shougo/unite.vim'
-"Plugin 'Shougo/neomru.vim'
 "Plugin 'Shougo/neocomplete.vim'
 Plugin 'godlygeek/tabular'
 Plugin 'christoomey/vim-tmux-navigator'
@@ -197,19 +217,20 @@ Plugin 'christoomey/vim-tmux-navigator'
 "Plugin 'mattocci27/vim-markdown'
 Plugin 'vim-scripts/SyntaxRange'
 Plugin 'shime/vim-livedown'
-"Plugin 'mattn/benchvimrc-vim'
 Plugin 'tpope/vim-surround'
-Plugin 'junegunn/goyo.vim'
-"Plugin 'Valloric/YouCompleteMe'
 Plugin 'wavded/vim-stylus'
+
+" snippet
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
 
 " nerdtree {{{
-nnoremap <silent><C-e> :NERDTreeToggle<CR>
+noremap <silent><C-e> :NERDTreeToggle<CR>
 let g:NERDTreeDirArrows = 1
-let NERDTreeWinSize=22
+let NERDTreeWinSize=30
 " }}}
 " vim-nerdtree-syntax-highlight{{{
 let s:rspec_red = 'FE405F'
@@ -248,6 +269,7 @@ endif
 " let g:airline_powerline_fonts=1
 " }}}
 " indentLine{{{
+let g:indentLine_newVersion = 1
 let g:indetLine_char = '|'
 " }}}
 " gitgutter{{{
@@ -324,3 +346,10 @@ let g:goyo_width = 80
 ""if !exists('g:neocomplete#keyword_patterns')
 ""        let g:neocomplete#keyword_patterns = {}
 ""endif
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"

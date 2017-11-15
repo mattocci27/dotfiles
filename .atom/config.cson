@@ -4,13 +4,12 @@
     images: {}
   "autocomplete-bibtex":
     references: [
-      "~/Dropbox/MS/LES_MS/LMAps_MS/ECY/ref_LES.bib"
+      "~/Dropbox/MS/LES_MS/LMApsModel/ms/ref.bib"
     ]
   "autocomplete-python":
     useKite: false
   core:
     disabledPackages: [
-      "vim-mode"
       "keybinding-resolver"
       "Remote-FTP"
       "autocomplete-emojis"
@@ -19,13 +18,21 @@
       "atom-pronama-chan"
       "script"
       "Hydrogen"
-      "language-gfm"
       "markdown-preview-enhanced"
       "markdown-preview"
       "minimap"
       "minimap-autohide"
       "linter"
       "terminal-plus"
+      "atom-ide-ui"
+      "autocomplete-python"
+      "language-julia"
+      "remote-edit"
+      "remote-edit2"
+      "vim-surround"
+      "language-gfm"
+      "language-markdown"
+      "markdown-writer"
     ]
     ignoredNames: [
       ".git"
@@ -39,6 +46,7 @@
       ".clang_complete"
       ".gcc-flags.json"
     ]
+    packagesWithKeymapsDisabled: []
     telemetryConsent: "no"
     themes: [
       "atom-material-ui"
@@ -100,6 +108,7 @@
   "tree-view":
     hideIgnoredNames: true
     hideVcsIgnoredFiles: true
+  typewriter: {}
   "vim-mode-plus":
     notifiedCoffeeScriptNoLongerSupportedToExtendVMP: true
   welcome:

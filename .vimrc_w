@@ -11,8 +11,9 @@ if (v:version >= 800) && has("termguicolors")
   set t_8f=[38;2;%lu;%lu;%lum
 
   " change cursor
-  let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
-  let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+  let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=\e[6q\x7\<Esc>\\"
+  let &t_SR = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=\e[4q\x7\<Esc>\\"
+  let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=\e[2q\x7\<Esc>\\"
   colorscheme solarized8_light
   "highlight CursorLine guibg='#292930'
 else
@@ -31,9 +32,8 @@ endif
 set nobackup
 set noswapfile
 set noundofile
-"set guifont=Richty\ Regular\ for\ Powerline\ Nerd\ Font\ Plus\ Font\ Awesome\ Plus\ Octicons\ Plus\ Pomicons\ Plus\ Font\ Linux\ Windows\ Compatible:h15
 set guifont=Cousine\ Nerd\ Font\ Plus\ Font\ Awesome\ Plus\ Octicons\ Plus\ Pomicons\ Plus\ Font\ Linux\ Windows\ Compatible:h16
-"set guifont=Cousine:h15
+set guifont=Cousine:h16
 set encoding=utf-8
 set nonumber " put line numbers
 set clipboard=unnamed,autoselect " use clipboard
@@ -63,8 +63,6 @@ set foldlevel=2
 set foldcolumn=3
 
 " keybinding
-"noremap! <c-j> <esc>
-"vmap<c-j> <esc>
 nnoremap <s-h>   ^
 nnoremap <s-j>   }
 nnoremap <s-k>   {
@@ -96,6 +94,7 @@ noremap <leader>w :w <CR>
 " vv to generate new vertical split 
 nnoremap <silent> vv <C-w>v
 
+nnoremap <leader>B :<c-u>exe "source ~/.vimrc_mac" <cr>
 "autocmd BufWritePre * :%s/\s\+$//ge
 "map <s>co <s-i># <esc>
 " filetypes -----------------------------------------------------------
@@ -115,35 +114,35 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
-"Plugin 'ryanoasis/vim-devicons'
 Plugin 'tiagofumo/vim-nerdtree-syntax-highlight' "
 Plugin 'jalvesaq/Nvim-R'
-"Plugin 'severin-lemaignan/vim-minimap'
-"Plugin 'thinca/vim-quickrun'
 Plugin 'Townk/vim-autoclose'
 Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
-"Plugin 'itchyny/lightline.vim'
-"Plugin 'alpaca-tc/alpaca_powertabline'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'Yggdroot/indentLine'
-Plugin 'rking/ag.vim'
-Plugin 'cohama/agit.vim'
 Plugin 'Shougo/neocomplete.vim'
 Plugin 'godlygeek/tabular'
 Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'vim-pandoc/vim-pandoc'
-Plugin 'vim-pandoc/vim-pandoc-syntax'
-"Plugin 'vim-pandoc/vim-rmarkdown'
-"Plugin 'plasticboy/vim-markdown'
-Plugin 'mattocci27/vim-markdown'
 Plugin 'vim-scripts/SyntaxRange'
 Plugin 'shime/vim-livedown'
-"Plugin 'mattn/benchvimrc-vim'
 Plugin 'tpope/vim-surround'
+
+" markdown
+Plugin 'vim-pandoc/vim-pandoc'
+Plugin 'vim-pandoc/vim-pandoc-syntax'
+"Plugin 'plasticboy/vim-markdown'
+Plugin 'mattocci27/vim-markdown'
+
+" focus
 Plugin 'junegunn/goyo.vim'
+Plugin 'junegunn/limelight.vim'
+
+" editing
+Plugin 'rhysd/vim-grammarous'
+
 call vundle#end()            " required
 filetype plugin indent on    " required
 

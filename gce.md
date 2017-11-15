@@ -17,10 +17,6 @@ echo '/dev/disk/by-id/google-hdd-debian-skylake /mnt/disks/data ext4 discard,def
 
 
 ```{sh}
-
-a<-matrix(rnorm(10^8), nrow = 10^4)
-system.time(a%*%a)
-
 sudo apt-get update
 sudo apt-get upgrade
 
@@ -34,8 +30,11 @@ sudo apt-get -y install openjdk-9-jdk
 sudo apt-get -y install zsh
 sudo apt-get -y install tmux
 sudo apt-get -y install clang
-sudo apt-get -y install libxml2-dev
 
+# for R
+sudo apt-get -y install libxml2-dev
+sudo apt-get -y install libcurl4-openssl-dev 
+sudo apt-get -y install libssl-dev 
 
 ## clang
 #sudo vim /etc/apt/sources.list.d/llvm.list
@@ -47,7 +46,6 @@ sudo apt-get -y install libxml2-dev
 #
 #sudo apt-get update
 #sudo apt-get install clang-5.0 lldb-5.0 lld-5.0
-
 
 
 ##### R
