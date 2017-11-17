@@ -58,7 +58,7 @@ terminal-plus@0.14.5
 termination@0.6.1
 tool-bar@1.1.0
 typewriter@0.7.0
-vim-mode-plus@1.19.0
+vim-mode-plus@1.20.0
 vim-surround@0.8.1
 wordcount@2.10.4
 zentabs@0.8.9
