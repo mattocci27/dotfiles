@@ -109,7 +109,6 @@
     hideIgnoredNames: true
     hideVcsIgnoredFiles: true
   typewriter: {}
-  "vim-mode-plus":
-    notifiedCoffeeScriptNoLongerSupportedToExtendVMP: true
+  "vim-mode-plus": {}
   welcome:
     showOnStartup: false
