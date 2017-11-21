@@ -30,12 +30,12 @@ install_pkg() {
   do
     echo $line
     export line
-    Rscript ${DOT_DIRECTORY}/Rpkgs.r $line
+    Rscript --vanilla ${DOT_DIRECTORY}/Rpkgs.r $line
   done < ${DOT_DIRECTORY}/Rpkgs_list.txt
 }
 
 update_pkg() {
-  Rscript ${DOT_DIRECTORY}/Rpkgs.r
+  Rscript --vanilla ${DOT_DIRECTORY}/Rpkgs.r
 }
 
 command=$1
