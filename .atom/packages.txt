@@ -4,7 +4,7 @@ Zen@0.18.0
 advanced-open-file@0.16.7
 apex-ui@1.0.2
 ariake-dark-syntax@0.1.3
-atom-beautify@0.30.6
+atom-beautify@0.30.9
 atom-ide-ui@0.6.0
 atom-material-syntax@1.0.7
 atom-material-syntax-dark@1.0.0
@@ -54,6 +54,7 @@ sort-lines@0.18.0
 split-diff@1.5.1
 symbols-tree-view@0.14.0
 tabs-to-spaces@1.0.3
+teletype@0.2.3
 terminal-plus@0.14.5
 termination@0.6.1
 tool-bar@1.1.0
