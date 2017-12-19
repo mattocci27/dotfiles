@@ -1,44 +1,60 @@
 #!/bin/sh
 
-# Settings
-PROJECT_NAME="personal-env"
-STARTUP_SCRIPT_URL="https://github.com/mattocci27/dotfiles/blob/master/startup_script.sh"
+ZONE=hogehoge.team
+ZONENAME=hogehoge-team
+USERNAME=mattocci
 
-# Arguments
-INSTANCE_NAME="$1"
+INITIALIZED_FLAG=".startup_script_initialized"
 
-if test "$INSTANCE_NAME" = ""
-then
-  echo "[Error] Instance name required." 1>&2
-  exit 1
-fi
+main()
+{
+  tell_my_ip_address_to_dns
+  if test -e $INITIALIZED_FLAG
+  then
+    # Startup Scripts
+    update
+  else
+    # Only first time
+    setup
+    touch $INITIALIZED_FLAG
+  fi
+}
 
-# Download startup script
-TEMP=$(mktemp -u)
-curl "${STARTUP_SCRIPT_URL}" > "${TEMP}"
+# Installation and settings
+setup()
+{
+  # Foundamental tools
+  apt-get update
+  apt-get install -y build-essential
+  apt-get install -y chromium-browser
 
-# Get Service Account information
-SERVICE_ACCOUNT=$(\
-  gcloud iam --project "${PROJECT_NAME}" \
-    service-accounts list \
-    --limit 1 \
-    --format "value(email)")
+  # Kryptonite CLI for key management
+  #curl https://krypt.co/kr | sh
 
-# Create a instance
-gcloud beta compute --project "${PROJECT_NAME}" \
-  instances create "${INSTANCE_NAME}" \
-  --zone "us-central1-b" \
-  --machine-type "g1-small" \
-  --subnet "default" \
-  --maintenance-policy "MIGRATE" \
-  --service-account "${SERVICE_ACCOUNT}" \
-  --scopes "https://www.googleapis.com/auth/cloud-platform" \
-  --min-cpu-platform "Automatic" \
-  --image "ubuntu-1604-xenial-v20171212a" \
-  --image-project "ubuntu-os-cloud" \
-  --boot-disk-size "10" \
-  --boot-disk-type "pd-standard" \
-  --boot-disk-device-name "${INSTANCE_NAME}" \
-  --metadata-from-file startup-script="${TEMP}"
+  # for R
+  sudo apt-get -y install libxml2-dev
+  sudo apt-get -y install libcurl4-openssl-dev 
+  sudo apt-get -y install libssl-dev 
 
-rm "${TEMP}"
+  # open blas
+  sudo apt-get -y install libopenblas-base
+  sudo apt-get -y install libatlas3-base
+
+  # Git
+  sudo -i -u "${USERNAME}" git config --global user.name "Masatoshi Katabuchi"
+  sudo -i -u "${USERNAME}" git config --global user.email "mattocci27@gmail.com"
+}
+
+# Update on each startup except the first time
+update()
+{
+  apt-get update
+  apt-get upgrade
+  #kr upgrade
+}
+
+tell_my_ip_address_to_dns()
+{
+}
+
+main

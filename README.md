@@ -59,6 +59,7 @@ sudo tlmgr update --all
 sudo tlmgr install titling framed inconsolata
 sudo tlmgr install collection-fontsrecommended
 sudo tlmgr install latexdiff
+sudo tlmgr install multirow
 
 # japanese
 brew cask install google-japanese-ime

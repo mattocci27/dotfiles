@@ -4,7 +4,7 @@
     images: {}
   "autocomplete-bibtex":
     references: [
-      "~/Dropbox/MS/LES_MS/LMApsModel/ms/ref.bib"
+      "~/Dropbox/MS/sad_imm/ms/ref_sad.bib"
     ]
   "autocomplete-python":
     useKite: false
