@@ -22,7 +22,7 @@ git clone git://github.com/mattocci27/dotfiles.git ~/dotfiles
 cd dotfiles
 
 # install brew packages
-./brew_install.sh
+./brew.sh setup
 
 # make symbolic links
 ./dotfilesLink.sh deploy
@@ -30,7 +30,7 @@ cd dotfiles
 
 This keeps brew and brewlist up to date.
 ```shell
-./brew.sh
+./brew.sh update
 ```
 
 Install R packages.

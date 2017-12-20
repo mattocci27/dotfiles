@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Settings
-PROJECT_NAME="personal-env"
+PROJECT_NAME="silver-spark-121023"
 STARTUP_SCRIPT_URL="https://github.com/mattocci27/dotfiles/blob/master/startup_script.sh"
 
 # Arguments
@@ -42,3 +42,4 @@ gcloud beta compute --project "${PROJECT_NAME}" \
   --metadata-from-file startup-script="${TEMP}"
 
 rm "${TEMP}"
+
