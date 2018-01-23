@@ -2,10 +2,7 @@
   Hydrogen: {}
   "atom-pronama-chan":
     images: {}
-  "autocomplete-bibtex":
-    references: [
-      "~/Dropbox/MS/sad_imm/ms/ref_sad.bib"
-    ]
+  "autocomplete-bibtex": {}
   "autocomplete-python":
     useKite: false
   core:

@@ -7,6 +7,7 @@ export PATH="/usr/local/sbin:/usr/local/bin:/Developer/usr/bin:/Developer/usr/sb
 # use home brew packages
 export PATH=/usr/local/bin:/usr/bin:$PATH
 export PATH=/usr/local/opt/llvm/bin:$PATH
+export PATH=/usr/local/opt/xz/bin:$PATH
 
 export PATH=$HOME/.cabal/bin:$PATH
 

@@ -24,6 +24,7 @@ gdbm
 gettext
 ghc
 ghc@8.0
+ghostscript
 ghq
 git
 git-lfs
@@ -58,6 +59,7 @@ libvterm
 libxml2
 libxslt
 libyaml
+little-cms2
 llvm
 lua
 luajit
