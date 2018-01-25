@@ -2,7 +2,10 @@
   Hydrogen: {}
   "atom-pronama-chan":
     images: {}
-  "autocomplete-bibtex": {}
+  "autocomplete-bibtex":
+    bibtex: [
+      "~/Dropbox/library.bib"
+    ]
   "autocomplete-python":
     useKite: false
   core:
@@ -26,10 +29,10 @@
       "language-julia"
       "remote-edit"
       "remote-edit2"
-      "vim-surround"
       "language-gfm"
       "language-markdown"
       "markdown-writer"
+      "vim-surround"
     ]
     ignoredNames: [
       ".git"

@@ -90,6 +90,12 @@
   'j': 'vim-mode-plus:move-down-screen'
   'k': 'vim-mode-plus:move-up-screen'
 
+# Surround mode in vim-mode-plus
+'atom-text-editor.vim-mode-plus.normal-mode':
+  'y s': 'vim-mode-plus:surround'
+  'y s w': 'vim-mode-plus:surround-word'
+  'S': 'vim-mode-plus:surround-word'
+
 # Default Keymaps for Markdown Writer
 # https://atom.io/packages/markdown-writer
 #
