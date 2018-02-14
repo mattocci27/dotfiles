@@ -29,6 +29,7 @@ setup(){
   # add rstudio URL 
   #sudo su -c "echo 'deb http://cran.rstudio.com/bin/linux/debian stretch-cran34/' >> /etc/apt/sources.list"
 
+  # need key for ubuntu
   sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E084DAB9
   gpg -a --export E084DAB9 | sudo apt-key add -
 
@@ -94,6 +95,14 @@ install_Rstudio(){
 }
 
 
+# Update on each startup except the first time
+update()
+{
+  sudo apt-get update
+  sudo apt-get upgrade
+  kr upgrade
+}
+
 command=$1
 [ $# -gt 0 ] && shift
 
@@ -103,6 +112,9 @@ case $command in
     ;;
   rstudio*)
     install_Rstudio
+    ;;
+  update*)
+    update
     ;;
   *)
     usage
