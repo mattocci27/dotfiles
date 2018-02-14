@@ -10,7 +10,6 @@
     useKite: false
   core:
     disabledPackages: [
-      "keybinding-resolver"
       "Remote-FTP"
       "autocomplete-emojis"
       "symbols-tree-view"

@@ -63,6 +63,7 @@
 # -------------------------
 '.tree-view':
   '-': 'choose-pane:start'
+  'ctrl-e': 'toggle'
   # 'm m': 'choose-pane:focus-last-focused'
   'g g': 'core:move-to-top'
   'shift-g': 'core:move-to-bottom'
