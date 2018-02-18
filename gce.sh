@@ -8,6 +8,7 @@ Usage:
 Commands:
   setup
   rstudio
+  update
 Arguments:
   -h Print help
 EOF
@@ -92,6 +93,28 @@ install_Rstudio(){
   #add user(s)
   sudo useradd mattocci
   #echo username:password | chpasswd 
+}
+
+install_dropbox(){
+  # install dropox 
+  cd ~ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -
+  ~/.dropbox-dist/dropboxd
+
+  # download script
+  mkdir -p ~/bin
+  wget -O ~/bin/dropbox.py "http://www.dropbox.com/download?dl=packages/dropbox.py" 
+
+  # permission
+  Chmod 755 ~/bin/dropbox.py
+
+  # list
+  ls ~/Dropbox > dropbox.txt
+
+  # exclude all 
+  while read list
+    do
+      ~/bin/dropbox.py exclude add ~/Dropbox/$list
+  done < dropbox.txt
 }
 
 

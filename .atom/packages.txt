@@ -6,7 +6,7 @@ atom-beautify@0.30.9
 atom-ide-ui@0.8.1
 atom-material-syntax@1.0.8
 atom-material-syntax-dark@1.0.0
-atom-material-ui@2.1.1
+atom-material-ui@2.1.3
 atom-pronama-chan@1.1.1
 autocomplete-R@0.6.0
 autocomplete-bibtex@1.2.0
