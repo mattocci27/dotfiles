@@ -7,7 +7,6 @@ Usage:
   $name [arguments] [command]
 Commands:
   setup
-  rstudio
   update
 Arguments:
   -h Print help
@@ -76,9 +75,6 @@ setup(){
   # Kryptonite CLI for key management
   curl https://krypt.co/kr | sh
 
-}
-
-install_Rstudio(){
   #install RStudio-Server
   wget https://download2.rstudio.org/rstudio-server-1.1.423-amd64.deb
   sudo gdebi rstudio-server-1.1.423-amd64.deb
@@ -93,9 +89,7 @@ install_Rstudio(){
   #add user(s)
   sudo useradd mattocci
   #echo username:password | chpasswd 
-}
 
-install_dropbox(){
   # install dropox 
   cd ~ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -
   ~/.dropbox-dist/dropboxd
@@ -115,7 +109,47 @@ install_dropbox(){
     do
       ~/bin/dropbox.py exclude add ~/Dropbox/$list
   done < dropbox.txt
+
 }
+
+#install_Rstudio(){
+#  #install RStudio-Server
+#  wget https://download2.rstudio.org/rstudio-server-1.1.423-amd64.deb
+#  sudo gdebi rstudio-server-1.1.423-amd64.deb
+#  rm rstudio-server-1.1.423-amd64.deb
+#
+#  #install shiny and shiny-server
+#  R -e "install.packages('shiny', repos='http://cran.rstudio.com/')"
+#  wget https://download3.rstudio.org/ubuntu-12.04/x86_64/shiny-server-1.5.6.875-amd64.deb
+#  sudo gdebi shiny-server-1.5.6.875-amd64.deb
+#  rm shiny-server-1.5.6.875-amd64.deb
+#
+#  #add user(s)
+#  sudo useradd mattocci
+#  #echo username:password | chpasswd 
+#}
+#
+#install_dropbox(){
+#  # install dropox 
+#  cd ~ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -
+#  ~/.dropbox-dist/dropboxd
+#
+#  # download script
+#  mkdir -p ~/bin
+#  wget -O ~/bin/dropbox.py "http://www.dropbox.com/download?dl=packages/dropbox.py" 
+#
+#  # permission
+#  Chmod 755 ~/bin/dropbox.py
+#
+#  # list
+#  ls ~/Dropbox > dropbox.txt
+#
+#  # exclude all 
+#  while read list
+#    do
+#      ~/bin/dropbox.py exclude add ~/Dropbox/$list
+#  done < dropbox.txt
+#}
 
 
 # Update on each startup except the first time
@@ -132,9 +166,6 @@ command=$1
 case $command in
   setup)
     setup
-    ;;
-  rstudio*)
-    install_Rstudio
     ;;
   update*)
     update
