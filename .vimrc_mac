@@ -218,6 +218,7 @@ Plugin 'vim-scripts/SyntaxRange'
 Plugin 'shime/vim-livedown'
 Plugin 'tpope/vim-surround'
 Plugin 'wavded/vim-stylus'
+Plugin 'maverickg/stan.vim'
 
 " snippet
 Plugin 'SirVer/ultisnips'
