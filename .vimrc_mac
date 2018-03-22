@@ -136,11 +136,10 @@ nnoremap sL <C-w>L
 nnoremap sH <C-w>H
 
 "autocomplete for {} ()
-inoremap { {}<Left>
-inoremap {<Enter> {}<Left><CR><ESC><S-o>
-inoremap ( ()<ESC>i
-inoremap (<Enter> ()<Left><CR><ESC><S-o>))}}
-"jj for ESC
+"inoremap { {}<Left>
+"inoremap {<Enter> {}<Left><CR><ESC><S-o>
+"inoremap ( ()<ESC>i
+"inoremap (<Enter> ()<Left><CR><ESC><S-o>
 inoremap <silent> jj <ESC>
 
 " j/k for displayed line
@@ -219,6 +218,7 @@ Plugin 'shime/vim-livedown'
 Plugin 'tpope/vim-surround'
 Plugin 'wavded/vim-stylus'
 Plugin 'maverickg/stan.vim'
+Plugin 'jiangmiao/auto-pairs'
 
 " snippet
 Plugin 'SirVer/ultisnips'
