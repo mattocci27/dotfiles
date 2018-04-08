@@ -1,3 +1,6 @@
+library(dplyr)
+library(stringr)
+
 # works with base packages
 argv <- commandArgs(trailingOnly = TRUE)
 
@@ -19,7 +22,7 @@ pkgInfoRepo <- function(pkg.name, av_pk) {
     d = av_pk[pkg.name,]
     as.character(d["Version"])
   } else {
-    print("not in CRAN")
+    print(paste(pkg.name, "is not in CRAN"))
   }
 }
 
