@@ -18,6 +18,7 @@ fish
 fontconfig
 fontforge
 freetype
+fribidi
 fzf
 gcc
 gdbm
@@ -91,12 +92,14 @@ pyenv
 pyqt
 python
 python3
+python@2
 qt
 qt@5.7
 r
 rbenv
 readline
 reattach-to-user-namespace
+remake
 ricty
 ruby
 ruby-build

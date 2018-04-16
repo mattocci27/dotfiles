@@ -101,7 +101,7 @@
   termination:
     core: {}
     style:
-      theme: "solarized-light"
+      theme: "solarized-dark"
   "tool-bar":
     position: "Left"
   "tree-view":

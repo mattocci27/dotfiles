@@ -8,8 +8,8 @@ export PATH="/usr/local/sbin:/usr/local/bin:/Developer/usr/bin:/Developer/usr/sb
 export PATH=/usr/local/bin:/usr/bin:$PATH
 export PATH=/usr/local/opt/llvm/bin:$PATH
 export PATH=/usr/local/opt/xz/bin:$PATH
-
 export PATH=$HOME/.cabal/bin:$PATH
+export PATH=$HOME/context/tex/texmf-osx-64/bin$PATH
 
 # Python version management: pyenv
 export PYENV_ROOT="${HOME}/.pyenv"
@@ -327,7 +327,7 @@ function peco-ghq() {
   fi
 }
 zle -N peco-ghq
-bindkey 'cg' peco-ghq
+bindkey '^g' peco-ghq
 
 # ghq
 function peco-src () {

@@ -219,6 +219,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'wavded/vim-stylus'
 Plugin 'maverickg/stan.vim'
 Plugin 'jiangmiao/auto-pairs'
+Plugin 'sedm0784/vim-you-autocorrect'
 
 " snippet
 Plugin 'SirVer/ultisnips'

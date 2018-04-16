@@ -36,6 +36,8 @@ setup(){
   sudo su -c "echo 'deb https://cran.rstudio.com/bin/linux/ubuntu xenial/' >> /etc/apt/sources.list"
 
   # Foundamental tools
+
+  sudo add-apt-repository ppa:jonathonf/vim
   sudo apt-get update
   sudo apt-get -y install build-essential
   sudo apt-get -y install chromium-browser
@@ -99,16 +101,16 @@ setup(){
   wget -O ~/bin/dropbox.py "http://www.dropbox.com/download?dl=packages/dropbox.py" 
 
   # permission
-  Chmod 755 ~/bin/dropbox.py
+  chmod 755 ~/bin/dropbox.py
 
   # list
-  ls ~/Dropbox > dropbox.txt
+  ls ~/Dropbox > ~/dropbox.txt
 
   # exclude all 
   while read list
     do
       ~/bin/dropbox.py exclude add ~/Dropbox/$list
-  done < dropbox.txt
+  done < ~/dropbox.txt
 
 }
 
