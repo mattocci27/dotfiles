@@ -1,4 +1,5 @@
 " colors ---------------------------------------------------------------
+"
 syntax enable
 "test
 set background=dark
@@ -89,10 +90,11 @@ augroup END
 set nobackup
 set noswapfile
 set noundofile
-set guifont=Ricty\ Regular\ Nerd\ Font\ Plus\ Font\ Awesome\ Plus\ Octicons\ Plus\ Pomicons\ Plus\ Font\ Linux:h16
+set guifont=Cousine\ Regular\ Nerd\ Font\ Plus\ Font\ Awesome\ Plus\ Octicons\ Plus\ Pomicons\ Plus\ Font\ Linux:h14
 set encoding=utf-8
 set number " put line numbers
-set clipboard=unnamed,autoselect " use clipboard
+"set clipboard=unnamed,autoselect " use clipboard
+set clipboard=unnamed " use clipboard
 set ruler "use ruler
 set cmdheight=2 "height for cmd
 set laststatus=2 "position for status line
@@ -252,9 +254,14 @@ nmap <leader>qr <Plug>RClose
 vmap <leader>qr <Plug>RClose
 
 "Not to use the R.app
+"
+if $TMUX != ''
+  let R_source = '$HOME/dotfiles/R/tmux_split.vim'
+endif
+
 let R_in_buffer = 0
 let R_applescript = 0
-let R_tmux_split = 1
+"let R_tmux_split = 1
 let R_nvimpager = "tab"
 let R_rconsole_width = 0
 let R_assign = 0 "do not use <-
