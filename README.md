@@ -26,6 +26,8 @@ cd dotfiles
 
 # make symbolic links
 ./dotfilesLink.sh deploy
+
+ln -snfv ~/dotfiles/init.vim ~/.config/nvim/init.vim
 ```
 
 This keeps brew and brewlist up to date.
@@ -50,6 +52,18 @@ bash ./makevars.sh
 - setup [nerd-font](https://qiita.com/sizukutamago/items/2ba906ab3fa404eac02d)
 - [Alacritty](https://github.com/jwilm/alacritty)
 - [pyenv](https://qiita.com/crankcube@github/items/15f06b32ec56736fc43a)
+
+```shell
+chmod 755 font-patcher
+
+fontforge -script ./font-patcher ~/Library/Fonts/Causine-Regular.ttf --fontawesome --fontlinux --octicons --pomicons --powerline --powerlineextra --devicon
+
+cp -f ./Ricty\ Regular\ for\ Powerline\ Nerd\ Font\ Complete.ttf ~/Library/Fonts/
+fc-cache -vf
+
+```
+
+
 
 ```shell
 # tex
