@@ -4,7 +4,7 @@
 " Specify a directory for plugins
 " - For Neovim: ~/.local/share/nvim/plugged
 " - Avoid using standard Vim directory names like 'plugin'
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.local/share/nvim/plugged')
   Plug 'gmarik/Vundle.vim'
   Plug 'scrooloose/nerdtree'
   Plug 'ryanoasis/vim-devicons'
@@ -121,7 +121,7 @@ vmap <leader>qr <Plug>RClose
 "Not to use the R.app
 "
 if $TMUX != ''
-  let R_source = '$HOME/dotfiles/R/tmux_split.vim'
+  let R_source = '$HOME/dotfiles/tmux_split.vim'
 endif
 
 let R_app = "rtichoke"
