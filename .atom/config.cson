@@ -1,5 +1,6 @@
 "*":
   Hydrogen: {}
+  Zen: {}
   "atom-pronama-chan":
     images: {}
   "autocomplete-bibtex":
@@ -17,7 +18,6 @@
       "atom-pronama-chan"
       "script"
       "Hydrogen"
-      "markdown-preview-enhanced"
       "markdown-preview"
       "minimap"
       "minimap-autohide"
@@ -32,6 +32,7 @@
       "language-markdown"
       "markdown-writer"
       "vim-surround"
+      "markdown-preview-plus"
     ]
     ignoredNames: [
       ".git"
@@ -53,7 +54,6 @@
     ]
   editor:
     fontFamily: "cousine"
-    fontSize: 15
     invisibles: {}
     lineHeight: 1.2
     showIndentGuide: true
@@ -69,14 +69,28 @@
   linter: {}
   "linter-ui-default":
     panelHeight: 81
+  "markdown-preview-enhanced":
+    fileExtension: ".md, .mmark, .markdown, .rmd"
   "markdown-preview-plus":
-    enablePandoc: true
-    pandocBIBFile: "ref_LES.bib"
-    pandocCSLFile: "ecology.csl"
+    grammars: [
+      "source.gfm"
+      "source.litcoffee"
+      "text.html.basic"
+      "text.md"
+      "text.plain"
+      "text.plain.null-grammar"
+      "text.rmd"
+    ]
+    mathConfig: {}
+    pandocConfig:
+      pandocBIBFile: "ref_LES.bib"
+      pandocCSLFile: "ecology.csl"
+    renderer: "pandoc"
   minimap:
     plugins:
       "minimap-autohide": true
       "minimap-autohideDecorationsZIndex": 0
+  "pdf-view": {}
   "platformio-ide":
     showHomeScreen: false
   "platformio-ide-terminal":

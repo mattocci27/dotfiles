@@ -3,7 +3,6 @@ library(stringr)
 
 # works with base packages
 argv <- commandArgs(trailingOnly = TRUE)
-
 my_lib <- argv[1]
 
 # list of installed packages

@@ -79,5 +79,4 @@ case $command in
   *)
     usage
     ;;
-esac
 

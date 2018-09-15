@@ -8,7 +8,6 @@ export PATH="/usr/local/sbin:/usr/local/bin:/Developer/usr/bin:/Developer/usr/sb
 export PATH=/usr/local/bin:/usr/bin:$PATH
 export PATH=/usr/local/opt/llvm/bin:$PATH
 export PATH=/usr/local/opt/xz/bin:$PATH
-export PATH=$HOME/.cabal/bin:$PATH
 export PATH=$HOME/context/tex/texmf-osx-64/bin$PATH
 
 # Python version management: pyenv
@@ -34,6 +33,9 @@ export PATH=$PATH:$GOPATH/bin
 
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
  w
+
+# pandoc
+#export PATH=$HOME/pandoc/.cabal-sandbox/bin:$PATH
 
 # locale
 # without this, tmux does not recognize some fonts

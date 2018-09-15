@@ -46,6 +46,10 @@ bash ./makevars.sh
 
 # update installed packages
 ./Rpkg.sh update
+
+# Rtichoke
+# install released version
+pip install -U rtichoke
 ```
 
 # Other setup

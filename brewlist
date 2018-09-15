@@ -8,9 +8,6 @@ cairo
 cmake
 coreutils
 cscope
-docker
-docker-compose
-docker-machine
 eigen
 ffmpeg
 fftw
@@ -20,6 +17,7 @@ fontforge
 freetype
 fribidi
 fzf
+fzy
 gcc
 gdbm
 gettext
@@ -36,6 +34,7 @@ go
 gobject-introspection
 graphite2
 grc
+gsl
 harfbuzz
 hdf5
 hyper
@@ -67,6 +66,7 @@ luajit
 macvim
 mas
 mbedtls
+mosh
 mpfr
 msgpack
 neovim
@@ -88,6 +88,7 @@ peco
 perl
 pixman
 pkg-config
+protobuf
 pyenv
 pyqt
 python
@@ -101,6 +102,7 @@ readline
 reattach-to-user-namespace
 remake
 ricty
+ripgrep
 ruby
 ruby-build
 sip
@@ -112,6 +114,7 @@ tcl-tk
 texinfo
 the_silver_searcher
 tmux
+tmux-mem-cpu-load
 tree
 unibilium
 unixodbc
