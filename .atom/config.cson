@@ -23,7 +23,6 @@
       "minimap-autohide"
       "linter"
       "terminal-plus"
-      "atom-ide-ui"
       "autocomplete-python"
       "language-julia"
       "remote-edit"
