@@ -60,7 +60,7 @@ pip install -U rtichoke
 ```shell
 chmod 755 font-patcher
 
-fontforge -script ./font-patcher ~/Library/Fonts/Causine-Regular.ttf --fontawesome --fontlinux --octicons --pomicons --powerline --powerlineextra --devicon
+fontforge -script ./font-patcher ~/Library/Fonts/Cousine-Regular.ttf --fontawesome --fontlinux --octicons --pomicons --powerline --powerlineextra
 
 cp -f ./Ricty\ Regular\ for\ Powerline\ Nerd\ Font\ Complete.ttf ~/Library/Fonts/
 fc-cache -vf

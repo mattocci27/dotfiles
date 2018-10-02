@@ -22,7 +22,6 @@ gcc
 gdbm
 gettext
 ghc
-ghc@8.0
 ghostscript
 ghq
 git
@@ -96,13 +95,11 @@ python
 python3
 python@2
 qt
-qt@5.7
 r
 rbenv
 readline
 reattach-to-user-namespace
 remake
-ricty
 ripgrep
 ruby
 ruby-build
