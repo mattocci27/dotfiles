@@ -9,7 +9,6 @@ cowplot
 microbenchmark
 rmarkdown
 picante
-LeafArea
 lme4
 provenance
 kableExtra
@@ -18,3 +17,4 @@ bookdown
 rstan
 loo
 rstanarm
+languageserver

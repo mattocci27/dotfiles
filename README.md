@@ -58,6 +58,16 @@ pip install -U rtichoke
 - [pyenv](https://qiita.com/crankcube@github/items/15f06b32ec56736fc43a)
 
 ```shell
+CFLAGS="-I$(brew --prefix readline)/include -I$(brew --prefix openssl)/include -I$(xcrun --show-sdk-path)/usr/include" \
+LDFLAGS="-L$(brew --prefix readline)/lib -L$(brew --prefix openssl)/lib" \
+PYTHON_CONFIGURE_OPTS=--enable-unicode=ucs2 \
+pyenv install -v 3.7.0
+
+pyenv install -l | grep '^3.7\.'
+
+```
+
+```shell
 chmod 755 font-patcher
 
 fontforge -script ./font-patcher ~/Library/Fonts/Cousine-Regular.ttf --fontawesome --fontlinux --octicons --pomicons --powerline --powerlineextra

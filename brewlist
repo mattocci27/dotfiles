@@ -69,7 +69,6 @@ mbedtls
 mosh
 mpfr
 msgpack
-neovim
 node
 nodebrew
 numpy
@@ -91,9 +90,6 @@ pkg-config
 protobuf
 pyenv
 pyqt
-python
-python3
-python@2
 qt
 r
 rbenv
