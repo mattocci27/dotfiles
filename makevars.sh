@@ -7,9 +7,9 @@ if [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
   MAKEVARS="${MAKEVARS} -DBOOST_PHOENIX_NO_VARIADIC_EXPRESSION"
 # additional for mac
 elif [ "$(uname)" == 'Darwin' ]; then
-  MAKEVARS="${MAKEVARS}
-  \nCC=clang
-  \nCXX=clang++ -arch x86_64 -ftemplate-depth-256"
+  MAKEVARS="${MAKEVARS}\n
+  CC=clang\n
+  CXX=clang++ -arch x86_64 -ftemplate-depth-256"
 fi
 
 # create Makevars in .R
