@@ -84,7 +84,8 @@ fc-cache -vf
 brew cask install basictex
 sudo tlmgr update --self
 sudo tlmgr update --all
-sudo tlmgr intall collection-fontsrecommended \
+
+sudo tlmgr install collection-fontsrecommended \
   type1cm \
   titling \
   framed \
