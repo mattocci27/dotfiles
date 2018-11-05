@@ -84,10 +84,25 @@ fc-cache -vf
 brew cask install basictex
 sudo tlmgr update --self
 sudo tlmgr update --all
-sudo tlmgr install titling framed inconsolata
-sudo tlmgr install collection-fontsrecommended
-sudo tlmgr install latexdiff
-sudo tlmgr install multirow
+sudo tlmgr intall collection-fontsrecommended \
+  type1cm \
+  titling \
+  framed \
+  inconsolata \
+  latexdiff \
+  biblatex \
+  biber \
+  bibtex8 \
+  subfigure \
+  dvipdfmx \
+  multirow \
+  lastpage \
+  lipsum \
+  titlesec \
+  wrapfig \
+  sidecap \
+  standalone \
+  preview
 
 # japanese
 brew cask install google-japanese-ime
