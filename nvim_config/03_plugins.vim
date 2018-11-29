@@ -5,7 +5,7 @@
 " - For Neovim: ~/.local/share/nvim/plugged
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.local/share/nvim/plugged')
-  Plug 'gmarik/Vundle.vim'
+  "Plug 'gmarik/Vundle.vim'
   Plug 'scrooloose/nerdtree'
   Plug 'ryanoasis/vim-devicons'
   Plug 'tiagofumo/vim-nerdtree-syntax-highlight' "
@@ -44,10 +44,19 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'junegunn/fzf'
   Plug 'junegunn/fzf.vim'
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+ 
+  " julia
+  Plug 'JuliaEditorSupport/julia-vim'
 
   " snippet
   Plug 'SirVer/ultisnips'
   Plug 'honza/vim-snippets'
+
+  " color
+  Plug 'dracula/vim', { 'as': 'dracula' }
+  Plug 'drewtempelmeyer/palenight.vim'
+
+
 call plug#end()
 
 " R-LSP{{{
@@ -92,8 +101,17 @@ let g:LanguageClient_serverCommands = {
     \ 'r': ['R', '--slave', '-e', 'languageserver::run()'],
     \ 'rmd': ['R', '--slave', '-e', 'languageserver::run()'],
     \ 'python': ['/usr/local/bin/pyls'],
+    \ 'julia': ['julia', '--startup-file=no', '--history-file=no', '-e', '
+    \       using LanguageServer;
+    \       server = LanguageServer.LanguageServerInstance(stdin, stdout, false);
+    \       server.runlinter = true;
+    \       run(server);
+    \ '],
     \ }
 let g:LanguageClient_loadSettings = 1
+
+let g:default_julia_version = '1.0'
+
 " }}}
 " nerdtree {{{
 noremap <silent><C-e> :NERDTreeToggle<CR>

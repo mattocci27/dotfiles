@@ -6,3 +6,4 @@ packages
 .DS_Store
 .vim/bundle/
 .vim/pack/
+.vim/

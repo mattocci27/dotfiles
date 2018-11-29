@@ -29,6 +29,7 @@ if (v:version >= 800) && has("termguicolors")
     let &t_EI = "\<Esc>]50;CursorShape=\e[2 q\x7"
 
   colorscheme my_material2
+  "colorscheme palenight
   highlight CursorLine guibg='#292930'
 else
   autocmd ColorScheme * highlight Normal ctermbg=none
