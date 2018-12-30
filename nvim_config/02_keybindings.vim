@@ -1,4 +1,9 @@
 " keybinding
+
+"yank to system clipboard
+vnoremap <y> "+y
+vnoremap <d> "+d
+
 "noremap! <c-j> <esc>
 "vmap<c-j> <esc>
 nnoremap <s-h>   ^

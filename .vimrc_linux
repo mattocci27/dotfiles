@@ -6,6 +6,12 @@ set background=dark
 set t_ut= "clearing uses the current background color
 
 set t_Co=256
+
+" alacritty Operator Mono and VIM #489
+"https://github.com/jwilm/alacritty/issues/489
+hi Comment gui=italic cterm=italic
+hi htmlArg gui=italic cterm=italic
+
 "colorscheme onedark
 if (v:version >= 800) && has("termguicolors")
   set termguicolors
@@ -39,7 +45,7 @@ else
 endif
 
 "set cursorline
-set updatetime=200
+set updatetime=4000
 augroup vimrc-auto-cursorline
   autocmd CursorMoved,CursorMovedI * call s:auto_cursorline('CursorMoved')
   autocmd CursorHold,CursorHoldI * call s:auto_cursorline('CursorHold')
@@ -69,19 +75,6 @@ augroup vimrc-auto-cursorline
   endfunction
 augroup END
 
-function! PropagatePasteBufferToOSX()
-  let @n=getreg("*")
-  call system('pbcopy-remote', @n)
-  echo "done"
-endfunction
-
-function! PopulatePasteBufferFromOSX()
-  let @+ = system('pbpaste-remote')
-  echo "done"
-endfunction
-
-nnoremap <leader>6 :call PopulatePasteBufferFromOSX()<cr>
-nnoremap <leader>7 :call PropagatePasteBufferToOSX()<cr>
 "let g:lightline = {
 "  \ 'colorscheme': 'material-theme',
 "  \ }
@@ -135,6 +128,10 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 nnoremap <C-h> <C-w>h
 
+nnoremap sJ <C-w>J
+nnoremap sK <C-w>K
+nnoremap sL <C-w>L
+nnoremap sH <C-w>H
 
 inoremap { {}<Left>
 inoremap {<Enter> {}<Left><CR><ESC><S-o>

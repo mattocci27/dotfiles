@@ -1,0 +1,104 @@
+#!/usr/bin/env bash
+set -e
+
+# command line tools
+sudo xcode-select --install
+
+# homebrew
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+echo "Installing Python dependencies..."
+brew install --noconfirm python \
+  python-pip \
+  python2-neovim \
+  python-neovim \
+
+echo "Installing tools..."
+yay -S --noconfirm peco \
+  zsh \
+  clang \
+  gcc-fortran \
+  tmux \
+  tmux-mem-cpu-load \
+  ruby \
+  rubygems \
+  ruby-rdoc \
+  gsimplecal \
+  imagemagick \
+  openmpi \
+  openblas \
+  fontforge \
+  google-chrome \
+  brave \
+  atom \
+  apm \
+  albert \
+  blueman \
+  electronic-wechat
+
+echo "Installing Japanese..."
+yay -S --noconfirm fcitx-mozc \
+  fcitx-im
+
+echo "Installing Dropbox..."
+yay -S --noconfirm dropbox \
+  dropbox-nautilus-dropbox
+
+echo "Installing Latex..."
+yay -S --noconfirm texlive-langjapanese \
+  texlive-langchinse \
+  ghostscript \
+  evince \
+  poppler-data \
+  pandoc \
+  pandoc-citeproc \
+  pandoc-crossref \
+  texlive-most
+
+echo "Installing fonts..."
+yay -S --noconfirm otf-ipaexfont
+
+echo "Installing R depenencies..."
+yay -S --noconfirm r
+
+echo "Installing Julia depenencies..."
+yay -S --noconfirm julia
+
+# vim-plug
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+# zsh
+curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
+
+
+# font
+git clone https://github.com/ryanoasis/nerd-fonts
+cd nerd-fonts
+chmod 755 font-patcher
+
+fontforge -script ./font-patcher /user/share/fonts/Cousine/Cousine-Regular.ttf --fontawesome --fontlinux --octicons --pomicons --powerline --powerlineextra
+
+cd ..
+
+# make symbolic links
+cd dotfiles
+./dotfilesLink.sh deploy
+
+DOT_DIRECTORY="${HOME}/dotfiles"
+#ln -snfv ${DOT_DIRECTORY}/alacritty.yml ${HOME}/.config/alacritty/.alacritty.yml
+ln -snfv ${DOT_DIRECTORY}/.i3 ${HOME}/.i3
+ln -snfv ${DOT_DIRECTORY}/.Xresources ${HOME}/.Xresources
+
+# display
+# for full HD
+
+xrandr --dpi 276 --fb 5440x3060 \
+  --output HDMI1 --scale 1.5x1.5 \
+  --output eDP1 --panning 2560x1440+0+1620
+
+cat $XDG_ONFIG_HOME/alacritty/alacritty.yml
+cat $XDG_CONFIG_HOME/alacritty.yml
+cat $HOME/.config/alacritty/alacritty.yml
+cat $HOME/.alacritty.yml
+

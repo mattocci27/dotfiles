@@ -1,40 +1,45 @@
 # enviromeant variables -------------------------------------------------------
 # export LANG=ja_JP.UTF-8
 #export PYTHONPATH=/usr/local/lib/python3.6/site-packages:$PYTHONPATH
+#
 
-export PATH="/usr/local/sbin:/usr/local/bin:/Developer/usr/bin:/Developer/usr/sbin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
+case `uname` in
+  Darwin)
+  export PATH="/usr/local/sbin:/usr/local/bin:/Developer/usr/bin:/Developer/usr/sbin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
+  # use home brew packages
+  export PATH=/usr/local/bin:/usr/bin:$PATH
+  export PATH=/usr/local/opt/llvm/bin:$PATH
+  export PATH=/usr/local/opt/xz/bin:$PATH
+  export PATH=$HOME/context/tex/texmf-osx-64/bin:$PATH
+  # Python version management: pyenv
+  export PYENV_ROOT="${HOME}/.pyenv"
+  export PATH="${PYENV_ROOT}/bin:$PATH"
+  eval "$(pyenv init -)"
 
-# use home brew packages
-export PATH=/usr/local/bin:/usr/bin:$PATH
-export PATH=/usr/local/opt/llvm/bin:$PATH
-export PATH=/usr/local/opt/xz/bin:$PATH
-export PATH=$HOME/context/tex/texmf-osx-64/bin:$PATH
-# Python version management: pyenv
-export PYENV_ROOT="${HOME}/.pyenv"
-export PATH="${PYENV_ROOT}/bin:$PATH"
-eval "$(pyenv init -)"
+  export PATH=$HOME/.nodebrew/current/bin:$PATH
+  export PATH=/usr/local/opt/qt5/bin:$PATH
+  export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
+  export R_LIBS_USER R_LIBS=Testing_Tmux
 
-export PATH=$HOME/.nodebrew/current/bin:$PATH
-export PATH=/usr/local/opt/qt5/bin:$PATH
-export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+  export PATH=/Library/TeX/Root/bin/x86_64-darwin:$PATH
 
-export R_LIBS_USER R_LIBS=Testing_Tmux
+  # rsut
+  export PATH="$HOME/.cargo/bin:$PATH"
 
-export PATH=/Library/TeX/Root/bin/x86_64-darwin:$PATH
+  #go
+  export GOPATH=$HOME
+  export PATH=$PATH:$GOPATH/bin
+    ;;
+  Linux)
+    ;;
+esac
 
-# rsut
-export PATH="$HOME/.cargo/bin:$PATH"
-
-#go
-export GOPATH=$HOME
-export PATH=$PATH:$GOPATH/bin
+# ruby
+export PATH=$HOME/.gem/ruby/2.5.0/bin:$PATH
 
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
  w
-
-# pandoc
-#export PATH=$HOME/pandoc/.cabal-sandbox/bin:$PATH
 
 # locale
 # without this, tmux does not recognize some fonts
@@ -51,7 +56,8 @@ bindkey -M vicmd 'L' vi-end-of-line
 bindkey -M vicmd 'H' vi-first-non-blank
 
 function zle-line-init zle-keymap-select {
-  VIM_NORMAL="%K{120}%F{235}⮀%k%f%K{120}%F{235} % NORMAL %k%f%K{263238}%F{120}⮀%k%f"
+  #VIM_NORMAL="%K{120}%F{235}⮀%k%f%K{120}%F{235} % NORMAL %k%f%K{263239}%F{120}⮀%k%f"
+  VIM_NORMAL="%F{black}%K{yellow} NORMAL %F{yellow}"
   VIM_INSERT="%K{075}%F{235}%k%f%K{075}%F{235} % INSERT %k%f%K{263238}%F{075}%k%f"
   RPS1="${${KEYMAP/vicmd/$VIM_NORMAL}/(main|viins)/$VIM_INSERT}"
   RPS2=$RPS1
@@ -111,22 +117,22 @@ zstyle ':zle:*' word-style unspecified
 ########################################
 # autocomplete
 #
-autoload -Uz compinit
-# give -C to ignore compinit security check
-compinit -C
-
-# 補完で小文字でも大文字にマッチさせる
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
-
-# ../ の後は今いるディレクトリを補完しない
-zstyle ':completion:*' ignore-parents parent pwd ..
-
-# sudo の後ろでコマンド名を補完する
-zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin \
-                   /usr/sbin /usr/bin /sbin /bin /usr/X11R6/bin
-
-# ps コマンドのプロセス名補完
-zstyle ':completion:*:processes' command 'ps x -o pid,s,args'
+#autoload -Uz compinit
+## give -C to ignore compinit security check
+#compinit -C
+#
+## 補完で小文字でも大文字にマッチさせる
+#zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+#
+## ../ の後は今いるディレクトリを補完しない
+#zstyle ':completion:*' ignore-parents parent pwd ..
+#
+## sudo の後ろでコマンド名を補完する
+#zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin \
+#                   /usr/sbin /usr/bin /sbin /bin /usr/X11R6/bin
+#
+## ps コマンドのプロセス名補完
+#zstyle ':completion:*:processes' command 'ps x -o pid,s,args'
 
 
 ########################################
@@ -192,6 +198,8 @@ setopt extended_glob
 
 ########################################
 # エイリアス
+
+[ 'uname' = "Linux" ] && alias open='xdg-open'
 
 alias la='ls -a'
 alias ll='ls -l'
@@ -356,3 +364,20 @@ function ssh() {
   fi
 }
 
+# z plug -----------------------------------------------------------
+#
+source ~/.zplug/init.zsh
+
+zplug "zsh-users/zsh-autosuggestions"
+zplug "zsh-users/zsh-syntax-highlighting"
+zplug "zsh-users/zsh-completions"
+
+if ! zplug check --verbose; then
+    printf "Install? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    fi
+fi
+
+# プラグインを読み込み、コマンドにパスを通す
+zplug load --verbose

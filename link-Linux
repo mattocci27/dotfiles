@@ -1,0 +1,17 @@
+.gitoconfig
+.zshrc
+.Rprofile
+.tmux.conf
+.Xresources
+.xinitrc
+.inputrc
+.gtkrc-2.0
+.config/alacritty/alacritty.yml
+.config/nvim/init.vim
+.config/nvim/colors/my_material2.vim
+.atom/config.cson
+.atom/init.coffee
+.atom/keymap.cson
+.atom/snippets.cson
+.atom/styles.less
+.atom/packages.txt

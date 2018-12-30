@@ -1,0 +1,98 @@
+#!/usr/bin/env bash
+set -e
+
+# Foundamental tools
+sudo pacman -Ssy
+
+sudo pacman -S base-devel wget
+
+echo "Installing yay..."
+if ! command -v "yay" >/dev/null 2>&1; then
+    cd $HOME
+    git clone https://aur.archlinux.org/yay.git
+    cd yay
+    makepkg -si
+    cd -
+fi
+
+echo "Installing Python dependencies..."
+yay -S --noconfirm python \
+  python-pip \
+  python2-neovim \
+  python-neovim \
+
+echo "Installing tools..."
+yay -S --noconfirm xsel \
+  peco \
+  zsh \
+  clang \
+  gcc-fortran \
+  docker \
+  tmux \
+  tmux-mem-cpu-load \
+  ruby \
+  rubygems \
+  ruby-rdoc \
+  rofi \
+  compton \
+  i3lock \
+  i3blocks-gaps-git \
+  i3status-git \
+  gsimplecal \
+  thunderbird \
+  thunderbird-enigmail-bin \
+  feh \
+  imagemagick \
+  openmpi \
+  openblas \
+  julia \
+  fontforge \
+  google-chrome \
+  brave \
+  apm \
+  atom \
+  albert \
+  blueman \
+  electronic-wechat \
+  nerd-fonts-git
+
+# enpass zotero discord
+
+echo "Installing Japanese..."
+yay -S --noconfirm fcitx-mozc \
+  fcitx-im
+
+echo "Installing Dropbox..."
+yay -S --noconfirm dropbox \
+  dropbox-nautilus-dropbox
+
+echo "Installing Latex..."
+yay -S --noconfirm texlive-langjapanese \
+  texlive-langchinse \
+  ghostscript \
+  evince \
+  poppler-data \
+  pandoc \
+  pandoc-citeproc \
+  pandoc-crossref \
+  texlive-most
+
+echo "Installing fonts..."
+yay -S --noconfirm otf-ipaexfont
+
+echo "Installing R depenencies..."
+yay -S --noconfirm r
+
+
+### need fix =========================================================
+# font
+git clone https://github.com/ryanoasis/nerd-fonts
+cd nerd-fonts
+chmod 755 font-patcher
+
+fontforge -script ./font-patcher /user/share/fonts/Cousine/Cousine-Regular.ttf --fontawesome --fontlinux --octicons --pomicons --powerline --powerlineextra
+
+cd ..
+
+yay -S --noconfirm thunderbird \
+  thunderbird-enigmail-bin 

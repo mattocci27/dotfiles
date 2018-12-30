@@ -1,4 +1,10 @@
 rm(list = ls()) # This clears everything from memory.
+# cran 
+local({
+  r = getOption("repos")
+  r["CRAN"] = "https://cran.mtu.edu/"
+  options(repos = r)
+})
 
 # read packages
 options(

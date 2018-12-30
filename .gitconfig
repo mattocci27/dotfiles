@@ -8,7 +8,7 @@
 	required = true
 	process = git-lfs filter-process
 [core]
-	editor = vim
+	editor = vi
 	excludesfile = /Users/mattocci/.gitignore_global
 
 [ghq]

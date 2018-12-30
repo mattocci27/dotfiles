@@ -10,6 +10,7 @@ hi Comment gui=italic cterm=italic
 hi htmlArg gui=italic cterm=italic
 
 if (v:version >= 800) && has("termguicolors")
+"if has("nvim") && has("termguicolors")
   set termguicolors
   set t_8b=[48;2;%lu;%lu;%lum
   set t_8f=[38;2;%lu;%lu;%lum
@@ -38,7 +39,26 @@ else
   colorscheme material-theme
 endif
 
-"set cursorline
+" tranparent
+highlight Normal guibg=none 
+highlight NonText guibg=none
+highlight LineNr guibg=none
+highlight Folded guibg=none
+highlight EndOfBuffer guibg=none
+
+"ses_transparent = 0
+function! Toggle_transparent()
+    if t:is_transparent == 0
+        hi Normal guibg=NONE ctermbg=NONE
+        let t:is_transparent = 1
+    else
+        set background=dark
+        let t:is_tranparent = 0
+    endif
+endfunction
+nnoremap <C-t> : call Toggle_transparent()<CR>t cursorline
+
+
 set updatetime=4000
 augroup vimrc-auto-cursorline
   autocmd CursorMoved,CursorMovedI * call s:auto_cursorline('CursorMoved')
@@ -83,8 +103,8 @@ set noundofile
 set guifont=Cousine\ Regular\ Nerd\ Font\ Plus\ Font\ Awesome\ Plus\ Octicons\ Plus\ Pomicons\ Plus\ Font\ Linux:h14
 set encoding=utf-8
 set number " put line numbers
-"set clipboard=unnamed,autoselect " use clipboard
-set clipboard=unnamed " use clipboard
+set clipboard+=unnamedplus
+"set clipboard=unnamed " use clipboard
 set ruler "use ruler
 set cmdheight=2 "height for cmd
 set laststatus=2 "position for status line

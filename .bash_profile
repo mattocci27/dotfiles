@@ -3,9 +3,7 @@
 export PATH=$HOME/.nodebrew/current/bin:$PATH
 export PYTHONPATH=/usr/local/lib/python2.7/site-packages:$PYTHONPATH
 
-
 export PATH=/usr/local/opt/qt5/bin:$PATH
-
 
 eval $(gdircolors ~/.dircolors-solarized)
 
