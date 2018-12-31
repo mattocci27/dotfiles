@@ -44,7 +44,11 @@ fi
 dir="${dir}/.."
 
 # fix for mac
-distro=`lsb_release -si`
+distro=$(uname)
+if [ ! distro="Darwin" ]; then
+  distro=`lsb_release -si`
+fi
+
 if [ ! -f "dependencies-${distro}" ]; then
 #elif [ ! $(uname) == "Darwin" ]; then
   echo "Could not find file with dependencies for distro ${distro}. Aborting."
