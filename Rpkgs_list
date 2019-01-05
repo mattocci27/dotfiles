@@ -8,12 +8,13 @@ shiny
 cowplot
 microbenchmark
 rmarkdown
+bookdown
+blogdown
 picante
 lme4
 provenance
 kableExtra
 ggrepel
-bookdown
 rstan
 loo
 rstanarm
