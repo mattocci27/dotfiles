@@ -1,1 +1,1 @@
-/Users/mattocci/dotfiles/init.vim
+/Users/mattocci/Dropbox/Mackup/.config/nvim/init.vim

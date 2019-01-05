@@ -100,7 +100,8 @@ augroup END
 set nobackup
 set noswapfile
 set noundofile
-set guifont=Cousine\ Regular\ Nerd\ Font\ Plus\ Font\ Awesome\ Plus\ Octicons\ Plus\ Pomicons\ Plus\ Font\ Linux:h14
+"set guifont=Cousine\ Regular\ Nerd\ Font\ Plus\ Font\ Awesome\ Plus\ Octicons\ Plus\ Pomicons\ Plus\ Font\ Linux:h14
+set guifont=Cousine\ Nerd:h14
 set encoding=utf-8
 set number " put line numbers
 set clipboard+=unnamedplus

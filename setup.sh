@@ -36,7 +36,6 @@ ask() {
   done
 }
 
-dir=`pwd`
 if [ ! -e "${DOT_DIRECTORY}/$(basename $0)" ]; then
   echo "Script not called from within repository directory. Aborting."
   exit 2
@@ -70,7 +69,22 @@ link_files() {
 }
 
 ask "Install symlink?" Y && link_files
- 
+
+ask "Install font?" Y && {
+  git clone https://github.com/ryanoasis/nerd-fonts ~/nerd-fonts
+  cd nerd-fonts
+  chmod 755 font-patcher
+  cd
+  cd ${DOT_DIRECTORY}
+
+  if [ ! $(uname) == "Darwin" ]; then
+    cp -rf ./fonts/Cousine/* ~/Library/Fonts
+    fc-cache -vf
+  elif [ ! $(uname) == "Linux" ]; then
+    cp -rf ./fonts/Cousine /usr/share/fonts/Cousine
+  fi
+}
+
 ask "Install Atom stuffs?" Y && {
   while read list
   do
@@ -98,11 +112,4 @@ ask "Install zsh-plug ?" Y && {
   echo "Installing zsh-plug..."
   curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
 }
-
-#if [ ! -d "${HOME}/.vim/dein.vim" ]; then
-#  echo "Installing dein.vim..."
-#  echo "Please run :call dein#install() from vinit.coffee keymap.cson snippets.cson styles.less packages.txtnit.coffee keymap.cson snippets.cson styles.less packages.txtm after this!"
-#  curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > /tmp/deinvim-installer.sh
-#  sh /tmp/deinvim-installer.sh ${HOME}/.vim/dein.vim
-#fi
 

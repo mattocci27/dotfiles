@@ -49,7 +49,7 @@ update() {
 
   # update packages.list
   apm upgrade --no-confirm
-  apm list --installed --bare > ~/dotfiles/.atom/packages.txt
+  apm list --installed --bare > ~/dotfiles/.atom/packages
 }
 
 

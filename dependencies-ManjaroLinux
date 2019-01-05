@@ -28,6 +28,7 @@ yay -S --noconfirm xsel \
   clang \
   gcc-fortran \
   docker \
+  ghq \
   tmux \
   tmux-mem-cpu-load \
   ruby \
@@ -45,6 +46,8 @@ yay -S --noconfirm xsel \
   imagemagick \
   openmpi \
   openblas \
+  screenfetch \
+  neofetch \
   julia \
   fontforge \
   google-chrome \
@@ -85,14 +88,14 @@ yay -S --noconfirm r
 
 
 ### need fix =========================================================
-# font
-git clone https://github.com/ryanoasis/nerd-fonts
-cd nerd-fonts
-chmod 755 font-patcher
-
-fontforge -script ./font-patcher /user/share/fonts/Cousine/Cousine-Regular.ttf --fontawesome --fontlinux --octicons --pomicons --powerline --powerlineextra
-
-cd ..
-
-yay -S --noconfirm thunderbird \
-  thunderbird-enigmail-bin 
+## font
+#git clone https://github.com/ryanoasis/nerd-fonts
+#cd nerd-fonts
+#chmod 755 font-patcher
+#
+#fontforge -script ./font-patcher /user/share/fonts/Cousine/Cousine-Regular.ttf --fontawesome --fontlinux --octicons --pomicons --powerline --powerlineextra
+#
+#cd ..
+#
+#yay -S --noconfirm thunderbird \
+#  thunderbird-enigmail-bin 

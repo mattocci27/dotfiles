@@ -1,4 +1,4 @@
-# Linux 
+# Mac
 # Configuration for Alacritty, the GPU enhanced terminal emulator
 
 # Any items in the `env` entry below will be added as
@@ -13,7 +13,7 @@ env:
   # You can verify this by checking for the presence of `smso` and `sitm` in
   # `infocmp xterm-256color`.
   TERM: xterm-256color
-  WINIT_HIDPI_FACTOR: 1.5
+  #  WINIT_HIDPI_FACTOR: 1.5
 
 # Window dimensions in character columns and lines
 # (changes require restart)
@@ -58,7 +58,8 @@ font:
     style: Italic
 
   # Point size of the font
-  size: 11.0
+  size: 13.0
+  #size: 11.0
   #
   # Offset is the extra space around each character. offset.y can be thought of
   # as modifying the linespacing, and offset.x as modifying the letter spacing.
@@ -202,7 +203,7 @@ visual_bell:
   duration: 0
 
 # Background opacity
-background_opacity: 0.9
+background_opacity: 0.95
 
 # Key bindings
 #
@@ -237,10 +238,10 @@ background_opacity: 0.9
 #     strings. For example:
 #     - { ... , command: { program: "alacritty", args: ["-e", "vttest"] } }
 key_bindings:
-  - { key: V,        mods: Alt, action: Paste                        }
-  - { key: C,        mods: Alt, action: Copy                         }
-  - { key: Q,        mods: Alt, action: Quit                         }
-  - { key: W,        mods: Alt, action: Quit                         }
+  - { key: V,        mods: Command, action: Paste                        }
+  - { key: C,        mods: Command, action: Copy                         }
+  - { key: Q,        mods: Command, action: Quit                         }
+  - { key: W,        mods: Command, action: Quit                         }
   - { key: Home,                    chars: "\x1bOH",   mode: AppCursor   }
   - { key: Home,                    chars: "\x1b[H",   mode: ~AppCursor  }
   - { key: End,                     chars: "\x1bOF",   mode: AppCursor   }
