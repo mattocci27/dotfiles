@@ -6,6 +6,9 @@ tap "homebrew/core"
 
 brew 'zsh'
 brew 'peco'
+brew 'vim', args: ['with-lua']
+brew 'macvim'
+brew 'neovim'
 brew 'cmake'
 brew 'ffmpeg'
 brew 'tree'
@@ -32,7 +35,6 @@ brew 'ghostscript'
 brew 'pandoc'
 brew 'pandoc-citeproc'
 brew 'pandoc-crossref'
-brew 'vim', args: ['with-lua']
 brew 'r', args: ['with-openblas']
 brew 'julia'
 
