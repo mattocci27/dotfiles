@@ -89,7 +89,7 @@ ask "Install Atom stuffs?" Y && {
   while read list
   do
     apm install $list
-  done < .atom/packages
+  done < .atom/packages.txt
 }
 
 ask "Install R stuffs?" Y && {
