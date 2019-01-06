@@ -1,6 +1,8 @@
 # dotfiles
 This repository includes mainly configuration files.
 
+# Manjaro Linux
+
 # Requirement for macOS
 - command line tools
 - homebrew

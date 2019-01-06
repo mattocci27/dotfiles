@@ -15,9 +15,7 @@
       "autocomplete-emojis"
       "symbols-tree-view"
       "linter-lintr"
-      "atom-pronama-chan"
       "script"
-      "Hydrogen"
       "markdown-preview"
       "minimap"
       "minimap-autohide"
@@ -32,6 +30,7 @@
       "markdown-writer"
       "vim-surround"
       "markdown-preview-plus"
+      "termination"
     ]
     ignoredNames: [
       ".git"
@@ -48,7 +47,7 @@
     packagesWithKeymapsDisabled: []
     telemetryConsent: "no"
     themes: [
-      "atom-material-ui"
+      "one-dark-ui"
       "solarized-light-syntax"
     ]
   editor:
