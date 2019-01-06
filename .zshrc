@@ -5,11 +5,13 @@
 
 case `uname` in
   Darwin)
-  export PATH="/usr/local/sbin:/usr/local/bin:/Developer/usr/bin:/Developer/usr/sbin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
+  export PATH="/usr/local/sbin:/usr/local/bin:/Developer/usr/bin:/Developer/usr/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/opt/:$PATH"
   # use home brew packages
+  export PATH=/usr/lib/pkgconfig:$PATH
   export PATH=/usr/local/bin:/usr/bin:$PATH
-  export PATH=/usr/local/opt/llvm/bin:$PATH
-  export PATH=/usr/local/opt/xz/bin:$PATH
+  #export PATH=/usr/local/opt/llvm/bin:$PATH
+  #export PATH=/usr/local/opt/libxml2/include/libxml:$PATH
+  #export PATH=/usr/local/opt/xz/bin:$PATH
   export PATH=$HOME/context/tex/texmf-osx-64/bin:$PATH
   # Python version management: pyenv
   export PYENV_ROOT="${HOME}/.pyenv"
@@ -17,7 +19,7 @@ case `uname` in
   eval "$(pyenv init -)"
 
   export PATH=$HOME/.nodebrew/current/bin:$PATH
-  export PATH=/usr/local/opt/qt5/bin:$PATH
+  #export PATH=/usr/local/opt/qt5/bin:$PATH
   export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
   export R_LIBS_USER R_LIBS=Testing_Tmux

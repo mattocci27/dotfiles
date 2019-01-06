@@ -7,16 +7,18 @@ tap "homebrew/core"
 brew 'zsh'
 brew 'peco'
 brew 'vim', args: ['with-lua']
-brew 'macvim'
 brew 'neovim'
 brew 'cmake'
 brew 'ffmpeg'
 brew 'tree'
 brew 'git'
+brew 'wget'
 brew 'ghq'
 brew 'python'
 brew 'python3'
 brew 'pyenv'
+brew 'libxml2'
+brew 'libgit2'
 brew 'tmux'
 brew 'tmux-mem-cpu-load'
 brew 'fzf'
@@ -36,7 +38,6 @@ brew 'pandoc'
 brew 'pandoc-citeproc'
 brew 'pandoc-crossref'
 brew 'r', args: ['with-openblas']
-brew 'julia'
 
 cask "google-chrome"
 cask "atom"
@@ -52,8 +53,9 @@ cask "expressvpn"
 cask "shadowsocksx-ng"
 cask "java"
 cask "vlc"
-cask "java8"
 cask "google-japanese-ime"
+cask "adobe-creative-cloud"
+cask "java8"
 cask "visual-studio-code"
 cask "amazon-music"
 cask "brave-browser"

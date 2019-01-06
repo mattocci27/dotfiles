@@ -2,7 +2,7 @@
 set -e
 
 # command line tools
-sudo xcode-select --install
+#sudo xcode-select --install
 
 # homebrew
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -11,70 +11,3 @@ brew install mas
 brew install cask
 
 brew bundle
-
-#echo "Installing Python dependencies..."
-#brew install python \
-#  python3 \
-#  pyenv
-#
-#echo "Installing tools..."
-#brew install peco \
-#  zsh \
-#  gcc-fortran \
-#  cmake \
-#  tmux \
-#  tmux-mem-cpu-load \
-#  fzf \
-#  fzy \
-#  ruby \
-#  ruby-build
-#  imagemagick \
-#  openmpi \
-#  openblas \
-#  openssl \
-#  readline \
-#  fontforge \
-#  ghostscript \
-#  pandoc \
-#  pandoc-citeproc \
-#  pandoc-crossref 
-
-#echo "Installing Latex..." 
-#brew cask install basictex
-#sudo tlmgr update --self
-#sudo tlmgr update --all
-#
-#sudo tlmgr install collection-fontsrecommended \
-#  type1cm \
-#  titling \
-#  framed \
-#  inconsolata \
-#  latexdiff \
-#  biblatex \
-#  biber \
-#  bibtex8 \
-#  subfigure \
-#  dvipdfmx \
-#  multirow \
-#  lastpage \
-#  lipsum \
-#  titlesec \
-#  wrapfig \
-#  sidecap \
-#  standalone \
-#  preview
-#
-#echo "Installing R depenencies..."
-#brew install r --with-openblas
-#
-#echo "Installing Julia depenencies..."
-#brew install julia
-
-# font
-#git clone https://github.com/ryanoasis/nerd-fonts
-#cd nerd-fonts
-#chmod 755 font-patcher
-#
-#fontforge -script ./font-patcher /user/share/fonts/Cousine/Cousine-Regular.ttf --fontawesome --fontlinux --octicons --pomicons --powerline --powerlineextra
-#
-#cd ..

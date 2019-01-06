@@ -1,12 +1,3 @@
-if (require(dplyr) == FALSE){
-  install.packages("dplyr")
-  library(dplyr)
-}
-if (require(stringr) == FALSE){
-  install.packages("stringr")
-  library(stringr)
-}
-
 # works with base packages
 argv <- commandArgs(trailingOnly = TRUE)
 my_lib <- argv[1]
