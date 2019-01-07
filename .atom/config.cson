@@ -31,6 +31,7 @@
       "vim-surround"
       "markdown-preview-plus"
       "termination"
+      "language-r"
     ]
     ignoredNames: [
       ".git"
@@ -47,7 +48,7 @@
     packagesWithKeymapsDisabled: []
     telemetryConsent: "no"
     themes: [
-      "one-dark-ui"
+      "atom-material-ui"
       "solarized-light-syntax"
     ]
   editor:
@@ -66,7 +67,7 @@
       _analyticsUserId: "afc7f700-1cd7-492d-b6b0-8100961f6b65"
   linter: {}
   "linter-ui-default":
-    panelHeight: 81
+    panelHeight: 300
   "markdown-preview-enhanced":
     fileExtension: ".md, .mmark, .markdown, .rmd"
   "markdown-preview-plus":

@@ -60,6 +60,7 @@ cask "visual-studio-code"
 cask "amazon-music"
 cask "brave-browser"
 cask "mactex-no-gui"
+cask "openconnect-gui"
 
 mas  "Tomato One", id: 907364780
 mas  "Gifted", id: 771955779
