@@ -18,8 +18,10 @@ fi
 echo "Installing Python dependencies..."
 yay -S --noconfirm python \
   python-pip \
-  python2-neovim \
-  python-neovim \
+  #python2-neovim \
+  python-neovim
+
+yay -S gnome-online-accounts gnome-control-center
 
 echo "Installing tools..."
 yay -S --noconfirm xsel \
@@ -40,6 +42,7 @@ yay -S --noconfirm xsel \
   i3blocks-gaps-git \
   i3status-git \
   gsimplecal \
+  evolution-ews \
   thunderbird \
   thunderbird-enigmail-bin \
   feh \
@@ -54,6 +57,7 @@ yay -S --noconfirm xsel \
   brave \
   apm \
   atom \
+  gitkraken \
   albert \
   blueman \
   electronic-wechat \
@@ -85,17 +89,3 @@ yay -S --noconfirm otf-ipaexfont
 
 echo "Installing R depenencies..."
 yay -S --noconfirm r
-
-
-### need fix =========================================================
-## font
-#git clone https://github.com/ryanoasis/nerd-fonts
-#cd nerd-fonts
-#chmod 755 font-patcher
-#
-#fontforge -script ./font-patcher /user/share/fonts/Cousine/Cousine-Regular.ttf --fontawesome --fontlinux --octicons --pomicons --powerline --powerlineextra
-#
-#cd ..
-#
-#yay -S --noconfirm thunderbird \
-#  thunderbird-enigmail-bin 
