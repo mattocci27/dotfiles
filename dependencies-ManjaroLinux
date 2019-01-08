@@ -45,6 +45,7 @@ yay -S --noconfirm xsel \
   evolution-ews \
   thunderbird \
   thunderbird-enigmail-bin \
+  gloobus-preview \
   feh \
   imagemagick \
   openmpi \
