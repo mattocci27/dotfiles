@@ -22,26 +22,3 @@ cd dotfiles
 # install dependencies and make symbolic links
 sh setup.sh
 ```
-
-This keeps brew and brewlist up to date.
-```shell
-./brew.sh update
-```
-
-Install R packages.
-```shell
-
-# create makevars file
-bash ./makevars.sh
-
-# install packages in .R/Rpkgs_list.txt
-./Rpkg.sh install
-
-# update installed packages
-./Rpkg.sh update
-
-# Rtichoke
-# install released version
-pip install -U rtichoke
-```
-
