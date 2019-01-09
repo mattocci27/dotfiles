@@ -1,0 +1,61 @@
+{
+    "workbench.colorTheme": "Solarized Light",
+    "workbench.startupEditor": "newUntitledFile",
+    "editor.fontFamily": "Cousine, 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
+
+    // wrap
+    "editor.wordWrap": "on",
+    "files.trimTrailingWhitespace": true,
+
+    // minimap
+    "editor.minimap.enabled": false,
+
+    // vim
+    "vim.useSystemClipboard":true,
+    "vim.easymotion": true,
+    "vim.sneak": true,
+    "vim.incsearch": true,
+    "vim.useSystemClipboard": true,
+    "vim.useCtrlKeys": true,
+    "vim.hlsearch": true,
+    "vim.insertModeKeyBindings": [
+      {
+        "before": ["j", "j"],
+        "after": ["<Esc>"]
+      }
+    ],
+    "vim.normalModeKeyBindingsNonRecursive": [
+      {
+        "before": ["<leader>", "d"],
+        "after": ["d", "d"]
+      },
+      {
+        "before": ["<C-n>"],
+        "commands": [":nohl"]
+      },
+      {
+        "before": ["j"],
+        "after": ["g", "j"]
+      },
+      {
+        "before": ["k"],
+        "after": ["g", "k"]
+      },
+      {
+        "before": ["down"],
+        "after": ["g", "j"]
+      },
+      {
+        "before": ["up"],
+        "after": ["g", "k"]
+      }
+    ],
+    "vim.leader": "<space>",
+    "vim.handleKeys": {
+      "<C-a>": false,
+      "<C-f>": false
+    },
+    "workbench.iconTheme": "material-icon-theme",
+    "PandocCiter.DefaultBib": "~/MyLibrary.bib"
+}
+

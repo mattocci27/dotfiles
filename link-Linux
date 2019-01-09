@@ -6,6 +6,8 @@
 .xinitrc
 .inputrc
 .gtkrc-2.0
+.config/Code/User/keybindings.json
+.config/Code/User/settings.json
 .config/alacritty/alacritty.yml
 .config/nvim/init.vim
 .config/nvim/colors/my_material2.vim
