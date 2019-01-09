@@ -44,7 +44,7 @@ dir="${dir}/.."
 
 # fix for mac
 distro=$(uname)
-if [ ! -f $distro == "Darwin" ]; then
+if [ ! $distro == "Darwin" ]; then
   distro=`lsb_release -si`
 fi
 
@@ -60,7 +60,7 @@ ask "Install packages?" Y && sh ./dependencies-${distro}
 
 link_files() {
   while read FILE
-  do 
+  do
     [ -n "${OVERWRITE}" -a -e ${HOME}/${FILE} ] && rm -f ${HOME}/${FILE}
     if [ ! -e ${HOME}/${FILE} ]; then
       ln -snf ${DOT_DIRECTORY}/${FILE} ${HOME}/${FILE}
