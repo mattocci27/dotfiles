@@ -36,6 +36,8 @@ yay -S --noconfirm xsel \
   ruby \
   rubygems \
   ruby-rdoc \
+  bluez-utils \
+  # for i3
   rofi \
   compton \
   i3lock \
