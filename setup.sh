@@ -44,7 +44,7 @@ dir="${dir}/.."
 
 # fix for mac
 distro=$(uname)
-if [ ! -f distro="Darwin" ]; then
+if [ ! -f $distro == "Darwin" ]; then
   distro=`lsb_release -si`
 fi
 
