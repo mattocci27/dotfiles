@@ -43,6 +43,10 @@ export PATH=$HOME/.gem/ruby/2.5.0/bin:$PATH
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
  w
 
+# default editor
+
+VISUAL=nvim; export VISUAL EDITOR=nvim; export EDITOR
+
 # locale
 # without this, tmux does not recognize some fonts
 export LANG=en_US.UTF-8

@@ -41,6 +41,8 @@ yay -S --noconfirm xsel \
   i3lock \
   i3blocks-gaps-git \
   i3status-git \
+  w3m \
+  ffmpegthumbnailer \
   gsimplecal \
   evolution-ews \
   thunderbird \
