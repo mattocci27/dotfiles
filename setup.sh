@@ -72,6 +72,13 @@ link_files() {
 
 ask "Install symlink?" Y && link_files
 
+if [ $(uname) == "Darwin" ]; then
+  ask "Install simlink for Code?" && {
+    ln -snf ${DOT_DIRECTORY}/.config/Code/User/settings.json ~/Library/Application\ Support/Code/User/settings.json
+    ln -snf ${DOT_DIRECTORY}/.config/Code/User/keybindigs.json ~/Library/Application\ Support/Code/User/keybindigs.json
+  }
+fi
+
 ask "Install font?" Y && {
   git clone https://github.com/ryanoasis/nerd-fonts ~/nerd-fonts
   cd nerd-fonts
