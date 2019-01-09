@@ -3,8 +3,6 @@
 .Rprofile
 .tmux.conf
 .alacritty.yml
-.config/Code/User/keybindings.json
-.config/Code/User/settings.json
 .config/nvim/init.vim
 .config/nvim/colors/my_material2.vim
 .atom/config.cson
