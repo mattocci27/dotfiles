@@ -5,7 +5,7 @@
     "editor.fontSize": 14,
 
     // wrap
-    "editor.wordWrap": "on",
+    "editor.wordWrap": "wordWrapColumn",
     "files.trimTrailingWhitespace": true,
 
     // minimap
@@ -57,6 +57,7 @@
       "<C-f>": false
     },
     "workbench.iconTheme": "material-icon-theme",
-    "PandocCiter.DefaultBib": "~/MyLibrary.bib"
+    "PandocCiter.DefaultBib": "~/MyLibrary.bib",
+    "explorer.confirmDelete": false
 }
 
