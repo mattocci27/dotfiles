@@ -1,5 +1,9 @@
 # dotfiles
-This repository includes mainly configuration files.
+
+Contains:
+- R with OpenBLAS and essential packages.
+- Configuretion for tmux, vim, and zsh.
+- Cousine font with nerd fonts.
 
 # Requirement for macOS
 - command line tools

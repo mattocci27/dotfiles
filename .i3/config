@@ -238,9 +238,12 @@ bar
 }
 
 # set display hdmi-0
-exec xrandr --output HDMI-0 --mode 1920x1080
+#exec xrandr --output HDMI-0 --mode 1920x1080
+exec xrandr --dpi 276 --fb 7040x3960 \
+    --output eDP-1 --mode 3200x1800 \
+    --output DP2 --scale 2x2 --pos 3200x0 --panning 3840x2160+3200+0
 
-# exec --no-startup-id xautolock -time 30 -locker electricsheep
+# exec --no-startup-id xautolock -time 30 -locker electricheep
 
 # Lock screen
 bindsym $mod+F9 exec i3lock -c 000000 -i /home/mathisen/images/lock.png
