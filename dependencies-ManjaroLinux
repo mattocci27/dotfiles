@@ -43,6 +43,7 @@ yay -S --noconfirm xsel \
   i3lock \
   i3blocks-gaps-git \
   i3status-git \
+  xorg-xbacklight \
   # for ranger
   w3m \
   ffmpegthumbnailer \
