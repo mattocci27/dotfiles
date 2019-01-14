@@ -122,3 +122,7 @@ ask "Install zsh-plug ?" Y && {
   curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
 }
 
+
+ask "Install tmux plugin manager for tmux?" Y && {
+  git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
+}
