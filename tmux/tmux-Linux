@@ -1,0 +1,21 @@
+# use zsh
+set -g default-shell /usr/bin/zsh
+
+# use true colors
+set -g default-terminal "tmux-256color"
+set-option -ga terminal-overrides ",xterm-256color:Tc"
+
+# Use vi keys
+set -gw mode-keys vi
+bind-key -T copy-mode-vi v send -X begin-selection
+bind-key -T copy-mode-vi C-v send -X rectangle-toggle
+
+# clipboard
+bind-key -T copy-mode-vi y send -X copy-pipe-and-cancel "xsel -bi"
+
+#unbind -T copy-mode-vi Enter
+bind-key -T copy-mode-vi Enter send -X copy-pipe-and-cancel "xsel -bi"
+
+# enable mouse support
+setw -g mouse on
+bind -n WheelUpPane if-shell -F -t = "#{mouse_any_flag}" "send-keys -M" "if -Ft= '#{pane_in_mode}' 'send-keys -M' 'copy-mode -e'"

@@ -26,6 +26,7 @@ yay -S gnome-online-accounts gnome-control-center
 echo "Installing tools..."
 yay -S --noconfirm xsel \
   peco \
+  fzf \
   zsh \
   clang \
   gcc-fortran \
@@ -69,6 +70,7 @@ yay -S --noconfirm xsel \
   apm \
   atom \
   gitkraken \
+  expressvpn \
   albert \
   blueman \
   electronic-wechat \

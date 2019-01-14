@@ -1,7 +1,6 @@
 syntax enable
-"test
-set background=dark
 
+set background=dark
 set t_ut= "clearing uses the current background color
 
 " alacritty Operator Mono and VIM #489
@@ -9,8 +8,8 @@ set t_ut= "clearing uses the current background color
 hi Comment gui=italic cterm=italic
 hi htmlArg gui=italic cterm=italic
 
-if (v:version >= 800) && has("termguicolors")
-"if has("nvim") && has("termguicolors")
+"if (v:version >= 800) && has("termguicolors")
+if has("nvim") && has("termguicolors")
   set termguicolors
   set t_8b=[48;2;%lu;%lu;%lum
   set t_8f=[38;2;%lu;%lu;%lum
@@ -29,7 +28,7 @@ if (v:version >= 800) && has("termguicolors")
     let &t_SR = "\<Esc>]50;CursorShape=\e[4 q\x7"
     let &t_EI = "\<Esc>]50;CursorShape=\e[2 q\x7"
 
-  colorscheme my_material2
+  colorscheme material-theme
   "colorscheme palenight
   highlight CursorLine guibg='#292930'
 else

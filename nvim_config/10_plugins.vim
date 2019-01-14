@@ -54,6 +54,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 
   " color
   Plug 'dracula/vim', { 'as': 'dracula' }
+  Plug 'mattocci27/vim-material-theme', { 'as': 'material-theme' }
   Plug 'drewtempelmeyer/palenight.vim'
 
 

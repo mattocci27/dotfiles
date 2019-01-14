@@ -1,1 +1,0 @@
-/Users/mattocci/Dropbox/Mackup/.config/nvim/init.vim
