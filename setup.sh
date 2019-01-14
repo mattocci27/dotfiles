@@ -103,7 +103,7 @@ ask "Install Atom stuffs?" Y && {
 
 ask "Install R stuffs?" Y && {
   sh ./makevars.sh
-  sudo pip install -U rtichoke
+  sudo pip install -U radian
   sh ./Rpkg.sh install
 }
 

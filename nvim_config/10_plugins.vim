@@ -143,7 +143,7 @@ if $TMUX != ''
   let R_source = '$HOME/dotfiles/tmux_split.vim'
 endif
 
-let R_app = "rtichoke"
+let R_app = "radian"
 let R_cmd = "R"
 let R_hl_term = 0
 let R_args = []  " if you had set any
