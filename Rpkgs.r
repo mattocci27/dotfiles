@@ -36,7 +36,8 @@ if (!is.na(my_lib)) {
     pkg <- tmp[i, "Package"]
     ver <- tmp[i, "Version"]
 
-    if (str_detect(tmp[i,1],pkg)) {
+    #if (str_detect(tmp[i,1],pkg)) {
+    if (grep(tmp[i,1],pkg)) {
       if (pkgInfoRepo(pkg, av_pk) == ver) {
         print(paste(pkg, "is up to date"))
       } else {
