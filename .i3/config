@@ -121,7 +121,6 @@ bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
-
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
 
@@ -219,14 +218,23 @@ bar
 	{
 #output DVI-I-1
 	status_command i3blocks
-	tray_output eDP1
-  font pango:Cousine, FontAwesome 10
-  i3bar_command i3bar -t
+  mode dock
   position top
+	tray_output eDP1
+  #font pango:Hack, FontAwesome 10
+  font pango:Hack Regular 10
+  separator_symbol " | "
+  workspace_buttons yes
+  strip_workspace_numbers yes
+  binding_mode_indicator yes
+  tray_output none
+  tray_padding 0
+  i3bar_command i3bar -t
   colors {
       statusline         $white
       background         $transparent
-      separator          $transparent
+      #separator          $transparent
+      separator          $darkwhite
 
 #                          BORDER       BACKGROUND   TEXT
       focused_workspace  $transparent $transparent $darkwhite
@@ -239,10 +247,22 @@ bar
 
 # set display hdmi-0
 #exec xrandr --output HDMI-0 --mode 1920x1080
-exec xrandr --dpi 276 --fb 7040x3960 \
-    --output eDP-1 --mode 3200x1800 \
-    --output DP2 --scale 2x2 --pos 3200x0 --panning 3840x2160+3200+0
+#exec –no-startup-id xrandr –output DP2 –right-of eDP-1 –auto
+## // MARK : Resolution / DPI
+##########################################
+# XRANDR EXAMPLE:							#exec --no-startup-id xrandr --output OUTPUT --mode MODE
+# Makes the DPI 125 so the text is BIGGER+
+#
+exec xrandr --dpi 96
+#
+exec xrandr --output DP2 --primary --scale 1x1 --mode 3840x2160 --right-of eDP1 --panning 3840x2160+2560+0 \
+      --output eDP1 --panning 2560x1440+0+0
 
+
+#exec xrandr --dpi 276 --fb 7040x3960 \
+#    --output eDP-1 --mode 3200x1800 --left-of-DP2 \
+#    --output DP2 --primary --scale 1.5x1.5 --pos 3200x0 --panning 3840x2160+3200+0
+#
 # exec --no-startup-id xautolock -time 30 -locker electricheep
 
 # Lock screen
@@ -278,7 +298,7 @@ exec --no-startup-id setxkbmap -layout us
 exec --no-startup-id xset r rate 200 40
 
 # dpi
-exec xrandr --dpi 96
+#exec xrandr --dpi 96
 
 # natural scroll
 #exec --no-startup-id synclient HorizEdgeScroll=1 VertEdgeScroll=1 VertScrollDelta=-111

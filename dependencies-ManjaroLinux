@@ -98,7 +98,9 @@ yay -S --noconfirm texlive-langjapanese \
   texlive-most
 
 echo "Installing fonts..."
-yay -S --noconfirm otf-ipaexfont
+yay -S --noconfirm otf-ipaexfont \
+  awesome-terminal-fonts \
+  ttf-font-awesome
 
 echo "Installing R depenencies..."
 yay -S --noconfirm r
