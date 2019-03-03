@@ -39,6 +39,7 @@ brew 'pandoc'
 brew 'pandoc-citeproc'
 brew 'pandoc-crossref'
 brew 'r', args: ['with-openblas']
+brew 'reattach-to-user-namespace'
 
 cask "google-chrome"
 cask "atom"
