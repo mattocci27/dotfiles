@@ -56,8 +56,9 @@
       "<C-a>": false,
       "<C-f>": false
     },
-    "workbench.iconTheme": "material-icon-theme",
+    "workbench.iconTheme": "vscode-icons",
     "PandocCiter.DefaultBib": "~/MyLibrary.bib",
-    "explorer.confirmDelete": false
+    "explorer.confirmDelete": false,
+    "vsicons.dontShowNewVersionMessage": true
 }
 
