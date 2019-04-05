@@ -39,6 +39,7 @@ brew 'pandoc'
 brew 'pandoc-citeproc'
 brew 'pandoc-crossref'
 brew 'r', args: ['with-openblas']
+brew 'reattach-to-user-namespace'
 
 cask "google-chrome"
 cask "atom"
@@ -57,6 +58,7 @@ cask "vlc"
 cask "google-japanese-ime"
 cask "google-photos-backup-and-sync"
 cask "adobe-creative-cloud"
+cask "adobe-acrobat-reader"
 cask "java8"
 cask "visual-studio-code"
 cask "amazon-music"
