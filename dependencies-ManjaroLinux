@@ -45,6 +45,9 @@ yay -S --noconfirm xsel \
   i3blocks-gaps-git \
   i3status-git \
   xorg-xbacklight \
+  # for shadowsocks
+  shadowsocks-libev 
+  shadowsocks-qt5 
   # for ranger
   w3m \
   ffmpegthumbnailer \
