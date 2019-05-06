@@ -36,7 +36,8 @@ yay -S --noconfirm xsel \
   ruby \
   rubygems \
   ruby-rdoc \
-  bluez-utils 
+  bluez-utils \
+  alacritty
 # for i3
 yay -S --noconfirm rofi \
   compton \
@@ -64,7 +65,7 @@ yay -S --noconfirm w3m \
   openmpi \
   openblas \
   screenfetch \
-  neofetch \
+  neofetch
 # other apps
 yay -S --noconfirm julia \
   fontforge \
