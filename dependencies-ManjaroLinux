@@ -18,7 +18,6 @@ fi
 echo "Installing Python dependencies..."
 yay -S --noconfirm python \
   python-pip \
-  #python2-neovim \
   python-neovim
 
 yay -S gnome-online-accounts gnome-control-center
@@ -31,25 +30,25 @@ yay -S --noconfirm xsel \
   clang \
   gcc-fortran \
   docker \
-  ghq \
+  ghq-bin \
   tmux \
   tmux-mem-cpu-load \
   ruby \
   rubygems \
   ruby-rdoc \
-  bluez-utils \
-  # for i3
-  rofi \
+  bluez-utils 
+# for i3
+yay -S --noconfirm rofi \
   compton \
   i3lock \
   i3blocks-gaps-git \
   i3status-git \
-  xorg-xbacklight \
-  # for shadowsocks
-  shadowsocks-libev 
+  xorg-xbacklight 
+# for shadowsocks
+yay -S --noconfirm shadowsocks-libev \
   shadowsocks-qt5 
-  # for ranger
-  w3m \
+# for ranger
+yay -S --noconfirm w3m \
   ffmpegthumbnailer \
   highlight \
   lynx \
@@ -66,7 +65,8 @@ yay -S --noconfirm xsel \
   openblas \
   screenfetch \
   neofetch \
-  julia \
+# other apps
+yay -S --noconfirm julia \
   fontforge \
   google-chrome \
   brave \
@@ -77,16 +77,17 @@ yay -S --noconfirm xsel \
   albert \
   blueman \
   electronic-wechat \
-  nerd-fonts-git
-
-# enpass zotero discord
+  nerd-fonts-git \
+  enpass-bin \
+  zotero \
+  discord
 
 echo "Installing Japanese..."
 yay -S --noconfirm fcitx-mozc \
   fcitx-im
 
 echo "Installing Dropbox..."
-yay -S --noconfirm dropbox \
+yay -S --mflags --skipinteg --noconfirm dropbox \
   dropbox-nautilus-dropbox
 
 echo "Installing Latex..."
