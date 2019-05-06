@@ -54,11 +54,10 @@ yay -S --noconfirm w3m \
   highlight \
   lynx \
   elinks \
-  pdftotext \
+  python-pdftotext \
   gsimplecal \
   evolution-ews \
   thunderbird \
-  thunderbird-enigmail-bin \
   gloobus-preview \
   feh \
   imagemagick \
