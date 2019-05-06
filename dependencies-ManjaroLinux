@@ -2,7 +2,7 @@
 set -e
 
 # Foundamental tools
-sudo pacman -Ssy
+sudo pacman-mirrors --fasttrack && sudo pacman -Ssyu
 
 sudo pacman -S base-devel wget
 
@@ -88,11 +88,11 @@ yay -S --noconfirm fcitx-mozc \
 
 echo "Installing Dropbox..."
 yay -S --mflags --skipinteg --noconfirm dropbox \
-  dropbox-nautilus-dropbox
+  nautilus-dropbox
 
 echo "Installing Latex..."
 yay -S --noconfirm texlive-langjapanese \
-  texlive-langchinse \
+  texlive-langchinese \
   ghostscript \
   evince \
   poppler-data \
@@ -102,8 +102,8 @@ yay -S --noconfirm texlive-langjapanese \
   texlive-most
 
 echo "Installing fonts..."
-yay -S --noconfirm otf-ipaexfont \
-  awesome-terminal-fonts \
+#yay -S --noconfirm otf-ipaexfont \
+yay -S --noconfirm awesome-terminal-fonts \
   ttf-font-awesome
 
 echo "Installing R depenencies..."

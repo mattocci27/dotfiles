@@ -4,6 +4,7 @@
 .tmux.conf
 .Xresources
 .xinitrc
+.xprofile
 .inputrc
 .gtkrc-2.0
 .config/Code/User/keybindings.json

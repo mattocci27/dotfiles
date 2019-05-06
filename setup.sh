@@ -70,6 +70,14 @@ link_files() {
   echo $(tput setaf 2)Deploy dotfiles complete!. ✔︎$(tput sgr0)
 }
 
+
+ask "Make dir for symlink?" Y && {
+  mkdir ~/.config/Code/User
+  mkdir ~/.config/alacritty
+  mkdir ~/.config/nvim
+  mkdir ~/.atom
+}
+
 ask "Install symlink?" Y && link_files
 
 if [ $(uname) == "Darwin" ]; then
@@ -81,7 +89,7 @@ fi
 
 ask "Install font?" Y && {
   git clone https://github.com/ryanoasis/nerd-fonts ~/nerd-fonts
-  cd nerd-fonts
+  cd ~/nerd-fonts
   chmod 755 font-patcher
   cd
   cd ${DOT_DIRECTORY}
@@ -104,7 +112,7 @@ ask "Install Atom stuffs?" Y && {
 ask "Install R stuffs?" Y && {
   sh ./makevars.sh
   sudo pip3 install -U radian
-  sh ./Rpkg.sh install
+  #sh ./Rpkg.sh install
 }
 
 # After .vim has been symlinked!
