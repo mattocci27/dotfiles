@@ -2,7 +2,7 @@
 set -e
 
 # Foundamental tools
-sudo pacman-mirrors --fasttrack && sudo pacman -Ssyu
+sudo pacman -Ssy
 
 sudo pacman -S base-devel wget
 
@@ -84,7 +84,8 @@ yay -S --noconfirm julia \
 
 echo "Installing Japanese..."
 yay -S --noconfirm fcitx-mozc \
-  fcitx-im
+  fcitx-im \
+  fcitx-configtool
 
 echo "Installing Dropbox..."
 yay -S --mflags --skipinteg --noconfirm dropbox \

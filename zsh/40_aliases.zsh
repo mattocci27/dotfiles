@@ -10,6 +10,7 @@ alias mkdir='mkdir -p'
 alias -g L='| less'
 alias -g G='| grep'
 alias v='vim'
+alias R='radian'
 
 # open files
 if [[ "$OSTYPE" == "linux-gnu" ]] ; then

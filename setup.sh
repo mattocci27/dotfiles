@@ -56,6 +56,11 @@ if [ ! -f "dependencies-${distro}" ]; then
   exit 2
 fi
 
+
+ask "Update Mirrors?" Y && {
+  sudo pacman-mirrors --fasttrack && sudo pacman -Ssyu
+}
+
 ask "Install packages?" Y && sh ./dependencies-${distro}
 
 link_files() {
@@ -72,6 +77,7 @@ link_files() {
 
 
 ask "Make dir for symlink?" Y && {
+  mkdir ~/.config/Code
   mkdir ~/.config/Code/User
   mkdir ~/.config/alacritty
   mkdir ~/.config/nvim
@@ -95,10 +101,10 @@ ask "Install font?" Y && {
   cd ${DOT_DIRECTORY}
 
   if [ ! $(uname) == "Darwin" ]; then
-    cp -rf ./fonts/Cousine/* ~/Library/Fonts
+    sudo cp -rf ./fonts/Cousine/* ~/Library/Fonts
     fc-cache -vf
   elif [ ! $(uname) == "Linux" ]; then
-    cp -rf ./fonts/Cousine /usr/share/fonts/Cousine
+    sudo cp -rf ./fonts/Cousine /usr/share/fonts/Cousine
   fi
 }
 
