@@ -11,7 +11,7 @@ case `uname` in
  # export R_LIBS_USER R_LIBS=Testing_Tmux
  # export PATH=/Library/TeX/Root/bin/x86_64-darwin:$PATH
  # export PATH="$HOME/.cargo/bin:$PATH"
-
+ 
  # #go
  # export GOPATH=$HOME
  # export PATH=$PATH:$GOPATH/bin
