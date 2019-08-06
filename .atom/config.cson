@@ -53,6 +53,7 @@
     ]
   editor:
     fontFamily: "cousine"
+    fontSize: 11
     invisibles: {}
     showIndentGuide: true
     showInvisibles: true

@@ -9,6 +9,7 @@
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 #
+#
 # Display brigthness
 bindsym XF86MonBrightnessUp exec xbacklight -inc 10
 bindsym XF86MonBrightnessDown exec xbacklight -dec 10
@@ -43,7 +44,7 @@ set $height 34
 
 #Needed for i3-gaps
 #hide_edge_borders both
-for_window [class="^.*"] border pixel 2 
+for_window [class="^.*"] border pixel 2
 gaps inner 5
 gaps outer 5
 
@@ -72,6 +73,9 @@ floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return exec alacritty
+
+bindsym $mod+F3 exec alacritty -e ranger
+bindsym $mod+i exec alacritty -e top -u mattocci
 
 # kill focused window
 bindsym $mod+q kill
@@ -127,20 +131,26 @@ bindsym $mod+space focus mode_toggle
 # focus the parent container
 bindsym $mod+a focus parent
 
+bindsym $mod+b bar mode toggle
+
+bindsym $mod+g exec top -u mattocci
+
+
 # focus the child container
 #bindsym $mod+d focus child
 #
-set $ws1  "1:  "
-set $ws2  "2:  "
-set $ws3  "3:  "
-set $ws4  "4:  "
-set $ws5  "5:  "
-set $ws6  "6:  "
-set $ws7  "7:  "
-set $ws8  "8:  "
-set $ws9  "9:  "
-set $ws10 "10:  "
+set $ws1  "1:1:  "
+set $ws2  "2:2:  "
+set $ws3  "3:3:  "
+set $ws4  "4:4:  "
+set $ws5  "5:5:  "
+set $ws6  "6:6:  "
+set $ws7  "7:7:  "
+set $ws8  "8:8:  "
+set $ws9  "9:9:  "
+set $ws10 "10:10:  "
 
+# Workspace Bindings ---------------------------------
 bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace $ws2
 bindsym $mod+3 workspace $ws3
@@ -171,7 +181,8 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec --no-startup-id \
+        "i3-nagbar -t warning -m 'Do you really want to exit i3?' -b 'Shutdown' 'systemctl poweroff' -b 'Reboot' 'systemctl reboot' -b 'Logout' 'i3-msg exit'"
 
 
 # resize window (you can also use the mouse for that)
@@ -204,7 +215,7 @@ bindsym $mod+r mode "resize"
 
 
 #                       BORDER      BACKGROUND  TEXT        INDICATOR   CHILD_BORDER
-client.focused          $black      $black      $darkwhite  $darkblack  $darkblack
+client.focused          $white      $black      $darkwhite  $darkblack  $darkblack
 client.unfocused        $black      $black      $white      $darkblack  $darkblack
 client.focused_inactive $black      $black      $white      $darkblack  $darkblack
 client.urgent           $darkred    $darkred    $black      $darkred    $darkred
@@ -217,12 +228,12 @@ client.background       $black
 bar
 	{
 #output DVI-I-1
-	status_command i3blocks
+	status_command i3blocks -c ~/.config/i3blocks/config
   mode dock
   position top
 	tray_output eDP1
-  #font pango:Hack, FontAwesome 10
-  font pango:Hack Regular 10
+  font pango:Hack, FontAwesome 9
+  #font pango:Hack Regular 10
   separator_symbol " | "
   workspace_buttons yes
   strip_workspace_numbers yes
@@ -245,32 +256,15 @@ bar
   }
 }
 
-# set display hdmi-0
-#exec xrandr --output HDMI-0 --mode 1920x1080
-#exec –no-startup-id xrandr –output DP2 –right-of eDP-1 –auto
-## // MARK : Resolution / DPI
-##########################################
-# XRANDR EXAMPLE:							#exec --no-startup-id xrandr --output OUTPUT --mode MODE
-# Makes the DPI 125 so the text is BIGGER+
-#
+
 exec xrandr --dpi 96
 #
-exec xrandr --output DP2 --primary --scale 1x1 --mode 3840x2160 --right-of eDP1 --panning 3840x2160+2560+0 \
-      --output eDP1 --panning 2560x1440+0+0
-
-
-#exec xrandr --dpi 276 --fb 7040x3960 \
-#    --output eDP-1 --mode 3200x1800 --left-of-DP2 \
-#    --output DP2 --primary --scale 1.5x1.5 --pos 3200x0 --panning 3840x2160+3200+0
-#
-# exec --no-startup-id xautolock -time 30 -locker electricheep
-
 # Lock screen
 bindsym $mod+F9 exec i3lock -c 000000 -i /home/mathisen/images/lock.png
 
 # Floating programs
-for_window [class="Pavucontrol"] floating enable
-for_window [class="Pavucontrol"] resize shrink left 100, resize shrink right 100, resize shrink down 50, resize shrink up 50
+for_window [class="R"] floating enable
+for_window [class="Enpass"] floating enable
 
 # Assign programs to specific workspace
 assign [class="Brave"] $ws1
@@ -282,29 +276,33 @@ bindsym $mod+F11 exec pamixer -d 5
 bindsym $mod+F4  exec wal -i /home/mathisen/images/wallpaper.jpg
 bindsym $mod+shift+F12 exec pamixer --set-volume 0
 
+
+# Auto exec settings -----------------------------------------------------------
 # japanese
 exec --no-startup-id fcitx -d
-
 # Wallpaper settings
 #exec_always feh --bg-scale --randomize /home/mathisen/images/Spotlight
 exec_always feh --bg-scale /usr/share/wallpapers/deepin/manjaro2.png
 
-# Auto exec settings
-exec --no-startup-id compton -b
+exec --no-startup-id compton -cbm 0.75
+exec --no-startup-id nm-applet
+exec --no-startup-id dunst
+exec --no-startup-id volumeicon
 
 # keyboard
 exec --no-startup-id setxkbmap -layout us
 # repeat speed
-exec --no-startup-id xset r rate 200 40
-
-# dpi
-#exec xrandr --dpi 96
+exec --no-startup-id xset r rate 300 50
+# monitor
+exec --no-startup-id ~/.config/i3/monitor_detect.sh
+exec --no-startup-id dropbox
 
 # natural scroll
-#exec --no-startup-id synclient HorizEdgeScroll=1 VertEdgeScroll=1 VertScrollDelta=-111
+exec --no-startup-id synclient HorizEdgeScroll=1 VertEdgeScroll=1 VertScrollDelta=-111
 
 # Program exec
 bindsym $mod+F5 exec pavucontrol
 bindsym $mod+F6 exec thunar
 bindsym $mod+F8 exec xfce4-screenshooter
+
 

@@ -58,6 +58,8 @@
     },
     "workbench.iconTheme": "material-icon-theme",
     "PandocCiter.DefaultBib": "~/MyLibrary.bib",
-    "explorer.confirmDelete": false
+    "explorer.confirmDelete": false,
+    "vsicons.dontShowNewVersionMessage": true,
+    "window.zoomLevel": -2
 }
 

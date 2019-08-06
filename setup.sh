@@ -58,7 +58,8 @@ fi
 
 
 ask "Update Mirrors?" Y && {
-  sudo pacman-mirrors --fasttrack && sudo pacman -Ssyu
+  sudo pacman-mirrors --country Japan,China,United_States
+  sudo pacman-mirrors --fasttrack && sudo pacman -Syyu
 }
 
 ask "Install packages?" Y && sh ./dependencies-${distro}
@@ -81,6 +82,9 @@ ask "Make dir for symlink?" Y && {
   mkdir ~/.config/Code/User
   mkdir ~/.config/alacritty
   mkdir ~/.config/nvim
+  mkdir ~/.config/ranger
+  mkdir ~/.config/i3
+  mkdir ~/.config/i3blocks
   mkdir ~/.atom
 }
 

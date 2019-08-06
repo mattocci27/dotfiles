@@ -29,6 +29,7 @@ yay -S --noconfirm xsel \
   zsh \
   clang \
   gcc-fortran \
+  gsl \
   docker \
   ghq-bin \
   tmux \
@@ -37,14 +38,17 @@ yay -S --noconfirm xsel \
   rubygems \
   ruby-rdoc \
   bluez-utils \
-  alacritty
+  alacritty \
+  tree
 # for i3
 yay -S --noconfirm rofi \
   compton \
   i3lock \
   i3blocks-gaps-git \
   i3status-git \
-  xorg-xbacklight 
+  xorg-xbacklight \
+  dunst \
+  volumeicon
 # for shadowsocks
 yay -S --noconfirm shadowsocks-libev \
   shadowsocks-qt5 
@@ -80,7 +84,8 @@ yay -S --noconfirm julia \
   nerd-fonts-git \
   enpass-bin \
   zotero \
-  discord
+  discord \
+  visual-studio-code-bin
 
 echo "Installing Japanese..."
 yay -S --noconfirm fcitx-mozc \
