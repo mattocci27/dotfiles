@@ -12,36 +12,34 @@ interval=1
 
 [load average]
 label=
-command=echo "$(uptime | sed 's/.*load average: \(.*\)/\1/' | cut -d, -f1)/$(grep 'processor' /proc/cpuinfo | wc -l)"
+command=echo "$(uptime | sed 's/.*load average: \(.*\)/\2/' | cut -d, -f1)/$(grep 'processor' /proc/cpuinfo | wc -l)"
 color=#8fa1b3
 interval=1
 
+
 [network]
 label=
-command=[[ -n $(ip link show up dev wlp2s0) ]] && type wpa_cli &> /dev/null && echo "$({ echo 'status'; echo 'quit'; } | wpa_cli -i wlp2s0 | grep '^ssid=' | cut -d= -f2) : $(cat /proc/net/wireless | tail -1 | tr -s ' ' | cut -d' ' -f4 | sed 's/\./dBm/')"
-color=#8fa1b3
+instance=wlp2s0
 interval=1
 
 [lightness]
 label=☀
 command=xbacklight -get | xargs printf '%.0f%%'
 color=#8fa1b3
-interval=once
+interval=persist
 signal=2
 
-[volume]
-label=
-command=sh ~/.config/i3blocks/volume.sh
-interval=once
-signal=1
+[volume-pulseaudio]
+command=~/.config/i3blocks/volume-pulseaudio.sh
+interval=1
+
+[battery]
+command=~/.config/i3blocks/battery.sh
+format=json
+interval=persist
 
 [date]
 label=
 command=date +'%m/%d %H:%M:%S'
 color=#8fa1b3
 interval=1
-
-[battery]
-command=sh ~/.config/i3blocks/battery.sh
-format=json
-interval=30

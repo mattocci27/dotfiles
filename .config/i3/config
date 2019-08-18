@@ -21,20 +21,20 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute s
 
 
 #######################################
-set_from_resource $darkred     color1  #000000
-set_from_resource $red         color9  #000000
-set_from_resource $darkgreen   color2  #000000
-set_from_resource $green       color10 #000000
-set_from_resource $darkyellow  color3  #000000
-set_from_resource $yellow      color11 #000000
-set_from_resource $darkblue    color4  #000000
-set_from_resource $blue        color12 #000000
-set_from_resource $darkmagenta color5  #000000
-set_from_resource $magenta     color13 #000000
-set_from_resource $darkcyan    color6  #000000
-set_from_resource $cyan        color14 #000000
-set_from_resource $darkwhite   color7  #000000
-set_from_resource $white       color15 #000000
+set $darkred     #D32F2F
+set $red         #F44336
+set $darkgreen   #388E3C
+set $green       #4CAF50
+set $darkyellow  #FBC02D
+set $yellow      #FFEB3B
+set $darkblue    #1976D2
+set $blue        #2196F3
+set $darkmagenta #C2185B
+set $magenta     #E91E63
+set $darkcyan    #0097A7
+set $cyan        #00BCD4
+set $darkwhite   #e0e0e0
+set $white       #FAFAFA
 # Use custom colors for black
 set $black       #282828
 set $darkblack   #1d2021
@@ -135,6 +135,9 @@ bindsym $mod+b bar mode toggle
 
 bindsym $mod+g exec top -u mattocci
 
+bindsym --release Print exec scrot 'screenshot_%Y%m%d_%H%M%S.png' -e 'mkdir -p ~/Pictures/screenshots && mv $f ~/Pictures/screenshots && xclip -selection clipboard -t image/png -i ~/Pictures/screenshots/`ls -1 -t ~/Pictures/screenshots | head -1`' # All screens
+
+#bindsym Shift+3 exec scrot 'screenshot_%Y%m%d_%H%M%S.png' -e 'mkdir -p ~/Pictures/screenshots && mv $f ~/Pictures/screenshots && xclip -selection clipboard -t image/png -i ~/Pictures/screenshots/`ls -1 -t ~/Pictures/screenshots | head -1`' # All screens
 
 # focus the child container
 #bindsym $mod+d focus child
@@ -211,17 +214,14 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# Color settings
+# Color settings             border, background, text, indicator, and child_border
+client.focused              #bf616a #2f343f #d8dee8 #bf616a #d8dee8
+client.focused_inactive     #2f343f #2f343f #d8dee8 #2f343f #2f343f
+client.unfocused            #2f343f #2f343f #d8dee8 #2f343f #2f343f
+client.urgent               #2f343f #2f343f #d8dee8 #2f343f #2f343f
+client.placeholder          #2f343f #2f343f #d8dee8 #2f343f #2f343f
+client.background           #2f343f
 
-
-#                       BORDER      BACKGROUND  TEXT        INDICATOR   CHILD_BORDER
-client.focused          $white      $black      $darkwhite  $darkblack  $darkblack
-client.unfocused        $black      $black      $white      $darkblack  $darkblack
-client.focused_inactive $black      $black      $white      $darkblack  $darkblack
-client.urgent           $darkred    $darkred    $black      $darkred    $darkred
-client.background       $black
-
-#hide_edge_borders both
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
@@ -248,7 +248,7 @@ bar
       separator          $darkwhite
 
 #                          BORDER       BACKGROUND   TEXT
-      focused_workspace  $transparent $transparent $darkwhite
+      focused_workspace  $transparent $transparent $blue
       inactive_workspace $transparent $transparent $white
       active_workspace   $transparent $transparent $white
       urgent_workspace   $darkred     $darkred     $transparent
@@ -256,8 +256,6 @@ bar
   }
 }
 
-
-exec xrandr --dpi 96
 #
 # Lock screen
 bindsym $mod+F9 exec i3lock -c 000000 -i /home/mathisen/images/lock.png
@@ -276,13 +274,14 @@ bindsym $mod+F11 exec pamixer -d 5
 bindsym $mod+F4  exec wal -i /home/mathisen/images/wallpaper.jpg
 bindsym $mod+shift+F12 exec pamixer --set-volume 0
 
-
+# ===================== Launch settings ========================================#
 # Auto exec settings -----------------------------------------------------------
 # japanese
 exec --no-startup-id fcitx -d
 # Wallpaper settings
 #exec_always feh --bg-scale --randomize /home/mathisen/images/Spotlight
 exec_always feh --bg-scale /usr/share/wallpapers/deepin/manjaro2.png
+#exec_always feh --bg-scale /usr/share/wallpapers/deepin/MtvhvdJ.jpg
 
 exec --no-startup-id compton -cbm 0.75
 exec --no-startup-id nm-applet
@@ -304,5 +303,3 @@ exec --no-startup-id synclient HorizEdgeScroll=1 VertEdgeScroll=1 VertScrollDelt
 bindsym $mod+F5 exec pavucontrol
 bindsym $mod+F6 exec thunar
 bindsym $mod+F8 exec xfce4-screenshooter
-
-
