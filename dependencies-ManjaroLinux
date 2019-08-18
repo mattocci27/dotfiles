@@ -27,6 +27,7 @@ yay -S --noconfirm xsel \
   peco \
   fzf \
   zsh \
+  fish \
   clang \
   gcc-fortran \
   gsl \
@@ -39,7 +40,8 @@ yay -S --noconfirm xsel \
   ruby-rdoc \
   bluez-utils \
   alacritty \
-  tree
+  tree \
+  gotop
 # for i3
 yay -S --noconfirm rofi \
   compton \
