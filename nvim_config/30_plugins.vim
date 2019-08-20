@@ -57,6 +57,8 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'mattocci27/vim-material-theme', { 'as': 'material-theme' }
   Plug 'drewtempelmeyer/palenight.vim'
 
+  " tmux vim
+  Plug 'christoomey/vim-tmux-navigator'
 
 call plug#end()
 
