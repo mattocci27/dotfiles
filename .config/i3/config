@@ -81,7 +81,7 @@ bindsym $mod+i exec alacritty -e top -u mattocci
 bindsym $mod+q kill
 
 # lanuncher
-bindsym $mod+d exec --no-startup-id rofi -show run
+bindsym $mod+d exec rofi -lines 12 -padding 18 -width 60 -location 0 -show run -sidebar-mode -columns
 
 # change focus
 bindsym $mod+h focus left
@@ -137,21 +137,21 @@ bindsym $mod+g exec top -u mattocci
 
 bindsym --release Print exec scrot 'screenshot_%Y%m%d_%H%M%S.png' -e 'mkdir -p ~/Pictures/screenshots && mv $f ~/Pictures/screenshots && xclip -selection clipboard -t image/png -i ~/Pictures/screenshots/`ls -1 -t ~/Pictures/screenshots | head -1`' # All screens
 
-#bindsym Shift+3 exec scrot 'screenshot_%Y%m%d_%H%M%S.png' -e 'mkdir -p ~/Pictures/screenshots && mv $f ~/Pictures/screenshots && xclip -selection clipboard -t image/png -i ~/Pictures/screenshots/`ls -1 -t ~/Pictures/screenshots | head -1`' # All screens
+bindsym $mod+Shift+p exec scrot 'screenshot_%Y%m%d_%H%M%S.png' -e 'mkdir -p ~/Pictures/screenshots && mv $f ~/Pictures/screenshots && xclip -selection clipboard -t image/png -i ~/Pictures/screenshots/`ls -1 -t ~/Pictures/screenshots | head -1`' # All screens
 
 # focus the child container
 #bindsym $mod+d focus child
 #
-set $ws1  "1:1:  "
-set $ws2  "2:2:  "
-set $ws3  "3:3:  "
-set $ws4  "4:4:  "
-set $ws5  "5:5:  "
-set $ws6  "6:6:  "
-set $ws7  "7:7:  "
-set $ws8  "8:8:  "
-set $ws9  "9:9:  "
-set $ws10 "10:10:  "
+set $ws1  "1"
+set $ws2  "2"
+set $ws3  "3"
+set $ws4  "4"
+set $ws5  "5"
+set $ws6  "6"
+set $ws7  "7"
+set $ws8  "8"
+set $ws9  "9"
+set $ws10 "10"
 
 # Workspace Bindings ---------------------------------
 bindsym $mod+1 workspace $ws1
@@ -215,16 +215,24 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # Color settings             border, background, text, indicator, and child_border
-client.focused              #bf616a #2f343f #d8dee8 #bf616a #d8dee8
-client.focused_inactive     #2f343f #2f343f #d8dee8 #2f343f #2f343f
-client.unfocused            #2f343f #2f343f #d8dee8 #2f343f #2f343f
-client.urgent               #2f343f #2f343f #d8dee8 #2f343f #2f343f
-client.placeholder          #2f343f #2f343f #d8dee8 #2f343f #2f343f
-client.background           #2f343f
+#client.focused              #bf616a #2f343f #d8dee8 #bf616a #d8dee8
+#client.focused_inactive     #2f343f #2f343f #d8dee8 #2f343f #2f343f
+#client.unfocused            #2f343f #2f343f #d8dee8 #2f343f #2f343f
+#client.urgent               #2f343f #2f343f #d8dee8 #2f343f #2f343f
+#client.placeholder          #2f343f #2f343f #d8dee8 #2f343f #2f343f
+#client.background           #2f343f
 
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
+# set colors
+set $bg-color            #000000
+set $inactive-bg-color   #000000
+set $text-color          #f3f4f5
+set $inactive-text-color #676E7D
+set $urgent-bg-color     #E53935
+
+
 bar
 	{
 #output DVI-I-1
@@ -242,19 +250,26 @@ bar
   tray_padding 0
   i3bar_command i3bar -t
   colors {
-      statusline         $white
-      background         $transparent
-      #separator          $transparent
-      separator          $darkwhite
+     # statusline         $white
+     # background         $transparent
+     # #separator          $transparent
+     # separator          $darkwhite
 
-#                          BORDER       BACKGROUND   TEXT
-      focused_workspace  $transparent $transparent $blue
-      inactive_workspace $transparent $transparent $white
-      active_workspace   $transparent $transparent $white
-      urgent_workspace   $darkred     $darkred     $transparent
-      binding_mode       $darkred     $darkred     $transparent
+#    #                      BORDER       BACKGROUND   TEXT
+     # focused_workspace  $transparent $transparent $blue
+     # inactive_workspace $transparent $transparent $white
+     # active_workspace   $transparent $transparent $white
+     # urgent_workspace   $darkred     $darkred     $transparent
+     # binding_mode       $darkred     $darkred     $transparent
+      background $bg-color
+      separator #757575
+      #                  border             background         text
+      focused_workspace  $bg-color          $bg-color          $text-color
+      inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
+      urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
   }
 }
+
 
 #
 # Lock screen
@@ -283,7 +298,7 @@ exec --no-startup-id fcitx -d
 exec_always feh --bg-scale /usr/share/wallpapers/deepin/manjaro2.png
 #exec_always feh --bg-scale /usr/share/wallpapers/deepin/MtvhvdJ.jpg
 
-exec --no-startup-id compton -cbm 0.75
+exec --no-startup-id compton -b
 exec --no-startup-id nm-applet
 exec --no-startup-id dunst
 exec --no-startup-id volumeicon
