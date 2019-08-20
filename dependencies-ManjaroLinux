@@ -44,13 +44,14 @@ yay -S --noconfirm xsel \
   gotop
 # for i3
 yay -S --noconfirm rofi \
-  compton \
+  compton-tryone-git \
   i3lock \
   i3blocks-gaps-git \
   i3status-git \
   xorg-xbacklight \
   dunst \
-  volumeicon
+  volumeicon \
+  cava
 # for shadowsocks
 yay -S --noconfirm shadowsocks-libev \
   shadowsocks-qt5 
@@ -70,7 +71,8 @@ yay -S --noconfirm w3m \
   openmpi \
   openblas \
   screenfetch \
-  neofetch
+  neofetch \
+  polybar
 # other apps
 yay -S --noconfirm julia \
   fontforge \
