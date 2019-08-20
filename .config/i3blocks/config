@@ -1,6 +1,6 @@
 [uptime]
 label=
-command=uptime | sed 's/.*up \([^,]*\),.*/\1/'
+command=uptime | sed 's/.*up \([^,]*\),.*/\2/'
 color=#8fa1b3
 interval=60
 
@@ -16,11 +16,11 @@ command=echo "$(uptime | sed 's/.*load average: \(.*\)/\2/' | cut -d, -f1)/$(gre
 color=#8fa1b3
 interval=1
 
-
 [network]
 label=
-instance=wlp2s0
-interval=1
+command=~/.config/i3blocks/network.sh
+color=#8fa1b3
+interval=60
 
 [lightness]
 label=☀
