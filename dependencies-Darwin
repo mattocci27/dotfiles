@@ -9,5 +9,6 @@ set -e
 
 brew install mas
 brew install cask
+brew tap cjbassi/gotop
 
 brew bundle
