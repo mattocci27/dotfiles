@@ -41,7 +41,8 @@ yay -S --noconfirm xsel \
   bluez-utils \
   alacritty \
   tree \
-  gotop
+  gotop \
+  yarn
 # for i3
 yay -S --noconfirm rofi \
   compton-tryone-git \
@@ -89,6 +90,7 @@ yay -S --noconfirm julia \
   enpass-bin \
   zotero \
   discord \
+  spotify \
   visual-studio-code-bin
 
 echo "Installing Japanese..."
