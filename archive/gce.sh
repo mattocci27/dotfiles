@@ -41,8 +41,8 @@ setup(){
   sudo apt-get update
   sudo apt-get -y install build-essential
   sudo apt-get -y install chromium-browser
-  sudo apt-get -y install python-dev 
-  sudo apt-get -y install git 
+  sudo apt-get -y install python-dev
+  sudo apt-get -y install git
   sudo apt-get -y install nodejs-legacy
   sudo apt-get -y install openjdk-9-jdk
   sudo apt-get -y install zsh
@@ -83,34 +83,34 @@ setup(){
   rm rstudio-server-1.1.423-amd64.deb
 
   #install shiny and shiny-server
-  R -e "install.packages('shiny', repos='http://cran.rstudio.com/')"
-  wget https://download3.rstudio.org/ubuntu-12.04/x86_64/shiny-server-1.5.6.875-amd64.deb
-  sudo gdebi shiny-server-1.5.6.875-amd64.deb
-  rm shiny-server-1.5.6.875-amd64.deb
+  #R -e "install.packages('shiny', repos='http://cran.rstudio.com/')"
+  #wget https://download3.rstudio.org/ubuntu-12.04/x86_64/shiny-server-1.5.6.875-amd64.deb
+  #sudo gdebi shiny-server-1.5.6.875-amd64.deb
+  #rm shiny-server-1.5.6.875-amd64.deb
 
   #add user(s)
-  sudo useradd mattocci
+  #sudo useradd mattocci
   #echo username:password | chpasswd 
 
   # install dropox 
-  cd ~ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -
-  ~/.dropbox-dist/dropboxd
+  #cd ~ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -
+  #~/.dropbox-dist/dropboxd
 
   # download script
-  mkdir -p ~/bin
-  wget -O ~/bin/dropbox.py "http://www.dropbox.com/download?dl=packages/dropbox.py" 
+  #mkdir -p ~/bin
+  #wget -O ~/bin/dropbox.py "http://www.dropbox.com/download?dl=packages/dropbox.py" 
 
   # permission
-  chmod 755 ~/bin/dropbox.py
+  #chmod 755 ~/bin/dropbox.py
 
-  # list
-  ls ~/Dropbox > ~/dropbox.txt
+  ## list
+  #ls ~/Dropbox > ~/dropbox.txt
 
-  # exclude all 
-  while read list
-    do
-      ~/bin/dropbox.py exclude add ~/Dropbox/$list
-  done < ~/dropbox.txt
+  ## exclude all 
+  #while read list
+  #  do
+  #    ~/bin/dropbox.py exclude add ~/Dropbox/$list
+  #done < ~/dropbox.txt
 
 }
 
