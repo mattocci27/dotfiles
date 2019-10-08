@@ -23,7 +23,7 @@ color=#8fa1b3
 interval=60
 
 [lightness]
-label=☀
+label=☀ 
 command=xbacklight -get | xargs printf '%.0f%%'
 color=#8fa1b3
 interval=persist

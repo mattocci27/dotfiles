@@ -52,6 +52,7 @@ bindsym $mod+z		gaps outer current plus 5
 bindsym $mod+Shift+z	gaps outer current minus 5
 
 set $mod Mod4
+set $polybar ~/.config/polybar/launch.sh
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -233,42 +234,42 @@ set $inactive-text-color #676E7D
 set $urgent-bg-color     #E53935
 
 
-bar
-	{
-#output DVI-I-1
-	status_command i3blocks -c ~/.config/i3blocks/config
-  mode dock
-  position top
-	tray_output eDP1
-  font pango:Hack, FontAwesome 9
-  #font pango:Hack Regular 10
-  separator_symbol " | "
-  workspace_buttons yes
-  strip_workspace_numbers yes
-  binding_mode_indicator yes
-  tray_output none
-  tray_padding 0
-  i3bar_command i3bar -t
-  colors {
-     # statusline         $white
-     # background         $transparent
-     # #separator          $transparent
-     # separator          $darkwhite
-
-#    #                      BORDER       BACKGROUND   TEXT
-     # focused_workspace  $transparent $transparent $blue
-     # inactive_workspace $transparent $transparent $white
-     # active_workspace   $transparent $transparent $white
-     # urgent_workspace   $darkred     $darkred     $transparent
-     # binding_mode       $darkred     $darkred     $transparent
-      background $bg-color
-      separator #757575
-      #                  border             background         text
-      focused_workspace  $bg-color          $bg-color          $text-color
-      inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
-      urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
-  }
-}
+#bar
+#	{
+##output DVI-I-1
+#	status_command i3blocks -c ~/.config/i3blocks/config
+#  mode dock
+#  position top
+#	tray_output eDP1
+#  font pango:Hack, FontAwesome 9
+#  #font pango:Hack Regular 10
+#  separator_symbol " | "
+#  workspace_buttons yes
+#  strip_workspace_numbers yes
+#  binding_mode_indicator yes
+#  tray_output none
+#  tray_padding 0
+#  i3bar_command i3bar -t
+#  colors {
+#     # statusline         $white
+#      background         $transparent
+#      separator          $transparent
+#     # separator          $darkwhite
+#
+##    #                      BORDER       BACKGROUND   TEXT
+#     # focused_workspace  $transparent $transparent $blue
+#     # inactive_workspace $transparent $transparent $white
+#     # active_workspace   $transparent $transparent $white
+#     # urgent_workspace   $darkred     $darkred     $transparent
+#     # binding_mode       $darkred     $darkred     $transparent
+#     # background $bg-color
+#      #separator #757575
+#      #                  border             background         text
+#      focused_workspace  $transparent          $transparent          $text-color
+#      inactive_workspace $transparent $transparent $inactive-text-color
+#      urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
+#  }
+#}
 
 
 #
@@ -278,9 +279,12 @@ bindsym $mod+F9 exec i3lock -c 000000 -i /home/mathisen/images/lock.png
 # Floating programs
 for_window [class="R"] floating enable
 for_window [class="Enpass"] floating enable
+for_window [class="shadowsocks-qt5"] floating enable
+for_window [class="Gimp"] floating enable
+#for_window [class="Zotero"] floating enable
 
 # Assign programs to specific workspace
-assign [class="Brave"] $ws1
+# assign [class="Brave"] $ws1
 #assign [class="Nautilus"] $ws 
 
 # Pulse Audio Controls
@@ -302,6 +306,7 @@ exec --no-startup-id compton -b
 exec --no-startup-id nm-applet
 exec --no-startup-id dunst
 exec --no-startup-id volumeicon
+exec_always --no-startup-id $polybar start
 
 # keyboard
 exec --no-startup-id setxkbmap -layout us
@@ -313,6 +318,9 @@ exec --no-startup-id dropbox
 
 # natural scroll
 exec --no-startup-id synclient HorizEdgeScroll=1 VertEdgeScroll=1 VertScrollDelta=-111
+
+#
+exec_always --no-startup-id ~/dotfile/scripts/bar.sh
 
 # Program exec
 bindsym $mod+F5 exec pavucontrol
