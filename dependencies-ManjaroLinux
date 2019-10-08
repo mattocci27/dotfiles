@@ -93,6 +93,15 @@ yay -S --noconfirm julia \
   spotify \
   visual-studio-code-bin
 
+yay -S gcc-avr \
+  binutils-avr \
+  avr-libc \
+  dfu-programmer \
+  dfu-util \
+  arm-none-eabi-gcc \
+  arm-none-eabi-binutils \
+  arm-none-eabi-newlib
+
 echo "Installing Japanese..."
 yay -S --noconfirm fcitx-mozc \
   fcitx-im \
