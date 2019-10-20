@@ -78,12 +78,14 @@ link_files() {
 
 
 ask "Make dir for symlink?" Y && {
+  mkdir ~/.config
   mkdir ~/.config/Code
   mkdir ~/.config/Code/User
   mkdir ~/.config/alacritty
   mkdir ~/.config/nvim
   mkdir ~/.config/ranger
   mkdir ~/.config/i3
+  mkdir ~/.config/polybar
   mkdir ~/.config/i3blocks
   mkdir ~/.atom
 }
