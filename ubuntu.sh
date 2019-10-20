@@ -30,7 +30,11 @@ setup(){
   sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E084DAB9
   gpg -a --export E084DAB9 | sudo apt-key add -
 
-  sudo su -c "echo 'deb https://cran.rstudio.com/bin/linux/ubuntu/bionic-cran35/' >> /etc/apt/sources.list"
+
+  sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 51716619E084DAB9
+  gpg -a --export 51716619E084DAB9  | sudo apt-key add -
+
+  sudo su -c "echo 'deb https://cran.rstudio.com/bin/linux/ubuntu bionic-cran35/' >> /etc/apt/sources.list"
 
   # Foundamental tools
 
