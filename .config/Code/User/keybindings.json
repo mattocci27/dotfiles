@@ -9,5 +9,11 @@
         "key": "up",
         "command": "cursorUp",
         "when": "textInputFocus"
+    },
+    {
+      "key": "ctrl+shift+m", 
+      "command": "markdown.showPreviewToSide", 
+      "when": "editorLangId == markdown"
     }
 ]
+

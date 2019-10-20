@@ -2,6 +2,7 @@
 case `uname` in
   Darwin)
   export PATH="/usr/local/sbin:/usr/local/bin:/Developer/usr/bin:/Developer/usr/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/opt/:$PATH"
+  export PATH="/usr/local/opt/avr-gcc@8/bin:$PATH"
  # export PATH=/usr/lib/pkgconfig:$PATH
  # export PYENV_ROOT="${HOME}/.pyenv"
  # export PATH="${PYENV_ROOT}/bin:$PATH"

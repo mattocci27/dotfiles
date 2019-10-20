@@ -60,6 +60,9 @@
     "PandocCiter.DefaultBib": "~/MyLibrary.bib",
     "explorer.confirmDelete": false,
     "vsicons.dontShowNewVersionMessage": true,
-    "window.zoomLevel": -2
+    "window.zoomLevel": -1,
+    "files.associations": {
+      "*.rmd": "markdown"
+    }
 }
 

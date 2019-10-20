@@ -20,12 +20,15 @@ set tabstop=2 "
 set shiftwidth=2
 set smartindent "
 set linespace=5
-set textwidth=0
-set synmaxcol=200
 set wrap
+set textwidth=80
+set linebreak
+set synmaxcol=200
+set fo+=l
+set nolist
 
-set list
-set listchars=tab:\|\ ,trail:·,eol:↲,extends:»,precedes:«,nbsp:%
+"set list
+"set listchars=tab:\|\ ,trail:·,eol:↲,extends:»,precedes:«,nbsp:%
 
 set foldmethod=indent
 set foldlevel=2
