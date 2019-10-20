@@ -36,34 +36,6 @@ ask() {
   done
 }
 
-if [ ! -e "${DOT_DIRECTORY}/$(basename $0)" ]; then
-  echo "Script not called from within repository directory. Aborting."
-  exit 2
-fi
-dir="${dir}/.."
-
-# fix for mac
-distro=$(uname)
-if [ ! $distro == "Darwin" ]; then
-  distro=`lsb_release -si`
-fi
-
-echo "Set up for $distro"
-
-if [ ! -f "dependencies-${distro}" ]; then
-#elif [ ! $(uname) == "Darwin" ]; then
-  echo "Could not find file with dependencies for distro ${distro}. Aborting."
-  exit 2
-fi
-
-
-ask "Update Mirrors?" Y && {
-  sudo pacman-mirrors --country Japan,China,United_States
-  sudo pacman-mirrors --fasttrack && sudo pacman -Syyu
-}
-
-ask "Install packages?" Y && sh ./dependencies-${distro}
-
 link_files() {
   while read FILE
   do
@@ -100,27 +72,6 @@ if [ $(uname) == "Darwin" ]; then
   }
 fi
 
-ask "Install font?" Y && {
-  git clone https://github.com/ryanoasis/nerd-fonts ~/nerd-fonts
-  cd ~/nerd-fonts
-  chmod 755 font-patcher
-  cd
-  cd ${DOT_DIRECTORY}
-
-  if [ ! $(uname) == "Darwin" ]; then
-    sudo cp -rf ./fonts/Cousine/* ~/Library/Fonts
-    fc-cache -vf
-  elif [ ! $(uname) == "Linux" ]; then
-    sudo cp -rf ./fonts/Cousine /usr/share/fonts/Cousine
-  fi
-}
-
-ask "Install Atom stuffs?" Y && {
-  while read list
-  do
-    apm install $list
-  done < .atom/packages.txt
-}
 
 ask "Install R stuffs?" Y && {
   sh ./makevars.sh
