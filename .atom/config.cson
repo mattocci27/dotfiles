@@ -53,7 +53,6 @@
     ]
   editor:
     fontFamily: "cousine"
-    fontSize: 11
     invisibles: {}
     showIndentGuide: true
     showInvisibles: true
@@ -68,6 +67,7 @@
   linter: {}
   "linter-ui-default":
     panelHeight: 300
+    showPanel: true
   "markdown-preview-enhanced":
     fileExtension: ".md, .mmark, .markdown, .rmd"
   "markdown-preview-plus":

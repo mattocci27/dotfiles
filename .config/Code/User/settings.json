@@ -1,11 +1,10 @@
 {
-    "workbench.colorTheme": "Solarized Light",
-    "workbench.startupEditor": "newUntitledFile",
+  "workbench.startupEditor": "newUntitledFile",
     "editor.fontFamily": "Cousine, 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
     "editor.fontSize": 14,
 
     // wrap
-    "editor.wordWrap": "wordWrapColumn",
+    "editor.wordWrap": "bounded",
     "files.trimTrailingWhitespace": true,
 
     // minimap
@@ -60,9 +59,16 @@
     "PandocCiter.DefaultBib": "~/MyLibrary.bib",
     "explorer.confirmDelete": false,
     "vsicons.dontShowNewVersionMessage": true,
-    "window.zoomLevel": -1,
+    "window.zoomLevel": 0,
+    "workbench.colorTheme": "Solarized Light",
+    "markdown-preview-enhanced.wikiLinkFileExtension": ".rmd .md",
+    "markdown-preview-enhanced.usePuppeteerCore": false,
+    "markdown-preview-enhanced.liveUpdate": true,
     "files.associations": {
       "*.rmd": "markdown"
-    }
+    },
+    "r.dependencyChecks": false,
+    "editor.renderControlCharacters": false,
+    "editor.renderWhitespace": "none"
 }
 

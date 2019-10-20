@@ -26,3 +26,6 @@ export PATH=$HOME/.gem/ruby/2.6.0/bin:$PATH
 
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
+
+# dotnet
+export PATH="~/.dotnet/tools:$PATH"
