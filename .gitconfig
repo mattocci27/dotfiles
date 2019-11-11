@@ -1,6 +1,7 @@
 [user]
 	name = Masatoshi Katabuchi
 	email = mattocci27@gmail.com
+	signingKey = ""
 
 [filter "lfs"]
 	clean = git-lfs clean -- %f
@@ -12,7 +13,7 @@
 	excludesfile = /Users/mattocci/.gitignore_global
 
 [ghq]
-  root = ~/src
+  root = ~/Dropbox/src
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
@@ -62,3 +63,9 @@
 
     # スタッシュを選択してdropする
     std = !git stl | xargs git stash drop
+[gpg]
+	program = gpg
+[commit]
+	gpgSign = false
+[tag]
+	forceSignAnnotated = false
