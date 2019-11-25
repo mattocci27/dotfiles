@@ -101,25 +101,15 @@
 
   ws-icon-0 = 1;
   ws-icon-1 = 2;
-  ws-icon-2 = 3;
-  ws-icon-3 = 4;
-  ws-icon-4 = 5;
-  ws-icon-5 = 6;
-  ws-icon-6 = 7;
-  ws-icon-7 = 8;
-
-  ws-icon-8 =  1b;
-  ws-icon-9 =  2b;
-  ws-icon-10 = 3b;
-  ws-icon-11 = 4b;
-  ws-icon-12 = 5b;
-  ws-icon-13 = 6b;
-  ws-icon-14 = 7b;
-  ws-icon-15 = 8b;
+  ws-icon-2 = 3;
+  ws-icon-3 = 4;
+  ws-icon-4 = 5; 5
+  ws-icon-5 = 6; 6
+  ws-icon-6 = 7; 7
+  ws-icon-7 = 8;
+  ws-icon-8 = 9;
 
   ;ws-icon-default = 
-
-
 
 [module/cpu]
   type = internal/cpu
@@ -129,7 +119,6 @@
   format-prefix-foreground = ${colors.third}
   format = <label>
   format-foreground = ${colors.third}
-
 
 [module/memory]
   type = internal/memory
