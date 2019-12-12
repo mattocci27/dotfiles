@@ -31,13 +31,13 @@ setup(){
   sudo apt install software-properties-common
   sudo apt install apt-transport-https
 
+  sudo apt update
   sudo apt-key adv --keyserver keys.gnupg.net --recv-key 'E19F5F87128899B192B1A2C2AD5F960A256A04AF'
   sudo add-apt-repository 'deb https://cloud.r-project.org/bin/linux/debian stretch-cran35/'
 
 
   # Foundamental tools
 
-  sudo add-apt-repository ppa:jonathonf/vim
   sudo apt update
   sudo apt -y install build-essential
   sudo apt -y install chromium-browser
@@ -48,7 +48,6 @@ setup(){
   sudo apt -y install zsh
   sudo apt -y install tmux
   sudo apt -y install clang
-  sudo apt -y install vim
 
   #### For R
   sudo apt -y install libxml2-dev
@@ -73,6 +72,8 @@ setup(){
 
   ### pip packages
   sudo pip install django flask django-widget-tweaks django-ckeditor beautifulsoup4 requests classifier SymPy ipython
+
+  sudo apt install neovim
 
   # Kryptonite CLI for key management
   #curl https://krypt.co/kr | sh
