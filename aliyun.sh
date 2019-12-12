@@ -49,6 +49,19 @@ setup(){
   sudo apt -y install tmux
   sudo apt -y install clang
 
+  # docker
+  curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
+  sudo apt-key fingerprint 0EBFCD88
+
+  sudo add-apt-repository \
+     "deb [arch=amd64] https://download.docker.com/linux/debian \
+     $(lsb_release -cs) \
+     stable"
+
+  sudo apt update
+  sudo apt -y install docker-ce docker-ce-cli containerd.io
+# sudo apt-get install docker-ce=<VERSION_STRING> docker-ce-cli=<VERSION_STRING> containerd.io
+
   #### For R
   sudo apt -y install libxml2-dev
   sudo apt -y install libcurl4-openssl-dev 
@@ -60,6 +73,11 @@ setup(){
   sudo apt -y install r-base r-base-dev
   sudo apt -y install gdebi-core
 
+  # port
+  sudo apt -y install ufw
+  sudo ufw enable
+  sudo ufw allow 80/tcp
+  sudo ufw allow 22/tcp
   # TexLive
   #sudo apt -y install texlive-lang-cjk
 
@@ -73,7 +91,7 @@ setup(){
   ### pip packages
   sudo pip install django flask django-widget-tweaks django-ckeditor beautifulsoup4 requests classifier SymPy ipython
 
-  sudo apt install neovim
+  sudo apt -y install neovim
 
   # Kryptonite CLI for key management
   #curl https://krypt.co/kr | sh
