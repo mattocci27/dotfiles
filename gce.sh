@@ -48,6 +48,7 @@ setup(){
   sudo apt -y install zsh
   sudo apt -y install tmux
   sudo apt -y install clang
+  sudo apt -y install mosh
 
   # docker
   curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
