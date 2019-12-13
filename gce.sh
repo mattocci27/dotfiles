@@ -49,6 +49,9 @@ setup(){
   sudo apt -y install clang
   sudo apt -y install mosh
 
+  # Krypton CLI for key management
+  curl https://krypt.co/kr | sh
+
   # docker
   curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
   sudo apt-key fingerprint 0EBFCD88
@@ -90,6 +93,8 @@ setup(){
 
   sudo apt -y install neovim
 
+
+
 #  #Dropbox
 #  cd ~ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -
 #  ~/.dropbox-dist/dropboxd
@@ -120,7 +125,7 @@ update()
 {
   sudo apt update
   sudo apt upgrade
-  #kr upgrade
+  kr upgrade
 }
 
 command=$1
