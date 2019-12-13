@@ -1,9 +1,5 @@
 #!/bin/sh
 
-ZONE=us-central1-a.team
-ZONENAME=us-central1-a-team
-USERNAME=mattocci27
-
 INITIALIZED_FLAG=".startup_script_initialized"
 
 main()
