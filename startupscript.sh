@@ -78,3 +78,5 @@ update()
   sudo apt upgrade
   kr upgrade
 }
+
+main
