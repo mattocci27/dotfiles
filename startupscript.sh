@@ -4,7 +4,7 @@ INITIALIZED_FLAG=".startup_script_initialized"
 
 main()
 {
-  tell_my_ip_address_to_dns
+  # tell_my_ip_address_to_dns
   if test -e $INITIALIZED_FLAG
   then
     # Startup Scripts
