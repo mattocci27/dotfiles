@@ -18,7 +18,7 @@ link_files() {
   array=`find | grep "^\./\." | grep -v git | grep -v ssh | sed 's/^\.\///g'`
   for f in $array
   do
-    [ -n "${OVERWRITE}" -a -e ${HOME}/${f} ] && rm -f ${HOME}/${f}
+    [ -n "${OVERWRITE}" -a -e ${HOME}/${f} ] && rm -rf ${HOME}/${f}
     if [ ! -e ${HOME}/${f} ]; then
       ln -snf ${DOT_DIRECTORY}/${f} ${HOME}/${f}
     fi
