@@ -93,6 +93,8 @@ setup(){
 
   sudo apt -y install neovim
 
+  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.1/install.sh | bash
+
   # Kryptonite CLI for key management
   #curl https://krypt.co/kr | sh
 
