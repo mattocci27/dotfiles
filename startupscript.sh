@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 INITIALIZED_FLAG=".startup_script_initialized"
 
