@@ -88,6 +88,28 @@ setup(){
 
   sudo apt -y install neovim
 
+  #Dropbox
+  cd ~ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -
+  ~/.dropbox-dist/dropboxd
+
+  sudo wget -O /usr/local/bin/dropbox "https://www.dropbox.com/download?dl=packages/dropbox.py"
+
+  mkdir -p ~/bin
+  wget -O ~/bin/dropbox.py "http://www.dropbox.com/download?dl=packages/dropbox.py" 
+  sudo chmod +x /usr/local/bin/dropbox
+
+  chmod 755 ~/bin/dropbox.py
+
+  # list
+  # make excluding list on local (not on GCE) 
+  # ls | grep / > ~/dropbox.txt
+
+  # exclude all 
+  while read list
+  do
+      ~/bin/dropbox.py exclude add ~/Dropbox/$list
+  done < ~/dropbox.txt
+
 }
 
 
