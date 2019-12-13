@@ -27,6 +27,34 @@ link_files() {
   echo $(tput setaf 2)Deploy dotfiles complete!. ✔︎$(tput sgr0)
 }
 
+link_files() {
+  for f in .??*
+  do
+    # Force remove a dotfile if it's already there
+    [[ -f ${f} ]] &&
+      [ -n "${OVERWRITE}" -a -e ${HOME}/${f} ] && rm -f ${HOME}/${f}
+    if [ ! -e ${HOME}/${f} ]; then
+      # If you have ignore files, add file/directory name here
+      [[ ${f} = ".git" ]] && continue
+      [[ ${f} = ".gitignore" ]] && continue
+      [[ ${f} = ".ssh" ]] && continue
+      ln -snfv ${DOT_DIRECTORY}/${f} ${HOME}/${f}
+    fi
+  done
+
+  for d in .??*/
+  do
+    # Force remove a dotfile if it's already there
+    [[ -f ${d} ]] &&
+      [ -n "${OVERWRITE}" -a -e ${HOME}/${d} ] && rm -f ${HOME}/${d}
+    if [ ! -e ${HOME}/${d} ]; then
+      # If you have ignore files, add file/directory name here
+      ln -snfv ${DOT_DIRECTORY}/${d} ${HOME}/${d}
+    fi
+  done
+}
+
+
 link_files
 
 # After .vim has been symlinked!
