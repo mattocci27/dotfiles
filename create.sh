@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Settings
-PROJECT_NAME="personal-env"
+PROJECT_NAME="silver-spark-121023"
 STARTUP_SCRIPT_URL="https://raw.githubusercontent.com/mattocci27/dotfiles/master/gce.sh"
 
 # Arguments
@@ -27,9 +27,9 @@ SERVICE_ACCOUNT=$(\
 # Create a instance
 gcloud beta compute --project "${PROJECT_NAME}" \
   instances create "${INSTANCE_NAME}" \
-  --zone "us-central1-a	" \
+  --zone "us-central1-a" \
   --machine-type "g1-small" \
-  --subnet "default" \
+  #--subnet "default" \
   --maintenance-policy "MIGRATE" \
   --service-account "${SERVICE_ACCOUNT}" \
   --scopes "https://www.googleapis.com/auth/cloud-platform" \
