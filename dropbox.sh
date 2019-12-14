@@ -27,24 +27,19 @@ shift $((OPTIND - 1))
 link(){
   cd && wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -
   ${HOME}/.dropbox-dist/dropboxd
-
-  # download script
-  mkdir -p ${HOME}/bin
-  wget -O ${HOME}/bin/dropbox.py "http://www.dropbox.com/download?dl=packages/dropbox.py" 
-
-  # permission
-  Chmod 755 ${HOME}/bin/dropbox.py
-
-  ${HOME}/bin/dropbox.py start
-
-  echo "alias dropbox='${HOME}/bin/dropbox.py'" >> ${HOME}/.zshrc
-  echo "alias dropbox='${HOME}/bin/dropbox.py'" >> ${HOME}/.bashrc
 }
 
 setup(){
-  # list
+  # download script
+  mkdir -p ${HOME}/bin
+  wget -O ${HOME}/bin/dropbox.py "http://www.dropbox.com/download?dl=packages/dropbox.py" 
+  # permission
+  chmod 755 ${HOME}/bin/dropbox.py
+  ${HOME}/bin/dropbox.py start
+  echo "alias dropbox='${HOME}/bin/dropbox.py'" >> ${HOME}/.zshrc
+  echo "alias dropbox='${HOME}/bin/dropbox.py'" >> ${HOME}/.bashrc
   array=`ls ${HOME}/Dropbox`
-  # exclude all 
+  # exclude all for setup 
   for f in $array
   do
     ${HOME}/bin/dropbox.py exclude add ${HOME}/Dropbox/${f}
@@ -56,7 +51,7 @@ command=$1
 
 case $command in
   link)
-    link
+    setup
     ;;
   setup*)
     setup
