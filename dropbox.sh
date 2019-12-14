@@ -39,7 +39,7 @@ setup(){
   echo "alias dropbox='${HOME}/bin/dropbox.py'" >> ${HOME}/.zshrc
   echo "alias dropbox='${HOME}/bin/dropbox.py'" >> ${HOME}/.bashrc
 
-  sleep(30)
+  sleep 20
 
   # list
   array=`ls ${HOME}/Dropbox`
