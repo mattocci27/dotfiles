@@ -8,7 +8,7 @@ mk_dirs(){
   array=`ls -aR | grep "^\./\." | grep -v git | sed 's/:$//g' | sed 's/^\.\///g'`
   for dir in $array
   do
-    mkdir ${HOME}/${dir}
+    mkdir -p ${HOME}/${dir}
   done
 }
 
