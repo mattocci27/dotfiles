@@ -10,6 +10,8 @@ mk_dirs(){
   do
     mkdir -p ${HOME}/${dir}
   done
+
+  echo $(tput setaf 2)MMake dir complete!. ✔︎$(tput sgr0)
 }
 
 mk_dirs
@@ -18,40 +20,15 @@ link_files() {
   array=`find | grep "^\./\." | grep -v git | grep -v ssh | sed 's/^\.\///g'`
   for f in $array
   do
-    [ -n "${OVERWRITE}" -a -e ${HOME}/${f} ] && rm -rf ${HOME}/${f}
+    # Force remove a dotfile if it's already there
+    [[ -f ${f} ]] &&
+      [ -n "${OVERWRITE}" -a -e ${HOME}/${f} ] && rm -f ${HOME}/${f}
     if [ ! -e ${HOME}/${f} ]; then
       ln -snf ${DOT_DIRECTORY}/${f} ${HOME}/${f}
     fi
   done
 
   echo $(tput setaf 2)Deploy dotfiles complete!. ✔︎$(tput sgr0)
-}
-
-link_files() {
-  for f in .??*
-  do
-    # Force remove a dotfile if it's already there
-    [[ -f ${f} ]] &&
-      [ -n "${OVERWRITE}" -a -e ${HOME}/${f} ] && rm -f ${HOME}/${f}
-    if [ ! -e ${HOME}/${f} ]; then
-      # If you have ignore files, add file/directory name here
-      [[ ${f} = ".git" ]] && continue
-      [[ ${f} = ".gitignore" ]] && continue
-      [[ ${f} = ".ssh" ]] && continue
-      ln -snfv ${DOT_DIRECTORY}/${f} ${HOME}/${f}
-    fi
-  done
-
-  for d in .??*/
-  do
-    # Force remove a dotfile if it's already there
-    [[ -f ${d} ]] &&
-      [ -n "${OVERWRITE}" -a -e ${HOME}/${d} ] && rm -f ${HOME}/${d}
-    if [ ! -e ${HOME}/${d} ]; then
-      # If you have ignore files, add file/directory name here
-      ln -snfv ${DOT_DIRECTORY}/${d} ${HOME}/${d}
-    fi
-  done
 }
 
 
