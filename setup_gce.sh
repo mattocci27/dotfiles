@@ -21,8 +21,10 @@ link_files() {
   for f in $array
   do
     # Force remove a dotfile if it's already there
-    [[ -f ${f} ]] &&
-      [ -n "${OVERWRITE}" -a -e ${HOME}/${f} ] && rm -f ${HOME}/${f}
+    if [ -f ${f} ] &&
+      [ -n "${OVERWRITE}" -a -e ${HOME}/${f} ]; then
+      rm -f ${HOME}/${f}
+    fi
     if [ ! -e ${HOME}/${f} ]; then
       ln -snf ${DOT_DIRECTORY}/${f} ${HOME}/${f}
     fi
