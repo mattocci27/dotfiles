@@ -6,6 +6,7 @@ usage() {
 Usage:
   $name [arguments] [command]
 Commands:
+  link
   setup
 Arguments:
   -h Print help
@@ -23,7 +24,7 @@ done
 shift $((OPTIND - 1))
 
 # Installation and settings
-setup(){
+link(){
   cd && wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -
   ${HOME}/.dropbox-dist/dropboxd
 
@@ -38,23 +39,26 @@ setup(){
 
   echo "alias dropbox='${HOME}/bin/dropbox.py'" >> ${HOME}/.zshrc
   echo "alias dropbox='${HOME}/bin/dropbox.py'" >> ${HOME}/.bashrc
+}
 
-  sleep 20
-
+setup(){
   # list
   array=`ls ${HOME}/Dropbox`
   # exclude all 
   for f in $array
   do
     ${HOME}/bin/dropbox.py exclude add ${HOME}/Dropbox/${f}
-  done < dropbox.txt
+  done 
 }
 
 command=$1
 [ $# -gt 0 ] && shift
 
 case $command in
-  setup)
+  link)
+    link
+    ;;
+  setup*)
     setup
     ;;
   *)
