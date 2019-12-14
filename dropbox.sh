@@ -38,6 +38,10 @@ setup(){
   ${HOME}/bin/dropbox.py start
   echo "alias dropbox='${HOME}/bin/dropbox.py'" >> ${HOME}/.zshrc
   echo "alias dropbox='${HOME}/bin/dropbox.py'" >> ${HOME}/.bashrc
+
+  # sleep to get list of dropbox
+  sleep 30
+
   array=`ls ${HOME}/Dropbox`
   # exclude all for setup 
   for f in $array
