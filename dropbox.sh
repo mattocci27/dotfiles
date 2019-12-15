@@ -56,7 +56,7 @@ command=$1
 [ $# -gt 0 ] && shift
 
 case $command in
-  link)
+  link*)
     link
     ;;
   setup*)
