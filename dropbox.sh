@@ -48,6 +48,8 @@ setup(){
   do
     ${HOME}/bin/dropbox.py exclude add ${HOME}/Dropbox/${f}
   done 
+
+  ${HOME}/bin/dropbox.py exclude remove ${HOME}/Dropbox/gce
 }
 
 command=$1
