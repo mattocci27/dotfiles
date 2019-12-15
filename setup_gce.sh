@@ -1,5 +1,6 @@
 #!/bin/sh
 set -e
+USERNAME=mattocci
 HOME="/home/${USERNAME}"
 DOT_DIRECTORY="${HOME}/dotfiles"
 
@@ -12,7 +13,7 @@ mk_dirs(){
     mkdir -p ${HOME}/${dir}
   done
 
-  echo $(tput setaf 2)MMake dir complete!. ✔︎$(tput sgr0)
+  echo $(tput setaf 2)Make dir complete!. ✔︎$(tput sgr0)
 }
 
 mk_dirs
