@@ -1,5 +1,6 @@
 #!/bin/sh
 set -e
+HOME="/home/${USERNAME}"
 DOT_DIRECTORY="${HOME}/dotfiles"
 
 OVERWRITE=true
@@ -38,11 +39,11 @@ link_files
 
 # After .vim has been symlinked!
 # vim-plug
-curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+curl -fLo ${HOME}/.local/share/nvim/site/autoload/plug.vim --create-dirs \
       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 ## zsh-plug manager
 echo "Installing zsh-plug..."
 curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
 
-git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
+git clone https://github.com/tmux-plugins/tpm ${HOME}/.config/tmux/plugins/tpm
