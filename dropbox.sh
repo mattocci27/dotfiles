@@ -55,7 +55,7 @@ command=$1
 
 case $command in
   link)
-    setup
+    link
     ;;
   setup*)
     setup
