@@ -65,31 +65,33 @@ ask "Update Mirrors?" Y && {
 ask "Install packages?" Y && sh ./dependencies-${distro}
 
 link_files() {
-  while read FILE
+  array=`find | grep "^\./\." | grep -v git | grep -v ssh | sed 's/^\.\///g'`
+  for f in $array
   do
-    [ -n "${OVERWRITE}" -a -e ${HOME}/${FILE} ] && rm -f ${HOME}/${FILE}
-    if [ ! -e ${HOME}/${FILE} ]; then
-      ln -snf ${DOT_DIRECTORY}/${FILE} ${HOME}/${FILE}
+    # Force remove a dotfile if it's already there
+    if [ -f ${f} ] &&
+      [ -n "${OVERWRITE}" -a -e ${HOME}/${f} ]; then
+      rm -f ${HOME}/${f}
     fi
- # done < link-${(uname)}
-  done < link-$(uname)
+    if [ ! -e ${HOME}/${f} ]; then
+      ln -snf ${DOT_DIRECTORY}/${f} ${HOME}/${f}
+    fi
+  done
+
   echo $(tput setaf 2)Deploy dotfiles complete!. ✔︎$(tput sgr0)
 }
 
+mk_dirs(){
+  array=`ls -aR | grep "^\./\." | grep -v git | sed 's/:$//g' | sed 's/^\.\///g'`
+  for dir in $array
+  do
+    mkdir -p ${HOME}/${dir}
+  done
 
-ask "Make dir for symlink?" Y && {
-  mkdir ~/.config
-  mkdir ~/.config/Code
-  mkdir ~/.config/Code/User
-  mkdir ~/.config/alacritty
-  mkdir ~/.config/nvim
-  mkdir ~/.config/ranger
-  mkdir ~/.config/i3
-  mkdir ~/.config/polybar
-  mkdir ~/.config/polybar/config
-  mkdir ~/.config/i3blocks
-  mkdir ~/.atom
+  echo $(tput setaf 2)MMake dir complete!. ✔︎$(tput sgr0)
 }
+
+ask "Make dir for symlink?" Y && mk_dirs
 
 ask "Install symlink?" Y && link_files
 
