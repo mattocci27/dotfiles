@@ -2,7 +2,7 @@ rm(list = ls()) # This clears everything from memory.
 # cran 
 local({
   r = getOption("repos")
-  r["CRAN"] = "https://mirrors.tuna.tsinghua.edu.cn/CRAN/"
+  r["CRAN"] = "https://cloud.r-project.org/"
   options(repos = r)
 })
 
