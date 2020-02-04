@@ -26,3 +26,7 @@ cd dotfiles
 # install dependencies and make symbolic links
 sh setup.sh
 ```
+
+# Thinkpad
+
+[config](https://github.com/mattocci27/dotfiles/thinkpad.md)

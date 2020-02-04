@@ -88,7 +88,7 @@ mk_dirs(){
     mkdir -p ${HOME}/${dir}
   done
 
-  echo $(tput setaf 2)MMake dir complete!. ✔︎$(tput sgr0)
+  echo $(tput setaf 2)Make dir complete!. ✔︎$(tput sgr0)
 }
 
 ask "Make dir for symlink?" Y && mk_dirs
@@ -134,9 +134,9 @@ ask "Install R stuffs?" Y && {
 # vim-plug
 ask "Install vim-plug for Neovim?" Y && {
   echo "Installing vim-plug..."
-  echo "Please run :call PlugInstall() after this!"
   curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  nvim +PlugInstall +qall
 }
 
 ## zsh-plug manager

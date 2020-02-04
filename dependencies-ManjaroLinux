@@ -2,7 +2,7 @@
 set -e
 
 # Foundamental tools
-sudo pacman -Ssy
+sudo pacman -Ssyu
 
 sudo pacman -S base-devel wget
 
@@ -20,15 +20,15 @@ yay -S --noconfirm python \
   python-pip \
   python-neovim
 
-yay -S gnome-online-accounts gnome-control-center
+sudo pip install -U neovim 
+
+#yay -S gnome-online-accounts gnome-control-center
 
 echo "Installing tools..."
 yay -S --noconfirm xsel \
   peco \
   fzf \
   zsh \
-  fish \
-  clang \
   gcc-fortran \
   gsl \
   docker \
@@ -91,9 +91,10 @@ yay -S --noconfirm julia \
   zotero \
   discord \
   spotify \
-  visual-studio-code-bin
-
-yay -S gcc-avr \
+  visual-studio-code-bin \
+  qv2ray \
+  v2ray
+  gcc-avr \
   binutils-avr \
   avr-libc \
   dfu-programmer \
@@ -129,3 +130,7 @@ yay -S --noconfirm awesome-terminal-fonts \
 
 echo "Installing R depenencies..."
 yay -S --noconfirm r
+sudo pip install -U radian
+
+yay -Sc --noconfirm
+sudo rm /var/cache/pacman/pkg/* 
