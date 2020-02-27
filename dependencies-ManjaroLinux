@@ -38,11 +38,14 @@ yay -S --noconfirm xsel \
   ruby \
   rubygems \
   ruby-rdoc \
+  rbenv \
   bluez-utils \
   alacritty \
   tree \
   gotop \
-  yarn
+  yarn \
+  exa \
+  bat
 # for i3
 yay -S --noconfirm rofi \
   compton-tryone-git \
