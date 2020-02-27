@@ -1,11 +1,11 @@
 #!/bin/sh
 set -e
 
-MAKEVARS="CXXFLAGS=-O3 -mtune=native -march=native -Wno-unused-variable -Wno-unused-function"
+MAKEVARS="CXX14FLAGS=-O3 -mtune=native -march=native -Wno-unused-variable -Wno-unused-function"
 
 # for Linux
 if [ "$(uname)" == 'Linux' ]; then
-  MAKEVARS="${MAKEVARS} -DBOOST_PHOENIX_NO_VARIADIC_EXPRESSION\nCC=clang\nCXX=clang++"
+  MAKEVARS="${MAKEVARS} \nCXX14FLAGS += -fPIC"
 # additional for Mac
 elif [ "$(uname)" == 'Darwin' ]; then
   MAKEVARS="${MAKEVARS}\nCC=clang\nCXX=clang++ -arch x86_64 -ftemplate-depth-256"
