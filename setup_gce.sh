@@ -42,6 +42,7 @@ link_files
 # vim-plug
 curl -fLo ${HOME}/.local/share/nvim/site/autoload/plug.vim --create-dirs \
       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+nvim +PlugInstall +qall
 
 ## zsh-plug manager
 echo "Installing zsh-plug..."
