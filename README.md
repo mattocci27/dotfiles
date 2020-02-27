@@ -30,3 +30,7 @@ sh setup.sh
 # Thinkpad
 
 [config](https://github.com/mattocci27/dotfiles/blob/master/thinkpad.md)
+
+# Homebrew
+
+Homebrew mirror at [tinghua uni](https://mirror.tuna.tsinghua.edu.cn/help/homebrew/)
