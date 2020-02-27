@@ -22,7 +22,7 @@ case `uname` in
 esac
 
 # ruby
-export PATH=$HOME/.gem/ruby/2.6.0/bin:$PATH
+export PATH=$HOME/.gem/ruby/2.7.0/bin:$PATH
 
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
