@@ -1,7 +1,9 @@
 # Enable aliases to be sudo'ed
 alias sudo='sudo '
 
-alias la='ls -a'
+alias ls='exa'
+alias la='exa -a'
+alias tree='exa --tree'
 alias ll='ls -l'
 alias rm='rm -i'
 alias cp='cp -i'
