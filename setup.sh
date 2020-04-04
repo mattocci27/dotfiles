@@ -57,7 +57,7 @@ if [ ! -f "dependencies-${distro}" ]; then
 fi
 
 
-ask "Update Mirrors?" Y && {
+ask "Update Mirrors for Manjaro?" Y && {
   sudo pacman-mirrors --country Japan,China,United_States
   sudo pacman-mirrors --fasttrack && sudo pacman -Syyu
 }

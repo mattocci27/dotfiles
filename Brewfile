@@ -10,7 +10,6 @@ brew 'vim', args: ['with-lua']
 brew 'neovim'
 brew 'cmake'
 brew 'ffmpeg'
-brew 'tree'
 brew 'git'
 brew 'wget'
 brew 'ghq'
@@ -26,7 +25,6 @@ brew 'fzy'
 brew 'the_silver_searcher'
 brew 'ruby'
 brew 'ruby-build'
-brew 'screenfetch'
 brew 'neofetch'
 brew 'imagemagick'
 brew 'openmpi'
@@ -41,6 +39,9 @@ brew 'pandoc-crossref'
 brew 'r', args: ['with-openblas']
 brew 'reattach-to-user-namespace'
 brew 'go'
+brew 'exa'
+brew 'bat'
+brew 'fd'
 
 cask "google-chrome"
 cask "atom"
@@ -49,11 +50,8 @@ cask "alacritty"
 cask "zotero"
 cask "spotify"
 cask "gitkraken"
-cask "sourcetree"
 cask "discord"
 cask "docker"
-cask "expressvpn"
-cask "shadowsocksx-ng"
 cask "java"
 cask "vlc"
 cask "google-japanese-ime"
@@ -62,17 +60,16 @@ cask "adobe-creative-cloud"
 cask "adobe-acrobat-reader"
 cask "java8"
 cask "visual-studio-code"
-cask "amazon-music"
 cask "amazon-photos"
 cask "brave-browser"
 cask "mactex-no-gui"
 cask "openconnect-gui"
+cask "v2rayu"
 
 mas  "Tomato One", id: 907364780
 mas  "Gifted", id: 771955779
 mas  "BetterSnapTool", id: 417375580
 mas  "Keynote", id: 409183694
-mas  "Airmail 3", id: 918858936
 mas  "GarageBand", id: 682658836
 mas  "AntiSleep", id: 946798523
 mas  "WeChat", id: 836500024
