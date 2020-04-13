@@ -45,6 +45,9 @@ call plug#begin('~/.local/share/nvim/plugged')
   " julia
   Plug 'JuliaEditorSupport/julia-vim'
 
+  " c++
+  Plug 'justmao945/vim-clang'
+
   " snippet
   Plug 'SirVer/ultisnips'
   Plug 'honza/vim-snippets'
@@ -292,4 +295,8 @@ let g:mkdp_port = ''
 " preview page title
 " ${name} will be replace with the file name
  let g:mkdp_page_title = '「${name}」'
+"}}}
+"vim_clang{{{
+let g:clang_c_options = '-std=gnu11'
+let g:clang_cpp_options = '-std=c++11 -stdlib=libc++'
 "}}}

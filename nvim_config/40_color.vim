@@ -8,6 +8,8 @@ set t_ut= "clearing uses the current background color
 hi Comment gui=italic cterm=italic
 hi htmlArg gui=italic cterm=italic
 
+set colorcolumn=80
+
 "if (v:version >= 800) && has("termguicolors")
 if has("nvim") && has("termguicolors")
   set termguicolors
