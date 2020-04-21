@@ -22,7 +22,6 @@ brew 'tmux'
 brew 'tmux-mem-cpu-load'
 brew 'fzf'
 brew 'fzy'
-brew 'the_silver_searcher'
 brew 'ruby'
 brew 'ruby-build'
 brew 'neofetch'
@@ -42,6 +41,7 @@ brew 'go'
 brew 'exa'
 brew 'bat'
 brew 'fd'
+brew 'gotop'
 
 cask "google-chrome"
 cask "atom"
@@ -67,7 +67,6 @@ cask "openconnect-gui"
 cask "v2rayu"
 
 mas  "Tomato One", id: 907364780
-mas  "Gifted", id: 771955779
 mas  "BetterSnapTool", id: 417375580
 mas  "Keynote", id: 409183694
 mas  "GarageBand", id: 682658836
@@ -78,12 +77,9 @@ mas  "Numbers", id: 409203825
 mas  "Pages", id: 409201541
 mas  "Enpass", id: 732710998
 mas  "iMovie", id: 408981434
-mas  "OmniFocus", id: 867299399
-mas  "Elmedia Video Player", id: 1044549675
 mas  "Line", id: 539883307
 mas  "Slack", id: 803453959
 mas  "QQ", id: 451108668
-mas  "Spark", id: 1176895641
 mas  "PopClip", id: 445189367
 mas  "Affinity Designer", id: 824171161
 mas  "Mactracker", id: 430255202
