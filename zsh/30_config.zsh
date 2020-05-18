@@ -16,7 +16,7 @@ zstyle ':vcs_info:*' formats "%F{242}%c%u%b%f" "%R"
 zstyle ':vcs_info:*' actionformats '%b|%a' '%R'
 precmd () { vcs_info }
 PROMPT='
-%{${fg[blue]}%}%~%{${reset_color}%  ${vcs_info_msg_0_}
+%{${fg[green]}%}$USER@${${(%):-%m}#1}:%{${fg[blue]}%}%~%{${reset_color}%  ${vcs_info_msg_0_}
 %{${fg[magenta]}%}> %{${reset_color}%}'
 
 autoload -Uz select-word-style
