@@ -18,6 +18,7 @@ case `uname` in
  # export PATH=$PATH:$GOPATH/bin
     ;;
   Linux)
+  export PATH=/home/mattocci/.cargo/bin:$PATH
     ;;
 esac
 
