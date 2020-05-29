@@ -64,36 +64,9 @@ ask "Update Mirrors for Manjaro?" Y && {
 
 ask "Install packages?" Y && sh ./dependencies-${distro}
 
-link_files() {
-  array=`find | grep "^\./\." | grep -v git | grep -v ssh | sed 's/^\.\///g'`
-  for f in $array
-  do
-    # Force remove a dotfile if it's already there
-    if [ -f ${f} ] &&
-      [ -n "${OVERWRITE}" -a -e ${HOME}/${f} ]; then
-      rm -f ${HOME}/${f}
-    fi
-    if [ ! -e ${HOME}/${f} ]; then
-      ln -snf ${DOT_DIRECTORY}/${f} ${HOME}/${f}
-    fi
-  done
+ask "Make dir for symlink?" Y && ./link_files.sh mkdir
 
-  echo $(tput setaf 2)Deploy dotfiles complete!. ✔︎$(tput sgr0)
-}
-
-mk_dirs(){
-  array=`ls -aR | grep "^\./\." | grep -v git | sed 's/:$//g' | sed 's/^\.\///g'`
-  for dir in $array
-  do
-    mkdir -p ${HOME}/${dir}
-  done
-
-  echo $(tput setaf 2)Make dir complete!. ✔︎$(tput sgr0)
-}
-
-ask "Make dir for symlink?" Y && mk_dirs
-
-ask "Install symlink?" Y && link_files
+ask "Install symlink?" Y && ./link_files.sh links
 
 if [ $(uname) == "Darwin" ]; then
   ask "Install simlink for Code?" && {

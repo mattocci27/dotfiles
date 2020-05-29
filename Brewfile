@@ -35,13 +35,15 @@ brew 'ghostscript'
 brew 'pandoc'
 brew 'pandoc-citeproc'
 brew 'pandoc-crossref'
-brew 'r', args: ['with-openblas']
+brew 'r', args: ['--with-openblas']
 brew 'reattach-to-user-namespace'
 brew 'go'
 brew 'exa'
 brew 'bat'
 brew 'fd'
 brew 'gotop'
+brew 'docker'
+brew 'docker-machine'
 
 cask "google-chrome"
 cask "atom"
@@ -51,7 +53,6 @@ cask "zotero"
 cask "spotify"
 cask "gitkraken"
 cask "discord"
-cask "docker"
 cask "java"
 cask "vlc"
 cask "google-japanese-ime"
@@ -65,6 +66,7 @@ cask "brave-browser"
 cask "mactex-no-gui"
 cask "openconnect-gui"
 cask "v2rayu"
+cask "vagrant"
 
 mas  "Tomato One", id: 907364780
 mas  "BetterSnapTool", id: 417375580

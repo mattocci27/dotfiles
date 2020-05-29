@@ -11,7 +11,8 @@ pkg_list <- tmp$Package
 
 res <- sum(grepl(my_lib, pkg_list))
 
-av_pk <- available.packages(contriburl = contrib.url("https://clound.r-project.org/"))
+#av_pk <- available.packages(contriburl = contrib.url("https://clound.r-project.org/"))
+av_pk <- available.packages(contriburl = contrib.url("https://mirror.lzu.edu.cn/CRAN/"))
 
 pkgInfoRepo <- function(pkg.name, av_pk) {
   if (pkg.name %in% av_pk[,1]){
@@ -26,7 +27,8 @@ if (!is.na(my_lib)) {
   # install packages from Rpkgs_list.txt
   if (res == 0) {
     install.packages(my_lib,
-                   repos = "https://cloud.r-project.org/")
+                   #repos = "https://cloud.r-project.org/")
+                   repos = "https://mirror.lzu.edu.cn/CRAN/")
   } else {
     print(paste(my_lib, "is already installed!"))
   }
@@ -42,7 +44,8 @@ if (!is.na(my_lib)) {
         print(paste(pkg, "is up to date"))
       } else {
         install.packages(pkg,
-                     repos = "https://cloud.r-project.org/")
+                   #  repos = "https://cloud.r-project.org/")
+                     repos = "https://mirror.lzu.edu.cn/CARN/")
       }
     } else {print("not in CRAN")}
   }

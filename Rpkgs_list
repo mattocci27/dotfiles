@@ -19,7 +19,6 @@ provenance
 kableExtra
 ggrepel
 rstan
-loo
 rstanarm
 languageserver
 png
@@ -28,3 +27,6 @@ kfigr
 furrr
 memisc
 mvtnorm
+kableExtra
+tictoc
+MuMIn
