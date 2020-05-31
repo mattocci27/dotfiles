@@ -1,11 +1,11 @@
 [colors]
-  primary = #55cca8
+  primary = #50b4e6
   secondary = #55cca8
-  third = #55cca8
-  fourth = #55cca8
-  fifth = #55cca8
+  third = #f5d544
+  fourth = #f9c773
+  fifth = #ed8755
 
-  updates = #55cca8
+  updates = #9c58fc
   alert = #ff3111
 
   ; 70% Opacity
@@ -175,7 +175,7 @@
 
 
 [module/date]
-  type = intrnal/date
+  type = internal/date
   interval = 1.0
   time = "%H:%M:%S"
   label = " %time%"
@@ -267,4 +267,4 @@
   animation-charging-3 = 
   animation-charging-4 = 
   animation-charging-foreground = ${colors.fourth}
-  animation-charging-framerate = 750e
+  animation-charging-framerate = 750

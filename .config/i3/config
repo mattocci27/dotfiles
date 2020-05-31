@@ -45,8 +45,8 @@ set $height 34
 #Needed for i3-gaps
 #hide_edge_borders both
 for_window [class="^.*"] border pixel 2
-gaps inner 5
-gaps outer 5
+gaps inner 10
+gaps outer 10
 
 bindsym $mod+z		gaps outer current plus 5
 bindsym $mod+Shift+z	gaps outer current minus 5
@@ -56,7 +56,7 @@ set $polybar ~/.config/polybar/launch.sh
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:Counsine 12
+font pango:Counsine 14
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -75,8 +75,8 @@ floating_modifier $mod
 # start a terminal
 bindsym $mod+Return exec alacritty
 
-bindsym $mod+F3 exec alacritty -e ranger
-bindsym $mod+i exec alacritty -e top -u mattocci
+bindsym $mod+Shift+Return exec alacritty -e ranger
+bindsym $mod+i exec alacritty -e htop
 
 # kill focused window
 bindsym $mod+q kill
@@ -136,9 +136,9 @@ bindsym $mod+b bar mode toggle
 
 bindsym $mod+g exec top -u mattocci
 
-bindsym --release Print exec scrot 'screenshot_%Y%m%d_%H%M%S.png' -e 'mkdir -p ~/Pictures/screenshots && mv $f ~/Pictures/screenshots && xclip -selection clipboard -t image/png -i ~/Pictures/screenshots/`ls -1 -t ~/Pictures/screenshots | head -1`' # All screens
+bindsym --release $mod+p exec scrot '~/Pictures/screenshots/screenshot_%Y%m%d_%H%M%S.png' | notify-send 'Screen has been captured'
 
-bindsym $mod+Shift+p exec scrot 'screenshot_%Y%m%d_%H%M%S.png' -e 'mkdir -p ~/Pictures/screenshots && mv $f ~/Pictures/screenshots && xclip -selection clipboard -t image/png -i ~/Pictures/screenshots/`ls -1 -t ~/Pictures/screenshots | head -1`' # All screens
+bindsym --release $mod+Shift+p exec scrot -s '~/Pictures/screenshots/screenshot_%Y%m%d_%H%M%S.png' | notify-send 'Screen has been captured'
 
 # focus the child container
 #bindsym $mod+d focus child
@@ -215,14 +215,6 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# Color settings             border, background, text, indicator, and child_border
-#client.focused              #bf616a #2f343f #d8dee8 #bf616a #d8dee8
-#client.focused_inactive     #2f343f #2f343f #d8dee8 #2f343f #2f343f
-#client.unfocused            #2f343f #2f343f #d8dee8 #2f343f #2f343f
-#client.urgent               #2f343f #2f343f #d8dee8 #2f343f #2f343f
-#client.placeholder          #2f343f #2f343f #d8dee8 #2f343f #2f343f
-#client.background           #2f343f
-
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
@@ -233,46 +225,6 @@ set $text-color          #f3f4f5
 set $inactive-text-color #676E7D
 set $urgent-bg-color     #E53935
 
-
-#bar
-#	{
-##output DVI-I-1
-#	status_command i3blocks -c ~/.config/i3blocks/config
-#  mode dock
-#  position top
-#	tray_output eDP1
-#  font pango:Hack, FontAwesome 9
-#  #font pango:Hack Regular 10
-#  separator_symbol " | "
-#  workspace_buttons yes
-#  strip_workspace_numbers yes
-#  binding_mode_indicator yes
-#  tray_output none
-#  tray_padding 0
-#  i3bar_command i3bar -t
-#  colors {
-#     # statusline         $white
-#      background         $transparent
-#      separator          $transparent
-#     # separator          $darkwhite
-#
-##    #                      BORDER       BACKGROUND   TEXT
-#     # focused_workspace  $transparent $transparent $blue
-#     # inactive_workspace $transparent $transparent $white
-#     # active_workspace   $transparent $transparent $white
-#     # urgent_workspace   $darkred     $darkred     $transparent
-#     # binding_mode       $darkred     $darkred     $transparent
-#     # background $bg-color
-#      #separator #757575
-#      #                  border             background         text
-#      focused_workspace  $transparent          $transparent          $text-color
-#      inactive_workspace $transparent $transparent $inactive-text-color
-#      urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
-#  }
-#}
-
-
-#
 # Lock screen
 bindsym $mod+F9 exec i3lock -c 000000 -i /home/mathisen/images/lock.png
 
@@ -299,8 +251,8 @@ bindsym $mod+shift+F12 exec pamixer --set-volume 0
 exec --no-startup-id fcitx -d
 # Wallpaper settings
 #exec_always feh --bg-scale --randomize /home/mathisen/images/Spotlight
-exec_always feh --bg-scale /usr/share/wallpapers/deepin/manjaro2.png
-#exec_always feh --bg-scale /usr/share/wallpapers/deepin/MtvhvdJ.jpg
+#exec_always feh --bg-scale /usr/share/wallpapers/deepin/manjaro2.png
+exec_always feh --bg-scale ~/Pictures/wallpapers/FireWatch.png
 
 exec --no-startup-id compton -b
 exec --no-startup-id nm-applet
