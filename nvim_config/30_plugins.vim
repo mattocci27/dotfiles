@@ -31,7 +31,8 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'shime/vim-livedown'
   Plug 'tpope/vim-surround'
   Plug 'wavded/vim-stylus'
-  Plug 'maverickg/stan.vim'
+  "Plug 'maverickg/stan.vim'
+  Plug 'eigenfoo/stan.vim'
   Plug 'jiangmiao/auto-pairs'
   Plug 'sedm0784/vim-you-autocorrect'
   Plug 'autozimu/LanguageClient-neovim', {
@@ -81,7 +82,7 @@ call plug#end()
 " R-LSP{{{
 " deoplete options
 let g:deoplete#enable_at_startup = 1
-let g:deoplete#enable_smart_case = 1
+"let g:deoplete#enable_smart_case = 1
 
 " disable autocomplete by default
 let b:deoplete_disable_auto_complete=1
@@ -90,28 +91,34 @@ let g:deoplete_disable_auto_complete=1
 " call deoplete#custom#buffer_option('auto_complete', v:false)
 " call deoplete#custom#source('LanguageClient', \ 'min_pattern_length', \ 2)
 
-if !exists('g:deoplete#omni#input_patterns')
-    let g:deoplete#omni#input_patterns = {}
-endif
+"if !exists('g:deoplete#custom()')
+"    let g:deoplete#custom#var() = {}
+"endif
 
 " Disable the candidates in Comment/String syntaxes.
 call deoplete#custom#source('_',
             \ 'disabled_syntaxes', ['Comment', 'String'])
 
+let g:deoplete#sources#rust#rust_source_path = '/usr/local/src/rust/src'
+
 autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 
 " set sources
-let g:deoplete#sources = {}
-let g:deoplete#sources.cpp = ['LanguageClient']
-let g:deoplete#sources.python = ['LanguageClient']
-let g:deoplete#sources.python3 = ['LanguageClient']
-let g:deoplete#sources.rust = ['LanguageClient']
-let g:deoplete#sources.c = ['LanguageClient']
-let g:deoplete#sources.vim = ['vim']
+"let g:deoplete#sources = {}
+"let g:deoplete#sources.cpp = ['LanguageClient']
+"let g:deoplete#sources.python = ['LanguageClient']
+"let g:deoplete#sources.python3 = ['LanguageClient']
+"let g:deoplete#sources.rust = ['LanguageClient']
+"let g:deoplete#sources.c = ['LanguageClient']
+"let g:deoplete#sources.vim = ['vim']
+call deoplete#custom#option('sources', {
+		\ '_': ['buffer'],
+		\ 'cpp': ['buffer', 'tag'],
+		\})
 
 " ignored sources
-let g:deoplete#ignore_sources = {}
-let g:deoplete#ignore_sources._ = ['buffer', 'around']
+"let g:deoplete#ignore_sources = {}
+"let g:deoplete#ignore_sources._ = ['buffer', 'around']
 "}}}
 
 "LanguageClient{{{
@@ -185,7 +192,7 @@ let g:indentLine_newVersion = 1
 let g:indetLine_char = '|'
 " }}}
 " gitgutter{{{
-let g:gitgutter_override_sign_column_highlight = 0
+"let g:gitgutter_override_sign_column_highlight = 0
 "highlight SignColumn guibg='#263238'   " terminal Vim "
 highlight SignColumn ctermbg=red   " terminal Vim "
 " }}}
