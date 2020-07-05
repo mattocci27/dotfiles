@@ -7,10 +7,12 @@
 eDP_1_STATUS=$(cat /sys/class/drm/card0/card0-eDP-1/status)
 DP_1_STATUS=$(cat /sys/class/drm/card0/card0-DP-1/status)
 DP_2_STATUS=$(cat /sys/class/drm/card0/card0-DP-2/status)
+HDMI_1_STATUS=$(cat /sys/class/drm/card0/card0-HDMI-A-1/status)
 
 eDP_1_ENABLED=$(cat /sys/class/drm/card0/card0-eDP-1/enabled)
 DP_1_ENABLED=$(cat /sys/class/drm/card0/card0-DP-1/enabled)
 DP_2_ENABLED=$(cat /sys/class/drm/card0/card0-DP-2/enabled)
+HDMI_1_STATUS=$(cat /sys/class/drm/card0/card0-HDMI-A-1/enabled)
 
 # Check to see if our state log exists
 if [ ! -f /tmp/monitor ]; then
@@ -23,7 +25,7 @@ fi
 # The state log has the NEXT state to go to in it
 
 # If monitors are disconnected, stay in state 1
-if [ "disconnected" = "$DP_1_STATUS" -a "disconnected" = "$DP_2_STATUS" ]; then
+if [ "disconnected" = "$DP_1_STATUS" -a "disconnected" = "$DP_2_STATUS" -a "disconnected" = "$HDMI_1_STATUS" ]; then
     STATE=1
 fi
 
@@ -65,9 +67,22 @@ case $STATE in
     STATE=5
     ;;
     5) 
-    # laptop monitor is on, projectors are extending
+      # laptop monitor is on, projectors are extending (USB-C)
     if [ "connected" = "$DP_1_STATUS" ]; then
       xrandr --output DP1 --primary --scale 1x1 --mode 3440x1440 --right-of eDP1 --panning 3440x1440+2560+0  --output eDP1 --scale 0.65x0.65 --panning 2560x1440+0+0
+      xset r rate 300 50
+      TYPE="DP1"
+    elif [ "connected" = "$DP_2_STATUS" ]; then
+      /usr/bin/xrandr --output DP2 --auto --output DP2 --auto --above eDP1
+      TYPE="DP2"
+    fi
+    /usr/bin/notify-send -t 5000 --urgency=low "Graphics Update" "Switched to $TYPE mirroring"
+    STATE=6
+    ;;
+    6)
+      # laptop monitor is on, projectors are extending (HDMI)
+    if [ "connected" = "$HDMI_1_STATUS" ]; then
+      xrandr --output HDMI1 --primary --scale 1x1 --mode 3440x1440 --right-of eDP1 --panning 3440x1440+2560+0  --output eDP1 --scale 0.66x0.65 --panning 2560x1440+0+1
       xset r rate 300 50
       TYPE="DP1"
     elif [ "connected" = "$DP_2_STATUS" ]; then

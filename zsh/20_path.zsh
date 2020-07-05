@@ -20,6 +20,11 @@ case `uname` in
     ;;
   Linux)
   export PATH=/home/mattocci/.cargo/bin:$PATH
+  export http_proxy=socks5://127.0.0.1:52843
+  export https_proxy=$http_proxy
+  export HTTP_PROXY=$http_proxy
+  export HTTPS_PROXY=$http_proxy
+  export PATH=~/.config/i3:$PATH
     ;;
 esac
 
