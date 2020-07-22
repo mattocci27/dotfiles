@@ -17,7 +17,7 @@ AttrTrackpointMultiplier=0.8
 # cat /etc/X11/xorg.conf.d/70-synaptics.conf                                                     [INSERT]
 Section "InputClass"
         Identifier "touchpad catchall"
-        Driver "synaptics"
+        Driver "libinput"
         MatchIsTouchpad "on"
         Option "VertEdgeScroll" "on"
         Option      "CircularScrolling"         "on"
