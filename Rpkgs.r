@@ -45,7 +45,7 @@ if (!is.na(my_lib)) {
       } else {
         install.packages(pkg,
                    #  repos = "https://cloud.r-project.org/")
-                     repos = "https://mirror.lzu.edu.cn/CARN/")
+                     repos = "https://mirror.lzu.edu.cn/CRAN/")
       }
     } else {print("not in CRAN")}
   }
