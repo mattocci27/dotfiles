@@ -3,7 +3,8 @@ rm(list = ls()) # This clears everything from memory.
 local({
   r = getOption("repos")
   r["CRAN"] = "https://mirror.lzu.edu.cn/CRAN/"
-  options(repos = r)
+  options(repos = r,
+  browser = "brave")
 })
 
 # read packages
