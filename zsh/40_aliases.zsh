@@ -32,12 +32,13 @@ elif which putclip >/dev/null 2>&1 ; then
     alias -g C='| putclip'
 fi
 
-case ${OSTYPE} in
-    darwin*)
-        export CLICOLOR=1
-        alias ls='ls -G -F'
-        ;;
-    linux*)
-        alias ls='ls -F --color=auto'
-        ;;
-esac
+## use exa instead
+#case ${OSTYPE} in
+#    darwin*)
+#        export CLICOLOR=1
+#        alias ls='ls -G -F'
+#        ;;
+#    linux*)
+#        alias ls='ls -F --color=auto'
+#        ;;
+#esac

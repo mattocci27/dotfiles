@@ -10,10 +10,11 @@ function peco-select-history() {
       eval $tac | \
       peco --query "$LBUFFER")
     CURSOR=$#BUFFER
-    zle clear-screen
+    zle -R -c       # refresh
 }
 zle -N peco-select-history
 bindkey '^r' peco-select-history
+
 
 # ### search a destination from cdr list
 function peco-get-destination-from-cdr() {
