@@ -57,10 +57,19 @@ if [ ! -f "dependencies-${distro}" ]; then
 fi
 
 
+if [ $(distro) == "Manjaro" ]; then
 ask "Update Mirrors for Manjaro?" Y && {
   sudo pacman-mirrors --country Japan,China,United_States
   sudo pacman-mirrors --fasttrack && sudo pacman -Syyu
 }
+fi
+
+if [ $(distro) == "Ubuntu" ]; then
+ask "Use Chinese Mirrors for Ubuntu?" Y && {
+  sed -i.bak -e "s%http://archive.ubuntu.com/%https://mirrors.tuna.tsinghua.edu.cn/%g" /etc/apt/sources.list
+  sed -i.bak -e "s%http://security.ubuntu.com/%https://mirrors.tuna.tsinghua.edu.cn/%g" /etc/apt/sources.list
+  }
+fi
 
 ask "Install packages?" Y && sh ./dependencies-${distro}
 
@@ -97,9 +106,10 @@ ask "Install Atom stuffs?" Y && {
   done < .atom/packages.txt
 }
 
-ask "Install R stuffs?" Y && {
+ask "Install R and python stuffs?" Y && {
   sh ./makevars.sh
   sudo pip3 install -U radian
+  sudo pip3 install pynvim
   #sh ./Rpkg.sh install
 }
 

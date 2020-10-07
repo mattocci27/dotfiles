@@ -1,0 +1,76 @@
+#!/usr/bin/env bash
+set -e
+
+sed -i.bak -e "s%http://archive.ubuntu.com/%https://mirrors.tuna.tsinghua.edu.cn/%g" /etc/apt/sources.list
+sed -i.bak -e "s%http://security.ubuntu.com/%https://mirrors.tuna.tsinghua.edu.cn/%g" /etc/apt/sources.list
+
+echo "Installing tools..."
+apt install -y xsel \
+  build-essential \
+  neovim \
+  peco \
+  fzf \
+  zsh \
+  tmux \
+  tree \
+  make \
+  curl \
+  wget \
+  cargo \
+  neofetch \
+  ripgrep \
+  mosh \
+  software-properties-common \
+  libopenblas-dev \
+  snapd \
+  nodejs
+
+
+apt install -y texinfo \
+  texlive-extra-utils \
+  texlive-fonts-recommended \
+  texlive-fonts-extra \
+  texlive-latex-recommended \
+  texlive-latex-extra \
+  pandoc \
+  pandoc-citeproc
+
+echo "Installing R..."
+apt install -y dirmngr \ 
+  gnupg \ 
+  apt-transport-https \
+  ca-certificates \
+  software-properties-common
+
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
+
+sudo add-apt-repository 'deb https://cloud.r-project.org/bin/linux/ubuntu focal-cran40/'
+
+apt install r-base
+
+echo "Installing python..."
+apt install -y \
+  libpython3-dev \
+  python3-dev \
+  python3-pip \
+  python3-venv \
+  python3-virtualenv \
+  docker-compose
+
+echo "Installing docker..."
+# docker 
+curl -fsSL https://get.docker.com -o get-docker.sh
+sudo sh get-docker.sh
+
+sudo usermod -aG docker mattocci
+
+# snapd
+
+#sudo snap install qv2ray
+
+wget -c https://dl.google.com/go/go1.14.2.linux-amd64.tar.gz -O - | sudo tar -xz -C /usr/local
+
+export VERSION=3.6.3 && # adjust this as necessary \
+wget https://github.com/sylabs/singularity/releases/download/v${VERSION}/singularity-${VERSION}.tar.gz && \
+tar -xzf singularity-${VERSION}.tar.gz && \
+cd singularity

@@ -19,16 +19,16 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'vim-airline/vim-airline-themes'
   Plug 'Xuyuanp/nerdtree-git-plugin'
   Plug 'Yggdroot/indentLine'
-  Plug 'rking/ag.vim'
-  Plug 'cohama/agit.vim'
-  Plug 'Shougo/unite.vim'
+  "Plug 'rking/ag.vim'
+  "Plug 'cohama/agit.vim'
+  "Plug 'Shougo/unite.vim'
   "Plug 'Shougo/neocomplete.vim'
   Plug 'godlygeek/tabular'
   Plug 'christoomey/vim-tmux-navigator'
   "Plug 'plasticboy/vim-markdown'
   "Plug 'mattocci27/vim-markdown'
   Plug 'vim-scripts/SyntaxRange'
-  Plug 'shime/vim-livedown'
+  "Plug 'shime/vim-livedown'
   Plug 'tpope/vim-surround'
   Plug 'wavded/vim-stylus'
   "Plug 'maverickg/stan.vim'
@@ -307,3 +307,9 @@ let g:mkdp_port = ''
 let g:clang_c_options = '-std=gnu11'
 let g:clang_cpp_options = '-std=c++11 -stdlib=libc++'
 "}}}
+" fgf{{{
+nnoremap <C-p> :FZFFileList<CR>
+command! FZFFileList call fzf#run({
+      \ 'source': 'find . -type d -name .git -prune -o ! -name .DS_Store',
+      \ 'sink': 'e'})
+"" }}}

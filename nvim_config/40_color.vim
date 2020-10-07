@@ -3,10 +3,6 @@ syntax enable
 set background=dark
 set t_ut= "clearing uses the current background color
 
-" alacritty Operator Mono and VIM #489
-"https://github.com/jwilm/alacritty/issues/489
-hi Comment gui=italic cterm=italic
-hi htmlArg gui=italic cterm=italic
 
 set colorcolumn=80
 
@@ -46,6 +42,13 @@ highlight NonText guibg=none
 highlight LineNr guibg=none
 highlight Folded guibg=none
 highlight EndOfBuffer guibg=none
+
+" alacritty Operator Mono and VIM #489
+"https://github.com/jwilm/alacritty/issues/489
+hi Comment gui=italic cterm=italic
+hi htmlArg gui=italic cterm=italic
+set t_ZH=[3m
+set t_ZR=[23m
 
 "ses_transparent = 0
 function! Toggle_transparent()

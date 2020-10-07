@@ -13,7 +13,8 @@ function peco-select-history() {
     zle -R -c       # refresh
 }
 zle -N peco-select-history
-bindkey '^r' peco-select-history
+#bindkey '^r' peco-select-history
+#
 
 
 # ### search a destination from cdr list
