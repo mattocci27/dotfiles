@@ -21,11 +21,20 @@ case `uname` in
     ;;
   Linux)
   export PATH=/home/mattocci/.cargo/bin:$PATH
-  export http_proxy=socks5://127.0.0.1:52843
-  export https_proxy=$http_proxy
-  export HTTP_PROXY=$http_proxy
-  export HTTPS_PROXY=$http_proxy
+  #export http_proxy=socks5://127.0.0.1:52843
+  #export https_proxy=$http_proxy
+  #export HTTP_PROXY=$http_proxy
+  #export HTTPS_PROXY=$http_proxy
   export PATH=~/.config/i3:$PATH
+  export PATH=~/.local/bin:$PATH
+  export PATH=/usr/local/go/bin:$PATH
+  #export PATH=~/.squashfs-root/usr/bin:$PATH
+  #
+  #WSL2 
+  #
+  export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0
+  #export DISPLAY=$(awk '/nameserver / {print $2; exit}' /etc/resolv.conf 2>/dev/null):0
+  #export LIBGL_ALWAYS_INDIRECT=1
     ;;
 esac
 
@@ -37,3 +46,4 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 # dotnet
 export PATH="~/.dotnet/tools:$PATH"
+
