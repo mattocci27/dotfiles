@@ -68,5 +68,11 @@ fadd() {
   done
 }
 
+ftmux() {
+  local res
+  res=$(tmux list-sessions | awk -F':' '{print $1}' | fzf +m) &&
+  tmux attach -t "$res"
+}
+
 export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git"'
 export FZF_DEFAULT_OPTS='--height 40% --reverse --border'
