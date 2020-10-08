@@ -44,30 +44,31 @@ dir="${dir}/.."
 
 # fix for mac
 distro=$(uname)
-if [ ! $distro == "Darwin" ]; then
+
+if [ $distro != "Darwin" ]; then
   distro=`lsb_release -si`
 fi
 
 echo "Set up for $distro"
 
 if [ ! -f "dependencies-${distro}" ]; then
-#elif [ ! $(uname) == "Darwin" ]; then
   echo "Could not find file with dependencies for distro ${distro}. Aborting."
   exit 2
 fi
 
 
-if [ $(distro) == "Manjaro" ]; then
+if [ $distro = "Manjaro" ]; then
 ask "Update Mirrors for Manjaro?" Y && {
   sudo pacman-mirrors --country Japan,China,United_States
   sudo pacman-mirrors --fasttrack && sudo pacman -Syyu
 }
 fi
 
-if [ $(distro) == "Ubuntu" ]; then
+if [ $distro = "Ubuntu" ]; then
 ask "Use Chinese Mirrors for Ubuntu?" Y && {
-  sed -i.bak -e "s%http://archive.ubuntu.com/%https://mirrors.tuna.tsinghua.edu.cn/%g" /etc/apt/sources.list
-  sed -i.bak -e "s%http://security.ubuntu.com/%https://mirrors.tuna.tsinghua.edu.cn/%g" /etc/apt/sources.list
+  sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak
+  sudo sed -i.bak -e "s%http://archive.ubuntu.com/%https://mirrors.tuna.tsinghua.edu.cn/%g" /etc/apt/sources.list
+  sudo sed -i.bak -e "s%http://security.ubuntu.com/%https://mirrors.tuna.tsinghua.edu.cn/%g" /etc/apt/sources.list
   }
 fi
 

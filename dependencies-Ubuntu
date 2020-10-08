@@ -2,6 +2,7 @@
 set -e
 
 echo "Installing tools..."
+sudo apt update -y
 sudo apt install -y xsel \
   build-essential \
   neovim \
@@ -33,8 +34,8 @@ sudo apt install -y texinfo \
   pandoc-citeproc
 
 # R
-sudo apt install -y dirmngr \ 
-  gnupg \ 
+sudo apt install -y dirmngr \
+  gnupg \
   apt-transport-https \
   ca-certificates \
   software-properties-common
@@ -43,7 +44,7 @@ sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD
 
 sudo add-apt-repository 'deb https://cloud.r-project.org/bin/linux/ubuntu focal-cran40/'
 
-sudo apt install r-base
+sudo apt install -y r-base
 
 echo "Installing python..."
 sudo apt install -y \
