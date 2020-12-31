@@ -6,16 +6,12 @@ tap "homebrew/core"
 
 brew 'zsh'
 brew 'peco'
-brew 'vim', args: ['with-lua']
 brew 'neovim'
 brew 'cmake'
 brew 'ffmpeg'
 brew 'git'
 brew 'wget'
 brew 'ghq'
-brew 'python'
-brew 'python3'
-brew 'pyenv'
 brew 'libxml2'
 brew 'libgit2'
 brew 'tmux'
@@ -44,6 +40,12 @@ brew 'fd'
 brew 'gotop'
 brew 'docker'
 brew 'docker-machine'
+brew 'htop'
+brew 'ripgrep'
+brew 'V8'
+brew 'udunits' 
+brew 'gsl' 
+brew 'llvm' 
 
 cask "google-chrome"
 cask "atom"

@@ -2,7 +2,8 @@ rm(list = ls()) # This clears everything from memory.
 # cran 
 local({
   r = getOption("repos")
-  r["CRAN"] = "https://mirror.lzu.edu.cn/CRAN/"
+  #r["CRAN"] = "https://mirror.lzu.edu.cn/CRAN/"
+  r["CRAN"] = "https://ftp.yz.yamagata-u.ac.jp/pub/cran/"
   options(repos = r,
   browser = "brave")
 })
