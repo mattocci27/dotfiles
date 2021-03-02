@@ -72,7 +72,8 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'reedes/vim-textobj-sentence' " Treat sentences as text objects
   Plug 'reedes/vim-wordy' " Weasel words and passive voice
   "Plug 'plasticboy/vim-markdown'
-  Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
+ "Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
+  Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
   "Plug 'vim-pandoc/vim-pandoc'
   "Plug 'vim-pandoc/vim-pandoc-syntax'
   "Plug 'vim-pandoc/vim-rmarkdown'
@@ -289,6 +290,12 @@ let g:mkdp_preview_options = {
     \ 'hide_yaml_meta': 1,
     \ 'sequence_diagrams': {}
     \ }
+
+" recognized filetypes
+" these filetypes will have MarkdownPreview... commands
+let g:mkdp_filetypes = ['markdown']
+let g:mkdp_filetypes = ['rmarkdown']
+let g:mkdp_filetypes = ['rmd']
 
 " use a custom markdown style must be absolute path
 let g:mkdp_markdown_css = ''
