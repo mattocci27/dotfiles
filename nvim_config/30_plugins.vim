@@ -5,34 +5,22 @@
 " - For Neovim: ~/.local/share/nvim/plugged
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.local/share/nvim/plugged')
-  "Plug 'gmarik/Vundle.vim'
   Plug 'scrooloose/nerdtree'
   Plug 'ryanoasis/vim-devicons'
   Plug 'tiagofumo/vim-nerdtree-syntax-highlight' "
-  Plug 'jalvesaq/Nvim-R'
   Plug 'Townk/vim-autoclose'
   Plug 'tpope/vim-fugitive'
   Plug 'airblade/vim-gitgutter'
   Plug 'itchyny/lightline.vim'
- " Plug 'alpaca-tc/alpaca_powertabline'
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
   Plug 'Xuyuanp/nerdtree-git-plugin'
   Plug 'Yggdroot/indentLine'
-  "Plug 'rking/ag.vim'
-  "Plug 'cohama/agit.vim'
-  "Plug 'Shougo/unite.vim'
-  "Plug 'Shougo/neocomplete.vim'
   Plug 'godlygeek/tabular'
   Plug 'christoomey/vim-tmux-navigator'
-  "Plug 'plasticboy/vim-markdown'
-  "Plug 'mattocci27/vim-markdown'
   Plug 'vim-scripts/SyntaxRange'
-  "Plug 'shime/vim-livedown'
   Plug 'tpope/vim-surround'
   Plug 'wavded/vim-stylus'
-  "Plug 'maverickg/stan.vim'
-  Plug 'eigenfoo/stan.vim'
   Plug 'jiangmiao/auto-pairs'
   Plug 'sedm0784/vim-you-autocorrect'
   Plug 'autozimu/LanguageClient-neovim', {
@@ -43,6 +31,10 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'junegunn/fzf.vim'
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
  
+  " R
+  Plug 'jalvesaq/Nvim-R', {'branch': 'stable'}
+  Plug 'eigenfoo/stan.vim'
+
   " julia
   Plug 'JuliaEditorSupport/julia-vim'
 
@@ -72,7 +64,6 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'reedes/vim-textobj-sentence' " Treat sentences as text objects
   Plug 'reedes/vim-wordy' " Weasel words and passive voice
   "Plug 'plasticboy/vim-markdown'
- "Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
   Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
   "Plug 'vim-pandoc/vim-pandoc'
   "Plug 'vim-pandoc/vim-pandoc-syntax'
@@ -191,6 +182,7 @@ endif
 " indentLine{{{
 let g:indentLine_newVersion = 1
 let g:indetLine_char = '|'
+let g:indentLine_setConceal = 0
 " }}}
 " gitgutter{{{
 "let g:gitgutter_override_sign_column_highlight = 0
@@ -293,9 +285,7 @@ let g:mkdp_preview_options = {
 
 " recognized filetypes
 " these filetypes will have MarkdownPreview... commands
-let g:mkdp_filetypes = ['markdown']
-let g:mkdp_filetypes = ['rmarkdown']
-let g:mkdp_filetypes = ['rmd']
+let g:mkdp_filetypes = ['markdown', 'rmd', 'Rmd']
 
 " use a custom markdown style must be absolute path
 let g:mkdp_markdown_css = ''
