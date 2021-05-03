@@ -3,13 +3,14 @@ rm(list = ls()) # This clears everything from memory.
 local({
   r = getOption("repos")
   r["CRAN"] = "https://mirror.lzu.edu.cn/CRAN/"
-  options(repos = r,
-  browser = "brave")
+  #r["CRAN"] = "https://ftp.yz.yamagata-u.ac.jp/pub/cran/"
+  options(repos = r)
+  #browser = "Safari")
 })
 
 # read packages
 options(
-  defaultPackages=c(getOption("defaultPackages"),"tidyverse", "rmarkdown"),
+#  defaultPackages=c(getOption("defaultPackages"),"tidyverse", "rmarkdown"),
   blogdown.generator = "jekyll",
   blogdown.method = "custom",
   blogdown.subdir = "assets",

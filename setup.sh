@@ -112,6 +112,74 @@ ask "Install R and python stuffs?" Y && {
   sudo pip3 install -U radian
   sudo pip3 install pynvim
   #sh ./Rpkg.sh install
+  Rscript -e "install.packages(c('littler', 'pacman'), dependencies = TRUE, error = TRUE)"
+	ln -s /usr/local/lib/R/4.0/site-library/littler/examples/install.r /usr/local/bin/install.r
+	ln -s /usr/local/lib/R/4.0/site-library/littler/examples/install2.r /usr/local/bin/install2.r
+	ln -s /usr/local/lib/R/4.0/site-library/littler/examples/installBioc.r /usr/local/bin/installBioc.r 
+	ln -s /usr/local/lib/R/4.0/site-library/littler/examples/installDeps.r /usr/local/bin/installDeps.r 
+	ln -s /usr/local/lib/R/4.0/site-library/littler/examples/installGithub.r /usr/local/bin/installGithub.r 
+	ln -s /usr/local/lib/R/4.0/site-library/littler/examples/testInstalled.r /usr/local/bin/testInstalled.r 
+}
+
+ask "Install R packages?" Y && {
+  
+  Rscript -e "pacman::p_load(
+    tidyverse)"
+
+  Rscript -e "pacman::p_load(
+    rstan)"
+
+  Rscript -e "pacman::p_load(
+    vegan)"
+
+  Rscript -e "pacman::p_load(
+      FD,
+      FactoMineR,
+      GGally,
+      MuMIn,
+      Rcpp,
+      RcppEigen,
+      RcppNumerical,
+      adephylo,
+      adespatial,
+      blogdown,
+      bookdown,
+      caper,
+      corrplot,
+      cowplot,
+      devtools,
+      entropart,
+      factoextra,
+      furrr,
+      ggrepel,
+      ggthemes,
+      hexbin,
+      kableExtra,
+      kfigr,
+      languageserver,
+      lme4,
+      memisc,
+      microbenchmark,
+      mnormt,
+      multcompView,
+      mvtnorm,
+      nlme,
+      pander,
+      phytools,
+      picante,
+      png,
+      provenance,
+      rmarkdown,
+      rstan,
+      rstanarm,
+      sads,
+      shiny,
+      smatr,
+      snowfall,
+      tictoc,
+      tidyverse,
+      vegan)"
+
 }
 
 # After .vim has been symlinked!

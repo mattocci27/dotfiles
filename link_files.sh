@@ -3,7 +3,14 @@
 set -e
 
 USERNAME=$(whoami)
-HOME="/home/${USERNAME}"
+distro=$(uname)
+
+if [ $distro != "Darwin" ]; then
+  HOME="/Users/${USERNAME}"
+else
+  HOME="/home/${USERNAME}"
+fi
+
 DOT_DIRECTORY="${HOME}/dotfiles"
 
 OVERWRITE=true
@@ -43,7 +50,11 @@ mk_dirs(){
 
 
 link_files() {
-  array=`find | grep "^\./\." | grep -v git | grep -v ssh | sed 's/^\.\///g'`
+  if [ $distro != "Darwin" ]; then
+    array=`find . | grep "^\./\." | grep -v git | grep -v ssh | sed 's/^\.\///g'`
+  else
+    array=`find | grep "^\./\." | grep -v git | grep -v ssh | sed 's/^\.\///g'`
+  fi
   for f in $array
   do
     # Force remove a dotfile if it's already there

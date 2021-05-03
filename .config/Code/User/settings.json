@@ -1,7 +1,6 @@
 {
   "workbench.startupEditor": "newUntitledFile",
     "editor.fontFamily": "Cousine, 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
-    "editor.fontSize": 12,
 
     // wrap
     "editor.wordWrap": "bounded",
@@ -69,6 +68,15 @@
     },
     "r.dependencyChecks": false,
     "editor.renderControlCharacters": false,
-    "editor.renderWhitespace": "none"
+    "editor.renderWhitespace": "none",
+    "git.autofetch": true,
+    "vscode-neovim.neovimExecutablePaths.linux": "/usr/bin/nvim",
+    "vscode-neovim.neovimExecutablePaths.darwin": "/usr/local/bin/nvim",
+    "workbench.editorAssociations": [
+      {
+        "viewType": "jupyter.notebook.ipynb",
+        "filenamePattern": "*.ipynb"
+      }
+    ]
 }
 
