@@ -1,5 +1,21 @@
 # fzf ----------------------------------------------------------
 #
+#
+function fzf-history-widget() {
+    local tac=${commands[tac]:-"tail -r"}
+    BUFFER=$( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | sed 's/ *[0-9]* *//' | eval $tac | awk '!a[$0]++' | fzf +s)
+    CURSOR=$#BUFFER
+    zle clear-screen
+}
+zle     -N   fzf-history-widget
+bindkey '^R' fzf-history-widget
+
+fd() {
+  local dir
+  dir=$(find ${1:-.} -path '*/\.*' -prune \
+                  -o -type d -print 2> /dev/null | fzf +m) &&
+  cd "$dir"
+}
 fd() {
   local dir
   dir=$(find ${1:-.} -path '*/\.*' -prune \
