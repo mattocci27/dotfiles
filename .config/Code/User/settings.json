@@ -59,7 +59,7 @@
     "explorer.confirmDelete": false,
     "vsicons.dontShowNewVersionMessage": true,
     "window.zoomLevel": 0,
-    "workbench.colorTheme": "Community Material Theme",
+    "workbench.colorTheme": "Solarized Light",
     "markdown-preview-enhanced.wikiLinkFileExtension": ".rmd .md",
     "markdown-preview-enhanced.usePuppeteerCore": false,
     "markdown-preview-enhanced.liveUpdate": true,
@@ -68,6 +68,15 @@
     },
     "r.dependencyChecks": false,
     "editor.renderControlCharacters": false,
-    "editor.renderWhitespace": "none"
+    "editor.renderWhitespace": "none",
+    "git.autofetch": true,
+    "vscode-neovim.neovimExecutablePaths.linux": "/usr/bin/nvim",
+    "vscode-neovim.neovimExecutablePaths.darwin": "/usr/local/bin/nvim",
+    "workbench.editorAssociations": [
+      {
+        "viewType": "jupyter.notebook.ipynb",
+        "filenamePattern": "*.ipynb"
+      }
+    ]
 }
 
