@@ -1,6 +1,7 @@
 # locale
 # without this, tmux does not recognize some fonts
 export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
 
 # default editor
 VISUAL=nvim; export VISUAL EDITOR=nvim; export EDITOR
