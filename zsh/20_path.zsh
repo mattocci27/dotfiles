@@ -7,7 +7,11 @@ case `uname` in
   export PATH=$PATH:/Users/$USER/mutagen_darwin_amd64_v0.11.4
   export PATH=$PATH:/opt/yarn-v1.22.4/bin
   export PATH="/usr/local/opt/openjdk/bin:$PATH"
- # export PATH="$HOME/.cargo/bin:$PATH"
+  export PATH="/Users/$USER/Library/Python/3.8/bin:$PATH"
+  export PATH="/opt/homebrew/bin:$PATH"
+  export PATH="/usr/bin:$PATH"
+  export PATH=$PATH:/opt/homebrew/opt/ccache/libexec
+  export PATH="$HOME/.cargo/bin:$PATH"
   export DISPLAY=localhost:0.0
   export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
     ;;

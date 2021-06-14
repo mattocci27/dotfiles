@@ -9,4 +9,4 @@ eval $(gdircolors ~/.dircolors-solarized)
 
 QT_API=pyqt5
 
-export PATH="$HOME/.cargo/bin:$PATH"
+. "$HOME/.cargo/env"

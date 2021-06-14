@@ -2,6 +2,7 @@ FD
 FactoMineR
 GGally
 MuMIn
+RColorBrewer
 Rcpp
 RcppEigen
 RcppNumerical
@@ -10,12 +11,15 @@ adespatial
 blogdown
 bookdown
 caper
+carData
 corrplot
 cowplot
 devtools
 entropart
 factoextra
+flair
 furrr
+gganimate
 ggrepel
 ggthemes
 hexbin
@@ -25,11 +29,13 @@ languageserver
 lme4
 memisc
 microbenchmark
+minerva
 mnormt
 multcompView
 mvtnorm
 nlme
 pander
+patchwork
 phytools
 picante
 png

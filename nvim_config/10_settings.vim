@@ -26,7 +26,6 @@ set linebreak
 set synmaxcol=200
 set fo+=l
 set nolist
-
 "set list
 "set listchars=tab:\|\ ,trail:·,eol:↲,extends:»,precedes:«,nbsp:%
 
@@ -48,4 +47,11 @@ if system('uname -a | grep microsoft') != ""
         \   },
         \   'cache_enabled': 1,
         \ }
+endif
+
+" mac
+if system('uname') =~ "Darwin"
+  if system('uname -m') =~ "arm64"
+  let g:python3_host_prog="/usr/bin/python3"
+  endif
 endif

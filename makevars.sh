@@ -8,7 +8,7 @@ if [ "$(uname)" == 'Linux' ]; then
   MAKEVARS="${MAKEVARS} \nCXX14FLAGS += -fPIC"
 # additional for Mac
 elif [ "$(uname)" == 'Darwin' ]; then
-  MAKEVARS="${MAKEVARS}\nCC=clang\nCXX=clang++ -arch x86_64 -ftemplate-depth-256"
+  MAKEVARS="${MAKEVARS}\nCC=clang\nCXX=clang++ -arch arm_64 -ftemplate-depth-256"
 fi
 
 # create Makevars in .R
