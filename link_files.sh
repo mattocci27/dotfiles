@@ -5,7 +5,7 @@ set -e
 USERNAME=$(whoami)
 distro=$(uname)
 
-if [ $distro != "Darwin" ]; then
+if [ $distro == "Darwin" ]; then
   HOME="/Users/${USERNAME}"
 else
   HOME="/home/${USERNAME}"
@@ -50,7 +50,7 @@ mk_dirs(){
 
 
 link_files() {
-  if [ $distro != "Darwin" ]; then
+  if [ $distro == "Darwin" ]; then
     array=`find . | grep "^\./\." | grep -v git | grep -v ssh | sed 's/^\.\///g'`
   else
     array=`find | grep "^\./\." | grep -v git | grep -v ssh | sed 's/^\.\///g'`
