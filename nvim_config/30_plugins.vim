@@ -305,7 +305,7 @@ let g:clang_c_options = '-std=gnu11'
 let g:clang_cpp_options = '-std=c++11 -stdlib=libc++'
 "}}}
 " fgf{{{
-nnoremap <C-p> :FZFFileList<CR>
+"nnoremap <C-p> :FZFFileList<CR>
 command! FZFFileList call fzf#run({
       \ 'source': 'find . -type d -name .git -prune -o ! -name .DS_Store',
       \ 'sink': 'e'})
