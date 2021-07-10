@@ -30,7 +30,7 @@ nnoremap sH <C-w>H
 "inoremap ( ()<ESC>i
 "inoremap (<Enter> ()<Left><CR><ESC><S-o>
 inoremap <silent> jj <ESC>
-inoremap <buffer><C-p> \|>
+inoremap <silent> <C-p> \|>
 
 " j/k for displayed line
 nnoremap j gj
