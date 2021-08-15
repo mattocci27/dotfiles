@@ -12,3 +12,7 @@ if [[ -n $SSH_CONNECTION ]]; then
 else
   export EDITOR='nvim'
 fi
+
+# for ssh
+#export DISPLAY=:0 
+export DISPLAY=localhost:0.0

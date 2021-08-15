@@ -2,13 +2,13 @@
 set -e
 
 # command line tools
-#sudo xcode-select --install
+sudo xcode-select --install
 
 # homebrew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-brew install mas
-brew install cask
-brew tap cjbassi/gotop
+/opt/homebrew/bin/brew install mas
+/opt/homebrew/bin/brew install cask
+/opt/homebrew/bin/brew tap cjbassi/gotop
 
-brew bundle
+/opt/homebrew/bin/brew bundle --file Brewfile -v

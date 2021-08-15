@@ -1,5 +1,5 @@
 # use zsh
-set -g default-shell /usr/local/bin/zsh
+set -g default-shell /opt/homebrew/bin/zsh
 
 # use true colors
 set -g default-terminal "screen-256color"

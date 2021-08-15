@@ -86,16 +86,16 @@ if [ $(uname) == "Darwin" ]; then
 fi
 
 ask "Install font?" Y && {
-  git clone https://github.com/ryanoasis/nerd-fonts ~/nerd-fonts
+  #git clone https://github.com/ryanoasis/nerd-fonts ~/nerd-fonts
   cd ~/nerd-fonts
   chmod 755 font-patcher
   cd
   cd ${DOT_DIRECTORY}
 
-  if [ ! $(uname) == "Darwin" ]; then
+  if [ $(uname) == "Darwin" ]; then
     sudo cp -rf ./fonts/Cousine/* ~/Library/Fonts
     fc-cache -vf
-  elif [ ! $(uname) == "Linux" ]; then
+  elif [ $(uname) == "Linux" ]; then
     sudo cp -rf ./fonts/Cousine /usr/share/fonts/Cousine
   fi
 }
@@ -115,14 +115,14 @@ ask "Install R and python stuffs?" Y && {
   Rscript -e "install.packages(c('littler', 'pacman'), dependencies = TRUE, error = TRUE)"
 	ln -s /usr/local/lib/R/4.0/site-library/littler/examples/install.r /usr/local/bin/install.r
 	ln -s /usr/local/lib/R/4.0/site-library/littler/examples/install2.r /usr/local/bin/install2.r
-	ln -s /usr/local/lib/R/4.0/site-library/littler/examples/installBioc.r /usr/local/bin/installBioc.r 
-	ln -s /usr/local/lib/R/4.0/site-library/littler/examples/installDeps.r /usr/local/bin/installDeps.r 
-	ln -s /usr/local/lib/R/4.0/site-library/littler/examples/installGithub.r /usr/local/bin/installGithub.r 
-	ln -s /usr/local/lib/R/4.0/site-library/littler/examples/testInstalled.r /usr/local/bin/testInstalled.r 
+	ln -s /usr/local/lib/R/4.0/site-library/littler/examples/installBioc.r /usr/local/bin/installBioc.r
+	ln -s /usr/local/lib/R/4.0/site-library/littler/examples/installDeps.r /usr/local/bin/installDeps.r
+	ln -s /usr/local/lib/R/4.0/site-library/littler/examples/installGithub.r /usr/local/bin/installGithub.r
+	ln -s /usr/local/lib/R/4.0/site-library/littler/examples/testInstalled.r /usr/local/bin/testInstalled.r
 }
 
 ask "Install R packages?" Y && {
-  
+
   Rscript -e "pacman::p_load(
     tidyverse)"
 

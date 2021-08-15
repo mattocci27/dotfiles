@@ -31,7 +31,7 @@ brew 'ghostscript'
 brew 'pandoc'
 brew 'pandoc-citeproc'
 brew 'pandoc-crossref'
-brew 'r', args: ['--with-openblas']
+brew 'r'
 brew 'reattach-to-user-namespace'
 brew 'go'
 brew 'exa'
@@ -48,27 +48,26 @@ brew 'gsl'
 brew 'llvm' 
 
 cask "google-chrome"
-cask "atom"
-cask "dropbox"
-cask "alacritty"
+#cask "atom"
+#cask "dropbox"
+#cask "alacritty"
 cask "zotero"
 cask "spotify"
 cask "gitkraken"
 cask "discord"
-cask "java"
-cask "vlc"
+#cask "java"
+#cask "vlc"
 cask "google-japanese-ime"
 cask "google-photos-backup-and-sync"
 cask "adobe-creative-cloud"
 cask "adobe-acrobat-reader"
-cask "java8"
-cask "visual-studio-code"
-cask "amazon-photos"
-cask "brave-browser"
-cask "mactex-no-gui"
-cask "openconnect-gui"
-cask "v2rayu"
-cask "vagrant"
+#cask "java8"
+#cask "visual-studio-code"
+#cask "brave-browser"
+#cask "mactex-no-gui"
+#cask "openconnect-gui"
+#cask "v2rayu"
+#cask "vagrant"
 
 mas  "Tomato One", id: 907364780
 mas  "BetterSnapTool", id: 417375580

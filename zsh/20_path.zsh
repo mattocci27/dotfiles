@@ -12,7 +12,9 @@ case `uname` in
   export PATH="/usr/bin:$PATH"
   export PATH=$PATH:/opt/homebrew/opt/ccache/libexec
   export PATH="$HOME/.cargo/bin:$PATH"
-  export DISPLAY=localhost:0.0
+  export PATH="$PATH:$HOME/bin/context/tex/texmf-osx-arm64/bin:"
+#  export DISPLAY=localhost:0.0
+#  export DISPLAY=:0
   export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
     ;;
   Linux)

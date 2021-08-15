@@ -54,12 +54,10 @@
       "<C-a>": false,
       "<C-f>": false
     },
-    "workbench.iconTheme": "material-icon-theme",
     "PandocCiter.DefaultBib": "~/MyLibrary.bib",
     "explorer.confirmDelete": false,
     "vsicons.dontShowNewVersionMessage": true,
     "window.zoomLevel": 0,
-    "workbench.colorTheme": "Solarized Light",
     "markdown-preview-enhanced.wikiLinkFileExtension": ".rmd .md",
     "markdown-preview-enhanced.usePuppeteerCore": false,
     "markdown-preview-enhanced.liveUpdate": true,
@@ -115,6 +113,7 @@
     "editor.cursorStyle": "line",
     "editor.insertSpaces": false,
     "editor.lineNumbers": "on",
-    "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-"
+    "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
+    "workbench.colorTheme": "Solarized Light"
 }
 
