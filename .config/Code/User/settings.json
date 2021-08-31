@@ -69,7 +69,7 @@
     "editor.renderWhitespace": "none",
     "git.autofetch": true,
     "vscode-neovim.neovimExecutablePaths.linux": "/usr/bin/nvim",
-    "vscode-neovim.neovimExecutablePaths.darwin": "/usr/local/bin/nvim",
+    "vscode-neovim.neovimExecutablePaths.darwin": "/opt/homebrew/bin/nvim",
     "workbench.editorAssociations": {
       "*.ipynb": "jupyter.notebook.ipynb"
     },
@@ -114,6 +114,10 @@
     "editor.insertSpaces": false,
     "editor.lineNumbers": "on",
     "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
-    "workbench.colorTheme": "Solarized Light"
+    "workbench.colorTheme": "Community Material Theme",
+    "r.rpath.linux": "/usr/bin/R",
+    "r.rpath.mac": "/opt/homebrew/bin/R",
+    "r.rterm.mac": "/Users/mattocci/Library/Python/3.8/bin/radian",
+    "latex-workshop.view.pdf.viewer": "tab"
 }
 

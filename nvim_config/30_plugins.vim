@@ -5,16 +5,23 @@
 " - For Neovim: ~/.local/share/nvim/plugged
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.local/share/nvim/plugged')
-  Plug 'scrooloose/nerdtree'
+  "Plug 'scrooloose/nerdtree'
+  Plug 'lambdalisue/fern.vim'
+  Plug 'lambdalisue/fern-git-status.vim'
+  Plug 'lambdalisue/nerdfont.vim'
+  Plug 'lambdalisue/fern-renderer-nerdfont.vim'
+  Plug 'lambdalisue/glyph-palette.vim'
   Plug 'ryanoasis/vim-devicons'
-  Plug 'tiagofumo/vim-nerdtree-syntax-highlight' "
-  Plug 'Townk/vim-autoclose'
+
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
+ " Plug 'tiagofumo/vim-nerdtree-syntax-highlight' "
+ " Plug 'Townk/vim-autoclose'
   Plug 'tpope/vim-fugitive'
   Plug 'airblade/vim-gitgutter'
   Plug 'itchyny/lightline.vim'
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
-  Plug 'Xuyuanp/nerdtree-git-plugin'
+  "Plug 'Xuyuanp/nerdtree-git-plugin'
   Plug 'Yggdroot/indentLine'
   Plug 'godlygeek/tabular'
   Plug 'christoomey/vim-tmux-navigator'
@@ -23,17 +30,18 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'wavded/vim-stylus'
   Plug 'jiangmiao/auto-pairs'
   Plug 'sedm0784/vim-you-autocorrect'
-  Plug 'autozimu/LanguageClient-neovim', {
-      \ 'branch': 'next',
-      \ 'do': 'bash install.sh',
-      \ }
+"  Plug 'autozimu/LanguageClient-neovim', {
+"      \ 'branch': 'next',
+"      \ 'do': 'bash install.sh',
+"      \ }
   Plug 'junegunn/fzf'
   Plug 'junegunn/fzf.vim'
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+  "Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
  
   " R
   Plug 'jalvesaq/Nvim-R', {'branch': 'stable'}
   Plug 'eigenfoo/stan.vim'
+
 
   " julia
   Plug 'JuliaEditorSupport/julia-vim'
@@ -69,56 +77,39 @@ call plug#begin('~/.local/share/nvim/plugged')
   "Plug 'vim-pandoc/vim-pandoc'
   "Plug 'vim-pandoc/vim-pandoc-syntax'
   "Plug 'vim-pandoc/vim-rmarkdown'
+  
+  "tex
+  Plug 'lervag/vimtex'
 
 call plug#end()
 
 " R-LSP{{{
 " deoplete options
-let g:deoplete#enable_at_startup = 1
-"let g:deoplete#enable_smart_case = 1
+"let g:deoplete#enable_at_startup = 1
+"
+"" disable autocomplete by default
+"let b:deoplete_disable_auto_complete=1
+"let g:deoplete_disable_auto_complete=1
+"
+"" Disable the candidates in Comment/String syntaxes.
+"call deoplete#custom#source('_',
+"            \ 'disabled_syntaxes', ['Comment', 'String'])
+"
+"let g:deoplete#sources#rust#rust_source_path = '/usr/local/src/rust/src'
+"
+"autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+"
+"" set sources
+"call deoplete#custom#option('sources', {
+"		\ '_': ['buffer'],
+"		\ 'cpp': ['buffer', 'tag'],
+"		\})
 
-" disable autocomplete by default
-let b:deoplete_disable_auto_complete=1
-let g:deoplete_disable_auto_complete=1
-
-" call deoplete#custom#buffer_option('auto_complete', v:false)
-" call deoplete#custom#source('LanguageClient', \ 'min_pattern_length', \ 2)
-
-"if !exists('g:deoplete#custom()')
-"    let g:deoplete#custom#var() = {}
-"endif
-
-" Disable the candidates in Comment/String syntaxes.
-call deoplete#custom#source('_',
-            \ 'disabled_syntaxes', ['Comment', 'String'])
-
-let g:deoplete#sources#rust#rust_source_path = '/usr/local/src/rust/src'
-
-autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
-
-" set sources
-"let g:deoplete#sources = {}
-"let g:deoplete#sources.cpp = ['LanguageClient']
-"let g:deoplete#sources.python = ['LanguageClient']
-"let g:deoplete#sources.python3 = ['LanguageClient']
-"let g:deoplete#sources.rust = ['LanguageClient']
-"let g:deoplete#sources.c = ['LanguageClient']
-"let g:deoplete#sources.vim = ['vim']
-call deoplete#custom#option('sources', {
-		\ '_': ['buffer'],
-		\ 'cpp': ['buffer', 'tag'],
-		\})
-
-" ignored sources
-"let g:deoplete#ignore_sources = {}
-"let g:deoplete#ignore_sources._ = ['buffer', 'around']
 "}}}
-
 "LanguageClient{{{
+set hidden
 let g:LanguageClient_autoStart = 1
 let g:LanguageClient_serverCommands = {
-    \ 'r': ['R', '--slave', '-e', 'languageserver::run()'],
-    \ 'rmd': ['R', '--slave', '-e', 'languageserver::run()'],
     \ 'python': ['/usr/local/bin/pyls'],
     \ 'julia': ['julia', '--startup-file=no', '--history-file=no', '-e', '
     \       using LanguageServer;
@@ -133,9 +124,9 @@ let g:default_julia_version = '1.0'
 
 " }}}
 " nerdtree {{{
-noremap <silent><C-e> :NERDTreeToggle<CR>
-let g:NERDTreeDirArrows = 1
-let NERDTreeWinSize=30
+"noremap <silent><C-e> :NERDTreeToggle<CR>
+"let g:NERDTreeDirArrows = 1
+"let NERDTreeWinSize=30
 " }}}
 " vim-nerdtree-syntax-highlight{{{
 let s:rspec_red = 'FE405F'
@@ -188,7 +179,23 @@ let g:indentLine_setConceal = 0
 " gitgutter{{{
 "let g:gitgutter_override_sign_column_highlight = 0
 "highlight SignColumn guibg='#263238'   " terminal Vim "
-highlight SignColumn ctermbg=red   " terminal Vim "
+"highlight SignColumn ctermbg=red   " terminal Vim "
+"" git操作
+" g]で前の変更箇所へ移動する
+nnoremap g[ :GitGutterPrevHunk<CR>
+" g[で次の変更箇所へ移動する
+nnoremap g] :GitGutterNextHunk<CR>
+" ghでdiffをハイライトする
+nnoremap gh :GitGutterLineHighlightsToggle<CR>
+" gpでカーソル行のdiffを表示する
+nnoremap gp :GitGutterPreviewHunk<CR>
+" 記号の色を変更する
+highlight GitGutterAdd ctermfg=green
+highlight GitGutterChange ctermfg=blue
+highlight GitGutterDelete ctermfg=red
+
+"" 反映時間を短くする(デフォルトは4000ms)
+set updatetime=250
 " }}}
 " vim-airline{{{
 let g:airline#extensions#tabline#enabled = 1
@@ -307,8 +314,60 @@ let g:clang_c_options = '-std=gnu11'
 let g:clang_cpp_options = '-std=c++11 -stdlib=libc++'
 "}}}
 " fgf{{{
-nnoremap <C-p> :FZFFileList<CR>
-command! FZFFileList call fzf#run({
-      \ 'source': 'find . -type d -name .git -prune -o ! -name .DS_Store',
-      \ 'sink': 'e'})
+"nnoremap <C-p> :FZFFileList<CR>
+"command! FZFFileList call fzf#run({
+"      \ 'source': 'find . -type d -name .git -prune -o ! -name .DS_Store',
+"      \ 'sink': 'e'})
+"" fzf.vim
+" Ctrl+pでファイル検索を開く
+" git管理されていれば:GFiles、そうでなければ:Filesを実行する
+fun! FzfOmniFiles()
+  let is_git = system('git status')
+  if v:shell_error
+    :Files
+  else
+    :GFiles
+  endif
+endfun
+nnoremap <C-p> :call FzfOmniFiles()<CR>
+
+" Ctrl+gで文字列検索を開く
+" <S-?>でプレビューを表示/非表示する
+command! -bang -nargs=* Rg
+\ call fzf#vim#grep(
+\ 'rg --column --line-number --hidden --ignore-case --no-heading --color=always '.shellescape(<q-args>), 1,
+\ <bang>0 ? fzf#vim#with_preview({'options': '--delimiter : --nth 3..'}, 'up:60%')
+\ : fzf#vim#with_preview({'options': '--exact --delimiter : --nth 3..'}, 'right:50%:hidden', '?'),
+\ <bang>0)
+nnoremap <C-g> :Rg<CR>
+
+" frでカーソル位置の単語をファイル検索する
+nnoremap fr vawy:Rg <C-R>"<CR>
+" frで選択した単語をファイル検索する
+xnoremap fr y:Rg <C-R>"<CR>
+
+" fbでバッファ検索を開く
+nnoremap fb :Buffers<CR>
+" fpでバッファの中で1つ前に開いたファイルを開く
+nnoremap fp :Buffers<CR><CR>
+" flで開いているファイルの文字列検索を開く
+nnoremap fl :BLines<CR>
+" fmでマーク検索を開く
+nnoremap fm :Marks<CR>
+" fhでファイル閲覧履歴検索を開く
+nnoremap fh :History<CR>
+" fcでコミット履歴検索を開く
+nnoremap fc :Commits<CR>
+"" }}}
+" fern.vim{{{
+nnoremap <silent><C-e> :Fern . -reveal=% -drawer -toggle -width=40<CR>
+"nmap <buffer><nowait> V <Plug>(fern-action-open:side)
+
+let g:fern#renderer = 'nerdfont'
+
+augroup my-glyph-palette
+  autocmd! *
+  autocmd FileType fern call glyph_palette#apply()
+  autocmd FileType nerdtree,startify call glyph_palette#apply()
+augroup END
 "" }}}

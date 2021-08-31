@@ -52,7 +52,7 @@ nnoremap <silent> vv <C-w>v
 
 " new tab
 nnoremap <C-c> :tabclose<CR>
-nnoremap <C-n> :tabnew<CR>
+"nnoremap <C-n> :tabnew<CR>
 nnoremap <C-h> :tabprevious<CR>
 nnoremap <C-l> :tabnext<CR>
 
@@ -61,3 +61,6 @@ nnoremap <C-l> :tabnext<CR>
 nmap <C-s> <Plug>MarkdownPreview
 nmap <M-s> <Plug>MarkdownPreviewStop
 nmap <C-p> <Plug>MarkdownPreviewToggle
+
+"reload
+nnoremap <leader>sv :source ~/.config/nvim/init.vim<CR>

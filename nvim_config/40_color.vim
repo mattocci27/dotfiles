@@ -93,3 +93,21 @@ augroup vimrc-auto-cursorline
   endfunction
 augroup END
 
+
+let g:terminal_ansi_colors = [
+      \"#263238",
+      \"#404C52",
+      \"#546E7A",
+      \"#5C7E8C",
+      \"#80CBC4",
+      \"#C792EA",
+      \"#7986CB",
+      \"#82B1FF",
+      \"#8BD649",
+      \"#C3E88D",
+      \"#CDD3DE",
+      \"#EC5F67",
+      \"#F1E655",
+      \"#F77669",
+      \"#F8E71C",
+      \"#AABBC3"]

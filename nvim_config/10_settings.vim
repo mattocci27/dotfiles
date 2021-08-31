@@ -55,3 +55,6 @@ if system('uname') =~ "Darwin"
   let g:python3_host_prog="/usr/bin/python3"
   endif
 endif
+
+" for M1 mac
+set runtimepath+=~/.vim-plugins/LanguageClient-neovim

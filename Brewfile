@@ -38,36 +38,23 @@ brew 'exa'
 brew 'bat'
 brew 'fd'
 brew 'gotop'
-brew 'docker'
-brew 'docker-machine'
 brew 'htop'
 brew 'ripgrep'
 brew 'V8'
 brew 'udunits' 
 brew 'gsl' 
 brew 'llvm' 
+brew 'rbenv' 
 
 cask "google-chrome"
-#cask "atom"
-#cask "dropbox"
-#cask "alacritty"
 cask "zotero"
 cask "spotify"
 cask "gitkraken"
 cask "discord"
-#cask "java"
-#cask "vlc"
 cask "google-japanese-ime"
 cask "google-photos-backup-and-sync"
 cask "adobe-creative-cloud"
 cask "adobe-acrobat-reader"
-#cask "java8"
-#cask "visual-studio-code"
-#cask "brave-browser"
-#cask "mactex-no-gui"
-#cask "openconnect-gui"
-#cask "v2rayu"
-#cask "vagrant"
 
 mas  "Tomato One", id: 907364780
 mas  "BetterSnapTool", id: 417375580
