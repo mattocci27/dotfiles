@@ -45,6 +45,7 @@ brew 'udunits'
 brew 'gsl' 
 brew 'llvm' 
 brew 'rbenv' 
+brew 'pyenv' 
 
 cask "google-chrome"
 cask "zotero"
@@ -73,4 +74,3 @@ mas  "QQ", id: 451108668
 mas  "PopClip", id: 445189367
 mas  "Affinity Designer", id: 824171161
 mas  "Mactracker", id: 430255202
-mas  "Microsoft Remote Desktop", id: 1295203466
