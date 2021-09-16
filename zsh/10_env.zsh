@@ -16,3 +16,10 @@ fi
 # for ssh
 #export DISPLAY=:0 
 export DISPLAY=localhost:0.0
+
+# pyenv
+if [ `uname` = "Darwin" ]; then
+    if command -v pyenv 1>/dev/null 2>&1; then
+      eval "$(pyenv init -)"
+    fi
+fi
