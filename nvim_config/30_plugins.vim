@@ -12,6 +12,7 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'lambdalisue/fern-renderer-nerdfont.vim'
   Plug 'lambdalisue/glyph-palette.vim'
   Plug 'ryanoasis/vim-devicons'
+  Plug 'chrisbra/Colorizer'
 
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
  " Plug 'tiagofumo/vim-nerdtree-syntax-highlight' "
