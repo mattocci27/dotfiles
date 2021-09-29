@@ -2,8 +2,8 @@
 
 ## Trackpoint
 
-```{sell}
-# cat /etc/libinput/local-overrides.quirks                                                       [INSERT]
+```{shell}
+# cat /etc/libinput/local-overrides.quirks
 [Lenovo X1 Carbon 6th Trackpoint]
 MatchUdevType=pointingstick
 MatchName=*TPPS/2 Elan TrackPoint*
@@ -14,7 +14,7 @@ AttrTrackpointMultiplier=0.8
 ## Trackpad
 
 ```{shell}
-# cat /etc/X11/xorg.conf.d/70-synaptics.conf                                                     [INSERT]
+# cat /etc/X11/xorg.conf.d/70-synaptics.conf 
 Section "InputClass"
         Identifier "touchpad catchall"
         Driver "libinput"

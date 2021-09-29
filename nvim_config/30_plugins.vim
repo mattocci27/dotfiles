@@ -5,7 +5,6 @@
 " - For Neovim: ~/.local/share/nvim/plugged
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.local/share/nvim/plugged')
-  "Plug 'scrooloose/nerdtree'
   Plug 'lambdalisue/fern.vim'
   Plug 'lambdalisue/fern-git-status.vim'
   Plug 'lambdalisue/nerdfont.vim'
@@ -15,14 +14,11 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'chrisbra/Colorizer'
 
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
- " Plug 'tiagofumo/vim-nerdtree-syntax-highlight' "
- " Plug 'Townk/vim-autoclose'
   Plug 'tpope/vim-fugitive'
   Plug 'airblade/vim-gitgutter'
   Plug 'itchyny/lightline.vim'
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
-  "Plug 'Xuyuanp/nerdtree-git-plugin'
   Plug 'Yggdroot/indentLine'
   Plug 'godlygeek/tabular'
   Plug 'christoomey/vim-tmux-navigator'
@@ -37,12 +33,10 @@ call plug#begin('~/.local/share/nvim/plugged')
 "      \ }
   Plug 'junegunn/fzf'
   Plug 'junegunn/fzf.vim'
-  "Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
  
   " R
   Plug 'jalvesaq/Nvim-R', {'branch': 'stable'}
   Plug 'eigenfoo/stan.vim'
-
 
   " julia
   Plug 'JuliaEditorSupport/julia-vim'
@@ -72,13 +66,8 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'reedes/vim-litecorrect' " Better autocorrections
   Plug 'reedes/vim-textobj-sentence' " Treat sentences as text objects
   Plug 'reedes/vim-wordy' " Weasel words and passive voice
-  "Plug 'plasticboy/vim-markdown'
   Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
-  "Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
-  "Plug 'vim-pandoc/vim-pandoc'
-  "Plug 'vim-pandoc/vim-pandoc-syntax'
-  "Plug 'vim-pandoc/vim-rmarkdown'
-  
+ 
   "tex
   Plug 'lervag/vimtex'
 
@@ -150,7 +139,7 @@ vmap <leader>qr <Plug>RClose
 "Not to use the R.app
 "
 if $TMUX != ''
-  let R_source = '$HOME/dotfiles/tmux_split.vim'
+  let R_source = '$HOME/dotfiles/scripts/tmux_split.vim'
 endif
 
 let R_app = "radian"
