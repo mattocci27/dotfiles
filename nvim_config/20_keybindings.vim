@@ -64,3 +64,6 @@ nmap <C-p> <Plug>MarkdownPreviewToggle
 
 "reload
 nnoremap <leader>sv :source ~/.config/nvim/init.vim<CR>
+
+"newtab
+nnoremap <C-n> :tabnew<CR>

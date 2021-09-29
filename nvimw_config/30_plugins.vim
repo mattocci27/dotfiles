@@ -155,7 +155,7 @@ vmap <leader>qr <Plug>RClose
 "Not to use the R.app
 "
 if $TMUX != ''
-  let R_source = '$HOME/dotfiles/tmux_split.vim'
+  let R_source = '$HOME/dotfiles/scripts/tmux_split.vim'
 endif
 
 let R_app = "radian"

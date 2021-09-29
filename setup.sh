@@ -72,11 +72,11 @@ ask "Use Chinese Mirrors for Ubuntu?" Y && {
   }
 fi
 
-ask "Install packages?" Y && sh ./dependencies-${distro}
+ask "Install packages?" Y && sh ./deps/dependencies-${distro}
 
-ask "Make dir for symlink?" Y && ./link_files.sh mkdir
+ask "Make dir for symlink?" Y && ./scripts/link_files.sh mkdir
 
-ask "Install symlink?" Y && ./link_files.sh links
+ask "Install symlink?" Y && ./scripts/link_files.sh links
 
 if [ $(uname) == "Darwin" ]; then
   ask "Install simlink for Code?" && {
@@ -108,7 +108,7 @@ ask "Install Atom stuffs?" Y && {
 }
 
 ask "Install R and python stuffs?" Y && {
-  sh ./makevars.sh
+  sh ./scripts/makevars.sh
   sudo pip3 install -U radian
   sudo pip3 install pynvim
   #sh ./Rpkg.sh install

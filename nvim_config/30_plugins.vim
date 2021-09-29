@@ -366,6 +366,7 @@ nnoremap <silent><C-e> :Fern . -reveal=% -drawer -toggle -width=40<CR>
 
 let g:fern#renderer = 'nerdfont'
 
+
 augroup my-glyph-palette
   autocmd! *
   autocmd FileType fern call glyph_palette#apply()
