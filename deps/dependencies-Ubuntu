@@ -23,15 +23,14 @@ sudo apt install -y xsel \
   snapd \
   nodejs
 
-
-sudo apt install -y texinfo \
-  texlive-extra-utils \
-  texlive-fonts-recommended \
-  texlive-fonts-extra \
-  texlive-latex-recommended \
-  texlive-latex-extra \
-  pandoc \
-  pandoc-citeproc
+#sudo apt install -y texinfo \
+#  texlive-extra-utils \
+#  texlive-fonts-recommended \
+#  texlive-fonts-extra \
+#  texlive-latex-recommended \
+#  texlive-latex-extra \
+#  pandoc \
+#  pandoc-citeproc
 
 # R
 sudo apt install -y dirmngr \
@@ -56,7 +55,7 @@ sudo apt install -y \
   docker-compose
 
 echo "Installing docker..."
-# docker 
+# docker
 sudo apt-get install -y \
     apt-transport-https \
     ca-certificates \
@@ -76,12 +75,3 @@ sudo apt-get install -y docker-ce docker-ce-cli containerd.io
 sudo usermod -aG docker $USER
 
 # snapd
-
-#sudo snap install qv2ray
-
-wget -c https://dl.google.com/go/go1.16.3.linux-amd64.tar.gz -O - | sudo tar -xz -C /usr/local
-
-export VERSION=3.6.3 && # adjust this as necessary \
-wget https://github.com/sylabs/singularity/releases/download/v${VERSION}/singularity-${VERSION}.tar.gz && \
-tar -xzf singularity-${VERSION}.tar.gz && \
-cd singularity

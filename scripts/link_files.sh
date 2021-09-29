@@ -5,11 +5,11 @@ set -e
 USERNAME=$(whoami)
 distro=$(uname)
 
-if [ $distro == "Darwin" ]; then
-  HOME="/Users/${USERNAME}"
-else
-  HOME="/home/${USERNAME}"
-fi
+#if [ $distro == "Darwin" ]; then
+#  HOME="/Users/${USERNAME}"
+#else
+#  HOME="/home/${USERNAME}"
+#fi
 
 DOT_DIRECTORY="${HOME}/dotfiles"
 
@@ -39,6 +39,7 @@ done
 shift $((OPTIND - 1))
 
 mk_dirs(){
+  cd ${DOT_DIRECTORY}
   array=`ls -aR | grep "^\./\." | grep -v git | sed 's/:$//g' | sed 's/^\.\///g'`
   for dir in $array
   do
@@ -50,6 +51,7 @@ mk_dirs(){
 
 
 link_files() {
+  cd ${DOT_DIRECTORY}
   if [ $distro == "Darwin" ]; then
     array=`find . | grep "^\./\." | grep -v git | grep -v ssh | sed 's/^\.\///g'`
   else

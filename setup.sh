@@ -108,7 +108,7 @@ ask "Install Atom stuffs?" Y && {
 }
 
 ask "Install R and python stuffs?" Y && {
-  sh ./scripts/makevars.sh
+  bash ./scripts/makevars.sh
   sudo pip3 install -U radian
   sudo pip3 install pynvim
   #sh ./Rpkg.sh install
@@ -200,4 +200,20 @@ ask "Install zsh-plug ?" Y && {
 
 ask "Install tmux plugin manager for tmux?" Y && {
   git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
+}
+
+
+ask "Install singularity?" Y && {
+  # go
+  wget -c https://dl.google.com/go/go1.16.3.linux-amd64.tar.gz -O - | sudo tar -xz -C /usr/local
+
+  cd
+  export VERSION=3.8.3 # adjust this as necessary
+  wget https://github.com/hpcng/singularity/releases/download/v${VERSION}/singularity-${VERSION}.tar.gz
+  tar -xzf singularity-${VERSION}.tar.gz
+  cd singularity-${VERSION}
+
+  ./mconfig && \
+      make -C builddir && \
+      sudo make -C builddir install
 }
