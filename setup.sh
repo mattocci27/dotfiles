@@ -51,7 +51,7 @@ fi
 
 echo "Set up for $distro"
 
-if [ ! -f "dependencies-${distro}" ]; then
+if [ ! -f "./deps/dependencies-${distro}" ]; then
   echo "Could not find file with dependencies for distro ${distro}. Aborting."
   exit 2
 fi
