@@ -1,76 +1,96 @@
 cask_args appdir: "/Applications"
+tap "cjbassi/gotop"
 tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/cask-versions"
 tap "homebrew/core"
-
-brew 'zsh'
-brew 'peco'
-brew 'neovim'
-brew 'cmake'
-brew 'ffmpeg'
-brew 'git'
-brew 'wget'
-brew 'ghq'
-brew 'libxml2'
-brew 'libgit2'
-brew 'tmux'
-brew 'tmux-mem-cpu-load'
-brew 'fzf'
-brew 'fzy'
-brew 'ruby'
-brew 'ruby-build'
-brew 'neofetch'
-brew 'imagemagick'
-brew 'openmpi'
-brew 'openblas'
-brew 'openssl'
-brew 'readline'
-brew 'fontforge'
-brew 'ghostscript'
-brew 'pandoc'
-brew 'pandoc-citeproc'
-brew 'pandoc-crossref'
-brew 'r'
-brew 'reattach-to-user-namespace'
-brew 'go'
-brew 'exa'
-brew 'bat'
-brew 'fd'
-brew 'gotop'
-brew 'htop'
-brew 'ripgrep'
-brew 'V8'
-brew 'udunits' 
-brew 'gsl' 
-brew 'llvm' 
-brew 'rbenv' 
-brew 'pyenv' 
-
-cask "google-chrome"
-cask "zotero"
-cask "spotify"
-cask "gitkraken"
-cask "discord"
-cask "google-japanese-ime"
-cask "google-photos-backup-and-sync"
-cask "adobe-creative-cloud"
-cask "adobe-acrobat-reader"
-
-mas  "Tomato One", id: 907364780
-mas  "BetterSnapTool", id: 417375580
-mas  "Keynote", id: 409183694
-mas  "GarageBand", id: 682658836
-mas  "AntiSleep", id: 946798523
-mas  "WeChat", id: 836500024
-mas  "DaisyDisk", id: 411643860
-mas  "Numbers", id: 409203825
-mas  "Pages", id: 409201541
-mas  "Enpass", id: 732710998
-mas  "iMovie", id: 408981434
-mas  "Line", id: 539883307
-mas  "Slack", id: 803453959
-mas  "QQ", id: 451108668
-mas  "PopClip", id: 445189367
-mas  "Affinity Designer", id: 824171161
-mas  "Mactracker", id: 430255202
+brew "bat"
+brew "cask"
+brew "cmake"
+brew "docker"
+brew "docker-machine"
+brew "exa"
+brew "fd"
+brew "ffmpeg"
+brew "fontforge"
+brew "fzf"
+brew "fzy"
+brew "gh"
+brew "ghostscript"
+brew "ghq"
+brew "git"
+brew "gitup"
+brew "go"
+brew "gotop"
+brew "gsl"
+brew "htop"
+brew "imagemagick"
+brew "javacc"
+brew "latexdiff"
+brew "libgit2"
+brew "libxml2"
+brew "llvm"
+brew "ruby"
+brew "macvim"
+brew "mas"
+brew "neofetch"
+brew "neovim"
+brew "node"
+brew "open-mpi"
+brew "openblas"
+brew "pandoc"
+brew "pandoc-crossref"
+brew "peco"
+brew "poppler"
+brew "pyenv"
+brew "r"
+brew "ruby-build"
+brew "rbenv"
+brew "reattach-to-user-namespace"
+brew "ripgrep"
+brew "tmux"
+brew "tmux-mem-cpu-load"
+brew "udunits"
+brew "v8"
+brew "wget"
+brew "yarn"
+brew "zsh"
+cask "discord", args: { appdir: "/Applications" }
+cask "firefox"
+cask "gitkraken", args: { appdir: "/Applications" }
+cask "google-chrome", args: { appdir: "/Applications" }
+cask "phantomjs"
+cask "rstudio"
+cask "spotify", args: { appdir: "/Applications" }
+cask "zotero", args: { appdir: "/Applications" }
+mas "Accelerate", id: 1459809092
+mas "AdBlock", id: 1402042596
+mas "Adobe Lightroom", id: 1451544217
+mas "Affinity Designer", id: 824171161
+mas "Affinity Photo", id: 824183456
+mas "Affinity Publisher", id: 881418622
+mas "BetterSnapTool", id: 417375580
+mas "Craft", id: 1487937127
+mas "DaisyDisk", id: 411643860
+mas "Dropover", id: 1355679052
+mas "Enpass", id: 732710998
+mas "GarageBand", id: 682658836
+mas "Gifski", id: 1351639930
+mas "iMovie", id: 408981434
+mas "Keynote", id: 409183694
+mas "LINE", id: 539883307
+mas "Mactracker", id: 430255202
+mas "Messenger", id: 1480068668
+mas "Microsoft Excel", id: 462058435
+mas "Microsoft PowerPoint", id: 462062816
+mas "Microsoft Remote Desktop", id: 1295203466
+mas "Microsoft Word", id: 462054704
+mas "Numbers", id: 409203825
+mas "Pages", id: 409201541
+mas "PopClip", id: 445189367
+mas "QQ", id: 451108668
+mas "Slack", id: 803453959
+mas "Sleep Control Center", id: 946798523
+mas "Todoist", id: 585829637
+mas "Twitter", id: 1482454543
+mas "WeChat", id: 836500024
