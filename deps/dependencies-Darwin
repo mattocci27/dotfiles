@@ -7,8 +7,4 @@ sudo xcode-select --install
 # homebrew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-/opt/homebrew/bin/brew install mas
-/opt/homebrew/bin/brew install cask
-/opt/homebrew/bin/brew tap cjbassi/gotop
-
 /opt/homebrew/bin/brew bundle --file Brewfile -v
