@@ -11,9 +11,14 @@
         "when": "textInputFocus"
     },
     {
-      "key": "ctrl+shift+m", 
-      "command": "markdown.showPreviewToSide", 
+      "key": "ctrl+shift+m",
+      "command": "markdown.showPreviewToSide",
       "when": "editorLangId == markdown"
-    }
+    },
+    {
+      "command": "vscode-neovim.compositeEscape1",
+      "key": "j",
+      "when": "neovim.mode == insert && editorTextFocus",
+      "args": "j"
+  }
 ]
-

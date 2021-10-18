@@ -57,7 +57,6 @@
     "PandocCiter.DefaultBib": "~/MyLibrary.bib",
     "explorer.confirmDelete": false,
     "vsicons.dontShowNewVersionMessage": true,
-    "window.zoomLevel": 0,
     "markdown-preview-enhanced.wikiLinkFileExtension": ".rmd .md",
     "markdown-preview-enhanced.usePuppeteerCore": false,
     "markdown-preview-enhanced.liveUpdate": true,
@@ -118,6 +117,11 @@
     "r.rpath.linux": "/usr/bin/R",
     "r.rpath.mac": "/opt/homebrew/bin/R",
     "r.rterm.mac": "/Users/mattocci/Library/Python/3.8/bin/radian",
-    "latex-workshop.view.pdf.viewer": "tab"
+    "latex-workshop.view.pdf.viewer": "tab",
+    "vscode-neovim.neovimInitVimPaths.darwin": "~/.config/nvim/init.vim",
+    "vim.enableNeovim": true,
+    "vim.neovimPath": "/opt/homebrew/bin/nvim",
+    "vim.neovimUseConfigFile": true,
+    "vim.neovimConfigPath": " ~/.config/nvim/init.vim "
 }
 
