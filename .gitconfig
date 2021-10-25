@@ -15,7 +15,7 @@
 [ghq]
   root = ~/Dropbox/src
 #
-[difftool "vimdiff"]
+[difftool "code --wait"]
 #	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 #	path = 
 #[mergetool "sourcetree"]
