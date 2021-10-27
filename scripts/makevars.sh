@@ -1,14 +1,14 @@
 #!/bin/sh
 set -e
 
-MAKEVARS="CXX14FLAGS=-O3 -mtune=native -march=native -Wno-unused-variable -Wno-unused-function"
+MAKEVARS="CXX14FLAGS=-O3 -mtune=native  -Wno-unused-variable -Wno-unused-function"
 
 # for Linux
 if [ "$(uname)" == 'Linux' ]; then
   MAKEVARS="${MAKEVARS} \nCXX14FLAGS += -fPIC"
 # additional for Mac
 elif [ "$(uname)" == 'Darwin' ]; then
-  MAKEVARS="${MAKEVARS}\nCC=clang\nCXX=clang++ -arch arm_64 -ftemplate-depth-256"
+  MAKEVARS="${MAKEVARS}\nCC=clang -arch arm64\nCXX=clang++ -arch arm64 -ftemplate-depth-256 -std=gnu++11"
 fi
 
 # create Makevars in .R
@@ -18,5 +18,10 @@ fi
 
 # need echo -e to insert new lines
 if ! [ -e $HOME/.R/Makevars ]; then
+  echo -e $MAKEVARS > $HOME/.R/Makevars
+fi
+
+if  [ -e $HOME/.R/Makevars ]; then
+  rm $HOME/.R/Makevars 
   echo -e $MAKEVARS > $HOME/.R/Makevars
 fi

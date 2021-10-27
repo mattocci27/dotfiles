@@ -148,6 +148,7 @@ ask "Install R packages?" Y && {
       kableExtra,
       kfigr,
       languageserver,
+      lavaan,
       lme4,
       memisc,
       microbenchmark,
@@ -164,12 +165,15 @@ ask "Install R packages?" Y && {
       rstan,
       rstanarm,
       sads,
+      semPlot,
       shiny,
       smatr,
       snowfall,
       tictoc,
       tidyverse,
-      vegan)"
+      vegan,
+      visNetwork
+      )"
 
 }
 
