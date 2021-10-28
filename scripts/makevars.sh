@@ -1,7 +1,7 @@
 #!/bin/sh
 set -e
 
-MAKEVARS="CXX14FLAGS=-O3 -mtune=native  -Wno-unused-variable -Wno-unused-function"
+MAKEVARS="CXX14FLAGS=-O3 -mtune=native -Wno-unused-variable -Wno-unused-function"
 
 # for Linux
 if [ "$(uname)" == 'Linux' ]; then
@@ -18,10 +18,5 @@ fi
 
 # need echo -e to insert new lines
 if ! [ -e $HOME/.R/Makevars ]; then
-  echo -e $MAKEVARS > $HOME/.R/Makevars
-fi
-
-if  [ -e $HOME/.R/Makevars ]; then
-  rm $HOME/.R/Makevars 
   echo -e $MAKEVARS > $HOME/.R/Makevars
 fi
