@@ -142,6 +142,7 @@ ask "Install R packages?" Y && {
       entropart,
       factoextra,
       furrr,
+      fontawesome,
       ggrepel,
       ggthemes,
       hexbin,
@@ -161,6 +162,7 @@ ask "Install R packages?" Y && {
       picante,
       png,
       provenance,
+      ParBayesianOptimization,
       rmarkdown,
       rstan,
       rstanarm,
@@ -171,6 +173,7 @@ ask "Install R packages?" Y && {
       snowfall,
       tictoc,
       tidyverse,
+      tidymodels,
       vegan,
       visNetwork
       )"

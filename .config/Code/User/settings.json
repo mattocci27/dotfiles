@@ -122,6 +122,13 @@
     "vim.enableNeovim": true,
     "vim.neovimPath": "/opt/homebrew/bin/nvim",
     "vim.neovimUseConfigFile": true,
-    "vim.neovimConfigPath": " ~/.config/nvim/init.vim "
+    "vim.neovimConfigPath": " ~/.config/nvim/init.vim ",
+    "editor.inlineSuggest.enabled": true,
+    "github.copilot.enable": {
+      "*": true,
+      "yaml": false,
+      "plaintext": false,
+      "markdown": false
+    }
 }
 
