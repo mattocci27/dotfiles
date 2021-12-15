@@ -116,10 +116,10 @@ ask "Install R packages?" Y && {
     tidyverse)"
 
   Rscript -e "pacman::p_load(
-    rstan)"
+    vegan)"
 
   Rscript -e "pacman::p_load(
-    vegan)"
+    rstan)"
 
   Rscript -e "pacman::p_load(
       FD,
@@ -150,6 +150,7 @@ ask "Install R packages?" Y && {
       kfigr,
       languageserver,
       lavaan,
+      lightgbm,
       lme4,
       memisc,
       microbenchmark,
@@ -169,6 +170,7 @@ ask "Install R packages?" Y && {
       sads,
       semPlot,
       shiny,
+      skimr,
       smatr,
       snowfall,
       tictoc,
