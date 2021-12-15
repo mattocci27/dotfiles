@@ -87,10 +87,10 @@ fi
 
 ask "Install font?" Y && {
   #git clone https://github.com/ryanoasis/nerd-fonts ~/nerd-fonts
-  cd ~/nerd-fonts
-  chmod 755 font-patcher
-  cd
-  cd ${DOT_DIRECTORY}
+  #cd ~/nerd-fonts
+  #chmod 755 font-patcher
+  #cd
+  #cd ${DOT_DIRECTORY}
 
   if [ $(uname) == "Darwin" ]; then
     sudo cp -rf ./fonts/Cousine/* ~/Library/Fonts
