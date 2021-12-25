@@ -4,6 +4,7 @@ tap "homebrew/cask"
 tap "homebrew/cask-versions"
 tap "homebrew/core"
 brew "bat"
+brew "cabal-install"
 brew "cask"
 brew "cmake"
 brew "docker"
@@ -14,6 +15,7 @@ brew "ffmpeg"
 brew "fontforge"
 brew "fzf"
 brew "fzy"
+brew "geos"
 brew "gh"
 brew "ghostscript"
 brew "ghq"
@@ -38,7 +40,6 @@ brew "node"
 brew "open-mpi"
 brew "openblas"
 brew "pandoc"
-brew "pandoc-crossref"
 brew "peco"
 brew "poppler"
 brew "pyenv"
@@ -59,6 +60,8 @@ cask "discord", args: { appdir: "/Applications" }
 cask "firefox"
 cask "gitkraken", args: { appdir: "/Applications" }
 cask "google-chrome", args: { appdir: "/Applications" }
+cask "mimestream"
+cask "numi"
 cask "phantomjs"
 cask "rstudio"
 cask "spotify", args: { appdir: "/Applications" }
@@ -75,6 +78,7 @@ mas "DaisyDisk", id: 411643860
 mas "Dropover", id: 1355679052
 mas "Enpass", id: 732710998
 mas "GarageBand", id: 682658836
+mas "Gemini 2", id: 1090488118
 mas "Gifski", id: 1351639930
 mas "iMovie", id: 408981434
 mas "Keynote", id: 409183694
@@ -91,6 +95,8 @@ mas "PopClip", id: 445189367
 mas "QQ", id: 451108668
 mas "Slack", id: 803453959
 mas "Sleep Control Center", id: 946798523
+mas "The Unarchiver", id: 425424353
 mas "Todoist", id: 585829637
 mas "Twitter", id: 1482454543
+mas "VooV", id: 1497685373
 mas "WeChat", id: 836500024
