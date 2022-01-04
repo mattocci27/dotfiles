@@ -60,9 +60,6 @@
     "markdown-preview-enhanced.wikiLinkFileExtension": ".rmd .md",
     "markdown-preview-enhanced.usePuppeteerCore": false,
     "markdown-preview-enhanced.liveUpdate": true,
-    "files.associations": {
-      "*.rmd": "markdown"
-    },
     "r.dependencyChecks": false,
     "editor.renderControlCharacters": false,
     "editor.renderWhitespace": "none",
