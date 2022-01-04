@@ -121,6 +121,15 @@ ask "Install R packages?" Y && {
   Rscript -e "pacman::p_load(
     rstan)"
 
+if [ $(uname) == "Darwin" ]; then
+  ask "Install sf packages for mac?" Y && {
+    Rscript -e 'install.packages("rgeos", repos="http://R-Forge.R-project.org", type="source")'
+    Rscript -e 'install.packages("rgdal", repos="http://R-Forge.R-project.org", type="source")'
+    Rscript -e 'devtools::install_github("r-spatial/sf",
+      configure.args = "--with-proj-lib=/usr/local/lib/")'
+  }
+fi
+
   Rscript -e "pacman::p_load(
       FD,
       FactoMineR,
@@ -165,7 +174,6 @@ ask "Install R packages?" Y && {
       provenance,
       ParBayesianOptimization,
       rmarkdown,
-      rstan,
       rstanarm,
       sads,
       semPlot,
