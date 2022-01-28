@@ -199,8 +199,8 @@ bell:
   duration: 0
 
 # Background opacity
-background_opacity: 0.95
-  #window.opacity: 0.9
+#background_opacity: 0.95
+window.opacity: 0.95
   #colors.transparent_background_colors: true
   #background_blur: true
 
