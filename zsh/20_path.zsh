@@ -54,3 +54,7 @@ if [ `uname` = "Darwin" ]; then
       eval "$(pyenv init --path)"
     fi
 fi
+
+# ranger for now
+export PATH=~/Dropbox/src/github.com/ranger/ranger:$PATH
+alias ranger='ranger.py'
