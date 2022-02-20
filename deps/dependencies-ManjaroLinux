@@ -2,7 +2,7 @@
 set -e
 
 # Foundamental tools
-sudo pacman -Ssyu
+sudo pacman -Syyu
 
 sudo pacman -S base-devel wget
 
@@ -20,7 +20,7 @@ yay -S --noconfirm python \
   python-pip \
   python-neovim
 
-sudo pip install -U neovim 
+sudo pip install -U neovim
 
 #yay -S gnome-online-accounts gnome-control-center
 
@@ -45,20 +45,22 @@ yay -S --noconfirm xsel \
   gotop \
   yarn \
   exa \
-  bat
+  bat \
+  openblas \
+  neofetch
+
 # for i3
 yay -S --noconfirm rofi \
   compton-tryone-git \
   i3lock \
-  i3blocks-gaps-git \
   i3status-git \
   xorg-xbacklight \
   dunst \
   volumeicon \
   cava
-# for shadowsocks
-yay -S --noconfirm shadowsocks-libev \
-  shadowsocks-qt5 
+
+#i3blocks-gaps-git \
+
 # for ranger
 yay -S --noconfirm w3m \
   ffmpegthumbnailer \
@@ -73,22 +75,17 @@ yay -S --noconfirm w3m \
   feh \
   imagemagick \
   openmpi \
-  openblas \
-  screenfetch \
-  neofetch \
   polybar
+
+
 # other apps
 yay -S --noconfirm julia \
   fontforge \
   google-chrome \
-  brave \
+  brave-bin \
   apm \
-  atom \
-  gitkraken \
-  expressvpn \
-  albert \
+  albert-bin \
   blueman \
-  electronic-wechat \
   nerd-fonts-git \
   enpass-bin \
   zotero \
@@ -96,7 +93,7 @@ yay -S --noconfirm julia \
   spotify \
   visual-studio-code-bin \
   qv2ray \
-  v2ray
+  v2ray \
   gcc-avr \
   binutils-avr \
   avr-libc \
@@ -127,7 +124,6 @@ yay -S --noconfirm texlive-langjapanese \
   texlive-most
 
 echo "Installing fonts..."
-#yay -S --noconfirm otf-ipaexfont \
 yay -S --noconfirm awesome-terminal-fonts \
   ttf-font-awesome
 
@@ -136,4 +132,4 @@ yay -S --noconfirm r
 sudo pip install -U radian
 
 yay -Sc --noconfirm
-sudo rm /var/cache/pacman/pkg/* 
+sudo rm -f /var/cache/pacman/pkg/*
