@@ -27,9 +27,6 @@ cd dotfiles
 sh setup.sh
 ```
 
-# Thinkpad
-
-[config](https://github.com/mattocci27/dotfiles/blob/master/thinkpad.md)
 
 # Homebrew
 

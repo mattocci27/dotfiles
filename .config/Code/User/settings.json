@@ -116,11 +116,13 @@
     "r.rpath.mac": "/opt/homebrew/bin/R",
     "r.rterm.mac": "/Users/mattocci/Library/Python/3.8/bin/radian",
     "latex-workshop.view.pdf.viewer": "tab",
-    "vscode-neovim.neovimInitVimPaths.darwin": "$HOME/.config/nvim/init.vim",
+    "vscode-neovim.neovimInitVimPaths.darwin": "$HOME/.config/lvim/config.lua",
     "vim.enableNeovim": true,
-    "vim.neovimPath": "/opt/homebrew/bin/nvim",
+    "vim.neovimPath": "/Users/mattocci/.local/bin/lvim",
+    "vim.neovimPath.darwin": "/Users/mattocci/.local/bin/lvim",
     "vim.neovimUseConfigFile": true,
-    "vim.neovimConfigPath": " ~/.config/nvim/init.vim ",
+    "vim.neov. mConfigPath": " ~/.config/nvim/init.vim ",
+    "workbench.list.automaticKeyboardNavigation": false,
     "editor.inlineSuggest.enabled": true,
     "github.copilot.enable": {
       "*": true,
@@ -131,6 +133,7 @@
     "editor.tabSize": 2,
     "editor.find.cursorMoveOnType": false,
     "r.plot.useHttpgd": true,
-    "vscode-neovim.neovimInitVimPaths.linux": "$HOME/.config/nvim/init.vim"
+    "vscode-neovim.neovimInitVimPaths.linux": "$HOME/.config/nvim/init.vim",
+    "bracket-pair-colorizer-2.depreciation-notice": false
 }
 
