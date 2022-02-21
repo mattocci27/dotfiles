@@ -70,6 +70,7 @@ link_files() {
   done
 
   ln -snf ${DOT_DIRECTORY}/.gitconfig ${HOME}/.gitconfig
+  ln -snf ${DOT_DIRECTORY}/.gitignore_global ${HOME}/.gitignore_global
   echo $(tput setaf 2)Deploy dotfiles for $USERNAME complete!. ✔︎$(tput sgr0)
 }
 
