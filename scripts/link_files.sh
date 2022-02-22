@@ -52,11 +52,7 @@ mk_dirs(){
 
 link_files() {
   cd ${DOT_DIRECTORY}
-  if [ $distro == "Darwin" ]; then
-    array=`find . | grep "^\./\." | grep -v git | grep -v ssh | sed 's/^\.\///g'`
-  else
-    array=`find | grep "^\./\." | grep -v git | grep -v ssh | sed 's/^\.\///g'`
-  fi
+  array=`find . -type f | grep "^\./\." | grep -v git | grep -v ssh | sed 's/^\.\///g'`
   for f in $array
   do
     # Force remove a dotfile if it's already there
