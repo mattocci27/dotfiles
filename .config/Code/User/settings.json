@@ -1025,6 +1025,12 @@
       "type": "command",
       "command": "workbench.action.splitEditor"
     },
+    {
+      "key": "w",
+      "name": "save",
+      "type": "command",
+      "command": "workbench.action.splitEditor"
+    },
     //{
     //  "key": "v",
     //  "name": "Window...",
@@ -1142,7 +1148,7 @@
       "command": "workbench.action.closeActiveEditor"
     },
     {
-      "key": "s",
+      "key": "w",
       "name": "Save",
       "type": "command",
       "command": "workbench.action.files.save"

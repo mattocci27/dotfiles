@@ -7,3 +7,4 @@
 .vim/bundle/
 .vim/pack/
 .vim/
+*.Rmd

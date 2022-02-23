@@ -16,9 +16,9 @@
 		"prefix": "yml html",
 		"body": [
 			"---",
-			"Title: 'your title'",
-			"author: 'Masatoshi Katabuchi'",
-			"date: '`r format(Sys.time(), '%B %d, %Y')`'"
+			"Title: \"your title\"",
+			"author: \"Masatoshi Katabuchi\"",
+			"date: \"`r format(Sys.time(), '%B %d, %Y')`\""
 			"output:",
 			"	html_docuemnt:",
 			"		fig_caption: yes",
@@ -44,7 +44,7 @@
 			"csl: templates/xxxx.csl",
 			"bibliography: xxxx.bib",
 			"fontsize: 12pt",
-			"#font-famliy: 'ebgaramond'",
+			"#font-famliy: \"ebgaramond\"",
 			"header-includes:",
 			"  - \\usepackage{booktabs}",
 			"  - \\usepackage{longtable}",
@@ -74,17 +74,17 @@
 			"    template: templates/eisvogel2.tex",
 			"    #template: null",
 			"    pandoc_args:",
-			"      - '--filter'",
-			"      - 'pandoc-crossref'",
+			"      - \"--filter\"",
+			"      - \"pandoc-crossref\"",
 			"  word_document:",
 			"    fig_width: 6",
 			"    fig_caption: yes",
 			"    toc: FALSE",
 			"    reference_docx: templates/rmd_style.docx",
 			"    pandoc_args:",
-			"    - '--filter'",
-			"    - 'pandoc-crossref'",
-			"    - '--mathml'",
+			"    - \"--filter\"",
+			"    - \"pandoc-crossref\"",
+			"    - \"--mathml\"",
 			"---"
 		],
 		"description": "yml for manuscript"
@@ -94,16 +94,23 @@
 		"body": [
 			"```{r global_options, include=FALSE}",
 			"library(knitr)",
-			"knitr::opts_chunk$set(",
+			"knitr::opts_chunk\\$set(",
 			"  collapse = TRUE,",
-			"  comment = '#>',",
-			"  message=FALSE,",
+			"  comment = \"#>\",",
+			"  message = FALSE,",
 			"  cache = FALSE,",
-			"  fig.align = 'center',",
-			"  fig.show = 'hold'",
+			"  fig.align = \"center\",",
+			"  fig.show = \"hold\"",
 			")",
 			"```"
 		],
 		"description": "global chunk"
+	},
+	"render": {
+		"prefix": "rmd render",
+		"body": [
+			"system.time(rmarkdown::render(\"report.Rmd\"))"
+		],
+		"description": "rmd render"
 	}
 }
