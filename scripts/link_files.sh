@@ -67,6 +67,11 @@ link_files() {
 
   ln -snf ${DOT_DIRECTORY}/.gitconfig ${HOME}/.gitconfig
   ln -snf ${DOT_DIRECTORY}/.gitignore_global ${HOME}/.gitignore_global
+  
+  if [ $distro == "Darwin" ]; then
+    ln -snf ${DOT_DIRECTORY}/.config/Code/User/snippets/* ${HOME}/Library/Application\ Support/Code/User/snippets/
+    ln -snf ${DOT_DIRECTORY}/.config/Code/User/*.json ${HOME}/Library/Application\ Support/Code/User/
+  fi
   echo $(tput setaf 2)Deploy dotfiles for $USERNAME complete!. ✔︎$(tput sgr0)
 }
 

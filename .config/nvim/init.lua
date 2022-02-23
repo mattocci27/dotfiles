@@ -29,21 +29,27 @@ if vim.fn.exists("g:vscode") == 1 then
   keymap("n", "<C-k>", ':call VSCodeNotify("workbench.action.navigateUp")<CR>', opts)
   keymap("n", "<C-l>", ':call VSCodeNotify("workbench.action.navigateRight")<CR>', opts)
 
-  -- Buffers
- -- keymap("n", "<space>bd", ':call VSCodeNotify("workbench.action.closeActiveEditor")<CR>', opts)
- -- keymap("n", "<space>bu", ':call VSCodeNotify("workbench.action.reopenClosedEditor")<CR>', opts)
+  -- Buffer>s
   keymap("n", "<S-l>", ':call VSCodeNotify("workbench.action.nextEditor")<CR>', opts)
   keymap("n", "<S-h>", ':call VSCodeNotify("workbench.action.previousEditor")<CR>', opts)
 
-  -- Commentary
-  keymap("n", "<C-/>", ':call Comment()<CR>', opts)
-  keymap("x", "<C-/>", ':call Comment()<CR>', opts)
+  -- Commentary <C-/>?
+  keymap("x", "gc", "<Plug>VSCodeCommentary", {noremap = false})
+  keymap("n", "gc", "<Plug>VSCodeCommentary", {noremap = false})
+  keymap("o", "gc", "<Plug>VSCodeCommentary", {noremap = false})
+  keymap("n", "gcc", "<Plug>VSCodeCommentaryLine", {noremap = false})
+
+  --  fzf
+  keymap("n", "<C-g>", ':call VSCodeNotify("fzf-quick-open.runFzfSearch")<CR>', opts)
+
+  -- r pipe
+  -- keymap("i", "<C-p>", '\|>', opt)
 
   -- Which-Key
   keymap("n", "<Space>", ':call VSCodeNotify("whichkey.show")<CR>', opts)
 
 else
-  --require "user.options"
+  --require "user.optionｊ"
   --require "user.keymaps"
   --require "user.plugins"
   --require "user.colorscheme"
