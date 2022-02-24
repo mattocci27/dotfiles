@@ -161,6 +161,7 @@
     "markdown": false
   },
   "editor.tabSize": 2,
+  "editor.insertSpaces": true,
   "editor.find.cursorMoveOnType": false,
   "r.plot.useHttpgd": true,
   "vscode-neovim.neovimInitVimPaths.linux": "$HOME/.config/nvim/init.vim",
