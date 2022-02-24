@@ -373,7 +373,7 @@
       "key": "e",
       "name": "Toggle Explorer",
       "type": "command",
-      "command": "workbench.action.toggleSidebarVisibility"
+      "command": "workbench.view.explorer"
     },
     // {
     //   "key": "f",
@@ -1022,12 +1022,6 @@
     {
       "key": "v",
       "name": "Split Vertical",
-      "type": "command",
-      "command": "workbench.action.splitEditor"
-    },
-    {
-      "key": "w",
-      "name": "save",
       "type": "command",
       "command": "workbench.action.splitEditor"
     },

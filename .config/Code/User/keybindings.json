@@ -1,26 +1,30 @@
 // Place your key bindings in this file to override the defaultsauto[]
 [
-	{
-		"key": "ctrl+t",
-		"command": "workbench.action.terminal.focus"
-	},
-	{
-		"command": "vscode-neovim.compositeEscape1",
-		"key": "j",
-		"when": "neovim.mode == insert && editorTextFocus",
-		"args": "j"
-	},
-	{
-		"command": "fzf-quick-open.runFzfSearch",
-		"key": "ctrl+g",
-		"when": "neovim.mode == normal && editorTextFocus"
-	},
-	{
-		"command": "type",
-		"key": "ctrl+p",
-		"args": {
-			"text": " |>"
-		},
-		"when": "neovim.mode == insert && editorTextFocus"
-	}
+  {
+    "key": "ctrl+t",
+    "command": "workbench.action.terminal.focus"
+  },
+  {
+    "key": "ctrl+e",
+    "command": "workbench.action.toggleSidebarVisibility"
+  },
+  {
+    "command": "vscode-neovim.compositeEscape1",
+    "key": "j",
+    "when": "neovim.mode == insert && editorTextFocus",
+    "args": "j"
+  },
+  {
+    "command": "fzf-quick-open.runFzfSearch",
+    "key": "ctrl+g",
+    "when": "neovim.mode == normal && editorTextFocus"
+  },
+  {
+    "command": "type",
+    "key": "ctrl+p",
+    "args": {
+      "text": "|>"
+    },
+    "when": "neovim.mode == insert && editorTextFocus"
+  }
 ]
