@@ -74,9 +74,7 @@ fi
 
 ask "Install packages?" Y && sh ./deps/dependencies-${distro}
 
-ask "Make dir for symlink?" Y && ./scripts/link_files.sh mkdir
-
-ask "Install symlink?" Y && ./scripts/link_files.sh links
+ask "Install symlinks using stow?" Y && sh ./scripts/dot_isntall.sh
 
 if [ $(uname) == "Darwin" ]; then
   ask "Install simlink for Code?" && {

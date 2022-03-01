@@ -48,3 +48,15 @@ Section "InputClass"
 EndSection
 ```
 
+---
+# KEYBOARD CONFIGURATION FILE
+
+# Consult the keyboard(5) manual page.
+
+XKBMODEL="pc105"
+XKBLAYOUT="us"
+XKBVARIANT=""
+XKBOPTIONS="ctrl:swapcaps"
+
+BACKSPACE="guess"
+---
