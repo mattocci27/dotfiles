@@ -11,7 +11,7 @@ Contains:
 ```shell
 # command line tools
 sudo xcode-select --install
-``
+```
 
 # Usage (Mac and Manjaro Linux)
 
