@@ -76,13 +76,6 @@ ask "Install packages?" Y && sh ./deps/dependencies-${distro}
 
 ask "Install symlinks using stow?" Y && sh ./scripts/dot_isntall.sh
 
-if [ $(uname) == "Darwin" ]; then
-  ask "Install simlink for Code?" && {
-    ln -snf ${DOT_DIRECTORY}/.config/Code/User/settings.json ~/Library/Application\ Support/Code/User/settings.json
-    ln -snf ${DOT_DIRECTORY}/.config/Code/User/keybindigs.json ~/Library/Application\ Support/Code/User/keybindigs.json
-  }
-fi
-
 ask "Install font?" Y && {
   #git clone https://github.com/ryanoasis/nerd-fonts ~/nerd-fonts
   #cd ~/nerd-fonts

@@ -1,0 +1,2 @@
+CXX14FLAGS=-O3 -march=native -mtune=native -fPIC
+CXX14=g++

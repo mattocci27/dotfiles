@@ -28,11 +28,17 @@ keymap("n", "<C-l>", ':call VSCodeNotify("workbench.action.navigateRight")<CR>',
 -- Buffers
 -- keymap("n", "<S-l>", ':call VSCodeNotify("workbench.action.nextEditor")<CR>', opts)
 -- keymap("n", "<S-h>", ':call VSCodeNotify("workbench.action.previousEditor")<CR>', opts)
--- keymap("n", "<tab>", ':call VSCodeNotify("workbench.action.nextEditor")<CR>', opts)
--- keymap("n", "<S-tab>", ':call VSCodeNotify("workbench.action.previousEditor")<CR>', opts)
-keymap("n", "gt", ':call VSCodeNotify("workbench.action.nextEditor")<CR>', opts)
-keymap("n", "gT", 'call VSCodeNotify("workbench.action.previousEditor")<CR>', opts)
+keymap("n", "<tab>", ':call VSCodeNotify("workbench.action.nextEditor")<CR>', opts)
+keymap("n", "<S-tab>", ':call VSCodeNotify("workbench.action.previousEditor")<CR>', opts)
+-- keymap("n", "gt", ':call VSCodeNotify("workbench.action.nextEditor")<CR>', opts)
+-- keymap("n", "gT", 'call VSCodeNotify("workbench.action.previousEditor")<CR>', opts)
 
+
+-- fomat
+keymap("n", "==", '<Cmd>call VSCodeNotify("editor.action.formatDocument")<CR>', opts)
+-- vim.cmd([[
+-- nnoremap == <Cmd>call VSCodeNotify('editor.action.formatDocument')<CR>
+-- ]])
 
 -- Commentary <C-/>?
 keymap("x", "gc", "<Plug>VSCodeCommentary", {noremap = false})
