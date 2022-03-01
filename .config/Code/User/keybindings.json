@@ -1,4 +1,4 @@
-// Place your key bindings in this file to override the defaultsauto[]
+// Place your key bindings in this file to override the defaults auto[]
 [
   {
     "key": "ctrl+t",
@@ -27,4 +27,10 @@
     },
     "when": "neovim.mode == insert && editorTextFocus"
   }
+  // {
+  //   "command": "workbench.action.nextEditor",
+  //   "key": "g",
+  //   "when": "neovim.mode == normal && editorTextFocus",
+  //   "args": "t"
+  // }
 ]

@@ -25,45 +25,23 @@ keymap("n", "<C-j>", ':call VSCodeNotify("workbench.action.navigateDwon")<CR>', 
 keymap("n", "<C-k>", ':call VSCodeNotify("workbench.action.navigateUp")<CR>', opts)
 keymap("n", "<C-l>", ':call VSCodeNotify("workbench.action.navigateRight")<CR>', opts)
 
--- -- Resize with arrows
--- keymap("n", "<C-Up>", ":resize +2<CR>", opts)
--- keymap("n", "<C-Down>", ":resize -2<CR>", opts)
--- keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
--- keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
+-- Buffers
+-- keymap("n", "<S-l>", ':call VSCodeNotify("workbench.action.nextEditor")<CR>', opts)
+-- keymap("n", "<S-h>", ':call VSCodeNotify("workbench.action.previousEditor")<CR>', opts)
+-- keymap("n", "<tab>", ':call VSCodeNotify("workbench.action.nextEditor")<CR>', opts)
+-- keymap("n", "<S-tab>", ':call VSCodeNotify("workbench.action.previousEditor")<CR>', opts)
+keymap("n", "gt", ':call VSCodeNotify("workbench.action.nextEditor")<CR>', opts)
+keymap("n", "gT", 'call VSCodeNotify("workbench.action.previousEditor")<CR>', opts)
 
--- -- Navigate buffers
--- keymap("n", "<S-l>", ":bnext<CR>", opts)
--- keymap("n", "<S-h>", ":bprevious<CR>", opts)
 
--- -- Move text up and down
--- keymap("n", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)
--- keymap("n", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
+-- Commentary <C-/>?
+keymap("x", "gc", "<Plug>VSCodeCommentary", {noremap = false})
+keymap("n", "gc", "<Plug>VSCodeCommentary", {noremap = false})
+keymap("o", "gc", "<Plug>VSCodeCommentary", {noremap = false})
+keymap("n", "gcc", "<Plug>VSCodeCommentaryLine", {noremap = false})
 
--- -- Insert --
--- -- Press jk fast to enter
--- keymap("i", "jk", "<ESC>", opts)
+--  fzf
+keymap("n", "<C-g>", ':call VSCodeNotify("fzf-quick-open.runFzfSearch")<CR>', opts)
 
--- -- Visual --
--- -- Stay in indent mode
--- keymap("v", "<", "<gv", opts)
--- keymap("v", ">", ">gv", opts)
-
--- -- Move text up and down
--- keymap("v", "<A-j>", ":m .+1<CR>==", opts)
--- keymap("v", "<A-k>", ":m .-2<CR>==", opts)
--- keymap("v", "p", '"_dP', opts)
-
--- -- Visual Block --
--- keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
--- keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
--- keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
--- keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
--- -- Move text up and down
-
--- -- Terminal --
--- -- Better terminal navigation
--- keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", term_opts)
--- keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
--- keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
--- keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
-
+-- Which-Key
+keymap("n", "<Space>", ':call VSCodeNotify("whichkey.show")<CR>', opts)
