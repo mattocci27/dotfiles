@@ -74,7 +74,7 @@ fi
 
 ask "Install packages?" Y && sh ./deps/dependencies-${distro}
 
-ask "Install symlinks using stow?" Y && sh ./scripts/dot_isntall.sh
+ask "Install symlinks using stow?" Y && sh ./scripts/deploy.sh
 
 ask "Install font?" Y && {
   #git clone https://github.com/ryanoasis/nerd-fonts ~/nerd-fonts
@@ -96,89 +96,18 @@ ask "Install Python stuffs? (run this after pyenv)" Y && {
   pip install pynvim
 }
 
-ask "Install R stuffs?" Y && {
-  bash ./scripts/makevars.sh
+ask "Install R deps?" Y && {
   Rscript -e "install.packages(c('littler', 'pacman'), dependencies = TRUE, error = TRUE)"
 }
 
 ask "Install R packages?" Y && {
+  bath .scripts/Rpkg.sh
+}
 
-  Rscript -e "pacman::p_load(
-    tidyverse)"
 
-  Rscript -e "pacman::p_load(
-    vegan)"
-
-  Rscript -e "pacman::p_load(
-    rstan)"
-
-if [ $(uname) == "Darwin" ]; then
-  ask "Install sf packages for mac?" Y && {
-    Rscript -e 'install.packages("rgeos", repos="http://R-Forge.R-project.org", type="source")'
-    Rscript -e 'install.packages("rgdal", repos="http://R-Forge.R-project.org", type="source")'
-    Rscript -e 'devtools::install_github("r-spatial/sf",
-      configure.args = "--with-proj-lib=/usr/local/lib/")'
-  }
-fi
-
-  Rscript -e "pacman::p_load(
-      FD,
-      FactoMineR,
-      GGally,
-      MuMIn,
-      Rcpp,
-      RcppEigen,
-      RcppNumerical,
-      adephylo,
-      adespatial,
-      blogdown,
-      bookdown,
-      caper,
-      corrplot,
-      cowplot,
-      devtools,
-      doMC,
-      doSNOW,
-      entropart,
-      factoextra,
-      furrr,
-      fontawesome,
-      ggrepel,
-      ggthemes,
-      hexbin,
-      kableExtra,
-      kfigr,
-      languageserver,
-      lavaan,
-      lightgbm,
-      lme4,
-      memisc,
-      microbenchmark,
-      mnormt,
-      multcompView,
-      mvtnorm,
-      nlme,
-      pander,
-      phytools,
-      picante,
-      png,
-      provenance,
-      ParBayesianOptimization,
-      rmarkdown,
-      rstanarm,
-      sads,
-      semPlot,
-      shiny,
-      skimr,
-      smatr,
-      snowfall,
-      tictoc,
-      tidyverse,
-      tidymodels,
-      vegan,
-      visNetwork
-      )"
-
+ask "Install Lnuarvim?" Y && {
+  echo "Installing lnuar-plug..."
+  bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh)
 }
 
 # After .vim has been symlinked!

@@ -73,6 +73,8 @@ lvim.builtin.treesitter.ensure_installed = {
   "tsx",
   "css",
   "rust",
+  "r",
+  -- "stan",
   "java",
   "yaml",
 }
@@ -144,8 +146,14 @@ lvim.plugins = {
       "folke/trouble.nvim",
       cmd = "TroubleToggle",
     },
-  {"sainnhe/edge"}
+    {"sainnhe/edge"},
+    {"christoomey/vim-tmux-navigator"},
+    {"tpope/vim-surround"}
 }
+
+-- snippets
+require("luasnip.loaders.from_vscode").load({ paths = { "~/.config/Code/User/snippets" } })
+
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
 -- lvim.autocommands.custom_groups = {
