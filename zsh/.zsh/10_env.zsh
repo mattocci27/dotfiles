@@ -23,3 +23,6 @@ if [ `uname` = "Darwin" ]; then
       eval "$(pyenv init -)"
     fi
 fi
+
+
+eval "$(zoxide init zsh)"

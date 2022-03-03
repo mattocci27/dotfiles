@@ -2,7 +2,26 @@
 [
   {
     "key": "ctrl+t",
-    "command": "workbench.action.terminal.focus"
+    "command": "workbench.action.terminal.new"
+  },
+  {
+    "key": "ctrl+h",
+    "command": "workbench.action.navigateLeft"
+  },
+  // This doesn't work but I don't usually split horizontally.
+  // {
+  //   "key": "ctrl+j",
+  //   "command": "workbench.action.navigateDown",
+  //   "when": "neovim.mode == normal || terminalFocus",
+  // },
+  // {
+  //   "key": "ctrl+k",
+  //   "command": "workbench.action.navigateUp",
+  //   "when": "neovim.mode == normal || terminalFocus",
+  // },
+  {
+    "key": "ctrl+l",
+    "command": "workbench.action.navigateRight"
   },
   {
     "key": "ctrl+e",
@@ -27,10 +46,4 @@
     },
     "when": "neovim.mode == insert && editorTextFocus"
   }
-  // {
-  //   "command": "workbench.action.nextEditor",
-  //   "key": "g",
-  //   "when": "neovim.mode == normal && editorTextFocus",
-  //   "args": "t"
-  // }
 ]

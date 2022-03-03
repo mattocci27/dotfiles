@@ -76,12 +76,18 @@ ask "Install packages?" Y && sh ./deps/dependencies-${distro}
 
 ask "Install symlinks using stow?" Y && sh ./scripts/deploy.sh
 
+
+ask "Install Rust deps ?" Y && {
+  echo "Installing Rust deps..."
+  cargo install exa ytop bat fd ripgrep gitui
+}
+
 ask "Install font?" Y && {
-  #git clone https://github.com/ryanoasis/nerd-fonts ~/nerd-fonts
-  #cd ~/nerd-fonts
-  #chmod 755 font-patcher
-  #cd
-  #cd ${DOT_DIRECTORY}
+  # git clone https://github.com/ryanoasis/nerd-fonts ~/nerd-fonts
+  # cd ~/nerd-fonts
+  # chmod 755 font-patcher
+  # cd
+  # cd ${DOT_DIRECTORY}
 
   if [ $(uname) == "Darwin" ]; then
     sudo cp -rf ./fonts/Cousine/* ~/Library/Fonts

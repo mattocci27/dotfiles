@@ -36,13 +36,13 @@ font:
   # The normal (roman) font face to use.
   normal:
     family: Cousine Nerd Font
-    #family: Cousine
+    # family: Cousine
     # Style can be specified to pick a specific face.
-    # style: Regular
+    style: Regular
 
   # The bold font face
   bold:
-    family: Cousine
+    family: Cousine Nerd Font
     #family: Cousine
     # Style can be specified to pick a specific face.
     style: Bold
@@ -50,7 +50,7 @@ font:
   # The italic font face
   italic:
     #family: Ricty nerd Font
-    family: Cousine
+    family: Cousine Nerd Font
     # Style can be specified to pick a specific face.
     style: Italic
 

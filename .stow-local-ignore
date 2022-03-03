@@ -24,3 +24,6 @@ _darcs
 ^/README.*
 ^/LICENSE.*
 ^/COPYING
+
+\.DS_Store
+lvim/\.config/lvim/plugin/packer_compiled\.lua 

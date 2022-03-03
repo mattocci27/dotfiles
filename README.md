@@ -1,11 +1,13 @@
 # dotfiles
 
 Contains:
+
 - R with OpenBLAS and essential packages.
-- Configuretion for tmux, neovim, and zsh.
-- Cousine font with nerd fonts.
+- Configuration for tmux, neovim (lunarvim), and zsh.
+- Cousine nerd fonts.
 
 # Requirement for macOS
+
 - command line tools
 
 ```shell
@@ -15,7 +17,7 @@ sudo xcode-select --install
 
 # Usage (Mac and Manjaro Linux)
 
-Following commands will clone the repository, install depenecies and make symbolic links.
+Following commands will clone the repository, install dependencies and make symbolic links.
 
 ```shell
 # clone this repo

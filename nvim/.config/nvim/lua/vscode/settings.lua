@@ -26,10 +26,10 @@ keymap("n", "<C-k>", ':call VSCodeNotify("workbench.action.navigateUp")<CR>', op
 keymap("n", "<C-l>", ':call VSCodeNotify("workbench.action.navigateRight")<CR>', opts)
 
 -- Buffers
--- keymap("n", "<S-l>", ':call VSCodeNotify("workbench.action.nextEditor")<CR>', opts)
--- keymap("n", "<S-h>", ':call VSCodeNotify("workbench.action.previousEditor")<CR>', opts)
-keymap("n", "<tab>", ':call VSCodeNotify("workbench.action.nextEditor")<CR>', opts)
-keymap("n", "<S-tab>", ':call VSCodeNotify("workbench.action.previousEditor")<CR>', opts)
+keymap("n", "<S-l>", ':call VSCodeNotify("workbench.action.nextEditor")<CR>', opts)
+keymap("n", "<S-h>", ':call VSCodeNotify("workbench.action.previousEditor")<CR>', opts)
+-- keymap("n", "<tab>", ':call VSCodeNotify("workbench.action.nextEditor")<CR>', opts)
+-- keymap("n", "<S-tab>", ':call VSCodeNotify("workbench.action.previousEditor")<CR>', opts)
 -- keymap("n", "gt", ':call VSCodeNotify("workbench.action.nextEditor")<CR>', opts)
 -- keymap("n", "gT", 'call VSCodeNotify("workbench.action.previousEditor")<CR>', opts)
 
