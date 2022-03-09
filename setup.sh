@@ -74,7 +74,7 @@ fi
 
 ask "Install packages?" Y && sh ./deps/dependencies-${distro}
 
-ask "Install symlinks using stow?" Y && sh ./scripts/deploy.sh
+ask "Install symlinks using stow?" Y && sh ./scripts/.dotscripts/deploy.sh
 
 
 ask "Install Rust deps ?" Y && {
@@ -107,7 +107,7 @@ ask "Install R deps?" Y && {
 }
 
 ask "Install R packages?" Y && {
-  bath .scripts/Rpkg.sh
+  bath .script/.dotscripts/Rpkg.sh
 }
 
 
