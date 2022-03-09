@@ -175,6 +175,23 @@ local keymap = vim.api.nvim_set_keymap
 -- keymap("n", "<C-s>", "<Plug>MarkdownPreview", {noremap = false})
 keymap("n", "<C-p>", "<Plug>MarkdownPreview", {noremap = false})
 
+-- ssh Remote pasting board
+vim.cmd([[
+  if executable('clipboard-provider')
+      let g:clipboard = {
+            \ 'name': 'myClipboard',
+            \     'copy': {
+            \         '+': 'clipboard-provider copy',
+            \         '*': 'env COPY_PROVIDERS=tmux clipboard-provider copy',
+            \     },
+            \     'paste': {
+            \         '+': 'clipboard-provider paste',
+            \         '*': 'env COPY_PROVIDERS=tmux clipboard-provider paste',
+            \     },
+            \ }
+  endif
+]])
+
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
 -- lvim.autocommands.custom_groups = {
 --   { "BufWinEnter", "*.lua", "setlocal ts=8 sw=8" },
