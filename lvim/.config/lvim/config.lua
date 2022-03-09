@@ -148,12 +148,32 @@ lvim.plugins = {
     },
     {"sainnhe/edge"},
     {"christoomey/vim-tmux-navigator"},
-    {"tpope/vim-surround"}
+    {"tpope/vim-surround"},
+    {
+      "iamcco/markdown-preview.nvim",
+      run = "cd app && npm install",
+      ft = "markdown",
+      config = function()
+        vim.g.mkdp_auto_start = 1
+      end,
+    }
 }
 
 -- snippets
 require("luasnip.loaders.from_vscode").load({ paths = { "~/.config/Code/User/snippets" } })
 
+-- markdown
+
+local opts = { noremap = true, silent = true }
+
+local term_opts = { silent = true }
+
+-- Shorten function name
+local keymap = vim.api.nvim_set_keymap
+
+-- MarkdownPreview
+-- keymap("n", "<C-s>", "<Plug>MarkdownPreview", {noremap = false})
+keymap("n", "<C-p>", "<Plug>MarkdownPreview", {noremap = false})
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
 -- lvim.autocommands.custom_groups = {

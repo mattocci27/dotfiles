@@ -29,9 +29,8 @@ cd dotfiles
 sh setup.sh
 ```
 
-
 # Homebrew
 
-Homebrew mirror at [tinghua uni](https://mirror.tuna.tsinghua.edu.cn/help/homebrew/)
+Homebrew mirror at [tsinghua uni](https://mirror.tuna.tsinghua.edu.cn/help/homebrew/)
 
 
