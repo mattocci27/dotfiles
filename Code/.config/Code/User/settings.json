@@ -1,10 +1,10 @@
 {
   "workbench.startupEditor": "newUntitledFile",
-  "editor.wordWrap": "on",
   "terminal.integrated.defaultLocation": "editor",
   "workbench.panel.defaultLocation": "right",
   "editor.fontFamily": "Cousine, 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
   "docker.host": "ssh://mattocci@210.72.93.79:59615",
+  "remote.SSH.useLocalServer": true,
   "files.trimTrailingWhitespace": true,
   // minimap
   "editor.minimap.enabled": false,
@@ -137,7 +137,8 @@
     "typescriptreact",
     "yaml",
     "yml",
-    "rmarkdown"
+    "rmarkdown",
+    "rmd"
   ],
   "editor.cursorStyle": "line",
   "editor.lineNumbers": "on",
@@ -145,7 +146,11 @@
   "workbench.colorTheme": "Community Material Theme",
   "r.rpath.linux": "/usr/bin/R",
   "r.rpath.mac": "/opt/homebrew/bin/R",
-  "r.rterm.mac": "/Users/mattocci/Library/Python/3.8/bin/radian",
+  "r.rterm.mac": "/Users/mattocci/.pyenv/shims/radian",
+  "r.lsp.debug": true,
+  "r.lsp.diagnostics": true,
+  "r.lsp.rich_documentation": true,
+  "r.lsp.lint_cache": true,
   "latex-workshop.view.pdf.viewer": "tab",
   "vscode-neovim.neovimInitVimPaths.darwin": "/Users/mattocci/.config/nvim/init.lua",
   "vim.enableNeovim": true,
@@ -1167,5 +1172,6 @@
       "type": "command",
       "command": "workbench.action.quickOpen"
     }
-  ]
+  ],
+  "editor.wordWrap": "on"
 }

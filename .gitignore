@@ -8,4 +8,5 @@
 .vim/pack/
 .vim/
 *.Rmd
+*.R
 lvim/.config/lvim/plugin/*

@@ -1,4 +1,3 @@
-rm(list = ls()) # This clears everything from memory.
 # cran 
 local({
   r = getOption("repos")
