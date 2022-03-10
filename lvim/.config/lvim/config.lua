@@ -174,6 +174,7 @@ local keymap = vim.api.nvim_set_keymap
 -- MarkdownPreview
 -- keymap("n", "<C-s>", "<Plug>MarkdownPreview", {noremap = false})
 keymap("n", "<C-p>", "<Plug>MarkdownPreview", {noremap = false})
+keymap("i", "<C-p>", "|>", opts)
 
 -- ssh Remote pasting board
 vim.cmd([[
