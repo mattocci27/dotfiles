@@ -3,15 +3,12 @@ case `uname` in
   Darwin)
   export PATH="/usr/local/sbin:/usr/local/bin:/Developer/usr/bin:/Developer/usr/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/opt:/usr/lib/$PATH"
   export PATH="/usr/local/opt/avr-gcc@8/bin:$PATH"
-#  export PATH=$PATH:/Users/$USER/mutagen_darwin_amd64_v0.11.4
   export PATH=$PATH:/opt/yarn-v1.22.4/bin
+  export PATH=$PATH:/Applications/Julia-1.7.app/Contents/Resources/julia/bin/
   export PATH="/usr/local/opt/openjdk/bin:$PATH"
   export PATH="/usr/bin:$PATH"
-  #export PATH=$PATH:/opt/homebrew/opt/ccache/libexec
   export PATH="$HOME/.cargo/bin:$PATH"
   export PATH="$PATH:$HOME/bin/context/tex/texmf-osx-arm64/bin:"
-#  export DISPLAY=localhost:0.0
-#  export DISPLAY=:0
   export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
   export PATH="$HOME/.local/bin:$PATH"
     ;;
