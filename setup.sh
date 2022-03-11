@@ -133,7 +133,7 @@ ask "Install zsh-plug ?" Y && {
 
 
 ask "Install tmux plugin manager for tmux?" Y && {
-  git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
+  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 }
 
 
