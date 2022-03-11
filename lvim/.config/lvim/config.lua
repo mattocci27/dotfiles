@@ -156,7 +156,8 @@ lvim.plugins = {
       config = function()
         vim.g.mkdp_auto_start = 1
       end,
-    }
+    },
+    {"eigenfoo/stan-vim"}
 }
 
 -- snippets
