@@ -157,7 +157,8 @@ lvim.plugins = {
         vim.g.mkdp_auto_start = 1
       end,
     },
-    {"eigenfoo/stan-vim"}
+    {"eigenfoo/stan-vim"},
+    {"quarto-dev/quarto-vim"}
 }
 
 -- snippets
