@@ -1,8 +1,8 @@
 // Place your key bindings in this file to override the defaults auto[]
 [
   {
-    "key": "ctrl+t",
-    "command": "workbench.action.terminal.new"
+    "key": "ctrl+t"
+    "command": "workbench.action.terminal.focus"
   },
   {
     "key": "ctrl+h",

@@ -1,6 +1,5 @@
 {
   "workbench.startupEditor": "newUntitledFile",
-  "terminal.integrated.defaultLocation": "editor",
   "workbench.panel.defaultLocation": "right",
   "editor.fontFamily": "Cousine, 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
   "docker.host": "ssh://mattocci@210.72.93.79:59615",
@@ -168,7 +167,6 @@
   "editor.tabSize": 2,
   "editor.insertSpaces": true,
   "editor.find.cursorMoveOnType": false,
-  "r.plot.useHttpgd": true,
   "vscode-neovim.neovimInitVimPaths.linux": "$HOME/.config/nvim/init.vim",
   "bracket-pair-colorizer-2.depreciation-notice": false,
   // which-key for neovim like keybindings
@@ -1172,5 +1170,7 @@
       "command": "workbench.action.quickOpen"
     }
   ],
-  "editor.wordWrap": "on"
+  "editor.wordWrap": "on",
+  "quarto.mathjax.theme": "dark",
+  "r.plot.useHttpgd": true
 }
