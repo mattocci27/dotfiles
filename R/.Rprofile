@@ -1,10 +1,10 @@
 # cran 
 local({
-  r = getOption("repos")
-  r["CRAN"] = "https://mirror.lzu.edu.cn/CRAN/"
-  #r["CRAN"] = "https://ftp.yz.yamagata-u.ac.jp/pub/cran/"
-  options(repos = r)
-  #browser = "Safari")
+  if (Sys.info()[['sysname']] %in% c('Linux', 'Windows')) {
+    options(repos = c(RSPM = "https://packagemanager.rstudio.com/all/latest"))
+	} else {
+    options(repos = c(CRAN = "https://mirror.lzu.edu.cn/CRAN/"))
+    }
 })
 
 # read packages
