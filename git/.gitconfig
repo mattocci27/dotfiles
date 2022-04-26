@@ -11,7 +11,7 @@
 
 [core]
 	editor = vi
-  excludesfile = /Users/mattocci/.gitignore_global
+	excludesfile = /Users/mattocci/.gitignore_global
 #  pager = delta
 
 #[interactive]
@@ -77,3 +77,9 @@
 	gpgSign = false
 [tag]
 	forceSignAnnotated = false
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true

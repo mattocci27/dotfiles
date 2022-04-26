@@ -49,6 +49,9 @@ ask "Install sf packages for mac?" Y && {
   Rscript -e 'install.packages("sf", type = "source", 
      configure.args = c("--with-sqlite3-lib=/opt/homebrew/opt/sqlite/lib",
      "--with-proj-lib=/opt/homebrew/opt/proj/lib"))'
+  Rscript -e 'install.packages("terra", type = "source", 
+     configure.args = c("--with-sqlite3-lib=/opt/homebrew/opt/sqlite/lib",
+     "--with-proj-lib=/opt/homebrew/opt/proj/lib"))'
 }
 fi
 

@@ -1,3 +1,4 @@
 CXX14FLAGS=-O3 -mtune=native -Wno-unused-variable -Wno-unused-function
 CC=clang -arch arm64
 CXX=clang++ -arch arm64 -ftemplate-depth-256 -std=gnu++11
+OBJCXX = clang++

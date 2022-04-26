@@ -13,6 +13,8 @@ alias -g L='| less'
 alias -g G='| grep'
 alias v='vim'
 #alias R='radian'
+zle -N zi
+bindkey '^z' zi
 
 # open files
 if [[ "$OSTYPE" == "linux-gnu" ]] ; then

@@ -1,24 +1,13 @@
 // Place your key bindings in this file to override the defaults auto[]
 [
   {
-    "key": "ctrl+t"
+    "key": "ctrl+t",
     "command": "workbench.action.terminal.focus"
   },
   {
     "key": "ctrl+h",
     "command": "workbench.action.navigateLeft"
   },
-  // This doesn't work but I don't usually split horizontally.
-  // {
-  //   "key": "ctrl+j",
-  //   "command": "workbench.action.navigateDown",
-  //   "when": "neovim.mode == normal || terminalFocus",
-  // },
-  // {
-  //   "key": "ctrl+k",
-  //   "command": "workbench.action.navigateUp",
-  //   "when": "neovim.mode == normal || terminalFocus",
-  // },
   {
     "key": "ctrl+l",
     "command": "workbench.action.navigateRight"
