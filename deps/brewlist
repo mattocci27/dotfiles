@@ -1,5 +1,6 @@
 arpack-julia
 autoconf
+automake
 cairo
 cask
 cmake

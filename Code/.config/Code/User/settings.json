@@ -1173,5 +1173,8 @@
   "editor.wordWrap": "on",
   "quarto.mathjax.theme": "dark",
   "r.plot.useHttpgd": true,
-  "terminal.integrated.defaultLocation": "view"
+  "terminal.integrated.defaultLocation": "view",
+  "files.insertFinalNewline": true,
+  "git.confirmSync": false,
+  "quarto.path": "/home/mattocci/.local/bin/quarto"
 }
