@@ -96,7 +96,7 @@
   "editor.renderWhitespace": "none",
   "git.autofetch": true,
   "vscode-neovim.neovimExecutablePaths.linux": "/usr/bin/nvim",
-  "vscode-neovim.neovimExecutablePaths.darwin": "/opt/homebrew/bin/nvim",
+  "vscode-neovim.neovimExecutablePaths.darwin": "/usr/local/bin/nvim",
   "workbench.editorAssociations": {
     "*.ipynb": "jupyter.notebook.ipynb"
   },
@@ -149,12 +149,14 @@
   "r.lsp.rich_documentation": true,
   "r.lsp.lint_cache": true,
   "latex-workshop.view.pdf.viewer": "tab",
-  "vscode-neovim.neovimInitVimPaths.darwin": "/Users/mattocci/.config/nvim/init.lua",
+  "vscode-neovim.neovimInitVimPaths.darwin": "$HOME/.config/nvim/init.lua",
   "vim.enableNeovim": true,
   "vim.neovimPath": "/Users/mattocci/.local/bin/lvim",
   "vim.neovimPath.darwin": "/Users/mattocci/.local/bin/lvim",
+  //"vim.neovimPath": "/usr/local/bin/nvim",
+  //"vim.neovimPath.darwin": "/usr/local/bin/nvim",
   "vim.neovimUseConfigFile": true,
-  "vim.neov. mConfigPath": " ~/.config/nvim/init.vim ",
+  "vim.neovimConfigPath": " ~/.config/nvim/init.lua ",
   "workbench.list.automaticKeyboardNavigation": false,
   "editor.inlineSuggest.enabled": true,
   "github.copilot.enable": {
@@ -1176,4 +1178,5 @@
   "files.insertFinalNewline": true,
   "git.confirmSync": false,
   "quarto.path": "/home/mattocci/.local/bin/quarto"
+//  "workbench.editor.enablePreview": false
 }
