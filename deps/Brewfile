@@ -3,7 +3,9 @@ tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/cask-versions"
 tap "homebrew/core"
+tap "wez/wezterm"
 brew "libtiff"
+brew "automake"
 brew "bat"
 brew "sqlite"
 brew "cabal-install"
@@ -21,6 +23,7 @@ brew "fzf"
 brew "fzy"
 brew "geos"
 brew "libxml2"
+brew "proj"
 brew "openblas"
 brew "gdal"
 brew "gh"
@@ -39,17 +42,17 @@ brew "javacc"
 brew "latexdiff"
 brew "libgit2"
 brew "llvm"
+brew "lua"
 brew "ruby"
 brew "macvim"
 brew "mas"
+brew "mosh"
 brew "neofetch"
-brew "neovim"
 brew "node"
 brew "open-mpi"
 brew "pandoc"
 brew "peco"
 brew "poppler"
-brew "proj"
 brew "pyenv"
 brew "qpdf"
 brew "r"
@@ -62,11 +65,13 @@ brew "stow"
 brew "tmux"
 brew "tmux-mem-cpu-load"
 brew "udunits"
+brew "urlview"
 brew "v8"
 brew "wget"
 brew "yarn"
 brew "zoxide"
 brew "zsh"
+cask "alacritty"
 cask "discord", args: { appdir: "/Applications" }
 cask "firefox"
 cask "gitkraken", args: { appdir: "/Applications" }
@@ -74,8 +79,11 @@ cask "google-chrome", args: { appdir: "/Applications" }
 cask "mimestream"
 cask "numi"
 cask "phantomjs"
+cask "quarto"
 cask "rstudio"
+cask "sourcetree"
 cask "spotify", args: { appdir: "/Applications" }
+cask "wezterm"
 cask "zotero", args: { appdir: "/Applications" }
 mas "Accelerate", id: 1459809092
 mas "AdBlock", id: 1402042596
@@ -86,7 +94,6 @@ mas "Affinity Publisher", id: 881418622
 mas "BetterSnapTool", id: 417375580
 mas "Craft", id: 1487937127
 mas "DaisyDisk", id: 411643860
-mas "Dropover", id: 1355679052
 mas "Enpass", id: 732710998
 mas "GarageBand", id: 682658836
 mas "Gemini 2", id: 1090488118

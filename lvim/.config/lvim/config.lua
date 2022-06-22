@@ -154,12 +154,8 @@ lvim.plugins = {
     {"christoomey/vim-tmux-navigator"},
     {"tpope/vim-surround"},
     {
-      "iamcco/markdown-preview.nvim",
-      run = "cd app && npm install",
-      ft = "markdown",
-      config = function()
-        vim.g.mkdp_auto_start = 1
-      end,
+    "iamcco/markdown-preview.nvim",
+    run = function() vim.fn["mkdp#util#install"]() end,
     },
     {"eigenfoo/stan-vim"},
     {"vim-pandoc/vim-pandoc-syntax"},

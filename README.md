@@ -2,8 +2,8 @@
 
 Contains:
 
-- R with OpenBLAS and essential packages.
-- Configuration for tmux, neovim (lunarvim), and zsh.
+- R and essential packages.
+- Configuration for vscode, tmux, neovim (lunarvim), and zsh.
 - Cousine nerd fonts.
 
 # Requirement for macOS

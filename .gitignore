@@ -9,4 +9,5 @@
 .vim/
 *.Rmd
 *.R
+*.qmd
 lvim/.config/lvim/plugin/*
