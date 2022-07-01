@@ -135,7 +135,8 @@
     "yaml",
     "yml",
     "rmarkdown",
-    "rmd"
+    "rmd",
+    "quarto"
   ],
   "editor.cursorStyle": "line",
   "editor.lineNumbers": "on",
@@ -1177,6 +1178,12 @@
   "terminal.integrated.defaultLocation": "view",
   "files.insertFinalNewline": true,
   "git.confirmSync": false,
-  "quarto.path": "/home/mattocci/.local/bin/quarto"
-//  "workbench.editor.enablePreview": false
+  "quarto.path": "/home/mattocci/.local/bin/quarto",
+  "terminal.integrated.commandsToSkipShell": [
+    "language-julia.interrupt"
+  ],
+  "julia.symbolCacheDownload": true,
+  "julia.enableTelemetry": true,
+  "julia.executablePath": "/Applications/Julia-1.7.app/Contents/Resources/julia/bin//julia"
+  //  "workbench.editor.enablePreview": false
 }
