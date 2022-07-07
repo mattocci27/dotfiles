@@ -12,6 +12,8 @@
 [core]
 	editor = vi
 	excludesfile = /Users/mattocci/.gitignore_global
+  ignorecase = false
+
 #  pager = delta
 
 #[interactive]
