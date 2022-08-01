@@ -2,6 +2,7 @@
 set -e
 
 echo "Installing tools..."
+sudo add-apt-repository ppa:neovim-ppa/unstable
 sudo apt update -y
 sudo apt install -y xsel \
   build-essential \
@@ -23,14 +24,80 @@ sudo apt install -y xsel \
   snapd \
   nodejs
 
-#sudo apt install -y texinfo \
-#  texlive-extra-utils \
-#  texlive-fonts-recommended \
-#  texlive-fonts-extra \
-#  texlive-latex-recommended \
-#  texlive-latex-extra \
-#  pandoc \
-#  pandoc-citeproc
+# form tidyverse
+sudo apt install -y \
+  libxml2-dev \
+  libcairo2-dev \
+  libgit2-dev \
+  default-libmysqlclient-dev \
+  libpq-dev \
+  libsasl2-dev \
+  libsqlite3-dev \
+  libssh2-1-dev \
+  libxtst6 \
+  libcurl4-openssl-dev \
+  unixodbc-dev
+
+# from verse
+sudo apt install -y \
+  cmake \
+  curl \
+  default-jdk \
+  fonts-roboto \
+  ghostscript \
+  hugo \
+  less \
+  libbz2-dev \
+  libglpk-dev \
+  libgmp3-dev \
+  libfribidi-dev \
+  libharfbuzz-dev \
+  libhunspell-dev \
+  libicu-dev \
+  liblzma-dev \
+  libmagick++-dev \
+  libopenmpi-dev \
+  libpcre2-dev \
+  libssl-dev \
+  libv8-dev \
+  libxml2-dev \
+  libxslt1-dev \
+  libzmq3-dev \
+  lsb-release \
+  qpdf \
+  texinfo \
+  software-properties-common \
+  vim \
+  wget
+
+# from geosptail
+sudo apt install -y \
+  gdal-bin \
+  lbzip2 \
+  libfftw3-dev \
+  libgdal-dev \
+  libgeos-dev \
+  libgsl0-dev \
+  libgl1-mesa-dev \
+  libglu1-mesa-dev \
+  libhdf4-alt-dev \
+  libhdf5-dev \
+  libjq-dev \
+  libpq-dev \
+  libproj-dev \
+  libprotobuf-dev \
+  libnetcdf-dev \
+  libsqlite3-dev \
+  libssl-dev \
+  libudunits2-dev \
+  lsb-release \
+  netcdf-bin \
+  postgis \
+  protobuf-compiler \
+  sqlite3 \
+  tk-dev \
+  unixodbc-dev
+
 
 # R
 sudo apt install -y dirmngr \
@@ -57,11 +124,11 @@ sudo apt install -y \
 echo "Installing docker..."
 # docker
 sudo apt-get install -y \
-    apt-transport-https \
-    ca-certificates \
-    curl \
-    gnupg \
-    lsb-release
+  apt-transport-https \
+  ca-certificates \
+  curl \
+  gnupg \
+  lsb-release
 
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
 

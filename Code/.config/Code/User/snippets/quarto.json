@@ -1,0 +1,96 @@
+{
+  "Print to console": {
+    "prefix": "log",
+    "body": [
+      "console.log('$1');",
+      "$2"
+    ],
+    "description": "Log output to console"
+  },
+  "yml for report": {
+    "prefix": "html yml",
+    "body": [
+      "---",
+      "Title: \"your title\"",
+      "author: \"Masatoshi Katabuchi\"",
+      "date: \"`r format(Sys.time(), '%B %d, %Y')`\""
+      "format:",
+        "html:",
+          "theme: spacelab #readable #sandstone #spacelab #flatly",
+          "toc: true",
+          "toc-depth: 2",
+          "toc-title: Contents",
+          "self-contained: true",
+          "smooth-scroll: true",
+          "highlight-style: github",
+      "---"
+    ],
+    "description": "yml for html report"
+  },
+  "yml for manuscript": {
+    "prefix": "ms yml",
+    "body": [
+     "---",
+     "fontsize: 12pt",
+     "geometry: margin=1in",
+     "link-citations: yes",
+     "csl: templates/ecology.csl",
+     "bibliography: [LMA.bib]",
+     "crossref:",
+     "  fig-title: Fig.",
+     "  fig-prefix: Fig.",
+     "  eq-prefix: Eq.",
+     "format:",
+     "  html:",
+     "    theme: spacelab #readable #sandstone #spacelab #flatly",
+     "    toc: true",
+     "    toc-depth: 2",
+     "    toc-title: Contents",
+     "    self-contained: true",
+     "    smooth-scroll: true",
+     "    highlight-style: github",
+     "  docx:",
+     "    toc: true",
+     "    number-sections: false",
+     "    highlight-style: github",
+     "    html-math-method: katex",
+     "  pdf:",
+     "    toc: false",
+     "    keep-tex: true",
+     "    pdf-engine: pdflatex",
+     "    template: templates/eisvogel2.tex",
+     "    include-in-header:",
+     "      text: |",
+     "        \usepackage{xr}",
+     "        \externaldocument{LMAms_SI}",
+     "        \usepackage{lineno}",
+     "        \linenumbers",
+     " ---"
+    ],
+    "description": "yml for manuscript"
+  },
+  "global chunk": {
+    "prefix": "global chunk",
+    "body": [
+      "```{r global_options, include=FALSE}",
+      "library(knitr)",
+      "knitr::opts_chunk\\$set(",
+      "  collapse = TRUE,",
+      "  comment = \"#>\",",
+      "  message = FALSE,",
+      "  cache = FALSE,",
+      "  fig.align = \"center\",",
+      "  fig.show = \"hold\"",
+      ")",
+      "```"
+    ],
+    "description": "global chunk"
+  },
+  "render": {
+    "prefix": "rmd render",
+    "body": [
+      "system.time(rmarkdown::render(\"report.Rmd\"))"
+    ],
+    "description": "rmd render"
+  }
+}

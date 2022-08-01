@@ -1174,7 +1174,6 @@
   ],
   "editor.wordWrap": "on",
   "quarto.mathjax.theme": "dark",
-  "r.plot.useHttpgd": true,
   "terminal.integrated.defaultLocation": "view",
   "files.insertFinalNewline": true,
   "git.confirmSync": false,
@@ -1184,6 +1183,9 @@
   ],
   "julia.symbolCacheDownload": true,
   "julia.enableTelemetry": true,
-  "julia.executablePath": "/Applications/Julia-1.7.app/Contents/Resources/julia/bin//julia"
+  "julia.executablePath": "/Applications/Julia-1.7.app/Contents/Resources/julia/bin//julia",
+  "r.plot.useHttpgd": true,
+  "remote.SSH.enableDynamicForwarding": false,
+  "r.rterm.linux": "/home/mattocci/.local/bin/radian"
   //  "workbench.editor.enablePreview": false
 }
