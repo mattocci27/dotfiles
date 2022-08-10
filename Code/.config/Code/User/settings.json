@@ -141,7 +141,7 @@
   "editor.cursorStyle": "line",
   "editor.lineNumbers": "on",
   "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
-  "workbench.colorTheme": "Community Material Theme",
+  "workbench.colorTheme": "Gruvbox Dark Soft",
   "r.rpath.linux": "/usr/bin/R",
   "r.rpath.mac": "/opt/homebrew/bin/R",
   "r.rterm.mac": "/Users/mattocci/.pyenv/shims/radian",

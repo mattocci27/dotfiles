@@ -11,7 +11,7 @@ an executable
 -- general
 lvim.log.level = "warn"
 lvim.format_on_save = true
-lvim.colorscheme = "edge"
+lvim.colorscheme = "gruvbox8_soft"
 -- to disable icons and use a minimalist setup, uncomment the following
 -- lvim.use_icons = false
 
@@ -145,6 +145,9 @@ lvim.builtin.treesitter.highlight.enabled = true
 
 -- Additional Plugins
 lvim.plugins = {
+    {"xiyaowong/nvim-transparent"},
+    {"lifepillar/vim-gruvbox8"},
+    {"morhetz/gruvbox"},
     {"folke/tokyonight.nvim"},
     {
       "folke/trouble.nvim",
@@ -200,6 +203,10 @@ vim.cmd([[
             \     },
             \ }
   endif
+]])
+
+vim.cmd([[
+  let g:transparent_enabled = v:true
 ]])
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
