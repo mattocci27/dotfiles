@@ -10,7 +10,7 @@ an executable
 
 -- general
 lvim.log.level = "warn"
-lvim.format_on_save = true
+lvim.format_on_save.enabled = false
 lvim.colorscheme = "gruvbox8_soft"
 -- to disable icons and use a minimalist setup, uncomment the following
 -- lvim.use_icons = false
@@ -19,6 +19,10 @@ lvim.colorscheme = "gruvbox8_soft"
 lvim.leader = "space"
 -- add your own keymapping
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
+lvim.keys.insert_mode["jj"] = "<ESC>"
+
+-- lvim.keys.normal_mode["<S-l>"] = ":BufferLineCycleNext<CR>"
+-- lvim.keys.normal_mode["<S-h>"] = ":BufferLineCyclePrev<CR>"
 -- unmap a default keymapping
 -- vim.keymap.del("n", "<C-Up>")
 -- override a default keymapping
@@ -42,6 +46,10 @@ lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 --   },
 -- }
 
+-- Change theme settings
+-- lvim.builtin.theme.options.dim_inactive = true
+-- lvim.builtin.theme.options.style = "storm"
+
 -- Use which-key to add extra bindings with the leader-key prefix
 -- lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
 -- lvim.builtin.which_key.mappings["t"] = {
@@ -51,14 +59,13 @@ lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 --   d = { "<cmd>Trouble document_diagnostics<cr>", "Diagnostics" },
 --   q = { "<cmd>Trouble quickfix<cr>", "QuickFix" },
 --   l = { "<cmd>Trouble loclist<cr>", "LocationList" },
---   w = { "<cmd>Trouble workspace_diagnostics<cr>", "Wordspace Diagnostics" },
+--   w = { "<cmd>Trouble workspace_diagnostics<cr>", "Workspace Diagnostics" },
 -- }
 
 -- TODO: User Config for predefined plugins
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
 lvim.builtin.alpha.active = true
 lvim.builtin.alpha.mode = "dashboard"
-lvim.builtin.notify.active = true
 lvim.builtin.terminal.active = true
 lvim.builtin.nvimtree.setup.view.side = "left"
 lvim.builtin.nvimtree.setup.renderer.icons.show.git = false
@@ -80,12 +87,103 @@ lvim.builtin.treesitter.ensure_installed = {
 }
 
 lvim.builtin.treesitter.ignore_install = { "haskell" }
-lvim.builtin.treesitter.highlight.enabled = true
+lvim.builtin.treesitter.highlight.enable = true
+
+lvim.plugins = {
+    {"xiyaowong/nvim-transparent"},
+    {"lifepillar/vim-gruvbox8"},
+    {"morhetz/gruvbox"},
+    {"sainnhe/edge"},
+    {"christoomey/vim-tmux-navigator"},
+    {"tpope/vim-surround"},
+    {
+    "iamcco/markdown-preview.nvim",
+    run = function() vim.fn["mkdp#util#install"]() end,
+    },
+    {"eigenfoo/stan-vim"},
+    {"vim-pandoc/vim-pandoc-syntax"},
+    {"quarto-dev/quarto-vim"},
+    {"tpope/vim-fugitive",
+    cmd = {
+    "G",
+    "Git",
+    "Gdiffsplit",
+    "Gread",
+    "Gwrite",
+    "Ggrep",
+    "GMove",
+    "GDelete",
+    "GBrowse",
+    "GRemove",
+    "GRename",
+    "Glgrep",
+    "Gedit"
+    },
+    ft = {"fugitive"}}
+}
+
+-- snippets
+require("luasnip.loaders.from_vscode").load({ paths = { "~/.config/Code/User/snippets" } })
+
+
+-- markdown
+
+
+local opts = { noremap = true, silent = true }
+
+
+local term_opts = { silent = true }
+
+
+-- Shorten function name
+local keymap = vim.api.nvim_set_keymap
+
+
+-- MarkdownPreview
+-- keymap("n", "<C-s>", "<Plug>MarkdownPreview", {noremap = false})
+keymap("n", "<C-p>", "<Plug>MarkdownPreview", {noremap = false})
+keymap("i", "<C-p>", "|>", opts)
+
+
+-- ssh Remote pasting board
+vim.cmd([[
+  if executable('clipboard-provider')
+      let g:clipboard = {
+            \ 'name': 'myClipboard',
+            \     'copy': {
+            \         '+': 'clipboard-provider copy',
+            \         '*': 'env COPY_PROVIDERS=tmux clipboard-provider copy',
+            \     },
+            \     'paste': {
+            \         '+': 'clipboard-provider paste',
+            \         '*': 'env COPY_PROVIDERS=tmux clipboard-provider paste',
+            \     },
+            \ }
+  endif
+]])
+
+vim.cmd([[
+  let g:transparent_enabled = v:true
+]])
 
 -- generic LSP settings
 
+-- -- make sure server will always be installed even if the server is in skipped_servers list
+-- lvim.lsp.installer.setup.ensure_installed = {
+--     "sumneko_lua",
+--     "jsonls",
+-- }
+-- -- change UI setting of `LspInstallInfo`
+-- -- see <https://github.com/williamboman/nvim-lsp-installer#default-configuration>
+-- lvim.lsp.installer.setup.ui.check_outdated_servers_on_open = false
+-- lvim.lsp.installer.setup.ui.border = "rounded"
+-- lvim.lsp.installer.setup.ui.keymaps = {
+--     uninstall_server = "d",
+--     toggle_server_expand = "o",
+-- }
+
 -- ---@usage disable automatic installation of servers
--- lvim.lsp.automatic_servers_installation = false
+-- lvim.lsp.installer.setup.automatic_installation = false
 
 -- ---configure a server manually. !!Requires `:LvimCacheReset` to take effect!!
 -- ---see the full default list `:lua print(vim.inspect(lvim.lsp.automatic_configuration.skipped_servers))`
@@ -94,8 +192,8 @@ lvim.builtin.treesitter.highlight.enabled = true
 -- require("lvim.lsp.manager").setup("pyright", opts)
 
 -- ---remove a server from the skipped list, e.g. eslint, or emmet_ls. !!Requires `:LvimCacheReset` to take effect!!
--- ---`:LvimInfo` lists which server(s) are skiipped for the current filetype
--- vim.tbl_map(function(server)
+-- ---`:LvimInfo` lists which server(s) are skipped for the current filetype
+-- lvim.lsp.automatic_configuration.skipped_servers = vim.tbl_filter(function(server)
 --   return server ~= "emmet_ls"
 -- end, lvim.lsp.automatic_configuration.skipped_servers)
 
@@ -144,72 +242,23 @@ lvim.builtin.treesitter.highlight.enabled = true
 -- }
 
 -- Additional Plugins
-lvim.plugins = {
-    {"xiyaowong/nvim-transparent"},
-    {"lifepillar/vim-gruvbox8"},
-    {"morhetz/gruvbox"},
-    {"folke/tokyonight.nvim"},
-    {
-      "folke/trouble.nvim",
-      cmd = "TroubleToggle",
-    },
-    {"sainnhe/edge"},
-    {"christoomey/vim-tmux-navigator"},
-    {"tpope/vim-surround"},
-    {
-    "iamcco/markdown-preview.nvim",
-    run = function() vim.fn["mkdp#util#install"]() end,
-    },
-    {"eigenfoo/stan-vim"},
-    {"vim-pandoc/vim-pandoc-syntax"},
-    {"quarto-dev/quarto-vim"}
-}
-
--- snippets
-require("luasnip.loaders.from_vscode").load({ paths = { "~/.config/Code/User/snippets" } })
-
-
--- markdown
-
-
-local opts = { noremap = true, silent = true }
-
-
-local term_opts = { silent = true }
-
-
--- Shorten function name
-local keymap = vim.api.nvim_set_keymap
-
-
--- MarkdownPreview
--- keymap("n", "<C-s>", "<Plug>MarkdownPreview", {noremap = false})
-keymap("n", "<C-p>", "<Plug>MarkdownPreview", {noremap = false})
-keymap("i", "<C-p>", "|>", opts)
-
-
--- ssh Remote pasting board
-vim.cmd([[
-  if executable('clipboard-provider')
-      let g:clipboard = {
-            \ 'name': 'myClipboard',
-            \     'copy': {
-            \         '+': 'clipboard-provider copy',
-            \         '*': 'env COPY_PROVIDERS=tmux clipboard-provider copy',
-            \     },
-            \     'paste': {
-            \         '+': 'clipboard-provider paste',
-            \         '*': 'env COPY_PROVIDERS=tmux clipboard-provider paste',
-            \     },
-            \ }
-  endif
-]])
-
-vim.cmd([[
-  let g:transparent_enabled = v:true
-]])
+-- lvim.plugins = {
+--     {
+--       "folke/trouble.nvim",
+--       cmd = "TroubleToggle",
+--     },
+-- }
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
--- lvim.autocommands.custom_groups = {
---   { "BufWinEnter", "*.lua", "setlocal ts=8 sw=8" },
--- }
+-- vim.api.nvim_create_autocmd("BufEnter", {
+--   pattern = { "*.json", "*.jsonc" },
+--   -- enable wrap mode for json files only
+--   command = "setlocal wrap",
+-- })
+-- vim.api.nvim_create_autocmd("FileType", {
+--   pattern = "zsh",
+--   callback = function()
+--     -- let treesitter use bash highlight for zsh files as well
+--     require("nvim-treesitter.highlight").attach(0, "bash")
+--   end,
+-- })

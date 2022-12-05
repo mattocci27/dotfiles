@@ -110,20 +110,19 @@ ask "Install R packages?" Y && {
   bath .script/.dotscripts/Rpkg.sh
 }
 
-
 ask "Install Lnuarvim?" Y && {
   echo "Installing lnuar-plug..."
-  bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh)
+  LV_BRANCH='release-1.2/neovim-0.8' bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh)
 }
 
 # After .vim has been symlinked!
 # vim-plug
-ask "Install vim-plug for Neovim?" Y && {
-  echo "Installing vim-plug..."
-  curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-      https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  nvim +PlugInstall +qall
-}
+# ask "Install vim-plug for Neovim?" Y && {
+#   echo "Installing vim-plug..."
+#   curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+#       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+#   nvim +PlugInstall +qall
+# }
 
 ## zsh-plug manager
 ask "Install zsh-plug ?" Y && {
@@ -137,6 +136,7 @@ ask "Install tmux plugin manager for tmux?" Y && {
 }
 
 
+if [ $distro != "Darwin" ]; then
 ask "Install singularity?" Y && {
   # go
   wget -c https://dl.google.com/go/go1.16.3.linux-amd64.tar.gz -O - | sudo tar -xz -C /usr/local
@@ -151,3 +151,4 @@ ask "Install singularity?" Y && {
       make -C builddir && \
       sudo make -C builddir install
 }
+fi
