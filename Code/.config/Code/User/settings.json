@@ -143,7 +143,7 @@
   "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
   "workbench.colorTheme": "Gruvbox Dark Soft",
   "r.rpath.linux": "/usr/bin/R",
-  "r.rpath.mac": "/opt/homebrew/bin/R",
+  "r.rpath.mac": "/usr/local/bin/R",
   "r.rterm.mac": "/Users/mattocci/.pyenv/shims/radian",
   "r.lsp.debug": true,
   "r.lsp.diagnostics": true,
@@ -1186,6 +1186,8 @@
   "julia.executablePath": "/Applications/Julia-1.7.app/Contents/Resources/julia/bin//julia",
   "r.plot.useHttpgd": true,
   "remote.SSH.enableDynamicForwarding": false,
-  "r.rterm.linux": "/home/mattocci/.local/bin/radian"
+  "r.rterm.linux": "/home/mattocci/.local/bin/radian",
+  "http.proxyStrictSSL": false,
+  "http.proxySupport": "off"
   //  "workbench.editor.enablePreview": false
 }
