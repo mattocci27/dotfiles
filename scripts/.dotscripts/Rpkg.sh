@@ -33,23 +33,14 @@ ask() {
   done
 }
 
-Rscript -e "pacman::p_load(
-  tidyverse)"
-
-Rscript -e "pacman::p_load(
-  vegan)"
-
-Rscript -e "pacman::p_load(
-  rstan)"
-
 if [ $(uname) == "Darwin" ]; then
 ask "Install sf packages for mac?" Y && {
   Rscript -e 'install.packages("rgeos", repos="http://R-Forge.R-project.org", type="source")'
   Rscript -e 'install.packages("rgdal", repos="http://R-Forge.R-project.org", type="source")'
-  Rscript -e 'install.packages("sf", type = "source", 
+  Rscript -e 'install.packages("sf", type = "source",
      configure.args = c("--with-sqlite3-lib=/opt/homebrew/opt/sqlite/lib",
      "--with-proj-lib=/opt/homebrew/opt/proj/lib"))'
-  Rscript -e 'install.packages("terra", type = "source", 
+  Rscript -e 'install.packages("terra", type = "source",
      configure.args = c("--with-sqlite3-lib=/opt/homebrew/opt/sqlite/lib",
      "--with-proj-lib=/opt/homebrew/opt/proj/lib"))'
 }
@@ -109,6 +100,7 @@ Rscript -e "pacman::p_load(
     png,
     provenance,
     rmarkdown,
+    rstan,
     rstanarm,
     sads,
     semPlot,

@@ -83,10 +83,7 @@ cask "r"
 cask "rstudio"
 cask "sourcetree"
 cask "spotify", args: { appdir: "/Applications" }
-cask "wezterm"
 cask "zotero", args: { appdir: "/Applications" }
-mas "Accelerate", id: 1459809092
-mas "AdBlock", id: 1402042596
 mas "Adobe Lightroom", id: 1451544217
 mas "Affinity Designer", id: 824171161
 mas "Affinity Photo", id: 824183456

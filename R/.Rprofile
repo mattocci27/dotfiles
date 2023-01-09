@@ -1,9 +1,10 @@
-# cran 
+# cran
 local({
   if (Sys.info()[['sysname']] %in% c('Linux', 'Windows')) {
     options(repos = c(RSPM = "https://packagemanager.rstudio.com/all/latest"))
 	} else {
-    options(repos = c(CRAN = "https://mirror.lzu.edu.cn/CRAN/"))
+    #options(repos = c(CRAN = "https://mirror.lzu.edu.cn/CRAN/"))
+    options(repos = c(RSPM = "https://packagemanager.rstudio.com/all/latest"))
     }
 })
 

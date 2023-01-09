@@ -21,7 +21,7 @@ Following commands will clone the repository, install dependencies and make symb
 
 ```shell
 # clone this repo
-git clone git://github.com/mattocci27/dotfiles.git ~/dotfiles
+git clone https://github.com/mattocci27/dotfiles.git ~/dotfiles
 
 cd dotfiles
 

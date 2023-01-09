@@ -76,19 +76,12 @@ ask "Install packages?" Y && sh ./deps/dependencies-${distro}
 
 ask "Install symlinks using stow?" Y && sh ./scripts/.dotscripts/deploy.sh
 
-
 ask "Install Rust deps ?" Y && {
   echo "Installing Rust deps..."
-  cargo install exa ytop bat fd ripgrep gitui
+  cargo install ytop
 }
 
 ask "Install font?" Y && {
-  # git clone https://github.com/ryanoasis/nerd-fonts ~/nerd-fonts
-  # cd ~/nerd-fonts
-  # chmod 755 font-patcher
-  # cd
-  # cd ${DOT_DIRECTORY}
-
   if [ $(uname) == "Darwin" ]; then
     sudo cp -rf ./fonts/Cousine/* ~/Library/Fonts
     fc-cache -vf
@@ -98,31 +91,24 @@ ask "Install font?" Y && {
 }
 
 ask "Install Python stuffs? (run this after pyenv)" Y && {
+  pyenv install 3.11.1
+  pyenv global 3.11.1
   pip install -U radian
   pip install pynvim
 }
 
 ask "Install R deps?" Y && {
-  Rscript -e "install.packages(c('littler', 'pacman'), dependencies = TRUE, error = TRUE)"
+  Rscript -e "install.packages(c('littler', 'pacman', 'tidyverse', 'vegan', 'renv'), dependencies = TRUE, error = TRUE)"
 }
 
-ask "Install R packages?" Y && {
-  bath .script/.dotscripts/Rpkg.sh
-}
+# ask "Install R packages?" Y && {
+#   scripts/.dotscripts/Rpkg.sh
+# }
 
 ask "Install Lnuarvim?" Y && {
   echo "Installing lnuar-plug..."
   LV_BRANCH='release-1.2/neovim-0.8' bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh)
 }
-
-# After .vim has been symlinked!
-# vim-plug
-# ask "Install vim-plug for Neovim?" Y && {
-#   echo "Installing vim-plug..."
-#   curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-#       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-#   nvim +PlugInstall +qall
-# }
 
 ## zsh-plug manager
 ask "Install zsh-plug ?" Y && {
@@ -130,25 +116,18 @@ ask "Install zsh-plug ?" Y && {
   curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
 }
 
-
 ask "Install tmux plugin manager for tmux?" Y && {
   git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 }
 
-
 if [ $distro != "Darwin" ]; then
-ask "Install singularity?" Y && {
+ask "Install apptainer?" Y && {
   # go
-  wget -c https://dl.google.com/go/go1.16.3.linux-amd64.tar.gz -O - | sudo tar -xz -C /usr/local
+  wget -c https://go.dev/dl/go1.19.4.linux-amd64.tar.gz -O - | sudo tar -xz -C /usr/local
 
   cd
-  export VERSION=3.8.3 # adjust this as necessary
-  wget https://github.com/hpcng/singularity/releases/download/v${VERSION}/singularity-${VERSION}.tar.gz
-  tar -xzf singularity-${VERSION}.tar.gz
-  cd singularity-${VERSION}
-
-  ./mconfig && \
-      make -C builddir && \
-      sudo make -C builddir install
+  export VERSION=1.1.4 # adjust this as necessary
+  wget https://ghproxy.com/https://github.com/apptainer/apptainer/releases/download/v${VERSION}/apptainer_${VERSION}_amd64.deb
+  sudo apt-get install -y ./apptainer_${VERSION}_amd64.deb
 }
 fi
