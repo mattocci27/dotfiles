@@ -4,7 +4,7 @@ local({
     options(repos = c(RSPM = "https://packagemanager.rstudio.com/all/latest"))
 	} else {
     #options(repos = c(CRAN = "https://mirror.lzu.edu.cn/CRAN/"))
-    options(repos = c(RSPM = "https://packagemanager.rstudio.com/all/latest"))
+    options(repos = c(CRAN = "https://cloud.r-project.org/"))
     }
 })
 

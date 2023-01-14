@@ -6,7 +6,11 @@ if [ ! -e /usr/bin/xcode-select ]; then
   sudo xcode-select --install
 fi
 
+sudo softwareupdate --install-rosetta
+
 # homebrew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-/opt/homebrew/bin/brew bundle --file ./deps/Brewfile -v
+export PATH=/opt/homebrew/bin:$PATH
+
+bundle --file ./deps/Brewfile -v

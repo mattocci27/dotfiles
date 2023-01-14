@@ -105,10 +105,10 @@ ask "Install R deps?" Y && {
 #   scripts/.dotscripts/Rpkg.sh
 # }
 
-ask "Install Lnuarvim?" Y && {
-  echo "Installing lnuar-plug..."
-  LV_BRANCH='release-1.2/neovim-0.8' bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh)
-}
+# ask "Install Lnuarvim?" Y && {
+#   echo "Installing lnuar-plug..."
+#   LV_BRANCH='release-1.2/neovim-0.8' bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh)
+# }
 
 ## zsh-plug manager
 ask "Install zsh-plug ?" Y && {

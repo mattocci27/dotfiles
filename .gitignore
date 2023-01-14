@@ -11,3 +11,4 @@
 *.R
 *.qmd
 lvim/.config/lvim/plugin/*
+scripts/.local/*
