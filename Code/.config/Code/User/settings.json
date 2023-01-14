@@ -1188,6 +1188,7 @@
   "remote.SSH.enableDynamicForwarding": false,
   "r.rterm.linux": "/home/mattocci/.local/bin/radian",
   "http.proxyStrictSSL": false,
-  "http.proxySupport": "off"
+  "http.proxySupport": "off",
+  "remote.SSH.configFile": "/Users/mattocci/.ssh/include_conf/config"
   //  "workbench.editor.enablePreview": false
 }

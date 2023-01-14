@@ -98,6 +98,12 @@ ask "Install Python stuffs? (run this after pyenv)" Y && {
 }
 
 ask "Install R deps?" Y && {
+  if [ $distro != "Darwin" ]; then
+    ln -sf /opt/homebrew/opt/openblas/lib/libblas.dylib /Library/Frameworks/R.framework/Resources/lib/libRblas.dylib
+
+    ln -sf /opt/homebrew/opt/openblas/lib/liblapack.dylib /Library/Frameworks/R.framework/Resources/lib/libRlapack.dylib
+  fi
+
   Rscript -e "install.packages(c('littler', 'pacman', 'tidyverse', 'vegan', 'renv'), dependencies = TRUE, error = TRUE)"
 }
 
