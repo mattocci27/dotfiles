@@ -161,6 +161,7 @@
   "workbench.list.automaticKeyboardNavigation": false,
   "editor.inlineSuggest.enabled": true,
   "github.copilot.enable": {
+    "quarto": true,
     "*": true,
     "yaml": false,
     "plaintext": false,
@@ -1189,6 +1190,18 @@
   "r.rterm.linux": "/home/mattocci/.local/bin/radian",
   "http.proxyStrictSSL": false,
   "http.proxySupport": "off",
-  "remote.SSH.configFile": "/Users/mattocci/.ssh/include_conf/config"
+  "remote.SSH.configFile": "/Users/mattocci/.ssh/include_conf/config",
+  "grammarly.files.include": [
+    "**/readme.md",
+    "**/README.md",
+    "**/*.txt",
+    "**/*.qmd"
+  ],
+  "chatgpt.chromiumPath": "/Applications/Brave Browser.app/Contents/MacOS/Brave Browser ",
+  "chatgpt.gpt3.apiKey": "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",
+  "files.saveConflictResolution": "overwriteFileOnDisk",
+  "[python]": {
+    "editor.formatOnType": true
+  }
   //  "workbench.editor.enablePreview": false
 }
