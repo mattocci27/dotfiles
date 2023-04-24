@@ -12,6 +12,8 @@ case `uname` in
   export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
   export PATH="$HOME/.local/bin:$PATH"
   export PATH="$PATH:$HOME/Library/TinyTeX/bin/universal-darwin"
+  export PATH=$HOME/context/tex/texmf-osx-arm64/bin:$PATH
+
     ;;
   Linux)
   export PATH=/home/$USER/.cargo/bin:$PATH
