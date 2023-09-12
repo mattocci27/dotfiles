@@ -1202,6 +1202,9 @@
   "files.saveConflictResolution": "overwriteFileOnDisk",
   "[python]": {
     "editor.formatOnType": true
+  },
+  "files.associations": {
+    "*.rmd": "markdown"
   }
   //  "workbench.editor.enablePreview": false
 }

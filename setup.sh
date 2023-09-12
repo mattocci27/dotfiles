@@ -91,8 +91,8 @@ ask "Install font?" Y && {
 }
 
 ask "Install Python stuffs? (run this after pyenv)" Y && {
-  pyenv install 3.11.1
-  pyenv global 3.11.1
+  pyenv install 3.11.5
+  pyenv global 3.11.5
   pip install -U radian
   pip install pynvim
 }
@@ -107,14 +107,10 @@ ask "Install R deps?" Y && {
   Rscript -e "install.packages(c('littler', 'pacman', 'tidyverse', 'vegan', 'renv'), dependencies = TRUE, error = TRUE)"
 }
 
-# ask "Install R packages?" Y && {
-#   scripts/.dotscripts/Rpkg.sh
-# }
-
-# ask "Install Lnuarvim?" Y && {
-#   echo "Installing lnuar-plug..."
-#   LV_BRANCH='release-1.2/neovim-0.8' bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh)
-# }
+ask "Install Lnuarvim?" Y && {
+  echo "Installing lnuar-plug..."
+  LV_BRANCH='release-1.3/neovim-0.9' bash <(curl -s https://raw.githubusercontent.com/LunarVim/LunarVim/release-1.3/neovim-0.9/utils/installer/install.sh)
+}
 
 ## zsh-plug manager
 ask "Install zsh-plug ?" Y && {

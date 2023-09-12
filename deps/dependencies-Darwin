@@ -4,13 +4,13 @@ set -e
 # command line tools
 if [ ! -e /usr/bin/xcode-select ]; then
   sudo xcode-select --install
+  sudo softwareupdate --install-rosetta
 fi
 
-sudo softwareupdate --install-rosetta
-
 # homebrew
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+if [ ! -e /opt/homebrew/bin/brew ]; then
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  export PATH=/opt/homebrew/bin:$PATH
+fi
 
-export PATH=/opt/homebrew/bin:$PATH
-
-bundle --file ./deps/Brewfile -v
+brew bundle --file ./deps/Brewfile

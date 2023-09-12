@@ -32,5 +32,3 @@ sh setup.sh
 # Homebrew
 
 Homebrew mirror at [tsinghua uni](https://mirror.tuna.tsinghua.edu.cn/help/homebrew/)
-
-
