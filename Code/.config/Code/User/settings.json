@@ -1190,7 +1190,7 @@
   "r.rterm.linux": "/home/mattocci/.local/bin/radian",
   "http.proxyStrictSSL": false,
   "http.proxySupport": "off",
-  "remote.SSH.configFile": "/Users/mattocci/.ssh/include_conf/config",
+  "remote.SSH.configFile": "/Users/mattocci/dotssh/config",
   "grammarly.files.include": [
     "**/readme.md",
     "**/README.md",

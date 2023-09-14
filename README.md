@@ -32,3 +32,13 @@ sh setup.sh
 # Homebrew
 
 Homebrew mirror at [tsinghua uni](https://mirror.tuna.tsinghua.edu.cn/help/homebrew/)
+
+# ssh (private)
+
+- <https://github.com/mattocci27/dotssh>
+
+# zotero
+
+- <https://github.com/retorquere/zotero-better-bibtex>
+
+- <https://github.com/jlegewie/zotfile>
