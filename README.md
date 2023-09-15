@@ -1,4 +1,4 @@
-# dotfiles
+# dotfiles for macOS
 
 Contains:
 
@@ -6,7 +6,7 @@ Contains:
 - Configuration for vscode, tmux, neovim (lunarvim), and zsh.
 - Cousine nerd fonts.
 
-# Requirement for macOS
+# Requirement
 
 - command line tools
 
@@ -15,7 +15,7 @@ Contains:
 sudo xcode-select --install
 ```
 
-# Usage (Mac and Manjaro Linux)
+# Usage
 
 Following commands will clone the repository, install dependencies and make symbolic links.
 
