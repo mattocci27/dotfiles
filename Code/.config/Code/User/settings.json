@@ -1205,6 +1205,9 @@
   },
   "files.associations": {
     "*.rmd": "markdown"
+  },
+  "extensions.experimental.affinity": {
+    "asvetliakov.vscode-neovim": 1
   }
   //  "workbench.editor.enablePreview": false
 }
