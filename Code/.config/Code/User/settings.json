@@ -170,7 +170,7 @@
   "editor.tabSize": 2,
   "editor.insertSpaces": true,
   "editor.find.cursorMoveOnType": false,
-  "vscode-neovim.neovimInitVimPaths.linux": "$HOME/.config/nvim/init.vim",
+  "vscode-neovim.neovimInitVimPaths.linux": "$HOME/.config/nvim/init.lua",
   "bracket-pair-colorizer-2.depreciation-notice": false,
   // which-key for neovim like keybindings
   "whichkey.sortOrder": "alphabetically",
@@ -1208,6 +1208,7 @@
   },
   "extensions.experimental.affinity": {
     "asvetliakov.vscode-neovim": 1
-  }
+  },
+  "diffEditor.useInlineViewWhenSpaceIsLimited": false
   //  "workbench.editor.enablePreview": false
 }
