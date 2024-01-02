@@ -1,25 +1,30 @@
 tap "cjbassi/gotop"
+tap "grishka/grishka"
 tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/cask-versions"
 tap "homebrew/core"
 tap "wez/wezterm"
 brew "libtiff"
+brew "sqlite"
+brew "llvm"
 brew "automake"
+brew "libgit2"
 brew "bat"
 brew "cabal-install"
 brew "cask"
 brew "cmake"
+brew "zeromq"
+brew "cppzmq"
 brew "docker"
 brew "docker-machine"
-brew "libgit2"
 brew "exa"
 brew "fd"
 brew "ffmpeg"
-brew "sqlite"
 brew "fontforge"
 brew "fzf"
 brew "fzy"
+brew "gcc"
 brew "geos"
 brew "proj"
 brew "libxml2"
@@ -35,12 +40,14 @@ brew "gitup"
 brew "go"
 brew "gotop"
 brew "gsl"
+brew "pkg-config"
 brew "htop"
 brew "hugo"
 brew "imagemagick"
 brew "javacc"
 brew "latexdiff"
-brew "llvm"
+brew "lazygit"
+brew "librsvg"
 brew "lua"
 brew "ruby"
 brew "macvim"
@@ -51,15 +58,15 @@ brew "neovim"
 brew "node"
 brew "open-mpi"
 brew "pandoc"
+brew "pdftk-java"
 brew "peco"
-brew "pkg-config"
 brew "pyenv"
 brew "qpdf"
 brew "ruby-build"
 brew "rbenv"
 brew "reattach-to-user-namespace"
 brew "ripgrep"
-brew "rust"
+brew "rustup-init"
 brew "sd"
 brew "stow"
 brew "tmux"
@@ -68,11 +75,18 @@ brew "udunits"
 brew "urlview"
 brew "v8"
 brew "wget"
+brew "wimlib"
 brew "yarn"
 brew "zoxide"
 brew "zsh"
 cask "alacritty"
 cask "discord", args: { appdir: "/Applications" }
+cask "firefox"
+cask "gitkraken", args: { appdir: "/Applications" }
+cask "google-chrome", args: { appdir: "/Applications" }
+cask "mimestream"
+cask "neardrop"
+cask "numi"
 cask "phantomjs"
 cask "quarto"
 cask "r"
@@ -81,21 +95,20 @@ cask "sourcetree"
 cask "spotify", args: { appdir: "/Applications" }
 cask "zotero", args: { appdir: "/Applications" }
 mas "Adobe Lightroom", id: 1451544217
+mas "Be Focused Pro", id: 961632517
 mas "BetterSnapTool", id: 417375580
 mas "Craft", id: 1487937127
 mas "DaisyDisk", id: 411643860
+mas "DaVinci Resolve", id: 571213070
 mas "Enpass", id: 732710998
+mas "Fantastical", id: 975937182
 mas "GarageBand", id: 682658836
-mas "Gemini 2", id: 1090488118
-mas "Gifski", id: 1351639930
-mas "iMovie", id: 408981434
 mas "Keynote", id: 409183694
 mas "LINE", id: 539883307
 mas "Mactracker", id: 430255202
 mas "Messenger", id: 1480068668
 mas "Microsoft Excel", id: 462058435
 mas "Microsoft PowerPoint", id: 462062816
-mas "Microsoft Remote Desktop", id: 1295203466
 mas "Microsoft Word", id: 462054704
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
@@ -103,14 +116,13 @@ mas "PopClip", id: 445189367
 mas "QQ", id: 451108668
 mas "Slack", id: 803453959
 mas "Sleep Control Center", id: 946798523
-mas "The Unarchiver", id: 425424353
 mas "Todoist", id: 585829637
 mas "Twitter", id: 1482454543
-mas "VooV", id: 1497685373
 mas "WeChat", id: 836500024
 vscode "anseki.vscode-color"
 vscode "arcticicestudio.nord-visual-studio-code"
 vscode "asvetliakov.vscode-neovim"
+vscode "Bito.Bito"
 vscode "cschlosser.doxdocgen"
 vscode "darkriszty.markdown-table-prettify"
 vscode "donjayamanne.githistory"
@@ -123,6 +135,7 @@ vscode "gencay.vscode-chatgpt"
 vscode "genieai.chatgpt-vscode"
 vscode "george-alisson.html-preview-vscode"
 vscode "GitHub.copilot"
+vscode "GitHub.copilot-chat"
 vscode "github.vscode-github-actions"
 vscode "hogashi.crontab-syntax-highlight"
 vscode "ID-wj.transparent-win"
