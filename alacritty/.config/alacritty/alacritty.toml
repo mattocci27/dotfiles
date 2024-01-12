@@ -1,6 +1,7 @@
-"debug.render_timer" = false
 live_config_reload = true
-"mouse.hide_when_typing" = true
+
+[debug]
+render_timer = false
 
 [bell]
 animation = "EaseOutExpo"
@@ -315,22 +316,13 @@ mods = "Control"
 action = "PasteSelection"
 mouse = "Middle"
 
-[mouse.double_click]
-threshold = 300
 
-[mouse.triple_click]
-threshold = 300
 
 [selection]
 semantic_escape_chars = ",│`|:\"' ()[]{}<>"
 
 [window]
 opacity = 0.95
-
-["window.dimensions"]
-columns = 80
-lines = 24
-
-["window.padding"]
-x = 2
-y = 2
+padding = { x = 0, y = 0 }
+dynamic_padding = true
+dimensions = { columns = 0, lines = 0}
