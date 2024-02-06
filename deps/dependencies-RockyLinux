@@ -1,0 +1,119 @@
+#!/usr/bin/env bash
+set -e
+
+echo "Installing tools..."
+# Update system and install EPEL for extra packages
+sudo dnf install -y epel-release
+sudo dnf update -y
+
+sudo dnf groupinstall -y "Development Tools"
+
+# Install base tools
+sudo dnf install -y xsel \
+  neovim \
+  fzf \
+  zsh \
+  tmux \
+  tree \
+  make \
+  curl \
+  wget \
+  cargo \
+  neofetch \
+  ripgrep \
+  mosh \
+  openblas-devel \
+  snapd \
+  nodejs \
+  exa
+
+sudo systemctl enable --now snapd.socket
+sudo ln -s /var/lib/snapd/snap /snap
+sleep 5
+sudo snap install hugo --channel=extended
+
+# Additional dependencies for tidyverse and other packages
+sudo dnf install -y \
+  libxml2-devel \
+  cairo-devel \
+  libgit2-devel \
+  mariadb-devel \
+  postgresql-devel \
+  cyrus-sasl-devel \
+  sqlite-devel \
+  libssh2-devel \
+  libXtst \
+  libcurl-devel \
+  unixODBC-devel \
+  freetype-devel \
+  libpng-devel \
+  libtiff-devel \
+  libjpeg-devel
+
+# Installing other tools from verse and geospatial dependencies
+sudo dnf install -y --skip-broken \
+  cmake \
+  curl \
+  java-11-openjdk-devel \
+  ghostscript \
+  less \
+  bzip2-devel \
+  glpk-devel \
+  gmp-devel \
+  fribidi-devel \
+  harfbuzz-devel \
+  hunspell-devel \
+  icu \
+  xz-devel \
+  ImageMagick-c++-devel \
+  openmpi-devel \
+  pcre2-devel \
+  openssl-devel \
+  v8-devel \
+  libxml2-devel \
+  libxslt-devel \
+  zeromq-devel \
+  lsb_release \
+  qpdf \
+  texinfo \
+  vim-enhanced \
+  wget \
+  gdal \
+  lbzip2 \
+  fftw-devel \
+  gdal-devel \
+  geos-devel \
+  gsl-devel \
+  mesa-libGL-devel \
+  mesa-libGLU-devel \
+  hdf5-devel \
+  jq-devel \
+  proj-devel \
+  protobuf-devel \
+  netcdf-devel \
+  udunits2-devel \
+  netcdf \
+  protobuf-compiler \
+  sqlite \
+  tk-devel \
+  unixODBC-devel
+
+# Install R
+sudo dnf install -y epel-release
+sudo dnf config-manager --set-enabled powertools
+sudo dnf install -y R
+
+echo "Installing Python..."
+sudo dnf install -y \
+  python3-devel \
+  python3-pip
+
+curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash
+
+echo "Installing Docker..."
+sudo dnf config-manager --add-repo=https://download.docker.com/linux/centos/docker-ce.repo
+sudo dnf install -y docker-ce docker-ce-cli containerd.io
+sudo systemctl start docker
+sudo systemctl enable docker
+sudo usermod -aG docker $USER
+

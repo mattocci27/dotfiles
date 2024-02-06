@@ -1178,7 +1178,6 @@
   "terminal.integrated.defaultLocation": "view",
   "files.insertFinalNewline": true,
   "git.confirmSync": false,
-  "quarto.path": "/home/mattocci/.local/bin/quarto",
   "terminal.integrated.commandsToSkipShell": [
     "language-julia.interrupt"
   ],
@@ -1209,6 +1208,9 @@
   "extensions.experimental.affinity": {
     "asvetliakov.vscode-neovim": 1
   },
-  "diffEditor.useInlineViewWhenSpaceIsLimited": false
+  "diffEditor.useInlineViewWhenSpaceIsLimited": false,
+  "quarto.path": "/opt/quarto/1.4.549/bin/quarto",
+  "quarto.usePipQuarto": false,
+  "quarto.assist.updateMode": "live"
   //  "workbench.editor.enablePreview": false
 }

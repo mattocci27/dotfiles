@@ -42,35 +42,48 @@ if [ ! -e "${DOT_DIRECTORY}/$(basename $0)" ]; then
 fi
 dir="${dir}/.."
 
-# fix for mac
-distro=$(uname)
-
-if [ $distro != "Darwin" ]; then
-  distro=`lsb_release -si`
+# Determine OS Distribution
+distro=$(uname -s)
+if [ "$distro" = "Linux" ]; then
+  if [ -f /etc/os-release ]; then
+    . /etc/os-release
+    # Remove spaces from $NAME
+    distro="${NAME// /}"
+  elif type lsb_release >/dev/null 2>&1; then
+    distro=$(lsb_release -si)
+  else
+    echo "Cannot determine Linux distribution"
+    exit 1
+  fi
 fi
-
-echo "Set up for $distro"
 
 if [ ! -f "./deps/dependencies-${distro}" ]; then
   echo "Could not find file with dependencies for distro ${distro}. Aborting."
   exit 2
 fi
 
+echo "Set up for $distro"
 
-if [ $distro = "Manjaro" ]; then
-ask "Update Mirrors for Manjaro?" Y && {
-  sudo pacman-mirrors --country Japan,China,United_States
-  sudo pacman-mirrors --fasttrack && sudo pacman -Syyu
-}
-fi
+# Use case statement for OS-specific actions
+case $distro in
+  "Manjaro Linux")
+    ask "Update Mirrors for Manjaro?" Y && {
+      sudo pacman-mirrors --country Japan,China,United_States
+      sudo pacman-mirrors --fasttrack && sudo pacman -Syyu
+    }
+    ;;
+  "Ubuntu")
+    ask "Use Chinese Mirrors for Ubuntu?" Y && {
+      sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak
+      sudo sed -i.bak -e "s%http://archive.ubuntu.com/%https://mirrors.tuna.tsinghua.edu.cn/%g" /etc/apt/sources.list
+      sudo sed -i.bak -e "s%http://security.ubuntu.com/%https://mirrors.tuna.tsinghua.edu.cn/%g" /etc/apt/sources.list
+    }
+    ;;
+  *)
+    echo "No specific actions defined for $distro"
+    ;;
+esac
 
-if [ $distro = "Ubuntu" ]; then
-ask "Use Chinese Mirrors for Ubuntu?" Y && {
-  sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak
-  sudo sed -i.bak -e "s%http://archive.ubuntu.com/%https://mirrors.tuna.tsinghua.edu.cn/%g" /etc/apt/sources.list
-  sudo sed -i.bak -e "s%http://security.ubuntu.com/%https://mirrors.tuna.tsinghua.edu.cn/%g" /etc/apt/sources.list
-  }
-fi
 
 ask "Install packages?" Y && sh ./deps/dependencies-${distro}
 
@@ -79,6 +92,12 @@ ask "Install symlinks using stow?" Y && sh ./scripts/.dotscripts/deploy.sh
 ask "Install Rust deps ?" Y && {
   echo "Installing Rust deps..."
   cargo install ytop
+}
+
+## zsh-plug manager
+ask "Install zsh-plug ?" Y && {
+  echo "Installing zsh-plug..."
+  curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
 }
 
 ask "Install font?" Y && {
@@ -91,8 +110,8 @@ ask "Install font?" Y && {
 }
 
 ask "Install Python stuffs? (run this after pyenv)" Y && {
-  pyenv install 3.11.5
-  pyenv global 3.11.5
+  pyenv install 3.12.1
+  pyenv global 3.12.1
   pip install -U radian
   pip install pynvim
 }
@@ -110,12 +129,6 @@ ask "Install R deps?" Y && {
 ask "Install Lnuarvim?" Y && {
   echo "Installing lnuar-plug..."
   LV_BRANCH='release-1.3/neovim-0.9' bash <(curl -s https://raw.githubusercontent.com/LunarVim/LunarVim/release-1.3/neovim-0.9/utils/installer/install.sh)
-}
-
-## zsh-plug manager
-ask "Install zsh-plug ?" Y && {
-  echo "Installing zsh-plug..."
-  curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
 }
 
 ask "Install tmux plugin manager for tmux?" Y && {
