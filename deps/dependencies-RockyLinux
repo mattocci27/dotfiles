@@ -3,6 +3,7 @@ set -e
 
 echo "Installing tools..."
 # Update system and install EPEL for extra packages
+sudo dnf config-manager --set-enabled crb
 sudo dnf install -y epel-release
 sudo dnf update -y
 
@@ -25,11 +26,12 @@ sudo dnf install -y xsel \
   openblas-devel \
   snapd \
   nodejs \
-  exa
+  htop \
+  stow
 
 sudo systemctl enable --now snapd.socket
 sudo ln -s /var/lib/snapd/snap /snap
-sleep 5
+sleep 10
 sudo snap install hugo --channel=extended
 
 # Additional dependencies for tidyverse and other packages
@@ -99,8 +101,6 @@ sudo dnf install -y --skip-broken \
   unixODBC-devel
 
 # Install R
-sudo dnf install -y epel-release
-sudo dnf config-manager --set-enabled powertools
 sudo dnf install -y R
 
 echo "Installing Python..."
@@ -117,3 +117,5 @@ sudo systemctl start docker
 sudo systemctl enable docker
 sudo usermod -aG docker $USER
 
+# Install exa
+cargo install exa
