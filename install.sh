@@ -1,16 +1,19 @@
 #!/bin/sh
 set -e
+
+# Ensure stow is installed
+command -v stow >/dev/null 2>&1 || { echo "stow command not found. Exiting."; exit 1; }
+
 DOT_DIRECTORY="${HOME}/dotfiles"
-OVERWRITE=true
 
-# List of packages that has to installed via `stow`
-DOTFILES_DIRS=$(ls -d $DOT_DIRECTORY/*/ | grep -v tests \
-  | grep -v deps | grep -v fonts | awk -F "/" '{ print $(NF-1) }')
-
-for F in $DOTFILES_DIRS ; do
-    echo "~ Installing :: $F"
-    # Installed new links
-    stow --dotfiles --dir $DOT_DIRECTORY --target $HOME $F
+# Iterate over directories and use stow to manage symlinks
+for dir in "$DOT_DIRECTORY"/*/; do
+    dir_base=$(basename "$dir")
+    case "$dir_base" in
+        tests|deps|fonts) continue ;;  # Skip these directories
+        *) ;;
+    esac
+    echo "~ Installing :: $dir_base"
+    stow -D --dotfiles --dir "$DOT_DIRECTORY" --target "$HOME" "$dir_base" 2>/dev/null
+    stow --dotfiles --dir "$DOT_DIRECTORY" --target "$HOME" "$dir_base"
 done
-
-chsh -s /usr/bin/zsh
