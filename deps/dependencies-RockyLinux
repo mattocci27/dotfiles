@@ -29,10 +29,10 @@ sudo dnf install -y xsel \
   htop \
   stow
 
-sudo systemctl enable --now snapd.socket
-sudo ln -s /var/lib/snapd/snap /snap
-sleep 10
-sudo snap install hugo --channel=extended
+# sudo systemctl enable --now snapd.socket
+# sudo ln -s /var/lib/snapd/snap /snap
+# sleep 10
+# sudo snap install hugo --channel=extended
 
 # Additional dependencies for tidyverse and other packages
 sudo dnf install -y \
