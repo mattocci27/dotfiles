@@ -12,3 +12,5 @@ for F in $DOTFILES_DIRS ; do
     # Installed new links
     stow --dotfiles --dir $DOT_DIRECTORY --target $HOME $F
 done
+
+chsh -s /usr/bin/zsh
