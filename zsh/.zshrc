@@ -1,12 +1,7 @@
-config_files=($HOME/dotfiles/zsh/.zsh/*.zsh)
-
 # load the path files
-for file in $config_files
-do
+for file in $HOME/dotfiles/zsh/.zsh/*.zsh; do
   source $file
 done
-
-#[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 ### Added by Zinit's installer
 if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
@@ -33,7 +28,6 @@ zinit light-mode for \
 
 # zinit
 zinit light zsh-users/zsh-autosuggestions
-#zinit light zsh-users/zsh-syntax-highlighting
 zinit light zdharma-continuum/fast-syntax-highlighting
 zinit light zsh-users/zsh-completions
 

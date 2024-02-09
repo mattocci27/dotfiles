@@ -14,7 +14,7 @@ else
 fi
 
 # for ssh
-#export DISPLAY=:0 
+#export DISPLAY=:0
 export DISPLAY=localhost:0.0
 
 # pyenv

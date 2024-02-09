@@ -1,62 +1,54 @@
-# enviromeant variables
-case `uname` in
-  Darwin)
-  export PATH="/usr/local/sbin:/usr/local/bin:/Developer/usr/bin:/Developer/usr/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/opt:/usr/lib/$PATH"
-  export PATH="/usr/local/opt/avr-gcc@8/bin:$PATH"
-  export PATH=$PATH:/opt/yarn-v1.22.4/bin
-  export PATH=$PATH:/Applications/Julia-1.7.app/Contents/Resources/julia/bin/
-  export PATH="/usr/local/opt/openjdk/bin:$PATH"
-  export PATH="/usr/bin:$PATH"
-  export PATH="$HOME/.cargo/bin:$PATH"
-  export PATH="$PATH:$HOME/bin/context/tex/texmf-osx-arm64/bin:"
-  export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
-  export PATH="$HOME/.local/bin:$PATH"
-  export PATH="$PATH:$HOME/Library/TinyTeX/bin/universal-darwin"
-  export PATH=$HOME/context/tex/texmf-osx-arm64/bin:$PATH
+# Base PATH modifications
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="/usr/local/go/bin:$PATH"
+export PATH="$HOME/.gem/ruby/2.7.0/bin:$PATH"
+export PATH="$HOME/.pyenv/bin:$PATH"
+export PATH="$HOME/.dotnet/tools:$PATH"
+export PATH="$HOME/Dropbox/src/github.com/ranger/ranger:$PATH"
 
-    ;;
-  Linux)
-  export PYENV_ROOT="$HOME/.pyenv"
-  export PATH="$PYENV_ROOT/bin:$PATH"
-  export PATH=/home/$USER/.cargo/bin:$PATH
-  export PATH=~/.config/i3:$PATH
-  export PATH=~/.local/bin:$PATH
-  export PATH=/usr/local/go/bin:$PATH
-  #
-  case `lsb_release -si` in
-    microsoft)
-    #WSL2
-    export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0
-    ;;
-esac
-    ;;
-esac
+# Conditional configurations for Darwin (macOS)
+if [[ "$(uname)" == "Darwin" ]]; then
+    export PATH="/usr/local/sbin:$PATH"
+    export PATH="/usr/local/bin:$PATH"
+    export PATH="/Developer/usr/bin:$PATH"
+    export PATH="/Developer/usr/sbin:$PATH"
+    export PATH="/usr/bin:$PATH"
+    export PATH="/bin:$PATH"
+    export PATH="/usr/sbin:$PATH"
+    export PATH="/sbin:$PATH"
+    export PATH="/usr/local/opt:$PATH"
+    export PATH="/usr/lib:$PATH"
+    export PATH="/usr/local/opt/avr-gcc@8/bin:$PATH"
+    export PATH="/opt/yarn-v1.22.4/bin:$PATH"
+    export PATH="/Applications/Julia-1.7.app/Contents/Resources/julia/bin:$PATH"
+    export PATH="/usr/local/opt/openjdk/bin:$PATH"
+    export PATH="$HOME/bin/context/tex/texmf-osx-arm64/bin:$PATH"
+    export PATH="$HOME/Library/TinyTeX/bin/universal-darwin:$PATH"
+    export PATH="$HOME/context/tex/texmf-osx-arm64/bin:$PATH"
+    export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
+elif [[ "$(uname)" == "Linux" ]]; then
+    export PATH="$HOME/.config/i3:$PATH"
+    export PATH="$HOME/.local/bin:$PATH"
+    if [[ "$(lsb_release -si)" == "microsoft" ]]; then
+        # Configuration for WSL2
+        export DISPLAY="$(awk '/nameserver/ {print $2}' /etc/resolv.conf):0"
+    fi
+fi
 
-# ruby
-export PATH=$HOME/.gem/ruby/2.7.0/bin:$PATH
-
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-
-
-# dotnet
-export PATH="~/.dotnet/tools:$PATH"
-
-# ARM or Intel
-ARCH=`uname -m`
-if [[ $ARCH == 'arm64' ]]; then
+# Conditional configuration for ARM architecture
+if [[ "$(uname -m)" == 'arm64' ]]; then
     PROMPT="[a] %m:%~%# "
-    export PATH=/opt/homebrew/bin:$PATH
+    export PATH="/opt/homebrew/bin:$PATH"
 else
     PROMPT="[x] %m:%~%# "
 fi
 
-# pyenv
-if [ `uname` = "Darwin" ]; then
-    if command -v pyenv 1>/dev/null 2>&1; then
-      eval "$(pyenv init --path)"
-    fi
+# Ruby configuration
+if which rbenv >/dev/null 2>&1; then eval "$(rbenv init -)"; fi
+
+# Pyenv initialization for macOS
+if [[ "$(uname)" == "Darwin" ]] && command -v pyenv 1>/dev/null 2>&1; then
+    eval "$(pyenv init --path)"
 fi
 
-# ranger for now
-export PATH=~/Dropbox/src/github.com/ranger/ranger:$PATH
-alias ranger='ranger.py'

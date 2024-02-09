@@ -1,46 +1,48 @@
 # Enable aliases to be sudo'ed
 alias sudo='sudo '
 
-alias ls='exa -F'
-alias la='exa -a -F'
-alias tree='exa --tree'
-alias ll='ls -l'
+# Use 'exa' for enhanced listing if available
+if command -v exa >/dev/null 2>&1; then
+  alias ls='exa -F'
+  alias la='exa -a -F'
+  alias ll='exa -l'
+  alias tree='exa --tree'
+else
+  # Fallback to default commands if 'exa' is not installed
+  alias ll='ls -l'
+  alias la='ls -la'
+  alias tree='tree'
+fi
+
+# Safe versions of file manipulation commands
 alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
+
+# Simplify directory creation
 alias mkdir='mkdir -p'
+
+# Global aliases for filtering output
 alias -g L='| less'
 alias -g G='| grep'
-alias v='vim'
-#alias R='radian'
-# zle -N zi
-# bindkey '^z' zi
 
-# open files
-if [[ "$OSTYPE" == "linux-gnu" ]] ; then
+# Editor and file manager shortcuts
+alias v='vim'
+alias ranger='ranger.py'
+
+# Open files with the default application (Linux-specific)
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
   alias open='xdg-open'
 fi
 
-# clipboard
-# mollifier delta blog : http://mollifier.hatenablog.com/entry/20100317/p1
-if which pbcopy >/dev/null 2>&1 ; then
-    # Mac
-    alias -g C='| pbcopy'
-elif which xsel >/dev/null 2>&1 ; then
-    # Linux
-    alias -g C='| xsel --input --clipboard'
-elif which putclip >/dev/null 2>&1 ; then
-    # Cygwin
-    alias -g C='| putclip'
+# Clipboard management
+if command -v pbcopy >/dev/null 2>&1; then
+  # macOS
+  alias -g C='| pbcopy'
+elif command -v xsel >/dev/null 2>&1; then
+  # Linux
+  alias -g C='| xsel --input --clipboard'
+elif command -v putclip >/dev/null 2>&1; then
+  # Cygwin
+  alias -g C='| putclip'
 fi
-
-## use exa instead
-#case ${OSTYPE} in
-#    darwin*)
-#        export CLICOLOR=1
-#        alias ls='ls -G -F'
-#        ;;
-#    linux*)
-#        alias ls='ls -F --color=auto'
-#        ;;
-#esac

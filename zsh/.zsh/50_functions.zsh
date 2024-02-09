@@ -122,11 +122,11 @@ function update-x11-forwarding
 preexec() {
     # Don't cause a preexec for PROMPT_COMMAND.
     # Beware!  This fails if PROMPT_COMMAND is a string containing more than one command.
-    [ "$BASH_COMMAND" = "$PROMPT_COMMAND" ] && return 
+    [ "$BASH_COMMAND" = "$PROMPT_COMMAND" ] && return
 
     update-x11-forwarding
 
     # Debugging.
-    #echo DISPLAY = $DISPLAY, display.txt = `cat ~/.display.txt`, STY = $STY, TMUX = $TMUX  
+    #echo DISPLAY = $DISPLAY, display.txt = `cat ~/.display.txt`, STY = $STY, TMUX = $TMUX
 }
 trap 'preexec' DEBUG
