@@ -1,6 +1,6 @@
 #!/bin/sh
 set -e
-DOT_DIRECTORY="${HOME}/dotfiles"
+DOT_DIRECTORY="${DOT_DIRECTORY:-${HOME}/dotfiles}"
 
 OVERWRITE=true
 
