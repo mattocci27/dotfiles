@@ -18,6 +18,7 @@ sudo apt update -y
 sudo apt install -y xsel \
   build-essential \
   neovim \
+  git \
   peco \
   fzf \
   zsh \
