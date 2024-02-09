@@ -10,27 +10,7 @@ if [ ! -e "${DOT_DIRECTORY}/$(basename $0)" ]; then
 fi
 dir="${dir}/.."
 
-# Determine OS Distribution
-distro=$(uname -s)
-if [ "$distro" = "Linux" ]; then
-  if [ -f /etc/os-release ]; then
-    . /etc/os-release
-    # Remove spaces from $NAME
-    distro="${NAME// /}"
-  elif type lsb_release >/dev/null 2>&1; then
-    distro=$(lsb_release -si)
-  else
-    echo "Cannot determine Linux distribution"
-    exit 1
-  fi
-fi
-
-if [ ! -f "./deps/dependencies-${distro}" ]; then
-  echo "Could not find file with dependencies for distro ${distro}. Aborting."
-  exit 2
-fi
-
-echo "Set up for $distro"
+echo "Set up for Docker (Ubuntu)"
 
 echo "Installing tools..."
 sudo add-apt-repository ppa:neovim-ppa/unstable
