@@ -1214,7 +1214,7 @@
   "quarto.assist.updateMode": "live",
   "dotfiles.repository": "https://github.com/mattocci27/dotfiles.git",
   "dotfiles.targetPath": "~/dotfiles",
-  "dotfiles.installCommand": "setup_docker.sh",
+  "dotfiles.installCommand": "install.sh",
   "bitoAI.codeCompletion.enableAutoCompletion": true,
   "bitoAI.codeCompletion.enableCommentToCode": true
   //  "workbench.editor.enablePreview": false
