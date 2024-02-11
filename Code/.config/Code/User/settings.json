@@ -1216,6 +1216,7 @@
   "dotfiles.targetPath": "~/dotfiles",
   "dotfiles.installCommand": "install.sh",
   "bitoAI.codeCompletion.enableAutoCompletion": true,
-  "bitoAI.codeCompletion.enableCommentToCode": true
+  "bitoAI.codeCompletion.enableCommentToCode": true,
+  "editor.inlineSuggest.showToolbar": "onHover"
   //  "workbench.editor.enablePreview": false
 }

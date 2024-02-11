@@ -1,46 +1,12 @@
-#!/bin/sh
+#!/bin/bash
 set -e
+
 DOT_DIRECTORY="${HOME}/dotfiles"
-
-OVERWRITE=true
-
-ask() {
-  # http://djm.me/ask
-  while true; do
-
-    if [ "${2:-}" = "Y" ]; then
-      prompt="Y/n"
-      default=Y
-    elif [ "${2:-}" = "N" ]; then
-      prompt="y/N"
-      default=N
-    else
-      prompt="y/n"
-      default=
-    fi
-
-    # Ask the question
-    read -p "$1 [$prompt] " REPLY
-
-    # Default?
-    if [ -z "$REPLY" ]; then
-       REPLY=$default
-    fi
-
-    # Check if the reply is valid
-    case "$REPLY" in
-      Y*|y*) return 0 ;;
-      N*|n*) return 1 ;;
-    esac
-
-  done
-}
 
 if [ ! -e "${DOT_DIRECTORY}/$(basename $0)" ]; then
   echo "Script not called from within repository directory. Aborting."
   exit 2
 fi
-dir="${dir}/.."
 
 # Determine OS Distribution
 distro=$(uname -s)
@@ -62,72 +28,79 @@ if [ ! -f "./deps/dependencies-${distro}" ]; then
   exit 2
 fi
 
-echo "Set up for $distro"
+# Menu function for selecting operations
+menu() {
+  echo "0) Setup mirrors"
+  echo "1) Install packages"
+  echo "2) Install symlinks using stow"
+  echo "3) Install Rust deps"
+  echo "4) Install font"
+  echo "5) Install Python stuffs"
+  echo "6) Install R deps"
+  echo "7) Install LunarVim"
+  echo "8) Install tmux plugin manager"
+  read -rp "Enter number: " menu_num
 
-# Use case statement for OS-specific actions
-case $distro in
-  "Manjaro Linux")
-    ask "Update Mirrors for Manjaro?" Y && {
-      sudo pacman-mirrors --country Japan,China,United_States
-      sudo pacman-mirrors --fasttrack && sudo pacman -Syyu
-    }
-    ;;
-  "Ubuntu")
-    ask "Use Chinese Mirrors for Ubuntu?" Y && {
-      sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak
-      # sudo cp /etc/apt/sources.list.bak /etc/apt/sources.list
-      # cat /etc/apt/sources.list
-      CHINESE_MIRROR="https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/"
-      sudo sed -i "s|http://ports.ubuntu.com/ubuntu-ports/|$CHINESE_MIRROR|g" /etc/apt/sources.list
-    }
-    ;;
-  *)
-    echo "No specific actions defined for $distro"
-    ;;
-esac
-
-
-ask "Install packages?" Y && sh ./deps/dependencies-${distro}
-
-ask "Install symlinks using stow?" Y && sh ./scripts/.dotscripts/deploy.sh
-
-ask "Install Rust deps ?" Y && {
-  echo "Installing Rust deps..."
-  cargo install dutree
-  cargo install bottom zoxide --locked
+  case $menu_num in
+    0)
+      case $distro in
+        "ManjaroLinux") # Adjusted to match the distro variable format
+          sudo pacman-mirrors --country Japan,China,United_States
+          sudo pacman-mirrors --fasttrack && sudo pacman -Syyu
+          ;;
+        "Ubuntu")
+          sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak
+          CHINESE_MIRROR="https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/"
+          sudo sed -i "s|http://ports.ubuntu.com/ubuntu-ports/|$CHINESE_MIRROR|g" /etc/apt/sources.list
+          ;;
+        *)
+          echo "No specific actions defined for $distro"
+          ;;
+      esac
+      ;;
+    1)
+      sh ./deps/dependencies-${distro}
+      ;;
+    2)
+      sh ./scripts/.dotscripts/deploy.sh
+      ;;
+    3)
+      cargo install dutree
+      cargo install bottom zoxide --locked
+      ;;
+    4)
+      if [ "$(uname)" = "Darwin" ]; then
+        sudo cp -rf ./fonts/Cousine/* ~/Library/Fonts
+      elif [ "$(uname)" = "Linux" ]; then
+        sudo cp -rf ./fonts/Cousine /usr/share/fonts/Cousine
+        fc-cache -vf
+      fi
+      ;;
+    5)
+      pyenv install 3.12.1
+      pyenv global 3.12.1
+      pip install -U radian
+      pip install pynvim
+      ;;
+    6)
+      if [ $distro != "Darwin" ]; then
+        ln -sf /opt/homebrew/opt/openblas/lib/libblas.dylib /Library/Frameworks/R.framework/Resources/lib/libRblas.dylib
+        ln -sf /opt/homebrew/opt/openblas/lib/liblapack.dylib /Library/Frameworks/R.framework/Resources/lib/libRlapack.dylib
+      fi
+      Rscript -e "install.packages(c('littler', 'pacman', 'tidyverse', 'vegan', 'renv'), dependencies = TRUE)"
+      ;;
+    7)
+      echo "Installing LunarVim..."
+      LV_BRANCH='release-1.3/neovim-0.9' bash <(curl -s https://raw.githubusercontent.com/LunarVim/LunarVim/release-1.3/neovim-0.9/utils/installer/install.sh)
+      ;;
+    8)
+      git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+      ;;
+    *)
+      echo "Invalid option. Please type a number from 0 to 8."
+      ;;
+  esac
 }
 
-ask "Install font?" Y && {
-  if [ $(uname) == "Darwin" ]; then
-    sudo cp -rf ./fonts/Cousine/* ~/Library/Fonts
-    fc-cache -vf
-  elif [ $(uname) == "Linux" ]; then
-    sudo cp -rf ./fonts/Cousine /usr/share/fonts/Cousine
-  fi
-}
-
-ask "Install Python stuffs? (run this after pyenv)" Y && {
-  pyenv install 3.12.1
-  pyenv global 3.12.1
-  pip install -U radian
-  pip install pynvim
-}
-
-ask "Install R deps?" Y && {
-  if [ $distro != "Darwin" ]; then
-    ln -sf /opt/homebrew/opt/openblas/lib/libblas.dylib /Library/Frameworks/R.framework/Resources/lib/libRblas.dylib
-
-    ln -sf /opt/homebrew/opt/openblas/lib/liblapack.dylib /Library/Frameworks/R.framework/Resources/lib/libRlapack.dylib
-  fi
-
-  Rscript -e "install.packages(c('littler', 'pacman', 'tidyverse', 'vegan', 'renv'), dependencies = TRUE, error = TRUE)"
-}
-
-ask "Install Lnuarvim?" Y && {
-  echo "Installing lnuar-plug..."
-  LV_BRANCH='release-1.3/neovim-0.9' bash <(curl -s https://raw.githubusercontent.com/LunarVim/LunarVim/release-1.3/neovim-0.9/utils/installer/install.sh)
-}
-
-ask "Install tmux plugin manager for tmux?" Y && {
-  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-}
+# Execute the menu function to start the script
+menu
