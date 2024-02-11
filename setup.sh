@@ -75,8 +75,10 @@ case $distro in
   "Ubuntu")
     ask "Use Chinese Mirrors for Ubuntu?" Y && {
       sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak
-      sudo sed -i.bak -e "s%http://archive.ubuntu.com/%https://mirrors.tuna.tsinghua.edu.cn/%g" /etc/apt/sources.list
-      sudo sed -i.bak -e "s%http://security.ubuntu.com/%https://mirrors.tuna.tsinghua.edu.cn/%g" /etc/apt/sources.list
+      # sudo cp /etc/apt/sources.list.bak /etc/apt/sources.list
+      # cat /etc/apt/sources.list
+      CHINESE_MIRROR="https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/"
+      sudo sed -i "s|http://ports.ubuntu.com/ubuntu-ports/|$CHINESE_MIRROR|g" /etc/apt/sources.list
     }
     ;;
   *)
@@ -91,13 +93,8 @@ ask "Install symlinks using stow?" Y && sh ./scripts/.dotscripts/deploy.sh
 
 ask "Install Rust deps ?" Y && {
   echo "Installing Rust deps..."
-  cargo install ytop
-}
-
-## zsh-plug manager
-ask "Install zsh-plug ?" Y && {
-  echo "Installing zsh-plug..."
-  curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
+  cargo install dutree
+  cargo install bottom zoxide --locked
 }
 
 ask "Install font?" Y && {
@@ -134,15 +131,3 @@ ask "Install Lnuarvim?" Y && {
 ask "Install tmux plugin manager for tmux?" Y && {
   git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 }
-
-if [ $distro != "Darwin" ]; then
-ask "Install apptainer?" Y && {
-  # go
-  wget -c https://go.dev/dl/go1.19.4.linux-amd64.tar.gz -O - | sudo tar -xz -C /usr/local
-
-  cd
-  export VERSION=1.1.4 # adjust this as necessary
-  wget https://ghproxy.com/https://github.com/apptainer/apptainer/releases/download/v${VERSION}/apptainer_${VERSION}_amd64.deb
-  sudo apt-get install -y ./apptainer_${VERSION}_amd64.deb
-}
-fi

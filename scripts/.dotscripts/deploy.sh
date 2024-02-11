@@ -14,11 +14,6 @@ DOTFILES_DIRS=$(ls -d $DOTFILES/*/ | grep -v tests \
   | grep -v deps | grep -v fonts | awk -F "/" '{ print $(NF-1) }')
 
 for F in $DOTFILES_DIRS ; do
-    # Don't install scripts/
-    # if [[ $F = "scripts" ]]; then
-    #     continue;
-    # fi
-
     echo "~ Installing :: $F"
 
     # Remove previous links
@@ -30,16 +25,14 @@ for F in $DOTFILES_DIRS ; do
     stow --dotfiles --dir $DOTFILES --target $TARGET $F
 done
 
-
 # VSCODE config is in Library for mac
 distro=$(uname)
 
-if [ $distro == "Darwin" ]; then
+if [[ $distro == "Darwin" ]]; then
   ln -snf ${DOTFILES}/Code/.config/Code/User/snippets/* ${HOME}/Library/Application\ Support/Code/User/snippets/
   ln -snf ${DOTFILES}/Code/.config/Code/User/*.json ${HOME}/Library/Application\ Support/Code/User/
-#  ln -snf ${DOTFILES}/lvim/.config/lvim/config.lua ${HOME}/.config/lvim/config.lua
   cp ${DOTFILES}/R/.R/Makevars-Darwin $HOME/.R/Makevars
-elif [ $distro == "Linux" ]; then
+elif [[ $distro == "Linux" ]]; then
   cp ${DOTFILES}/R/.R/Makevars-Linux $HOME/.R/Makevars
 fi
 

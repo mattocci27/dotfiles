@@ -2,9 +2,11 @@
 set -e
 
 echo "Installing tools..."
-sudo add-apt-repository ppa:neovim-ppa/unstable
+sudo add-apt-repository -y ppa:neovim-ppa/unstable
+sudo add-apt-repository -y ppa:apptainer/ppa
 sudo apt update -y
 sudo apt install -y xsel \
+  ca-certificates \
   build-essential \
   neovim \
   peco \
@@ -19,10 +21,10 @@ sudo apt install -y xsel \
   neofetch \
   ripgrep \
   mosh \
-  software-properties-common \
   libopenblas-dev \
   snapd \
-  nodejs
+  nodejs \
+  apptainer
 
 # form tidyverse
 sudo apt install -y \
@@ -38,87 +40,80 @@ sudo apt install -y \
   libcurl4-openssl-dev \
   unixodbc-dev
 
-# from verse
-sudo apt install -y \
-  cmake \
-  curl \
-  default-jdk \
-  fonts-roboto \
-  ghostscript \
-  hugo \
-  less \
-  libbz2-dev \
-  libglpk-dev \
-  libgmp3-dev \
-  libfribidi-dev \
-  libharfbuzz-dev \
-  libhunspell-dev \
-  libicu-dev \
-  liblzma-dev \
-  libmagick++-dev \
-  libopenmpi-dev \
-  libpcre2-dev \
-  libssl-dev \
-  libv8-dev \
-  libxml2-dev \
-  libxslt1-dev \
-  libzmq3-dev \
-  lsb-release \
-  qpdf \
-  texinfo \
-  software-properties-common \
-  vim \
-  wget
+# # from verse
+# sudo apt install -y \
+#   cmake \
+#   curl \
+#   default-jdk \
+#   fonts-roboto \
+#   ghostscript \
+#   hugo \
+#   less \
+#   libbz2-dev \
+#   libglpk-dev \
+#   libgmp3-dev \
+#   libfribidi-dev \
+#   libharfbuzz-dev \
+#   libhunspell-dev \
+#   libicu-dev \
+#   liblzma-dev \
+#   libmagick++-dev \
+#   libopenmpi-dev \
+#   libpcre2-dev \
+#   libssl-dev \
+#   libv8-dev \
+#   libxml2-dev \
+#   libxslt1-dev \
+#   libzmq3-dev \
+#   lsb-release \
+#   qpdf \
+#   texinfo \
+#   software-properties-common \
+#   vim \
+#   wget
 
 # from geosptail
-sudo apt install -y \
-  gdal-bin \
-  lbzip2 \
-  libfftw3-dev \
-  libgdal-dev \
-  libgeos-dev \
-  libgsl0-dev \
-  libgl1-mesa-dev \
-  libglu1-mesa-dev \
-  libhdf4-alt-dev \
-  libhdf5-dev \
-  libjq-dev \
-  libpq-dev \
-  libproj-dev \
-  libprotobuf-dev \
-  libnetcdf-dev \
-  libsqlite3-dev \
-  libssl-dev \
-  libudunits2-dev \
-  lsb-release \
-  netcdf-bin \
-  postgis \
-  protobuf-compiler \
-  sqlite3 \
-  tk-dev \
-  unixodbc-dev
-
+# sudo apt install -y \
+#   gdal-bin \
+#   lbzip2 \
+#   libfftw3-dev \
+#   libgdal-dev \
+#   libgeos-dev \
+#   libgsl0-dev \
+#   libgl1-mesa-dev \
+#   libglu1-mesa-dev \
+#   libhdf4-alt-dev \
+#   libhdf5-dev \
+#   libjq-dev \
+#   libpq-dev \
+#   libproj-dev \
+#   libprotobuf-dev \
+#   libnetcdf-dev \
+#   libsqlite3-dev \
+#   libssl-dev \
+#   libudunits2-dev \
+#   lsb-release \
+#   netcdf-bin \
+#   postgis \
+#   protobuf-compiler \
+#   sqlite3 \
+#   tk-dev \
+#   unixodbc-dev
 
 # R
-sudo apt install -y dirmngr \
-  gnupg \
-  apt-transport-https \
-  ca-certificates \
-  software-properties-common
+echo "Installing R..."
+sudo apt install -y dirmngr gnupg
 
-sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
+wget -qO- https://cloud.r-project.org/bin/linux/ubuntu/marutter_pubkey.asc | gpg --dearmor | sudo tee /usr/share/keyrings/cran-archive-keyring.gpg > /dev/null
 
-sudo add-apt-repository 'deb https://cloud.r-project.org/bin/linux/ubuntu focal-cran40/'
+echo "deb [signed-by=/usr/share/keyrings/cran-archive-keyring.gpg] https://cloud.r-project.org/bin/linux/ubuntu $(lsb_release -cs)-cran40/" | sudo tee /etc/apt/sources.list.d/cran.list > /dev/null
 
+sudo apt update -y
 sudo apt install -y r-base
 
 echo "Installing python..."
 sudo apt install -y \
-  libpython3-dev \
-  python3-dev \
   python3-pip \
-  python3-venv \
-  python3-virtualenv \
   docker-compose
 
 echo "Installing docker..."
@@ -132,6 +127,7 @@ sudo apt-get install -y \
 
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
 
+
 echo \
   "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
   $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
@@ -141,3 +137,9 @@ sudo apt-get install -y docker-ce docker-ce-cli containerd.io
 
 sudo usermod -aG docker $USER
 
+echo "Installing quarto..."
+
+git clone https://github.com/quarto-dev/quarto-cli $HOME/quarto-cli
+cd $HOME/quarto-cli
+./configure.sh
+cd $HOME/dotfiles
