@@ -28,11 +28,11 @@ done
 # VSCODE config is in Library for mac
 distro=$(uname)
 
-if [[ $distro == "Darwin" ]]; then
+if [ $distro = "Darwin" ]; then
   ln -snf ${DOTFILES}/Code/.config/Code/User/snippets/* ${HOME}/Library/Application\ Support/Code/User/snippets/
   ln -snf ${DOTFILES}/Code/.config/Code/User/*.json ${HOME}/Library/Application\ Support/Code/User/
   cp ${DOTFILES}/R/.R/Makevars-Darwin $HOME/.R/Makevars
-elif [[ $distro == "Linux" ]]; then
+elif [ $distro = "Linux" ]; then
   cp ${DOTFILES}/R/.R/Makevars-Linux $HOME/.R/Makevars
 fi
 

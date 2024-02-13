@@ -30,5 +30,19 @@ zinit light-mode for \
 zinit light zsh-users/zsh-autosuggestions
 zinit light zdharma-continuum/fast-syntax-highlighting
 zinit light zsh-users/zsh-completions
+zinit light jeffreytse/zsh-vi-mode
+ZVM_VI_INSERT_ESCAPE_BINDKEY=jj
+
+# Load pure theme
+zinit ice pick"async.zsh" src"pure.zsh" # with zsh-async library that's bundled with it.
+zinit light sindresorhus/pure
 
 eval "$(zoxide init zsh)"
+
+# overwirte
+# bindkey '^R' fzf-history-widget
+autoload -Uz add-zsh-hook
+add-zsh-hook precmd set_fzf_history_widget_keybinding
+set_fzf_history_widget_keybinding() {
+  bindkey '^R' fzf-history-widget
+}

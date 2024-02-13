@@ -14,6 +14,11 @@ else
   alias tree='tree'
 fi
 
+# Use 'bat' may be installed as 'batcat' on some systems
+if command -v batcat >/dev/null 2>&1; then
+  alias bat='batcat'
+fi
+
 # Safe versions of file manipulation commands
 alias rm='rm -i'
 alias cp='cp -i'
