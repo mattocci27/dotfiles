@@ -1217,6 +1217,12 @@
   "dotfiles.installCommand": "install.sh",
   "bitoAI.codeCompletion.enableAutoCompletion": true,
   "bitoAI.codeCompletion.enableCommentToCode": true,
-  "editor.inlineSuggest.showToolbar": "onHover"
+  "editor.inlineSuggest.showToolbar": "onHover",
+  "remote.autoForwardPortsSource": "hybrid",
+  "settingsSync.ignoredSettings": [
+    "-dotfiles.installCommand",
+    "-dotfiles.repository",
+    "-dotfiles.targetPath"
+  ]
   //  "workbench.editor.enablePreview": false
 }
