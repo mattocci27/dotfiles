@@ -20,10 +20,11 @@ sudo apt install -y xsel \
   cargo \
   neofetch \
   ripgrep \
-  mosh \
   libopenblas-dev \
   snapd \
   nodejs \
+  stow \
+  bat \
   apptainer
 
 # form tidyverse
