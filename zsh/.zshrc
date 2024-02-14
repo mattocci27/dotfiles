@@ -55,4 +55,5 @@ autoload -Uz add-zsh-hook
 add-zsh-hook precmd set_fzf_history_widget_keybinding
 set_fzf_history_widget_keybinding() {
   bindkey '^R' fzf-history-widget
+  bindkey '^t' fzf-tmux
 }
