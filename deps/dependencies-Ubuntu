@@ -25,7 +25,8 @@ sudo apt install -y xsel \
   nodejs \
   stow \
   bat \
-  apptainer
+  apptainer \
+  openssh-server
 
 # form tidyverse
 sudo apt install -y \
@@ -144,3 +145,10 @@ git clone https://github.com/quarto-dev/quarto-cli $HOME/quarto-cli
 cd $HOME/quarto-cli
 ./configure.sh
 cd $HOME/dotfiles
+
+# go
+cd $HOME
+wget https://go.dev/dl/go1.22.0.linux-amd64.tar.gz
+sudo tar -C /usr/local -xzf go1.22.0.linux-amd64.tar.gz
+go install github.com/x-motemen/ghq@latest
+rm go1.22.0.linux-amd64.tar.gz

@@ -45,6 +45,14 @@ fzf-tmux() {
 zle -N fzf-tmux
 bindkey '^t' fzf-tmux
 
+# because includeIf doesn't work for ghq root in .gitconfig
+function ghq() {
+    case $(uname) in
+        Darwin) export GHQ_ROOT=$HOME/Dropbox/ghq ;;
+    esac
+    command ghq "$@"
+}
+
 # Navigate to repositories using ghq and fzf
 fzf-src() {
   local dir

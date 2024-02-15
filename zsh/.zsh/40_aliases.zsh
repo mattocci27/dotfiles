@@ -51,3 +51,6 @@ elif command -v putclip >/dev/null 2>&1; then
   # Cygwin
   alias -g C='| putclip'
 fi
+
+# ghq
+alias gh='hub browse $(ghq list | peco | cut -d "/" -f 2,3)'

@@ -1,38 +1,37 @@
 [user]
-	name = Masatoshi Katabuchi
-	email = mattocci27@gmail.com
-	signingKey = ""
+    name = Masatoshi Katabuchi
+    email = mattocci27@gmail.com
+    signingKey = "" # Add your GPG key ID here if you use commit signing
 
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	required = true
-	process = git-lfs filter-process
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    required = true
+    process = git-lfs filter-process
 
 [core]
-	editor = vi
-	excludesfile = /Users/mattocci/.gitignore_global
-  ignorecase = false
+    editor = vi # Ensure vi is your preferred editor
+    excludesfile = /Users/mattocci/.gitignore_global
+    ignorecase = true # Set to true for compatibility with case-insensitive filesystems
 
-#  pager = delta
+# Uncomment the sections below if you're using delta for diffs and have it configured
+# [pager]
+#     use = delta
 
-#[interactive]
-#  diffFilter = delta --color-only
-#
-#[delta]
-#  navigate = true  # use n and N to move between diff sections
-#
-#[merge]
-#  conflictstyle = diff3
-#
-#[diff]
-#  colorMoved = default
+# [interactive]
+#     diffFilter = delta --color-only
 
-[ghq]
-  root = ~/Dropbox/src
+# [delta]
+#     navigate = true # use n and N to move between diff sections
+
+# [merge]
+#     conflictstyle = diff3
+
+# [diff]
+#     colorMoved = default
 
 [alias]
-    # 標準的なコマンド
+    # Standard commands
     b = branch
     c = commit
     cm = commit -m
@@ -41,48 +40,52 @@
     st = stash
     rh = reset --hard
 
-    # リモート含めブランチをcheckoutする
+    # Checkout branches, including remote branches with interactive selection
     co = "!f() { args=$@; if [ -z \"$args\" ]; then branch=$(git branch --all | grep -v HEAD | fzf --preview 'echo {} | cut -c 3- | xargs git log --color=always' | cut -c 3-); git checkout $(echo $branch | sed 's#remotes/[^/]*/##'); else git checkout $args; fi }; f"
 
-    # ファイルの差分をプレビュー付きで確認する
+    # Preview file differences interactively
     d = "!f() { args=$@; [ -z \"$args\" ] && args=HEAD; ([ \"$args\" = \"HEAD\" ] && git status --short || git diff --name-status $args | sed 's/\t/  /') | fzf --preview \"echo {} | cut -c 4- | xargs git diff --color=always $args --\" --multi --height 90% | cut -c 4-; }; f"
 
-    # 差分を選択してaddする
+    # Select differences for adding
     da = !git d | xargs git add --
 
-    # 差分を選択してadd -pする
+    # Select differences for interactive add
     dap = "!f() { for f in $(git d); do git add -p -- $f; done }; f"
 
-    # 差分を選択してresetする
+    # Select differences to reset
     dr = !git d | xargs git reset --
 
-    # 差分を選択してHEADにcheckoutする
-    dch = !git d | xargs git checkout HEAD
+    # Checkout HEAD for selected differences
+    dch = !git d | xargs git checkout HEAD --
 
-    # 現在のブランチをpullする
+    # Pull the current branch
     pl = "!f() { args=$@; [ -z \"$args\" ] && git pull origin $(git symbolic-ref --short HEAD) || git pull $args; }; f"
 
-    # 現在のブランチをpushする
+    # Push the current branch
     ps = "!f() { args=$@; [ -z \"$args\" ] && git push origin HEAD || git push $args; }; f"
 
-    # スタッシュのリストを表示する
+    # Display stash list with preview
     stl = !git stash list | fzf --preview 'echo {} | grep -o stash@{.*} | xargs git stash show -p --color=always' --height 90% | grep -o stash@{.*}
 
-    # スタッシュを選択してapplyする
+    # Apply a selected stash
     sta = !git stl | xargs git stash apply
 
-    # スタッシュを選択してdropする
+    # Drop a selected stash
     std = !git stl | xargs git stash drop
+
 [gpg]
-	program = gpg
+    program = gpg
+
 [commit]
-	gpgSign = false
-	template = /Users/mattocci/.stCommitMsg
+    gpgSign = false # Set to true if you wish to sign your commits
+
 [tag]
-	forceSignAnnotated = false
+    forceSignAnnotated = false
+
 [difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+    cmd = opendiff "$LOCAL" "$REMOTE"
+    path =
+
 [mergetool "sourcetree"]
-	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
+    cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh "$LOCAL" "$REMOTE" -ancestor "$BASE" -merge "$MERGED"
+    trustExitCode = true
