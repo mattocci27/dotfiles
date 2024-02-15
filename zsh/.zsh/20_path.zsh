@@ -1,41 +1,43 @@
+# Reset PATH to a base value at the beginning of the script
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+
+# Function to add a directory to PATH if it's not already included
+add_to_path() {
+    case ":$PATH:" in
+        *":$1:"*) ;; # If path is already in PATH, do nothing
+        *) export PATH="$1:$PATH" ;; # Otherwise, add it to the beginning of PATH
+    esac
+}
+
 # Base PATH modifications
-export PATH="$HOME/.local/bin:$PATH"
-export PATH="$HOME/.cargo/bin:$PATH"
-export PATH="$HOME/.gem/ruby/2.7.0/bin:$PATH"
-export PATH="$HOME/.pyenv/bin:$PATH"
-export PATH="$HOME/.dotnet/tools:$PATH"
+add_to_path "$HOME/.local/bin"
+add_to_path "$HOME/.cargo/bin"
+add_to_path "$HOME/.gem/ruby/2.7.0/bin"
+add_to_path "$HOME/.pyenv/bin"
+add_to_path "$HOME/.dotnet/tools"
 
 # Conditional configurations for Darwin (macOS)
 if [[ "$(uname)" == "Darwin" ]]; then
-    export PATH="/usr/local/sbin:$PATH"
-    export PATH="/usr/local/bin:$PATH" # Likely unnecessary but included for custom installations
-    export PATH="/usr/local/opt:$PATH"
-    export PATH="/usr/local/opt/avr-gcc@8/bin:$PATH"
-    export PATH="/opt/yarn-v1.22.4/bin:$PATH"
-    export PATH="/Applications/Julia-1.7.app/Contents/Resources/julia/bin:$PATH"
-    export PATH="/usr/local/opt/openjdk/bin:$PATH"
-    export PATH="$HOME/bin/context/tex/texmf-osx-arm64/bin:$PATH"
-    export PATH="$HOME/Library/TinyTeX/bin/universal-darwin:$PATH"
-    export PATH="$HOME/context/tex/texmf-osx-arm64/bin:$PATH"
-    export PATH="$HOME/Dropbox/src/github.com/ranger/ranger:$PATH"
+    add_to_path "/usr/local/opt"
+    add_to_path "/usr/local/opt/avr-gcc@8/bin"
+    add_to_path "/opt/yarn-v1.22.4/bin"
+    add_to_path "$HOME/.juliaup/bin"
+    add_to_path "/usr/local/opt/openjdk/bin"
+    add_to_path "$HOME/bin/context/tex/texmf-osx-arm64/bin"
+    add_to_path "$HOME/Library/TinyTeX/bin/universal-darwin"
+    add_to_path "$HOME/context/tex/texmf-osx-arm64/bin"
+    add_to_path "$HOME/Dropbox/src/github.com/ranger/ranger"
+    add_to_path "/opt/homebrew/bin:$PATH"
     export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
 elif [[ "$(uname)" == "Linux" ]]; then
-    export PATH="$HOME/.config/i3:$PATH"
-    export PATH="/usr/local/go/bin:$PATH"
-    export PATH="$HOME/go/bin:$PATH"
-    export PATH="$HOME/quarto-cli/package/dist/bin/quarto:$PATH"
+    add_to_path "$HOME/.config/i3"
+    add_to_path "/usr/local/go/bin"
+    add_to_path "$HOME/go/bin"
+    add_to_path "$HOME/quarto-cli/package/dist/bin/quarto"
     if [[ "$(lsb_release -si)" == "microsoft" ]]; then
         # Configuration for WSL2
         export DISPLAY="$(awk '/nameserver/ {print $2}' /etc/resolv.conf):0"
     fi
-fi
-
-# Conditional configuration for ARM architecture
-if [[ "$(uname -m)" == 'arm64' ]]; then
-    PROMPT="[a] %m:%~%# "
-    export PATH="/opt/homebrew/bin:$PATH"
-else
-    PROMPT="[x] %m:%~%# "
 fi
 
 # Ruby configuration
