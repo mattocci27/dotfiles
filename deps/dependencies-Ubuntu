@@ -147,7 +147,6 @@ cd $HOME/quarto-cli
 cd $HOME/dotfiles
 
 # go
-cd $HOME
 wget https://go.dev/dl/go1.22.0.linux-amd64.tar.gz
 sudo tar -C /usr/local -xzf go1.22.0.linux-amd64.tar.gz
 go install github.com/x-motemen/ghq@latest
