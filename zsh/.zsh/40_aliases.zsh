@@ -54,3 +54,7 @@ fi
 
 # ghq
 alias gh='hub browse $(ghq list | peco | cut -d "/" -f 2,3)'
+
+if [ "$(uname)" = "Darwin" ]; then
+    alias ghq='export GHQ_ROOT=$HOME/Dropbox/ghq; command ghq'
+fi
