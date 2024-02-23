@@ -77,10 +77,15 @@ menu() {
       fi
       ;;
     5)
-      pyenv install 3.12.1
-      pyenv global 3.12.1
-      pip install -U radian
-      pip install pynvim
+      if ! command -v pyenv &> /dev/null; then
+        curl https://pyenv.run | bash
+        pyenv install 3.12.2
+        pyenv global 3.12.2
+        pip install -U radian
+        pip install pynvim
+      else
+        echo "pyenv is already installed."
+      fi
       ;;
     6)
       if [ $distro != "Darwin" ]; then

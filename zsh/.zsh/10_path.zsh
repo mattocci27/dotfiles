@@ -39,12 +39,3 @@ elif [[ "$(uname)" == "Linux" ]]; then
         export DISPLAY="$(awk '/nameserver/ {print $2}' /etc/resolv.conf):0"
     fi
 fi
-
-# Ruby configuration
-if which rbenv >/dev/null 2>&1; then eval "$(rbenv init -)"; fi
-
-# Pyenv initialization for macOS
-if [[ "$(uname)" == "Darwin" ]] && command -v pyenv 1>/dev/null 2>&1; then
-    eval "$(pyenv init --path)"
-fi
-
