@@ -13,7 +13,6 @@ add_to_path() {
 add_to_path "$HOME/.local/bin"
 add_to_path "$HOME/.cargo/bin"
 add_to_path "$HOME/.gem/ruby/2.7.0/bin"
-add_to_path "$HOME/.pyenv/bin"
 add_to_path "$HOME/.dotnet/tools"
 
 # Conditional configurations for Darwin (macOS)
