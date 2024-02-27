@@ -1,36 +1,60 @@
--- vscode
-if vim.fn.exists("g:vscode") == 1 then
-  require "user.options"
-  require "vscode.settings"
--- lunarvim
-else
-  -- require "user.option"
-  -- require "user.keymaps"
-  -- require "user.plugins"
-  -- require "user.colorscheme"
-  -- require "user.cmp"
-  -- require "user.lsp"
-  -- require "user.telescope"
-  -- require "user.treesitter"
-  -- require "user.autopairs"
-  -- require "user.comment"
-  -- require "user.gitsigns"
-  -- require "user.nvim-tree"
-  -- require "user.bufferline"
-  -- require "user.lualine"
-  -- require "user.toggleterm"
-  -- require "user.project"
-  -- require "user.impatient"
-  -- require "user.indentline"
-  -- require "user.alpha"
-  -- require "user.whichkey"
-  -- require "user.autocommands"
+-- Options table for key mappings
+local opts = { noremap = true, silent = true }
 
--- Neovim
-  vim.cmd([[
-    exe 'source $HOME/.config/nvim/settings/10_settings.vim'
-    exe 'source $HOME/.config/nvim/settings/20_keybindings.vim'
-    exe 'source $HOME/.config/nvim/settings/30_plugins.vim'
-    exe 'source $HOME/.config/nvim/settings/40_color.vim'
-  ]])
+-- Set timeout length to 500ms for leader key sequences
+vim.opt.timeoutlen = 300
+
+-- Set the leader key to space for easier access to leader mappings
+vim.g.mapleader = ' '
+
+--- Folding
+vim.opt.foldmethod = 'indent'
+vim.opt.foldlevel = 2
+vim.opt.foldcolumn = '3'
+
+
+-- Key mapping to open the Neovim configuration file quickly from normal mode
+vim.cmd('nmap <leader>c :e ~/dotfiles/nvim/.config/nvim/init.lua<cr>')
+
+-- Clipboard settings to allow Neovim to use the system clipboard
+vim.opt.clipboard = 'unnamedplus'
+
+-- Search settings to make searches case-insensitive unless they contain uppercase letters
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+
+
+-- Key mapping to clear search highljghting using the leader key followed by 'n'
+vim.keymap.set('n', '<leader>n', ':nohlsearch<CR>', opts)
+
+-- Key mapping for triggering the fzf quick-open search with the leader key followed by 'g'
+-- This utilizes the VSCodeNotify function to interact with VSCode's command palette
+-- I do this on keybindings.json
+-- vim.keymap.set("n", "<leader>g", ':call VSCodeNotify("fzf-quick-open.runFzfSearch")<CR>', opts)
+
+-- Key mapping to show the "whichkey" display using the Space key in normal mode
+vim.keymap.set("n", "<Space>", ':call VSCodeNotify("whichkey.show")<CR>', opts)
+
+-- Key mappings to navigate between open editors (tabs) in VSCode using Shift+L and Shift+H
+vim.keymap.set("n", "<S-l>", ':call VSCodeNotify("workbench.action.nextEditor")<CR>', opts)
+vim.keymap.set("n", "<S-h>", ':call VSCodeNotify("workbench.action.previousEditor")<CR>', opts)
+
+-- LazyVim Plugins
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
 end
+vim.opt.rtp:prepend(lazypath)
+
+require("lazy").setup({
+  "tpope/vim-surround",
+  {"xiyaowong/fast-cursor-move.nvim"}, -- Corrected syntax
+})
+

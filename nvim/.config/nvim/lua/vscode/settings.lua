@@ -10,6 +10,12 @@ keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+-- Folding
+vim.opt.foldmethod = 'indent'
+vim.opt.foldlevel = 2
+vim.opt.foldcolumn = '3'
+
+
 -- Modes
 --   normal_mode = "n",
 --   insert_mode = "i",
@@ -51,3 +57,5 @@ keymap("n", "<C-g>", ':call VSCodeNotify("fzf-quick-open.runFzfSearch")<CR>', op
 
 -- Which-Key
 keymap("n", "<Space>", ':call VSCodeNotify("whichkey.show")<CR>', opts)
+
+vim.keymap.set('n', 'vv', 'vsplit<CR>', { silent = true })

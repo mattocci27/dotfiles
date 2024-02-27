@@ -6,85 +6,88 @@
   "files.trimTrailingWhitespace": true,
   // minimap
   "editor.minimap.enabled": false,
-  // vim
-  "vim.useSystemClipboard": true,
-  "vim.easymotion": true,
-  "vim.sneak": true,
-  "vim.incsearch": true,
-  "vim.useCtrlKeys": true,
-  "vim.hlsearch": true,
-  "vim.insertModeKeyBindings": [
-    {
-      "before": [
-        "j",
-        "j"
-      ],
-      "after": [
-        "<Esc>"
-      ]
-    }
-  ],
-  "vim.normalModeKeyBindingsNonRecursive": [
-    {
-      "before": [
-        "<leader>",
-        "d"
-      ],
-      "after": [
-        "d",
-        "d"
-      ]
-    },
-    {
-      "before": [
-        "<C-n>"
-      ],
-      "commands": [
-        ":nohl"
-      ]
-    },
-    {
-      "before": [
-        "j"
-      ],
-      "after": [
-        "g",
-        "j"
-      ]
-    },
-    {
-      "before": [
-        "k"
-      ],
-      "after": [
-        "g",
-        "k"
-      ]
-    },
-    {
-      "before": [
-        "down"
-      ],
-      "after": [
-        "g",
-        "j"
-      ]
-    },
-    {
-      "before": [
-        "up"
-      ],
-      "after": [
-        "g",
-        "k"
-      ]
-    }
-  ],
-  "vim.leader": "<space>",
-  "vim.handleKeys": {
-    "<C-a>": false,
-    "<C-f>": false
+  "extensions.experimental.affinity": {
+    "asvetliakov.vscode-neovim": 1
   },
+  // vim
+  // "vim.useSystemClipboard": true,
+  // "vim.easymotion": true,
+  // "vim.sneak": true,
+  // "vim.incsearch": true,
+  // "vim.useCtrlKeys": true,
+  // "vim.hlsearch": true,
+  // "vim.insertModeKeyBindings": [
+  //   {
+  //     "before": [
+  //       "j",
+  //       "j"
+  //     ],
+  //     "after": [
+  //       "<Esc>"
+  //     ]
+  //   }
+  // ],
+  // "vim.normalModeKeyBindingsNonRecursive": [
+  //   {
+  //     "before": [
+  //       "<leader>",
+  //       "d"
+  //     ],
+  //     "after": [
+  //       "d",
+  //       "d"
+  //     ]
+  //   },
+  //   {
+  //     "before": [
+  //       "<C-n>"
+  //     ],
+  //     "commands": [
+  //       ":nohl"
+  //     ]
+  //   },
+  //   {
+  //     "before": [
+  //       "j"
+  //     ],
+  //     "after": [
+  //       "g",
+  //       "j"
+  //     ]
+  //   },
+  //   {
+  //     "before": [
+  //       "k"
+  //     ],
+  //     "after": [
+  //       "g",
+  //       "k"
+  //     ]
+  //   },
+  //   {
+  //     "before": [
+  //       "down"
+  //     ],
+  //     "after": [
+  //       "g",
+  //       "j"
+  //     ]
+  //   },
+  //   {
+  //     "before": [
+  //       "up"
+  //     ],
+  //     "after": [
+  //       "g",
+  //       "k"
+  //     ]
+  //   }
+  // ],
+  // "vim.leader": "<space>",
+  // "vim.handleKeys": {
+  //   "<C-a>": false,
+  //   "<C-f>": false
+  // },
   "PandocCiter.DefaultBib": "~/MyLibrary.bib",
   "explorer.confirmDelete": false,
   "vsicons.dontShowNewVersionMessage": true,
@@ -97,9 +100,6 @@
   "git.autofetch": true,
   "vscode-neovim.neovimExecutablePaths.linux": "/usr/bin/nvim",
   "vscode-neovim.neovimExecutablePaths.darwin": "/opt/homebrew/bin/nvim",
-  "workbench.editorAssociations": {
-    "*.ipynb": "jupyter.notebook.ipynb"
-  },
   "cSpell.enabledLanguageIds": [
     "asciidoc",
     "c",
@@ -150,10 +150,10 @@
   "r.lsp.rich_documentation": true,
   "r.lsp.lint_cache": true,
   "latex-workshop.view.pdf.viewer": "tab",
-  "vscode-neovim.neovimInitVimPaths.darwin": "$HOME/.config/nvim/init.lua",
-  "vim.enableNeovim": true,
-  "vim.neovimPath": "/Users/mattocci/.local/bin/lvim",
-  "vim.neovimPath.darwin": "/Users/mattocci/.local/bin/lvim",
+  "vscode-neovim.neovimInitVimPaths.darwin": "$HOME/dotfiles/nvim/.config/nvim/init.lua",
+  // "vim.enableNeovim": true,
+  // "vim.neovimPath": "/Users/mattocci/.local/bin/lvim",
+  // "vim.neovimPath.darwin": "/Users/mattocci/.local/bin/lvim",
   //"vim.neovimPath": "/usr/local/bin/nvim",
   //"vim.neovimPath.darwin": "/usr/local/bin/nvim",
   "vim.neovimUseConfigFile": true,
@@ -1205,9 +1205,6 @@
   "files.associations": {
     "*.rmd": "markdown"
   },
-  "extensions.experimental.affinity": {
-    "asvetliakov.vscode-neovim": 1
-  },
   "diffEditor.useInlineViewWhenSpaceIsLimited": false,
   "quarto.path": "/home/mattocci/.local/bin/quarto",
   "quarto.usePipQuarto": false,
@@ -1217,12 +1214,13 @@
   "dotfiles.installCommand": "install.sh",
   "bitoAI.codeCompletion.enableAutoCompletion": true,
   "bitoAI.codeCompletion.enableCommentToCode": true,
-  "editor.inlineSuggest.showToolbar": "onHover",
+  "editor.inlineSuggest.showToolbar": "always",
   "remote.autoForwardPortsSource": "hybrid",
   "settingsSync.ignoredSettings": [
     "-dotfiles.installCommand",
     "-dotfiles.repository",
     "-dotfiles.targetPath"
-  ]
+  ],
+  "cSpell.dictionaryDefinitions": []
   //  "workbench.editor.enablePreview": false
 }

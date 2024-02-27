@@ -42,3 +42,4 @@ Homebrew mirror at [tsinghua uni](https://mirror.tuna.tsinghua.edu.cn/help/homeb
 - <https://github.com/retorquere/zotero-better-bibtex>
 
 - <https://github.com/jlegewie/zotfile>
+

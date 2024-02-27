@@ -11,7 +11,7 @@ TARGET=$HOME
 
 # List of packages that has to installed via `stow`
 DOTFILES_DIRS=$(ls -d $DOTFILES/*/ | grep -v tests \
-  | grep -v deps | grep -v fonts | awk -F "/" '{ print $(NF-1) }')
+  | grep -v deps | grep -v fonts | grep -v nvim | awk -F "/" '{ print $(NF-1) }')
 
 for F in $DOTFILES_DIRS ; do
     echo "~ Installing :: $F"
