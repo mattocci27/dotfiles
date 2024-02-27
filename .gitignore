@@ -12,3 +12,4 @@
 *.qmd
 lvim/.config/lvim/plugin/*
 scripts/.local/*
+*nerd*

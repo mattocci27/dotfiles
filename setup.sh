@@ -37,7 +37,7 @@ menu() {
   echo "4) Install font"
   echo "5) Install Python stuffs"
   echo "6) Install R deps"
-  echo "7) Install LunarVim"
+  echo "7) Install NvChad"
   echo "8) Install tmux plugin manager"
   read -rp "Enter number: " menu_num
 
@@ -69,6 +69,10 @@ menu() {
       cargo install bottom zoxide --locked
       ;;
     4)
+      wget -P ./fonts/Cousine https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Cousine/Regular/CousineNerdFont-Regular.ttf
+      wget -P ./fonts/Cousine https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Cousine/Bold/CousineNerdFont-Bold.ttf
+      wget -P ./fonts/Cousine https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Cousine/Italic/CousineNerdFont-Italic.ttf
+      wget -P ./fonts/Cousine https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Cousine/BoldItalic/CousineNerdFont-BoldItalic.ttf
       if [ "$(uname)" = "Darwin" ]; then
         sudo cp -rf ./fonts/Cousine/* ~/Library/Fonts
       elif [ "$(uname)" = "Linux" ]; then
@@ -95,8 +99,8 @@ menu() {
       Rscript -e "install.packages(c('littler', 'pacman', 'tidyverse', 'vegan', 'renv'), dependencies = TRUE)"
       ;;
     7)
-      echo "Installing LunarVim..."
-      LV_BRANCH='release-1.3/neovim-0.9' bash <(curl -s https://raw.githubusercontent.com/LunarVim/LunarVim/release-1.3/neovim-0.9/utils/installer/install.sh)
+      echo "Installing NvChad..."
+      git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1 && nvim
       ;;
     8)
       git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
