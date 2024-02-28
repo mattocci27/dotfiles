@@ -3,7 +3,7 @@ set -e
 
 DOT_DIRECTORY="${HOME}/dotfiles"
 
-if [ ! -e "${DOT_DIRECTORY}/$(basename $0)" ]; then
+if [ ! -e "${DOT_DIRECTORY}/$(basename "$0")" ]; then
   echo "Script not called from within repository directory. Aborting."
   exit 2
 fi
@@ -44,11 +44,11 @@ menu() {
   case $menu_num in
     0)
       case $distro in
-        "ManjaroLinux") # Adjusted to match the distro variable format
+        ManjaroLinux)
           sudo pacman-mirrors --country Japan,China,United_States
           sudo pacman-mirrors --fasttrack && sudo pacman -Syyu
           ;;
-        "Ubuntu")
+        Ubuntu)
           sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak
           CHINESE_MIRROR="https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/"
           sudo sed -i "s|http://ports.ubuntu.com/ubuntu-ports/|$CHINESE_MIRROR|g" /etc/apt/sources.list
@@ -59,20 +59,27 @@ menu() {
       esac
       ;;
     1)
-      sh ./deps/dependencies-${distro}
+      sh "./deps/dependencies-${distro}"
       ;;
     2)
-      sh ./scripts/.dotscripts/deploy.sh
+      sh "./scripts/.dotscripts/deploy.sh"
       ;;
     3)
       cargo install dutree
       cargo install bottom zoxide --locked
       ;;
     4)
-      wget -P ./fonts/Cousine https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Cousine/Regular/CousineNerdFont-Regular.ttf
-      wget -P ./fonts/Cousine https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Cousine/Bold/CousineNerdFont-Bold.ttf
-      wget -P ./fonts/Cousine https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Cousine/Italic/CousineNerdFont-Italic.ttf
-      wget -P ./fonts/Cousine https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Cousine/BoldItalic/CousineNerdFont-BoldItalic.ttf
+      mkdir -p ./fonts/Cousine
+      font_urls=(
+        "https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Cousine/Regular/CousineNerdFont-Regular.ttf"
+        "https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Cousine/Bold/CousineNerdFont-Bold.ttf"
+        "https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Cousine/Italic/CousineNerdFont-Italic.ttf"
+        "https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Cousine/BoldItalic/CousineNerdFont-BoldItalic.ttf"
+      )
+      for url in "${font_urls[@]}"; do
+        wget -P ./fonts/Cousine "$url"
+      done
+      Which one is better?
       if [ "$(uname)" = "Darwin" ]; then
         sudo cp -rf ./fonts/Cousine/* ~/Library/Fonts
       elif [ "$(uname)" = "Linux" ]; then
@@ -92,7 +99,7 @@ menu() {
       fi
       ;;
     6)
-      if [ $distro != "Darwin" ]; then
+      if [ "$distro" != "Darwin" ]; then
         ln -sf /opt/homebrew/opt/openblas/lib/libblas.dylib /Library/Frameworks/R.framework/Resources/lib/libRblas.dylib
         ln -sf /opt/homebrew/opt/openblas/lib/liblapack.dylib /Library/Frameworks/R.framework/Resources/lib/libRlapack.dylib
       fi
