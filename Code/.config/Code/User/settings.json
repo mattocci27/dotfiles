@@ -4,90 +4,10 @@
   "editor.fontFamily": "Cousine, 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
   "remote.SSH.useLocalServer": true,
   "files.trimTrailingWhitespace": true,
-  // minimap
   "editor.minimap.enabled": false,
   "extensions.experimental.affinity": {
     "asvetliakov.vscode-neovim": 1
   },
-  // vim
-  // "vim.useSystemClipboard": true,
-  // "vim.easymotion": true,
-  // "vim.sneak": true,
-  // "vim.incsearch": true,
-  // "vim.useCtrlKeys": true,
-  // "vim.hlsearch": true,
-  // "vim.insertModeKeyBindings": [
-  //   {
-  //     "before": [
-  //       "j",
-  //       "j"
-  //     ],
-  //     "after": [
-  //       "<Esc>"
-  //     ]
-  //   }
-  // ],
-  // "vim.normalModeKeyBindingsNonRecursive": [
-  //   {
-  //     "before": [
-  //       "<leader>",
-  //       "d"
-  //     ],
-  //     "after": [
-  //       "d",
-  //       "d"
-  //     ]
-  //   },
-  //   {
-  //     "before": [
-  //       "<C-n>"
-  //     ],
-  //     "commands": [
-  //       ":nohl"
-  //     ]
-  //   },
-  //   {
-  //     "before": [
-  //       "j"
-  //     ],
-  //     "after": [
-  //       "g",
-  //       "j"
-  //     ]
-  //   },
-  //   {
-  //     "before": [
-  //       "k"
-  //     ],
-  //     "after": [
-  //       "g",
-  //       "k"
-  //     ]
-  //   },
-  //   {
-  //     "before": [
-  //       "down"
-  //     ],
-  //     "after": [
-  //       "g",
-  //       "j"
-  //     ]
-  //   },
-  //   {
-  //     "before": [
-  //       "up"
-  //     ],
-  //     "after": [
-  //       "g",
-  //       "k"
-  //     ]
-  //   }
-  // ],
-  // "vim.leader": "<space>",
-  // "vim.handleKeys": {
-  //   "<C-a>": false,
-  //   "<C-f>": false
-  // },
   "PandocCiter.DefaultBib": "~/MyLibrary.bib",
   "explorer.confirmDelete": false,
   "vsicons.dontShowNewVersionMessage": true,
@@ -150,12 +70,7 @@
   "r.lsp.rich_documentation": true,
   "r.lsp.lint_cache": true,
   "latex-workshop.view.pdf.viewer": "tab",
-  "vscode-neovim.neovimInitVimPaths.darwin": "$HOME/dotfiles/nvim/.config/nvim/init.lua",
-  // "vim.enableNeovim": true,
-  // "vim.neovimPath": "/Users/mattocci/.local/bin/lvim",
-  // "vim.neovimPath.darwin": "/Users/mattocci/.local/bin/lvim",
-  //"vim.neovimPath": "/usr/local/bin/nvim",
-  //"vim.neovimPath.darwin": "/usr/local/bin/nvim",
+  "vscode-neovim.neovimInitVimPaths.darwin": "$HOME/dotfiles/nvim/init_vscode.lua",
   "vim.neovimUseConfigFile": true,
   "vim.neovimConfigPath": " ~/.config/nvim/init.lua ",
   "workbench.list.automaticKeyboardNavigation": false,
@@ -1222,5 +1137,4 @@
     "-dotfiles.targetPath"
   ],
   "cSpell.dictionaryDefinitions": []
-  //  "workbench.editor.enablePreview": false
 }
