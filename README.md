@@ -1,14 +1,10 @@
-# dotfiles for macOS
+# Dotfiles
 
-Contains:
-
-- R and essential packages.
-- Configuration for vscode, tmux, neovim (lunarvim), and zsh.
-- Cousine nerd fonts.
+This repository contains configuration files for R, Visual Studio Code, tmux, Neovim (NvChad), and Zsh. It also includes Cousine Nerd Fonts.
 
 # Requirement
 
-- command line tools
+- Command Line Tools for Xcode
 
 ```shell
 # command line tools
@@ -17,15 +13,16 @@ sudo xcode-select --install
 
 # Usage
 
-Following commands will clone the repository, install dependencies and make symbolic links.
+To set up your environment, clone this repository, install dependencies, and create symbolic links:
 
 ```shell
-# clone this repo
+# Clone the repository
 git clone https://github.com/mattocci27/dotfiles.git ~/dotfiles
 
-cd dotfiles
+# Navigate to the dotfiles directory
+cd ~/dotfiles
 
-# install dependencies and make symbolic links
+# Install dependencies and create symbolic links
 sh setup.sh
 ```
 
@@ -33,11 +30,11 @@ sh setup.sh
 
 Homebrew mirror at [tsinghua uni](https://mirror.tuna.tsinghua.edu.cn/help/homebrew/)
 
-# ssh (private)
+# SSH Configuration (private)
 
 - <https://github.com/mattocci27/dotssh>
 
-# zotero
+# Zotero
 
 - <https://github.com/retorquere/zotero-better-bibtex>
 
