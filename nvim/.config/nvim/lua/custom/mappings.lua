@@ -28,6 +28,29 @@ M.vimTmuxNavigator = {
   }
 }
 
+M.nvterm = {
+  plugin = true,
+
+  t = {
+    -- toggle in terminal mode
+    ["<leader>i"] = {
+      function()
+        require("nvterm.terminal").toggle "float"
+      end,
+      "Toggle floating term",
+    },
+  },
+
+  n = {
+    -- toggle in normal mode
+    ["<leader>i"] = {
+      function()
+        require("nvterm.terminal").toggle "float"
+      end,
+      "Toggle floating term",
+    },
+  },
+}
 -- more keybinds!
 
 return M

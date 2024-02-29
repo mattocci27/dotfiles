@@ -7,9 +7,12 @@ local highlights = require "custom.highlights"
 M.ui = {
   theme = "gruvbox",
   theme_toggle = { "gruvbox", "one_light" },
-
   hl_override = highlights.override,
   hl_add = highlights.add,
+  transparency = true,
+  nvdash = {
+    load_on_startup = true,
+  },
 }
 
 M.plugins = "custom.plugins"
