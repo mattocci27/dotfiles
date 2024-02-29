@@ -6,4 +6,6 @@
 --   command = "tabdo wincmd =",
 -- })
 --
-
+-- Disable swap file creation
+vim.opt.swapfile = false
+-- vim.opt.clipboard = ""

@@ -70,7 +70,7 @@
   "r.lsp.rich_documentation": true,
   "r.lsp.lint_cache": true,
   "latex-workshop.view.pdf.viewer": "tab",
-  "vscode-neovim.neovimInitVimPaths.darwin": "$HOME/dotfiles/nvim/init_vscode.lua",
+  "vscode-neovim.neovimInitVimPaths.darwin": "$HOME/dotfiles/nvim/.config/init_vscode.lua",
   "vim.neovimUseConfigFile": true,
   "vim.neovimConfigPath": " ~/.config/nvim/init.lua ",
   "workbench.list.automaticKeyboardNavigation": false,
