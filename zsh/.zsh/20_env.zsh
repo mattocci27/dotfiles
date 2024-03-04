@@ -32,3 +32,6 @@ if [[ "$(uname -s)" == "Linux" ]]; then
   export RENV_PATHS_CACHE="$HOME/renv"
 fi
 
+# for docker
+export HOST_UID=$(id -u)
+export HOST_GID=$(id -g)
