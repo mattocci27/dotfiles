@@ -1,7 +1,7 @@
 [user]
     name = Masatoshi Katabuchi
     email = mattocci27@gmail.com
-    signingKey = "" # Add your GPG key ID here if you use commit signing
+    signingKey = ""
 
 [filter "lfs"]
     clean = git-lfs clean -- %f
@@ -10,9 +10,9 @@
     process = git-lfs filter-process
 
 [core]
-    editor = vi # Ensure vi is your preferred editor
-    excludesfile = /Users/mattocci/.gitignore_global
-    ignorecase = true # Set to true for compatibility with case-insensitive filesystems
+    editor = vi ; Ensure vi is your preferred editor
+    excludesfile = $HOME/.gitignore_global
+    ignorecase = true ; Set to true for compatibility with case-insensitive filesystems
 
 # Uncomment the sections below if you're using delta for diffs and have it configured
 # [pager]
@@ -77,7 +77,7 @@
     program = gpg
 
 [commit]
-    gpgSign = false # Set to true if you wish to sign your commits
+    gpgSign = false ; Set to true if you wish to sign your commits
 
 [tag]
     forceSignAnnotated = false

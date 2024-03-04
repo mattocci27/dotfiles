@@ -33,7 +33,6 @@ alias -g G='| grep'
 
 # Editor and file manager shortcuts
 alias v='vim'
-alias ranger='ranger.py'
 
 # Open files with the default application (Linux-specific)
 if [[ "$OSTYPE" == "linux-gnu" ]]; then

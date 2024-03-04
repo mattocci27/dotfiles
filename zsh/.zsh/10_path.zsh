@@ -32,7 +32,8 @@ elif [[ "$(uname)" == "Linux" ]]; then
     add_to_path "$HOME/.config/i3"
     add_to_path "/usr/local/go/bin"
     add_to_path "$HOME/go/bin"
-    add_to_path "$HOME/quarto-cli/package/dist/bin/quarto"
+    add_to_path "$HOME/quarto-cli/package/distbin/quarto"
+    add_to_path "/opt/TinyTeX/bin/x86_64-linux"
     if [[ "$(lsb_release -si)" == "microsoft" ]]; then
         # Configuration for WSL2
         export DISPLAY="$(awk '/nameserver/ {print $2}' /etc/resolv.conf):0"
