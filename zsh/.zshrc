@@ -37,16 +37,6 @@ ZVM_VI_INSERT_ESCAPE_BINDKEY=jj
 zinit ice pick"async.zsh" src"pure.zsh" # with zsh-async library that's bundled with it.
 zinit light sindresorhus/pure
 PURE_CMD_MAX_EXEC_TIME=10
-# Set Gruvbox colors
-# GRUVBOX_ORANGE="#fe8019"
-# GRUVBOX_WHITE="#ebdbb2"
-# GRUVBOX_CYAN="#8ec07c"
-# GRUVBOX_GRAY="#928374"
-# GRUVBOX_GREEN="#98971a"
-# zmodload zsh/nearcolor
-# zstyle :prompt:pure:user color $GRUVBOX_WHITE
-# zstyle :prompt:pure:user color $GRUVBOX_GREEN
-# zstyle :prompt:pure:git:stash show yes
 
 eval "$(zoxide init zsh)"
 
@@ -56,4 +46,7 @@ add-zsh-hook precmd set_fzf_history_widget_keybinding
 set_fzf_history_widget_keybinding() {
   bindkey '^R' fzf-history-widget
   bindkey '^t' fzf-tmux
+  bindkey '^g' fzf-src
+  bindkey '^x' fzf-cdr
+  bindkey '^f' fzf-z-search
 }
