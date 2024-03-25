@@ -14,6 +14,9 @@ add_to_path "$HOME/.local/bin"
 add_to_path "$HOME/.cargo/bin"
 add_to_path "$HOME/.gem/ruby/2.7.0/bin"
 add_to_path "$HOME/.dotnet/tools"
+add_to_path "$HOME/dotfiles/scripts"
+add_to_path "$HOME/go/bin"
+
 
 # Conditional configurations for Darwin (macOS)
 if [[ "$(uname)" == "Darwin" ]]; then
@@ -31,7 +34,6 @@ if [[ "$(uname)" == "Darwin" ]]; then
 elif [[ "$(uname)" == "Linux" ]]; then
     add_to_path "$HOME/.config/i3"
     add_to_path "/usr/local/go/bin"
-    add_to_path "$HOME/go/bin"
     add_to_path "$HOME/bin"
     add_to_path "$HOME/quarto-cli/package/distbin/quarto"
     if [[ "$(lsb_release -si)" == "microsoft" ]]; then

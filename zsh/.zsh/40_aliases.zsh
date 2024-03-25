@@ -24,6 +24,17 @@ alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
 
+
+# from mischavandenburg
+alias db='cd $HOME/Dropbox'
+alias sb="cd \$SECOND_BRAIN"
+alias in="cd \$SECOND_BRAIN/0-Inbox/"
+
+alias fp="fzf --preview 'bat --style=numbers --color=always --line-range :500 {}'"
+# search for a file with fzf and open it in vim
+alias vf='nvim $(fp)'
+alias ff="find . -type d | fzf"
+
 # Simplify directory creation
 alias mkdir='mkdir -p'
 
@@ -55,5 +66,5 @@ fi
 alias gh='hub browse $(ghq list | peco | cut -d "/" -f 2,3)'
 
 if [ "$(uname)" = "Darwin" ]; then
-    alias ghq='export GHQ_ROOT=$HOME/Dropbox/ghq; command ghq'
+    alias ghq='export GHQ_ROOT=$HOME/Dropbox/3-Resources/ghq; command ghq'
 fi
