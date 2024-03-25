@@ -8,4 +8,9 @@
 --
 -- Disable swap file creation
 vim.opt.swapfile = false
+
+-- Set indentation options
+vim.opt.shiftwidth = 2
+vim.opt.tabstop = 2
+vim.opt.expandtab = true
 -- vim.opt.clipboard = ""
