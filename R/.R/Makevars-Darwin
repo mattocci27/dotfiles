@@ -3,3 +3,7 @@ CC=clang -arch arm64
 CXX=clang++ -arch arm64 -ftemplate-depth-256 -std=gnu++11
 OBJCXX = clang++
 
+# Added Fortran configurations
+FC = /opt/homebrew/bin/gfortran
+FLIBS = -L/opt/homebrew/lib/gcc/13 -lgfortran -lquadmath -lm
+

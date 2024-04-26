@@ -3,7 +3,7 @@
 today=$(date +"%Y-%m-%d")
 tomorrow=$(gdate -d "tomorrow" '+%Y-%m-%d')
 yesterday=$(gdate -d "yesterday" '+%Y-%m-%d')
-file="$SECOND_BRAIN"'/2-Areas/Daily Notes/'$(date +"%Y-%m-%d").md
+file="$SECOND_BRAIN"'/8-Daily Notes/'$(date +"%Y-%m-%d").md
 
 cd "$SECOND_BRAIN" || exit
 

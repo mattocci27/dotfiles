@@ -1,4 +1,4 @@
--- local autocmd = vim.api.nvim_create_autocmd
+local autocmd = vim.api.nvim_create_autocmd
 
 -- Auto resize panes when resizing nvim window
 -- autocmd("VimResized", {
@@ -10,7 +10,7 @@
 vim.opt.swapfile = false
 
 -- Set indentation options
-vim.opt.shiftwidth = 2
+vim.opt.shiftwidth = 1
 vim.opt.tabstop = 2
 vim.opt.expandtab = true
 -- vim.opt.clipboard = ""
