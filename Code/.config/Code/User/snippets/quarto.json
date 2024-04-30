@@ -7,26 +7,6 @@
     ],
     "description": "Log output to console"
   },
-  "yml for report": {
-    "prefix": "html yml",
-    "body": [
-      "---",
-      "Title: \"your title\"",
-      "author: \"Masatoshi Katabuchi\"",
-      "date: \"`r format(Sys.time(), '%B %d, %Y')`\""
-      "format:",
-        "html:",
-          "theme: spacelab #readable #sandstone #spacelab #flatly",
-          "toc: true",
-          "toc-depth: 2",
-          "toc-title: Contents",
-          "self-contained: true",
-          "smooth-scroll: true",
-          "highlight-style: github",
-      "---"
-    ],
-    "description": "yml for html report"
-  },
   "yml for manuscript": {
     "prefix": "ms yml",
     "body": [
@@ -92,5 +72,38 @@
       "system.time(rmarkdown::render(\"report.Rmd\"))"
     ],
     "description": "rmd render"
-  }
+  },
+    "Quarto YAML Header and R Chunk": {
+        "prefix": "quarto-setup",
+        "body": [
+            "---",
+            "title: \"$1\"",
+            "author: \"Masatoshi Katabuchi\"",
+            "date: \"`r format(Sys.time(), '%B %d, %Y')`\"",
+            "fontsize: 12pt",
+            "format:",
+            "  html:",
+            "    theme: coderpro",
+            "    toc: true",
+            "    toc-depth: 2",
+            "    number-sections: true",
+            "    smooth-scroll: true",
+            "    standalone: true",
+            "    embed-resources: true",
+            "---",
+            "",
+            "```{r global_options, include=FALSE}",
+            "library(knitr)",
+            "knitr::opts_chunk$set(",
+            "  collapse = TRUE,",
+            "  comment = \"#>\",",
+            "  message = FALSE,",
+            "  cache = FALSE,",
+            "  fig.align = \"center\",",
+            "  fig.show = \"hold\"",
+            ")",
+            "```"
+        ],
+        "description": "Creates a basic YAML header and global options for R chunks in Quarto documents."
+    }
 }
