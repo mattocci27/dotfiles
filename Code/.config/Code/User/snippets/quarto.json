@@ -105,5 +105,14 @@
             "```"
         ],
         "description": "Creates a basic YAML header and global options for R chunks in Quarto documents."
-    }
+    },
+      "Load an object with Targets": {
+        "prefix": "loadobjects",  // You can customize the trigger prefix here
+        "body": [
+          "withr::with_dir(rprojroot::find_root('_targets.R'),",
+          "  targets::tar_load(object_name)",
+          ")"
+        ],
+        "description": "Load 'seedling_tbl_df' using targets within specified project directory"
+      }
 }
