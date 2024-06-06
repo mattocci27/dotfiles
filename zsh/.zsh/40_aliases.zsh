@@ -1,14 +1,14 @@
 # Enable aliases to be sudo'ed
 alias sudo='sudo '
 
-# Use 'exa' for enhanced listing if available
-if command -v exa >/dev/null 2>&1; then
-  alias ls='exa -F'
-  alias la='exa -a -F'
-  alias ll='exa -l'
-  alias tree='exa --tree'
+# Use 'eza' for enhanced listing if available
+if command -v eza >/dev/null 2>&1; then
+  alias ls='eza -F'
+  alias la='eza -a -F'
+  alias ll='eza -l'
+  alias tree='eza --tree'
 else
-  # Fallback to default commands if 'exa' is not installed
+  # Fallback to default commands if 'eza' is not installed
   alias ll='ls -l'
   alias la='ls -la'
   alias tree='tree'
