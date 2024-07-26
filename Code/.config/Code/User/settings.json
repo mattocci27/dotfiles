@@ -1149,5 +1149,6 @@
         "vim.api.nvim_input('<ESC>')\nrequire('vscode-neovim').action('workbench.action.files.save')"
       ]
     }
-  }
+  },
+  "github.copilot.editor.enableAutoCompletions": true
 }

@@ -25,7 +25,9 @@ alias cp='cp -i'
 alias mv='mv -i'
 
 
+
 # from mischavandenburg
+alias gd='cd $HOME/GDrive'
 alias db='cd $HOME/Dropbox'
 alias sb="cd \$SECOND_BRAIN"
 alias in="cd \$SECOND_BRAIN/0-Inbox/"
@@ -66,5 +68,5 @@ fi
 alias gh='hub browse $(ghq list | peco | cut -d "/" -f 2,3)'
 
 if [ "$(uname)" = "Darwin" ]; then
-    alias ghq='export GHQ_ROOT=$HOME/Dropbox/3-Resources/ghq; command ghq'
+    alias ghq='export GHQ_ROOT=$HOME/Dropbox/5-Tools/ghq; command ghq'
 fi

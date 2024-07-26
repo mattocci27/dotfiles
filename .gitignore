@@ -8,9 +8,11 @@
 .vim/pack/
 .vim/
 *.Rmd
-*.R
+*.R$
 lvim/.config/lvim/plugin/*
 scripts/.local/*
 *nerd*
 nvim/.config/nvim/lazy-lock.json
 *.ttf
+R/.R/Makevars
+/R/.R/Makevars
