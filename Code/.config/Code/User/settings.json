@@ -1099,7 +1099,6 @@
   "julia.symbolCacheDownload": true,
   "julia.enableTelemetry": true,
   "julia.executablePath": "/Applications/Julia-1.7.app/Contents/Resources/julia/bin//julia",
-  "r.plot.useHttpgd": true,
   "remote.SSH.enableDynamicForwarding": false,
   "r.rterm.linux": "/home/mattocci/.local/bin/radian",
   "http.proxyStrictSSL": false,
@@ -1150,5 +1149,13 @@
       ]
     }
   },
-  "github.copilot.editor.enableAutoCompletions": true
+  "github.copilot.editor.enableAutoCompletions": true,
+  "quarto.render.rPackageOutputDirectory": false,
+  "zenMode.hideLineNumbers": false,
+  "cSpell.enableFiletypes": [
+    "md",
+    "qmd",
+    "quarto"
+  ],
+  "r.plot.useHttpgd": true
 }
