@@ -34,7 +34,7 @@
      "    number-sections: false",
      "    highlight-style: github",
      "    html-math-method: katex",
-     "  pdf:",
+     "  pdf:"
      "    toc: false",
      "    keep-tex: true",
      "    pdf-engine: pdflatex",
@@ -54,7 +54,7 @@
     "body": [
       "```{r global_options, include=FALSE}",
       "library(knitr)",
-      "knitr::opts_chunk\\$set(",
+      "knitr::opts_chunk$$set(",
       "  collapse = TRUE,",
       "  comment = \"#>\",",
       "  message = FALSE,",
@@ -93,8 +93,8 @@
             "---",
             "",
             "```{r global_options, include=FALSE}",
-            "library(knitr)",
-            "knitr::opts_chunk$set(",
+            "library(knitr)"
+            "knitr::opts_chunk$$set(",
             "  collapse = TRUE,",
             "  comment = \"#>\",",
             "  message = FALSE,",
