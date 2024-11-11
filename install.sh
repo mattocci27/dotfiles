@@ -16,9 +16,17 @@ for dir in "$DOT_DIRECTORY"/*/; do
     esac
 
     echo "~ Installing :: $dir_base"
-    # Remove previous links
-    stow -D --dotfiles --dir "$DOT_DIRECTORY" --target "$HOME" "$dir_base" 2>/dev/null || true
-    # Install new links
-    stow --dotfiles --dir "$DOT_DIRECTORY" --target "$HOME" "$dir_base"
+
+    # Check for potential conflicts before removing
+    for file in $(stow --dir "$DOT_DIRECTORY" --target "$HOME"  "$dir_base" | grep "^LINK:" | awk '{print $2}'); do
+        if [ -f "$HOME/$file" ] && [ ! -L "$HOME/$file" ]; then
+            echo "Potential conflict: $HOME/$file already exists and is not a symlink"
+        fi
+    done
+
+    # Remove previous symlinks
+    stow -D --dir "$DOT_DIRECTORY" --target "$HOME" "$dir_base" 2>/dev/null || true
+    # Install new symlinks
+    stow --dir "$DOT_DIRECTORY" --target "$HOME" "$dir_base"
     echo "done: $dir_base"
 done
