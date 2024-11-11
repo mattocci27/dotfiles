@@ -34,6 +34,7 @@ if [[ "$(uname)" == "Darwin" ]]; then
 elif [[ "$(uname)" == "Linux" ]]; then
     add_to_path "$HOME/.config/i3"
     add_to_path "/usr/local/go/bin"
+    add_to_path "/opt/venv/bin"
     add_to_path "$HOME/bin"
     add_to_path "$HOME/quarto-cli/package/distbin/quarto"
     if [[ "$(lsb_release -si)" == "microsoft" ]]; then
