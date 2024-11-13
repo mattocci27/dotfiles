@@ -79,7 +79,6 @@ menu() {
       for url in "${font_urls[@]}"; do
         wget -P ./fonts/Cousine "$url"
       done
-      Which one is better?
       if [ "$(uname)" = "Darwin" ]; then
         sudo cp -rf ./fonts/Cousine/* ~/Library/Fonts
       elif [ "$(uname)" = "Linux" ]; then
@@ -99,10 +98,6 @@ menu() {
       fi
       ;;
     6)
-      if [ "$distro" != "Darwin" ]; then
-        # ln -sf /opt/homebrew/opt/openblas/lib/libblas.dylib /Library/Frameworks/R.framework/Resources/lib/libRblas.dylib
-        # ln -sf /opt/homebrew/opt/openblas/lib/liblapack.dylib /Library/Frameworks/R.framework/Resources/lib/libRlapack.dylib
-      fi
       Rscript -e "install.packages(c('littler', 'pacman', 'tidyverse', 'vegan', 'renv'), dependencies = TRUE)"
       ;;
     7)
