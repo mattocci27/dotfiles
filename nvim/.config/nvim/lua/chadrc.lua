@@ -5,8 +5,8 @@
 local M = {}
 
 M.base46 = {
-  theme = "aquarium",
-  -- theme_toggle = { "aquarium", "one_light" },
+  theme = "gruvbox",
+  -- theme_toggle = { "gruvbox", "one_light" },
   -- hl_override = highlights.override,
   -- hl_add = require"hl",
   transparency = true
