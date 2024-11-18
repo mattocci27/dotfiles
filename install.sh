@@ -6,6 +6,19 @@ command -v stow >/dev/null 2>&1 || { echo "stow command not found. Exiting."; ex
 
 DOT_DIRECTORY="${HOME}/dotfiles"
 
+# Function to handle conflicts
+backup_and_remove_conflict() {
+    local file="$1"
+    local backup_dir="${HOME}/dotfiles_backup"
+
+    mkdir -p "$backup_dir"
+
+    if [ -f "$file" ] && [ ! -L "$file" ]; then
+        echo "Backing up conflicting file: $file"
+        mv "$file" "$backup_dir"
+    fi
+}
+
 # Iterate over directories and use stow to manage symlinks
 for dir in "$DOT_DIRECTORY"/*/; do
     dir_base=$(basename "$dir")
@@ -18,10 +31,8 @@ for dir in "$DOT_DIRECTORY"/*/; do
     echo "~ Installing :: $dir_base"
 
     # Check for potential conflicts before removing
-    for file in $(stow --dir "$DOT_DIRECTORY" --target "$HOME"  "$dir_base" | grep "^LINK:" | awk '{print $2}'); do
-        if [ -f "$HOME/$file" ] && [ ! -L "$HOME/$file" ]; then
-            echo "Potential conflict: $HOME/$file already exists and is not a symlink"
-        fi
+    stow --dir "$DOT_DIRECTORY" --target "$HOME" --no 2>/dev/null "$dir_base" | grep "^LINK:" | awk '{print $2}' | while read -r file; do
+        backup_and_remove_conflict "$HOME/$file"
     done
 
     # Remove previous symlinks
