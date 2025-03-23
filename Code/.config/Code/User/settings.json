@@ -62,7 +62,7 @@
   "editor.lineNumbers": "on",
   "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
   "workbench.colorTheme": "Gruvbox Dark Soft",
-  "r.rpath.linux": "/usr/bin/R",
+  "r.rpath.linux": "/usr/local/bin/R",
   "r.rterm.linux": "/opt/venv/bin/radian",
   "r.rpath.mac": "/usr/local/bin/R",
   "r.rterm.mac": "/Users/mattocci/.pyenv/shims/radian",
@@ -1126,7 +1126,7 @@
   "dotfiles.repository": "https://github.com/mattocci27/dotfiles.git",
   "dotfiles.targetPath": "~/dotfiles",
   "dotfiles.installCommand": "install.sh",
-  "bitoAI.codeCompletion.enableAutoCompletion": true,
+  "bitoAI.codeCompletion.enableAutoCompletion": false,
   "bitoAI.codeCompletion.enableCommentToCode": true,
   "editor.inlineSuggest.showToolbar": "always",
   "remote.autoForwardPortsSource": "hybrid",
@@ -1141,21 +1141,13 @@
       "command": "vscode-neovim.escape"
     }
   },
-  "vscode-neovim.compositeKeys": {
-    "jk": {
-      "command": "vscode-neovim.lua",
-      "args": [
-        "vim.api.nvim_input('<ESC>')\nrequire('vscode-neovim').action('workbench.action.files.save')"
-      ]
-    }
-  },
   "github.copilot.editor.enableAutoCompletions": true,
   "quarto.render.rPackageOutputDirectory": false,
-  "zenMode.hideLineNumbers": false,
   "cSpell.enableFiletypes": [
     "md",
     "qmd",
     "quarto"
   ],
-  "r.plot.useHttpgd": true
+  "r.plot.useHttpgd": true,
+  "zenMode.hideLineNumbers": false
 }

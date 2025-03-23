@@ -21,3 +21,6 @@ if [ `uname` = "Darwin" ]; then
   fi
 
 fi
+
+# Added by `rbenv init` on Fri Nov 22 17:40:10 CST 2024
+eval "$(rbenv init - --no-rehash zsh)"
