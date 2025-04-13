@@ -1,6 +1,7 @@
 -- Options table for key mappings
 local opts = { noremap = true, silent = true }
 
+      
 -- Set timeout length to 500ms for leader key sequences
 vim.opt.timeoutlen = 300
 
@@ -18,11 +19,9 @@ vim.cmd('nmap <leader>c :e ~/dotfiles/nvim/.config/nvim/init.lua<cr>')
 
 -- Clipboard settings to allow Neovim to use the system clipboard
 vim.opt.clipboard = 'unnamedplus'
-
 -- Search settings to make searches case-insensitive unless they contain uppercase letters
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
-
 
 -- Key mapping to clear search highljghting using the leader key followed by 'n'
 vim.keymap.set('n', '<leader>n', ':nohlsearch<CR>', opts)
