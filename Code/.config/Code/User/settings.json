@@ -1126,7 +1126,7 @@
   "dotfiles.repository": "https://github.com/mattocci27/dotfiles.git",
   "dotfiles.targetPath": "~/dotfiles",
   "dotfiles.installCommand": "install.sh",
-  "bitoAI.codeCompletion.enableAutoCompletion": true,
+  "bitoAI.codeCompletion.enableAutoCompletion": false,
   "bitoAI.codeCompletion.enableCommentToCode": true,
   "editor.inlineSuggest.showToolbar": "always",
   "remote.autoForwardPortsSource": "hybrid",
