@@ -1149,5 +1149,6 @@
     "quarto"
   ],
   "r.plot.useHttpgd": true,
-  "zenMode.hideLineNumbers": false
+  "zenMode.hideLineNumbers": false,
+  "diffEditor.ignoreTrimWhitespace": false
 }
