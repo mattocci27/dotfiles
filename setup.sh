@@ -89,10 +89,10 @@ menu() {
     5)
       if ! command -v pyenv &> /dev/null; then
         curl https://pyenv.run | bash
-        pyenv install 3.12.2
-        pyenv global 3.12.2
-        pip install -U radian
-        pip install pynvim
+        pyenv install 3.12.5
+        pyenv global 3.12.5
+        pip install --upgrade pip
+        pip install -U radian pynvim
       else
         echo "pyenv is already installed."
       fi

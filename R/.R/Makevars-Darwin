@@ -2,17 +2,3 @@ FC  = /opt/homebrew/bin/gfortran
 F77 = /opt/homebrew/bin/gfortran
 FLIBS = -L/opt/homebrew/opt/gcc/lib/gcc/current -lgfortran -lquadmath
 
-
-#CXX14FLAGS=-O3 -mtune=native -Wno-unused-variable -Wno-unused-function
-#CC=clang -arch arm64
-#CXX=clang++ -arch arm64 -ftemplate-depth-256 -std=gnu++11
-#OBJCXX = clang++
-#
-## Added Fortran configurations
-#FC=/opt/homebrew/bin/gfortran
-#FLIBS=-L/opt/homebrew/Cellar/gcc/14.1.0_2/lib/gcc/14 -lgfortran -lquadmath -lm
-#LDFLAGS=-L/opt/homebrew/Cellar/gcc/14.1.0_2/lib/gcc/14 -L/opt/homebrew/opt/gettext/lib -L/opt/homebrew/lib
-#
-## Add GLPK include and library paths
-#CFLAGS+=-I/opt/homebrew/include
-#CXXFLAGS+=-I/opt/homebrew/include
