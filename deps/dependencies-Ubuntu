@@ -24,7 +24,7 @@ sudo apt install -y xsel \
   nodejs \
   stow \
   bat \
-  exa \
+  eza \
   apptainer \
   openssh-server \
   pipx
