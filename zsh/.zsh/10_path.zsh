@@ -38,7 +38,7 @@ elif [[ "$(uname)" == "Linux" ]]; then
     add_to_path "$HOME/bin"
     add_to_path "$HOME/quarto-cli/package/distbin/quarto"
     add_to_path "$HOME/.cargo/bin"
-    add_to_path "$HOME/$NVM_DIR/versions/node/v22.20.0/bin"
+    add_to_path "$NVM_DIR/versions/node/v22.20.0/bin"
     if [[ "$(lsb_release -si)" == "microsoft" ]]; then
         # Configuration for WSL2
         export DISPLAY="$(awk '/nameserver/ {print $2}' /etc/resolv.conf):0"
