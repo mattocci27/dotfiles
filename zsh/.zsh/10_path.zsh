@@ -38,7 +38,11 @@ elif [[ "$(uname)" == "Linux" ]]; then
     add_to_path "$HOME/bin"
     add_to_path "$HOME/quarto-cli/package/distbin/quarto"
     add_to_path "$HOME/.cargo/bin"
-    add_to_path "$NVM_DIR/versions/node/v22.20.0/bin"
+    if [[ -n "$NVM_DIR" && -d "$NVM_DIR/versions/node" ]]; then
+        # Use the newest installed Node.js version managed by nvm.
+        node_bin="$(command ls -1d "$NVM_DIR"/versions/node/v*/bin 2>/dev/null | sort -V | tail -n 1)"
+        [[ -n "$node_bin" ]] && add_to_path "$node_bin"
+    fi
     if [[ "$(lsb_release -si)" == "microsoft" ]]; then
         # Configuration for WSL2
         export DISPLAY="$(awk '/nameserver/ {print $2}' /etc/resolv.conf):0"
