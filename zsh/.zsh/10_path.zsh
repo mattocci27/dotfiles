@@ -30,7 +30,19 @@ if [[ "$(uname)" == "Darwin" ]]; then
     add_to_path "$HOME/context/tex/texmf-osx-arm64/bin"
     add_to_path "$HOME/Dropbox/src/github.com/ranger/ranger"
     add_to_path "/opt/homebrew/bin:$PATH"
-    export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
+    if command -v brew >/dev/null 2>&1 && brew_prefix="$(brew --prefix 2>/dev/null)"; then
+        for openssl_dir in \
+            "$brew_prefix/opt/openssl@3" \
+            "$brew_prefix/opt/openssl@3.0" \
+            "$brew_prefix/opt/openssl" \
+            "$brew_prefix/opt/openssl@1.1"
+        do
+            if [[ -d "$openssl_dir" ]]; then
+                export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$openssl_dir"
+                break
+            fi
+        done
+    fi
 elif [[ "$(uname)" == "Linux" ]]; then
     add_to_path "$HOME/.config/i3"
     add_to_path "/usr/local/go/bin"
