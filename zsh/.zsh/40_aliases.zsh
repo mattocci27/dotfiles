@@ -31,6 +31,7 @@ alias gd='cd $HOME/GDrive'
 alias db='cd $HOME/Dropbox'
 alias sb="cd \$SECOND_BRAIN"
 alias in="cd \$SECOND_BRAIN/0-Inbox/"
+alias ms="$HOME/Dropbox/2-Areas/Research/MS/"
 
 alias fp="fzf --preview 'bat --style=numbers --color=always --line-range :500 {}'"
 # search for a file with fzf and open it in vim
