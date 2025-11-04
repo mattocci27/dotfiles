@@ -29,7 +29,8 @@ if [[ "$(uname)" == "Darwin" ]]; then
     add_to_path "$HOME/Library/TinyTeX/bin/universal-darwin"
     add_to_path "$HOME/context/tex/texmf-osx-arm64/bin"
     add_to_path "$HOME/Dropbox/src/github.com/ranger/ranger"
-    add_to_path "/opt/homebrew/bin:$PATH"
+    add_to_path "/opt/podman/bin"
+    add_to_path "/opt/homebrew/bin"
     if command -v brew >/dev/null 2>&1 && brew_prefix="$(brew --prefix 2>/dev/null)"; then
         for openssl_dir in \
             "$brew_prefix/opt/openssl@3" \
@@ -49,7 +50,6 @@ elif [[ "$(uname)" == "Linux" ]]; then
     add_to_path "/opt/venv/bin"
     add_to_path "$HOME/bin"
     add_to_path "$HOME/quarto-cli/package/distbin/quarto"
-    add_to_path "$HOME/.cargo/bin"
     if [[ -n "$NVM_DIR" && -d "$NVM_DIR/versions/node" ]]; then
         # Use the newest installed Node.js version managed by nvm.
         node_bin="$(command ls -1d "$NVM_DIR"/versions/node/v*/bin 2>/dev/null | sort -V | tail -n 1)"
