@@ -37,3 +37,12 @@ fi
 # for docker
 export HOST_UID=$(id -u)
 export HOST_GID=$(id -g)
+
+# proxy
+if [[ "$(uname -s)" == "Linux" ]]; then
+  export HTTP_PROXY="${HTTP_PROXY:-http://127.0.0.1:18089}"
+  export HTTPS_PROXY="${HTTPS_PROXY:-http://127.0.0.1:18089}"
+  export NO_PROXY="${NO_PROXY:-localhost,127.0.0.1,::1}"
+fi
+
+

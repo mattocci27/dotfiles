@@ -20,6 +20,7 @@
   "git.autofetch": true,
   "vscode-neovim.neovimExecutablePaths.linux": "/usr/bin/nvim",
   "vscode-neovim.neovimExecutablePaths.darwin": "/opt/homebrew/bin/nvim",
+  "dev.containers.dockerPath": "podman",
   "cSpell.enabledLanguageIds": [
     "asciidoc",
     "c",
