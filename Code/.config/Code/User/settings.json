@@ -1151,5 +1151,6 @@
   ],
   "r.plot.useHttpgd": true,
   "zenMode.hideLineNumbers": false,
-  "diffEditor.ignoreTrimWhitespace": false
+  "diffEditor.ignoreTrimWhitespace": false,
+  "dev.containers.cacheVolume": false
 }
