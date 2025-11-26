@@ -8,6 +8,13 @@ return {
     end,
   },
   {
+  "ybian/smartim",
+  event = "InsertEnter",
+  config = function()
+    vim.g.smartim_default = "com.apple.keylayout.ABC"
+  end,
+  },
+  {
     "neovim/nvim-lspconfig",
     config = function()
       require("nvchad.configs.lspconfig").defaults()
