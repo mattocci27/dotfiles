@@ -17,8 +17,8 @@ if (os_info == "Linux" && os_release == "22.04") {
   options(repos = c(CRAN = "https://packagemanager.posit.co/cran/__linux__/jammy/latest"))
   } else if (os_info == "Darwin") {
   options(
-    repos   = c(CRAN = "https://cran.r-project.org"),  # use CRAN for Mac binaries
-    pkgType = "mac.binary.arm64"                       # prefer ARM binaries on Apple Silicon
+    repos = c(CRAN = "https://cloud.r-project.org"), # Use the global CDN
+    pkgType = "mac.binary.big-sur-arm64"             # Use the more specific binary type
   )
 } else if (os_info == "Windows") {
   options(repos = c(CRAN = "https://packagemanager.posit.co/cran/latest"))
