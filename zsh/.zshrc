@@ -48,3 +48,7 @@ set_fzf_history_widget_keybinding() {
   bindkey '^x' fzf-cdr
   bindkey '^f' fzf-z-search
 }
+
+# Added by flyctl installer
+export FLYCTL_INSTALL="/Users/mattocci/.fly"
+export PATH="$FLYCTL_INSTALL/bin:$PATH"
