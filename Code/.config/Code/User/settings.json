@@ -20,7 +20,6 @@
   "git.autofetch": true,
   "vscode-neovim.neovimExecutablePaths.linux": "/usr/bin/nvim",
   "vscode-neovim.neovimExecutablePaths.darwin": "/opt/homebrew/bin/nvim",
-  "dev.containers.dockerPath": "podman",
   "cSpell.enabledLanguageIds": [
     "asciidoc",
     "c",
@@ -1152,5 +1151,10 @@
   "r.plot.useHttpgd": true,
   "zenMode.hideLineNumbers": false,
   "diffEditor.ignoreTrimWhitespace": false,
-  "dev.containers.cacheVolume": false
+  "dev.containers.cacheVolume": false,
+  "geminicodeassist.project": "boxwood-sky-z4p9v",
+  "geminicodeassist.displayInlineContextHint": false,
+  "r.lsp.multiServer": false,
+  "diffEditor.codeLens": true,
+  "claudeCode.preferredLocation": "panel"
 }
