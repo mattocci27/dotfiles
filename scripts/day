@@ -1,44 +1,51 @@
 #!/bin/bash
 
+# Date setup (Assuming macOS with coreutils/gdate)
 today=$(date +"%Y-%m-%d")
 tomorrow=$(gdate -d "tomorrow" '+%Y-%m-%d')
 yesterday=$(gdate -d "yesterday" '+%Y-%m-%d')
-file="$SECOND_BRAIN"'/8-Daily Notes/'$(date +"%Y-%m-%d").md
+
+# Path setup
+note_dir="$SECOND_BRAIN/8-Daily Notes"
+file="$note_dir/$today.md"
+
+# Create directory if it doesn't exist (safety check)
+mkdir -p "$note_dir"
 
 cd "$SECOND_BRAIN" || exit
 
+# Function to generate the template
 new_note() {
 	touch "$file"
 
-	# Format the file with the daily template
+	# Writing the template to the file
 	cat <<EOF >"$file"
 # $today
 
 [[$yesterday]] - [[$tomorrow]]
 
-## Intention
+## 🛠 Check
+- [ ] Workout
+- [ ] Paper / Study
 
-What do I want to achieve today and tomorrow?
+## 🥃 Eat / Drink
+- 
 
-## Tracking
-
-- [ ] Kettle Bell
-- [ ] Vitamin D
-
-## Log
+## 📝 Work & Log
 EOF
-
 }
 
-# If the daily note does not exist, create a new one.
-# this uses the test command with the -f flag.
+# --- Main Logic ---
+
+# Only execute creation logic if the file does NOT exist
 if [ ! -f "$file" ]; then
-	echo "File does not exist, creating new daily note."
+	echo "Creating new daily note: $file"
 	new_note
 fi
 
-# Open the daily note at the bottom of the file in insert mode and run NoNeckPain to make it center
-nvim '+ normal Gzzo' "$file" -c :NoNeckPain
-
-
-
+# Open nvim (This runs regardless of whether the file is new or old)
+# G: Go to end of file
+# zz: Center screen
+# o: Open new line below and enter Insert mode
+echo "Opening note: $file"
+nvim '+normal Gzzo' "$file" -c :NoNeckPain
