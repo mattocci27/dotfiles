@@ -1,6 +1,6 @@
-# load the path file# Load the path files
-for file in $HOME/dotfiles/zsh/.zsh/*.zsh; do
-  source $file
+# Load zsh fragments in lexical order
+for file in "$HOME/dotfiles/zsh/.zsh/"*.zsh(.N); do
+  source "$file"
 done
 
 # Zinit installation check
@@ -28,8 +28,10 @@ zinit light-mode for \
 zinit light zsh-users/zsh-autosuggestions
 zinit light zdharma-continuum/fast-syntax-highlighting
 zinit light zsh-users/zsh-completions
-zinit light jeffreytse/zsh-vi-mode
+
+# Must come before loading plugin
 ZVM_VI_INSERT_ESCAPE_BINDKEY=jj
+zinit light jeffreytse/zsh-vi-mode
 
 # Pure theme and settings
 PURE_CMD_MAX_EXEC_TIME=10
@@ -40,7 +42,6 @@ zinit light sindresorhus/pure
 eval "$(zoxide init zsh)"
 
 # Keybindings
-add-zsh-hook precmd set_fzf_history_widget_keybinding
 set_fzf_history_widget_keybinding() {
   bindkey '^R' fzf-history-widget
   bindkey '^t' fzf-tmux
@@ -48,7 +49,8 @@ set_fzf_history_widget_keybinding() {
   bindkey '^x' fzf-cdr
   bindkey '^f' fzf-z-search
 }
+add-zsh-hook precmd set_fzf_history_widget_keybinding
 
 # Added by flyctl installer
-export FLYCTL_INSTALL="/Users/mattocci/.fly"
+export FLYCTL_INSTALL="$HOME/.fly"
 export PATH="$FLYCTL_INSTALL/bin:$PATH"

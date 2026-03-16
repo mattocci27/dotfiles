@@ -46,7 +46,7 @@ alias -g L='| less'
 alias -g G='| grep'
 
 # Editor and file manager shortcuts
-alias v='vim'
+alias v='nvim'
 
 # Open files with the default application (Linux-specific)
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
@@ -65,8 +65,8 @@ elif command -v putclip >/dev/null 2>&1; then
   alias -g C='| putclip'
 fi
 
-# ghq
-alias gh='hub browse $(ghq list | peco | cut -d "/" -f 2,3)'
+# ghq — keep official gh CLI intact
+alias ghbrowse='hub browse $(ghq list | peco | cut -d "/" -f 2,3)'
 
 if [ "$(uname)" = "Darwin" ]; then
     alias ghq='export GHQ_ROOT=$HOME/Dropbox/5-Tools/ghq; command ghq'

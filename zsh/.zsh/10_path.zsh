@@ -1,8 +1,9 @@
 # Reset PATH to a base value at the beginning of the script
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 
-# Function to add a directory to PATH if it's not already included
+# Function to add a directory to PATH if it exists and is not already included
 add_to_path() {
+    [[ -d "$1" ]] || return 0
     case ":$PATH:" in
         *":$1:"*) ;; # If path is already in PATH, do nothing
         *) export PATH="$1:$PATH" ;; # Otherwise, add it to the beginning of PATH
@@ -12,7 +13,6 @@ add_to_path() {
 # Base PATH modifications
 add_to_path "$HOME/.local/bin"
 add_to_path "$HOME/.cargo/bin"
-add_to_path "$HOME/.gem/ruby/2.7.0/bin"
 add_to_path "$HOME/.dotnet/tools"
 add_to_path "$HOME/dotfiles/scripts"
 add_to_path "$HOME/go/bin"
@@ -20,9 +20,7 @@ add_to_path "$HOME/go/bin"
 
 # Conditional configurations for Darwin (macOS)
 if [[ "$(uname)" == "Darwin" ]]; then
-    add_to_path "/usr/local/opt"
     add_to_path "/usr/local/opt/avr-gcc@8/bin"
-    add_to_path "/opt/yarn-v1.22.4/bin"
     add_to_path "$HOME/.juliaup/bin"
     add_to_path "/usr/local/opt/openjdk/bin"
     add_to_path "$HOME/bin/context/tex/texmf-osx-arm64/bin"

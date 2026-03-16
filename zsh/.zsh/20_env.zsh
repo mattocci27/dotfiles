@@ -1,3 +1,7 @@
+# OS helpers (available to all files loaded after this one)
+is_mac()   { [[ "$(uname -s)" == "Darwin" ]]; }
+is_linux() { [[ "$(uname -s)" == "Linux"  ]]; }
+
 # locale
 # without this, tmux does not recognize some fonts
 export LANG=en_US.UTF-8
@@ -6,17 +10,8 @@ export LC_ALL=en_US.UTF-8
 export SECOND_BRAIN="$HOME/Documents/Second Brain"
 
 # default editor
-VISUAL=nvim; export VISUAL EDITOR=nvim; export EDITOR
-
-# Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vi'
-else
-  export EDITOR='nvim'
-fi
-
-# for ssh
-export DISPLAY=localhost:0.0
+export VISUAL='nvim'
+export EDITOR='nvim'
 
 # pyenv
 if command -v pyenv 1>/dev/null 2>&1; then
@@ -30,8 +25,8 @@ fi
 if which rbenv >/dev/null 2>&1; then eval "$(rbenv init -)"; fi
 
 # Set RENV_PATHS_CACHE for Linux systems
-if [[ "$(uname -s)" == "Linux" ]]; then
-  export RENV_PATHS_CACHE="$HOME/renv"
+if is_linux; then
+  export RENV_PATHS_CACHE="$HOME/.cache/R/renv"
 fi
 
 # for docker

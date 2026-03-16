@@ -92,11 +92,8 @@ update-x11-forwarding() {
   fi
 }
 
-preexec() {
-  [[ "$BASH_COMMAND" == "$PROMPT_COMMAND" ]] && return
-  update-x11-forwarding
-}
-trap 'preexec' DEBUG
+autoload -Uz add-zsh-hook
+add-zsh-hook preexec update-x11-forwarding
 
 # Search directories with enhanced sorting using fzf
 fzf-z-search() {
