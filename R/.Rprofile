@@ -1,36 +1,39 @@
-# Get the operating system information
-os_info <- Sys.info()["sysname"]
-
-if (os_info == "Linux") {
-  distro_info <- system("cat /etc/os-release", intern = TRUE)
-
-  # Extract the version_id from distro_info
-  version_line <- distro_info[grep("^VERSION_ID", distro_info)]
-
-  if (length(version_line) > 0) {
-    os_release <- sub(".*=\"?([^\"]*)\"?", "\\1", version_line)
+## ---- OS detection ------------------------------------------------------
+os <- Sys.info()[["sysname"]]
+## ---- Repository settings -----------------------------------------------
+if (identical(os, "Linux") && file.exists("/etc/os-release")) {
+  os_release <- NA_character_
+  distro <- readLines("/etc/os-release", warn = FALSE)
+  version_line <- distro[grep("^VERSION_ID=", distro)]
+  if (length(version_line)) {
+    os_release <- sub('^VERSION_ID="?([^"]*)"?$', "\\1", version_line)
   }
-}
-
-# Set CRAN repository and package type based on OS
-if (os_info == "Linux" && os_release == "22.04") {
-  options(repos = c(CRAN = "https://packagemanager.posit.co/cran/__linux__/jammy/latest"))
-  } else if (os_info == "Darwin") {
+  if (identical(os_release, "24.04")) {
+    options(
+      repos = c(CRAN = "https://packagemanager.posit.co/cran/__linux__/noble/latest")
+    )
+  } else {
+    options(
+      repos = c(CRAN = "https://cloud.r-project.org")
+    )
+  }
+} else if (identical(os, "Darwin")) {
   options(
-    repos = c(CRAN = "https://cloud.r-project.org"), # Use the global CDN
-    pkgType = "mac.binary.big-sur-arm64"             # Use the more specific binary type
+    repos = c(CRAN = "https://cloud.r-project.org"),
+    pkgType = "mac.binary.big-sur-arm64",
+    install.packages.compile.from.source = "never"
   )
-} else if (os_info == "Windows") {
-  options(repos = c(CRAN = "https://packagemanager.posit.co/cran/latest"))
+} else {
+  options(
+    repos = c(CRAN = "https://cloud.r-project.org")
+  )
 }
-
-# read packages
+## ---- General options ---------------------------------------------------
 options(
-  #defaultPackages=c(getOption("defaultPackages"),"tidyverse", "rmarkdown"),
   blogdown.generator = "jekyll",
   blogdown.method = "custom",
   blogdown.subdir = "assets"
 )
-
-# short cut for quit
-class(Q)=Q="no";print.no=q
+## ---- Quit shortcut -----------------------------------------------------
+Q <- structure("no", class = "no")
+print.no <- q
