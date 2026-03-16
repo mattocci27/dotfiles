@@ -1,6 +1,7 @@
 {
   "workbench.startupEditor": "newUntitledFile",
   "workbench.panel.defaultLocation": "bottom",
+  "workbench.colorTheme": "Gruvbox Dark Soft",
   "editor.fontFamily": "Cousine, 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
   "remote.SSH.useLocalServer": true,
   "files.trimTrailingWhitespace": true,
@@ -61,7 +62,6 @@
   "editor.cursorStyle": "line",
   "editor.lineNumbers": "on",
   "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
-  "workbench.colorTheme": "Gruvbox Dark Soft",
   "r.rpath.linux": "/usr/local/bin/R",
   "r.rterm.linux": "/opt/venv/bin/radian",
   "r.rpath.mac": "/usr/local/bin/R",
@@ -1111,7 +1111,6 @@
     "**/*.qmd"
   ],
   "chatgpt.chromiumPath": "/Applications/Brave Browser.app/Contents/MacOS/Brave Browser ",
-  "chatgpt.gpt3.apiKey": "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",
   "files.saveConflictResolution": "overwriteFileOnDisk",
   "[python]": {
     "editor.formatOnType": true
