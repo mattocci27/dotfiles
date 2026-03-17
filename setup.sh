@@ -44,8 +44,7 @@ menu() {
   echo "4) Install font"
   echo "5) Install Python stuffs"
   echo "6) Install R deps"
-  echo "7) Install NvChad"
-  echo "8) Install tmux plugin manager"
+  echo "7) Install tmux plugin manager"
   read -rp "Enter number: " menu_num
 
   case "$menu_num" in
@@ -71,9 +70,6 @@ menu() {
     install_r_deps
     ;;
   7)
-    install_nvchad
-    ;;
-  8)
     install_tpm
     ;;
   *)
@@ -155,8 +151,8 @@ install_python_stuff() {
 
   if command -v pyenv >/dev/null 2>&1; then
     eval "$(pyenv init -)"
-    pyenv install -s 3.14
-    pyenv shell 3.14
+    pyenv install -s 3.12
+    pyenv shell 3.12
 
     python -m pip install --upgrade pip pynvim
 
@@ -175,16 +171,6 @@ install_python_stuff() {
 
 install_r_deps() {
   Rscript -e "install.packages(c('littler', 'pak', 'pacman', 'tidyverse', 'vegan', 'renv'), dependencies = TRUE)"
-}
-
-install_nvchad() {
-  if [[ -d "$HOME/.config/nvim" ]]; then
-    echo "~/.config/nvim already exists. Skipping NvChad install."
-  else
-    echo "Installing NvChad..."
-    git clone https://github.com/NvChad/NvChad "$HOME/.config/nvim" --depth 1
-    echo "NvChad installed."
-  fi
 }
 
 install_tpm() {
