@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Repository Overview
 
-This is a personal dotfiles repository containing configuration files for development tools including R, Visual Studio Code, tmux, Neovim (NvChad), Zsh, Alacritty, and Ranger. The repository uses GNU Stow for managing symbolic links to create a unified dotfiles management system.
+This is a personal dotfiles repository containing configuration files for development tools including R, Visual Studio Code, tmux, Neovim (LazyVim), Zsh, Alacritty, and Radian. The repository uses GNU Stow for managing symbolic links to create a unified dotfiles management system.
 
 ## Setup and Installation Commands
 
@@ -40,10 +40,7 @@ pyenv install 3.12.2 && pyenv global 3.12.2
 pip install -U radian pynvim
 
 # Install R packages
-Rscript -e "install.packages(c('littler', 'pacman', 'tidyverse', 'vegan', 'renv'), dependencies = TRUE)"
-
-# Install NvChad
-git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1
+Rscript -e "install.packages(c('littler', 'pak', 'pacman', 'tidyverse', 'vegan', 'renv'), dependencies = TRUE)"
 
 # Install tmux plugin manager
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
@@ -57,12 +54,10 @@ The repository follows a stow-compatible directory structure where each top-leve
 - **alacritty/**: Terminal emulator configuration
 - **Code/**: VS Code settings, snippets, and user preferences
 - **git/**: Git configuration and aliases
-- **nvim/**: Neovim configuration files
+- **nvim/**: Neovim configuration files (LazyVim)
 - **R/**: R environment configuration and Makevars
 - **radian/**: Enhanced R console configuration
-- **ranger/**: File manager configuration  
 - **tmux/**: Terminal multiplexer configuration
-- **zellij/**: Modern terminal workspace configuration
 - **zsh/**: Zsh shell configuration and aliases
 
 ### Key Files
@@ -76,4 +71,4 @@ The repository follows a stow-compatible directory structure where each top-leve
 The repository uses GNU Stow to manage symbolic links. Each configuration directory is stowed to create symlinks in the user's home directory, allowing centralized management of dotfiles while maintaining the expected file locations for each application.
 
 ### Platform Support
-Supports macOS (Darwin), Ubuntu, and Manjaro Linux with platform-specific dependency files and installation procedures.
+Supports macOS (Darwin) and Ubuntu with platform-specific dependency files and installation procedures.

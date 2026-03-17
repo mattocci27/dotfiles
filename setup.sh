@@ -73,7 +73,7 @@ menu() {
     install_tpm
     ;;
   *)
-    echo "Invalid option. Please type a number from 0 to 8."
+    echo "Invalid option. Please type a number from 0 to 7."
     exit 1
     ;;
   esac
@@ -81,11 +81,6 @@ menu() {
 
 setup_mirrors() {
   case "$distro" in
-  manjaro)
-    sudo pacman-mirrors --country Japan,China,United_States
-    sudo pacman-mirrors --fasttrack
-    sudo pacman -Syyu
-    ;;
   ubuntu)
     # amd64 Ubuntu mirror setup
     if [[ -f /etc/apt/sources.list ]]; then

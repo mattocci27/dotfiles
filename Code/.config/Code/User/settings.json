@@ -73,7 +73,7 @@
   "latex-workshop.view.pdf.viewer": "tab",
   "vscode-neovim.neovimInitVimPaths.darwin": "$HOME/dotfiles/nvim/.config/init_vscode.lua",
   "vim.neovimUseConfigFile": true,
-  "vim.neovimConfigPath": " ~/.config/nvim/init.lua ",
+  "vim.neovimConfigPath": "~/.config/nvim/init.lua",
   "workbench.list.automaticKeyboardNavigation": false,
   "editor.inlineSuggest.enabled": true,
   "github.copilot.enable": {
@@ -232,7 +232,7 @@
         },
         {
           "key": "R",
-          "name": "Restart ebug",
+          "name": "Restart debug",
           "type": "command",
           "command": "workbench.action.debug.restart"
         },
@@ -1099,7 +1099,7 @@
   ],
   "julia.symbolCacheDownload": true,
   "julia.enableTelemetry": true,
-  "julia.executablePath": "/Applications/Julia-1.7.app/Contents/Resources/julia/bin//julia",
+  "julia.executablePath": "",
   "remote.SSH.enableDynamicForwarding": false,
   "http.proxyStrictSSL": false,
   "http.proxySupport": "off",
