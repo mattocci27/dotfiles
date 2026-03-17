@@ -9,11 +9,11 @@ set -e
 export DOTFILES=$(pwd -P)
 TARGET=$HOME
 rm -f "${TARGET}/.DS_Store"
-rm -rf $HOME/.config/nvim/lua 
+rm -rf $HOME/.config/nvim/lua
 
 # List of packages that has to installed via `stow`
 DOTFILES_DIRS=$(ls -d $DOTFILES/*/ | grep -v tests \
-  | grep -v deps | grep -v fonts | grep -v nvim | awk -F "/" '{ print $(NF-1) }')
+  | grep -v deps | grep -v fonts | awk -F "/" '{ print $(NF-1) }')
 
 for F in $DOTFILES_DIRS ; do
     echo "~ Installing :: $F"
@@ -28,7 +28,8 @@ for F in $DOTFILES_DIRS ; do
 done
 
 # Create symbolic link for the custom NvChad configurations
-ln -sfn $DOTFILES/nvim/.config/nvim/lua $HOME/.config/nvim/lua
+# ln -sfn $DOTFILES/nvim/.config/nvim/lua $HOME/.config/nvim/lua
+# ln -sfn $DOTFILES/nvim/.config/nvim $HOME/.config/nvim
 
 # VSCODE config is in Library for mac
 distro=$(uname)

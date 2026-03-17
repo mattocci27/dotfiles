@@ -1,47 +1,5 @@
 return {
   {
-    "stevearc/conform.nvim",
-    -- Uncomment to enable format on save
-    -- event = 'BufWritePre',
-    config = function()
-      require "configs.conform"
-    end,
-  },
-  {
-  "ybian/smartim",
-  event = "InsertEnter",
-  config = function()
-    vim.g.smartim_default = "com.apple.keylayout.ABC"
-  end,
-  },
-  {
-    "neovim/nvim-lspconfig",
-    config = function()
-      require("nvchad.configs.lspconfig").defaults()
-      require "configs.lspconfig"
-    end,
-  },
-  {
-    "williamboman/mason.nvim",
-    opts = {
-      ensure_installed = {
-        "lua-language-server",
-        "stylua",
-        "html-lsp",
-        "css-lsp",
-        "prettier",
-      },
-    },
-  },
-  {
-    "nvim-treesitter/nvim-treesitter",
-    opts = {
-      ensure_installed = {
-        "vim", "lua", "vimdoc", "html", "css",
-      },
-    },
-  },
-  {
     "ojroques/nvim-osc52",
     keys = {
       {
@@ -128,28 +86,5 @@ return {
         },
       },
     },
-  },
-  {
-    "nvim-lua/plenary.nvim",
-  },
-  {
-    "nvchad/ui",
-    config = function()
-      require "nvchad"
-    end,
-  },
-  {
-    "nvchad/base46",
-    lazy = true,
-    build = function()
-      require("base46").load_all_highlights()
-    end,
-  },
-  {
-    "nvchad/volt",
-    lazy = true,
-  },
-  {
-    "williamboman/mason.nvim",
   },
 }

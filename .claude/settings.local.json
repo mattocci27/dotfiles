@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(nvim --headless -c \"lua print\\(pcall\\(require, ''no-neck-pain''\\)\\)\" -c \"q\")",
+      "Bash(git -C ~/.config/nvim remote -v)",
+      "Bash(nvim --headless -c \"NoNeckPain\" -c \"sleep 1\" -c \"q\")"
+    ]
+  }
+}
