@@ -9,7 +9,7 @@ set -e
 export DOTFILES=$(pwd -P)
 TARGET=$HOME
 rm -f "${TARGET}/.DS_Store"
-rm -rf $HOME/.config/nvim/lua
+# rm -rf $HOME/.config/nvim/lua
 
 # List of packages that has to installed via `stow`
 DOTFILES_DIRS=$(ls -d $DOTFILES/*/ | grep -v tests \
