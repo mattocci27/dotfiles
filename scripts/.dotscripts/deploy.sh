@@ -25,9 +25,9 @@ for F in $DOTFILES_DIRS; do
   stow --dotfiles --dir "$DOTFILES" --target "$TARGET" "$F"
 done
 
-distro="$(uname)"
+distro=$(uname -s | tr '[:upper:]' '[:lower:]')
 
-if [ "$distro" = "Darwin" ]; then
+if [ "$distro" = "darwin" ]; then
   mkdir -p "$HOME/Library/Application Support/Code/User/snippets"
   mkdir -p "$HOME/.R"
 
@@ -41,11 +41,11 @@ if [ "$distro" = "Darwin" ]; then
     ln -snf "$f" "$HOME/Library/Application Support/Code/User/"
   done
 
-  cp "$DOTFILES/R/.R/Makevars-Darwin" "$HOME/.R/Makevars"
+  cp "$DOTFILES/R/.R/makevars-darwin" "$HOME/.R/Makevars"
 
-elif [ "$distro" = "Linux" ]; then
+elif [ "$distro" = "linux" ]; then
   mkdir -p "$HOME/.R"
-  cp "$DOTFILES/R/.R/Makevars-Linux" "$HOME/.R/Makevars"
+  cp "$DOTFILES/R/.R/makevars-linux" "$HOME/.R/Makevars"
 fi
 
 echo "stow done"
