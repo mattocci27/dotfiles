@@ -1,44 +1,51 @@
-#!/bin/bash
-# https://github.com/numToStr/dotfiles/blob/master/scripts/.dotscripts/install
-set -e
+#!/usr/bin/env bash
+set -euo pipefail
 
-# Moving two directory upwards to the root of the dotfiles
-# from the scripts/ directory where this script
-#cd "$(dirname "$0")/../"
+DOTFILES="$(cd "$(dirname "$0")/../.." && pwd -P)"
+TARGET="$HOME"
 
-export DOTFILES=$(pwd -P)
-TARGET=$HOME
-rm -f "${TARGET}/.DS_Store"
-rm -rf $HOME/.config/nvim/lua 
+rm -f "$TARGET/.DS_Store"
 
-# List of packages that has to installed via `stow`
-DOTFILES_DIRS=$(ls -d $DOTFILES/*/ | grep -v tests \
-  | grep -v deps | grep -v fonts | grep -v nvim | awk -F "/" '{ print $(NF-1) }')
+# List directories to stow
+DOTFILES_DIRS=$(
+  find "$DOTFILES" -mindepth 1 -maxdepth 1 -type d \
+    ! -name tests \
+    ! -name deps \
+    ! -name fonts \
+    -exec basename {} \;
+)
 
-for F in $DOTFILES_DIRS ; do
-    echo "~ Installing :: $F"
+for F in $DOTFILES_DIRS; do
+  echo "~ Installing :: $F"
 
-    # Remove previous links
-    # NOTE: `stow` issues warning when working with absolute paths, so for now I am ignoring it
-    # GHI: https://github.com/aspiers/stow/issues/65
-    stow -D --dotfiles --dir $DOTFILES --target $TARGET $F 2>/dev/null
+  # Remove previous links
+  stow -D --dotfiles --dir "$DOTFILES" --target "$TARGET" "$F" 2>/dev/null || true
 
-    # Installed new links
-    stow --dotfiles --dir $DOTFILES --target $TARGET $F
+  # Install new links
+  stow --dotfiles --dir "$DOTFILES" --target "$TARGET" "$F"
 done
 
-# Create symbolic link for the custom NvChad configurations
-ln -sfn $DOTFILES/nvim/.config/nvim/lua $HOME/.config/nvim/lua
+distro=$(uname -s | tr '[:upper:]' '[:lower:]')
 
-# VSCODE config is in Library for mac
-distro=$(uname)
+if [ "$distro" = "darwin" ]; then
+  mkdir -p "$HOME/Library/Application Support/Code/User/snippets"
+  mkdir -p "$HOME/.R"
 
-if [ $distro = "Darwin" ]; then
-  ln -snf ${DOTFILES}/Code/.config/Code/User/snippets/* ${HOME}/Library/Application\ Support/Code/User/snippets/
-  ln -snf ${DOTFILES}/Code/.config/Code/User/*.json ${HOME}/Library/Application\ Support/Code/User/
-  cp ${DOTFILES}/R/.R/Makevars-Darwin $HOME/.R/Makevars
-elif [ $distro = "Linux" ]; then
-  cp ${DOTFILES}/R/.R/Makevars-Linux $HOME/.R/Makevars
+  for f in "$DOTFILES"/Code/.config/Code/User/snippets/*; do
+    [ -e "$f" ] || continue
+    ln -snf "$f" "$HOME/Library/Application Support/Code/User/snippets/"
+  done
+
+  for f in "$DOTFILES"/Code/.config/Code/User/*.json; do
+    [ -e "$f" ] || continue
+    ln -snf "$f" "$HOME/Library/Application Support/Code/User/"
+  done
+
+  cp "$DOTFILES/R/.R/makevars-darwin" "$HOME/.R/Makevars"
+
+elif [ "$distro" = "linux" ]; then
+  mkdir -p "$HOME/.R"
+  cp "$DOTFILES/R/.R/makevars-linux" "$HOME/.R/Makevars"
 fi
 
 echo "stow done"

@@ -11,10 +11,10 @@ fi
 # ------------------------------------------------------------------
 # Determine OS / distro
 # ------------------------------------------------------------------
-os="$(uname -s)"
+os=$(uname -s | tr '[:upper:]' '[:lower:]')
 distro="$os"
 
-if [[ "$os" == "Linux" ]]; then
+if [[ "$os" == "linux" ]]; then
   if [[ -f /etc/os-release ]]; then
     . /etc/os-release
     distro="${ID:-linux}"
@@ -44,67 +44,58 @@ menu() {
   echo "4) Install font"
   echo "5) Install Python stuffs"
   echo "6) Install R deps"
-  echo "7) Install NvChad"
-  echo "8) Install tmux plugin manager"
+  echo "7) Install tmux plugin manager"
   read -rp "Enter number: " menu_num
 
   case "$menu_num" in
-    0)
-      setup_mirrors
-      ;;
-    1)
-      install_packages
-      ;;
-    2)
-      install_symlinks
-      ;;
-    3)
-      install_rust_deps
-      ;;
-    4)
-      install_fonts
-      ;;
-    5)
-      install_python_stuff
-      ;;
-    6)
-      install_r_deps
-      ;;
-    7)
-      install_nvchad
-      ;;
-    8)
-      install_tpm
-      ;;
-    *)
-      echo "Invalid option. Please type a number from 0 to 8."
-      exit 1
-      ;;
+  0)
+    setup_mirrors
+    ;;
+  1)
+    install_packages
+    ;;
+  2)
+    install_symlinks
+    ;;
+  3)
+    install_rust_deps
+    ;;
+  4)
+    install_fonts
+    ;;
+  5)
+    install_python_stuff
+    ;;
+  6)
+    install_r_deps
+    ;;
+  7)
+    install_tpm
+    ;;
+  *)
+    echo "Invalid option. Please type a number from 0 to 7."
+    exit 1
+    ;;
   esac
 }
 
 setup_mirrors() {
   case "$distro" in
-    manjaro)
-      sudo pacman-mirrors --country Japan,China,United_States
-      sudo pacman-mirrors --fasttrack
-      sudo pacman -Syyu
-      ;;
-    ubuntu)
-      # amd64 Ubuntu mirror setup
-      if [[ -f /etc/apt/sources.list ]]; then
-        sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak
-        CHINESE_MIRROR="https://mirrors.tuna.tsinghua.edu.cn/ubuntu/"
-        sudo sed -i "s|http://archive.ubuntu.com/ubuntu/|$CHINESE_MIRROR|g" /etc/apt/sources.list
-        sudo sed -i "s|http://security.ubuntu.com/ubuntu/|$CHINESE_MIRROR|g" /etc/apt/sources.list
-        echo "Updated /etc/apt/sources.list for Ubuntu amd64."
-      else
-        echo "/etc/apt/sources.list not found. Skipping mirror setup."
-      fi
-      ;;
-    *)
-      echo "No specific mirror actions defined for $distro"
-      ;;
+  ubuntu)
+    # amd64 Ubuntu mirror setup
+    if [[ -f /etc/apt/sources.list ]]; then
+      sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak
+      CHINESE_MIRROR="https://mirrors.tuna.tsinghua.edu.cn/ubuntu/"
+      sudo sed -i "s|http://archive.ubuntu.com/ubuntu/|$CHINESE_MIRROR|g" /etc/apt/sources.list
+      sudo sed -i "s|http://security.ubuntu.com/ubuntu/|$CHINESE_MIRROR|g" /etc/apt/sources.list
+      echo "Updated /etc/apt/sources.list for Ubuntu amd64."
+    else
+      echo "/etc/apt/sources.list not found. Skipping mirror setup."
+    fi
+    ;;
+  *)
+    echo "No specific mirror actions defined for $distro"
+    ;;
   esac
 }
 
@@ -135,10 +126,10 @@ install_fonts() {
     wget -P ./fonts/Cousine "$url"
   done
 
-  if [[ "$os" == "Darwin" ]]; then
+  if [[ "$os" == "darwin" ]]; then
     mkdir -p "$HOME/Library/Fonts"
     cp -f ./fonts/Cousine/* "$HOME/Library/Fonts/"
-  elif [[ "$os" == "Linux" ]]; then
+  elif [[ "$os" == "linux" ]]; then
     sudo mkdir -p /usr/share/fonts/Cousine
     sudo cp -f ./fonts/Cousine/* /usr/share/fonts/Cousine/
     fc-cache -vf
@@ -155,10 +146,18 @@ install_python_stuff() {
 
   if command -v pyenv >/dev/null 2>&1; then
     eval "$(pyenv init -)"
-    pyenv install -s 3.12.5
-    pyenv global 3.12.5
-    python -m pip install --upgrade pip
-    python -m pip install -U radian pynvim
+    pyenv install -s 3.12
+    pyenv shell 3.12
+
+    python -m pip install --upgrade pip pynvim
+
+    if ! command -v pipx >/dev/null 2>&1; then
+      echo "pipx is not installed. Install it first with Homebrew."
+      exit 1
+    fi
+
+    pipx ensurepath
+    pipx install --force radian
   else
     echo "pyenv installation seems incomplete. Restart shell and retry."
     exit 1
@@ -167,16 +166,6 @@ install_python_stuff() {
 
 install_r_deps() {
   Rscript -e "install.packages(c('littler', 'pak', 'pacman', 'tidyverse', 'vegan', 'renv'), dependencies = TRUE)"
-}
-
-install_nvchad() {
-  if [[ -d "$HOME/.config/nvim" ]]; then
-    echo "~/.config/nvim already exists. Skipping NvChad install."
-  else
-    echo "Installing NvChad..."
-    git clone https://github.com/NvChad/NvChad "$HOME/.config/nvim" --depth 1
-    echo "NvChad installed."
-  fi
 }
 
 install_tpm() {
