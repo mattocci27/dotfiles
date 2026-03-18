@@ -10,7 +10,6 @@ brew "bottom"
 brew "gettext"
 brew "cmake"
 brew "ripgrep"
-brew "codex"
 brew "coreutils"
 brew "zeromq"
 brew "eza"
@@ -60,12 +59,12 @@ brew "wget"
 brew "yarn"
 brew "zoxide"
 brew "zsh"
-brew "qmk/qmk/qmk"
 cask "alacritty"
 cask "arc"
 cask "brave-browser"
 cask "firefox"
 cask "chatgpt"
+cask "codex"
 cask "claude-code"
 cask "discord"
 cask "google-chrome"
@@ -102,7 +101,6 @@ mas "Gemini 2", id: 1090488118
 mas "Keynote", id: 361285480
 mas "LINE", id: 539883307
 mas "Mactracker", id: 430255202
-mas "Messenger", id: 1480068668
 mas "Microsoft Excel", id: 462058435
 mas "Microsoft PowerPoint", id: 462062816
 mas "Microsoft Word", id: 462054704
