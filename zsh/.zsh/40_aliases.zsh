@@ -27,8 +27,8 @@ alias mv='mv -i'
 
 
 # from mischavandenburg
-alias gd='cd $HOME/GDrive'
-alias db='cd $HOME/Dropbox'
+alias gd='cd $HOME/Cloud/GDrive'
+alias db='cd $HOME/Cloud/Dropbox'
 alias sb="cd \$SECOND_BRAIN"
 alias in="cd \$SECOND_BRAIN/0-Inbox/"
 alias ms="$HOME/Dropbox/2-Areas/Research/MS/"
@@ -68,6 +68,3 @@ fi
 # ghq — keep official gh CLI intact
 alias ghbrowse='hub browse $(ghq list | peco | cut -d "/" -f 2,3)'
 
-if [ "$(uname)" = "Darwin" ]; then
-    alias ghq='export GHQ_ROOT=$HOME/Dropbox/5-Tools/ghq; command ghq'
-fi

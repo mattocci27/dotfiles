@@ -45,6 +45,7 @@ menu() {
   echo "5) Install Python stuffs"
   echo "6) Install R deps"
   echo "7) Install tmux plugin manager"
+  echo "8) Setup cloud symlinks (macOS only)"
   read -rp "Enter number: " menu_num
 
   case "$menu_num" in
@@ -72,8 +73,11 @@ menu() {
   7)
     install_tpm
     ;;
+  8)
+    setup_cloud_symlinks
+    ;;
   *)
-    echo "Invalid option. Please type a number from 0 to 7."
+    echo "Invalid option. Please type a number from 0 to 8."
     exit 1
     ;;
   esac
@@ -166,6 +170,31 @@ install_python_stuff() {
 
 install_r_deps() {
   Rscript -e "install.packages(c('littler', 'pak', 'pacman', 'tidyverse', 'vegan', 'renv'), dependencies = TRUE)"
+}
+
+setup_cloud_symlinks() {
+  if [[ "$os" != "darwin" ]]; then
+    echo "Cloud symlinks setup is macOS only. Skipping."
+    return
+  fi
+
+  mkdir -p "$HOME/Cloud"
+
+  local gdrive="$HOME/Library/CloudStorage/GoogleDrive-mattocci27@gmail.com/My Drive"
+  if [[ -d "$gdrive" ]]; then
+    ln -sfn "$gdrive" "$HOME/Cloud/GDrive"
+    echo "Linked GDrive -> ~/Cloud/GDrive"
+  else
+    echo "Google Drive not found at: $gdrive"
+  fi
+
+  local dropbox="$HOME/Library/CloudStorage/Dropbox"
+  if [[ -d "$dropbox" ]]; then
+    ln -sfn "$dropbox" "$HOME/Cloud/Dropbox"
+    echo "Linked Dropbox -> ~/Cloud/Dropbox"
+  else
+    echo "Dropbox not found at: $dropbox"
+  fi
 }
 
 install_tpm() {

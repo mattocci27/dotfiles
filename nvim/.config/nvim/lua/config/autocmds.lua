@@ -42,3 +42,16 @@ local groups = {
 for _, group in ipairs(groups) do
   vim.api.nvim_set_hl(0, group, { bg = "none", ctermbg = "none" })
 end
+
+-- clean markdown
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "markdown", "quarto", "rmd" },
+  callback = function()
+    vim.opt_local.conceallevel = 0
+    vim.opt_local.spell = false
+
+    vim.api.nvim_set_hl(0, "@markup.strikethrough", {})
+    vim.api.nvim_set_hl(0, "@markup.strikethrough.markdown", {})
+    vim.api.nvim_set_hl(0, "@markup.strikethrough.markdown_inline", {})
+  end,
+})

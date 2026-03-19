@@ -37,14 +37,18 @@ export HOST_GID=$(id -g)
 OS_NAME=$(uname -s 2>/dev/null || echo unknown)
 IS_LINUX_CONTAINER=$([ -f /.dockerenv ] || [ -f /run/.containerenv ] && echo true || echo false)
 
+
 # Enable proxy if:
-#   • Host is Linux (HOST_PLATFORM=linux) AND container is Linux
-#   • OR we’re running directly on a Linux host (no container)
-if {
-     [ "${HOST_PLATFORM}" = "linux" ] && [ "${IS_LINUX_CONTAINER}" = "true" ]
-   } || {
-     [ "${OS_NAME}" = "Linux" ] && [ -z "${HOST_PLATFORM}" ]
-   }; then
+#   • Hostname is "big-nose" (only this machine should use proxy)
+#   • AND:
+#       - Host is Linux (HOST_PLATFORM=linux) AND container is Linux
+#       - OR running directly on a Linux host (no container)
+HOSTNAME_SHORT=$(hostname -s)
+
+if [ "${HOSTNAME_SHORT}" = "big-nose" ] && {
+  { [ "${HOST_PLATFORM}" = "linux" ] && [ "${IS_LINUX_CONTAINER}" = "true" ]; } || \
+  { [ "${OS_NAME}" = "Linux" ] && [ -z "${HOST_PLATFORM}" ]; }
+}; then
   export HTTP_PROXY="${HTTP_PROXY:-http://127.0.0.1:18089}"
   export HTTPS_PROXY="${HTTPS_PROXY:-http://127.0.0.1:18089}"
   export NO_PROXY="${NO_PROXY:-localhost,127.0.0.1,::1}"
