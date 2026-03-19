@@ -11,4 +11,9 @@ return {
       vim.fn["mkdp#util#install"]()
     end,
   },
+  -- hide render-markdown
+  {
+    "MeanderingProgrammer/render-markdown.nvim",
+    enabled = false,
+  },
 }
