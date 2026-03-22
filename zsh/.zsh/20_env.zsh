@@ -7,7 +7,7 @@ is_linux() { [[ "$(uname -s)" == "Linux"  ]]; }
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
-export SECOND_BRAIN="$HOME/Documents/Second Brain"
+export SECOND_BRAIN="$HOME/Obsidian"
 
 # default editor
 export VISUAL='nvim'
