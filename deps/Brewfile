@@ -86,6 +86,7 @@ cask "the-unarchiver"
 cask "deepl"
 cask "db-browser-for-sqlite"
 cask "dropbox"
+cask "google-drive"
 cask "slack"
 cask "zoom"
 mas "AdGuard for Safari", id: 1440147259
