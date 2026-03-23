@@ -1,5 +1,5 @@
-cask_args appdir: "/Applications"
-tap "homebrew/bundle"
+tap "osx-cross/arm"
+tap "osx-cross/avr"
 tap "qmk/qmk"
 brew "openssl@3"
 brew "sqlite"
@@ -9,10 +9,9 @@ brew "bat"
 brew "bottom"
 brew "gettext"
 brew "cmake"
-brew "ripgrep"
 brew "coreutils"
-brew "zeromq"
 brew "eza"
+brew "fastfetch"
 brew "fd"
 brew "fzf"
 brew "geos"
@@ -34,7 +33,6 @@ brew "lazydocker"
 brew "lazygit"
 brew "lua"
 brew "mas"
-brew "fastfetch"
 brew "neovim"
 brew "nmap"
 brew "node"
@@ -47,49 +45,56 @@ brew "qpdf"
 brew "r"
 brew "ruby-build"
 brew "rbenv"
+brew "rclone"
+brew "ripgrep"
+brew "rsync"
 brew "ruby"
 brew "rustup"
 brew "sd"
 brew "stow"
+brew "tailscale"
 brew "tbb"
 brew "tmux"
 brew "udunits"
 brew "v8"
 brew "wget"
 brew "yarn"
+brew "zeromq"
 brew "zoxide"
 brew "zsh"
-cask "alacritty"
-cask "arc"
-cask "brave-browser"
-cask "firefox"
+brew "qmk/qmk/qmk"
+cask "alacritty", args: { appdir: "/Applications" }
+cask "arc", args: { appdir: "/Applications" }
+cask "brave-browser", args: { appdir: "/Applications" }
 cask "chatgpt"
+cask "claude-code", args: { appdir: "/Applications" }
 cask "codex"
-cask "claude-code"
-cask "discord"
-cask "google-chrome"
-cask "obsidian"
-cask "raycast"
-cask "numi"
-cask "ollama-app"
-cask "orbstack"
-cask "quarto"
-cask "rstudio"
-cask "zotero"
-cask "localsend"
-cask "keyboardcleantool"
-cask "font-latin-modern"
-cask "font-latin-modern-math"
-cask "visual-studio-code"
-cask "karabiner-elements"
-cask "the-unarchiver"
-cask "deepl"
-cask "db-browser-for-sqlite"
-cask "dropbox"
+cask "db-browser-for-sqlite", args: { appdir: "/Applications" }
+cask "deepl", args: { appdir: "/Applications" }
+cask "discord", args: { appdir: "/Applications" }
+cask "dropbox", args: { appdir: "/Applications" }
+cask "firefox", args: { appdir: "/Applications" }
+cask "font-latin-modern", args: { appdir: "/Applications" }
+cask "font-latin-modern-math", args: { appdir: "/Applications" }
+cask "google-chrome", args: { appdir: "/Applications" }
 cask "google-drive"
-cask "slack"
-cask "zoom"
-mas "AdGuard for Safari", id: 1440147259
+cask "karabiner-elements", args: { appdir: "/Applications" }
+cask "keyboardcleantool", args: { appdir: "/Applications" }
+cask "localsend", args: { appdir: "/Applications" }
+cask "numi", args: { appdir: "/Applications" }
+cask "obsidian", args: { appdir: "/Applications" }
+cask "ollama-app", args: { appdir: "/Applications" }
+cask "orbstack", args: { appdir: "/Applications" }
+cask "quarto", args: { appdir: "/Applications" }
+cask "raycast", args: { appdir: "/Applications" }
+cask "rstudio", args: { appdir: "/Applications" }
+cask "slack", args: { appdir: "/Applications" }
+cask "tailscale-app"
+cask "the-unarchiver", args: { appdir: "/Applications" }
+cask "visual-studio-code", args: { appdir: "/Applications" }
+cask "zoom", args: { appdir: "/Applications" }
+cask "zotero", args: { appdir: "/Applications" }
+mas "AdGuard Mini", id: 1440147259
 mas "Adobe Lightroom", id: 1451544217
 mas "Be Focused Pro", id: 961632517
 mas "Blackmagic Disk Speed Test", id: 425264550
@@ -99,6 +104,8 @@ mas "Enpass", id: 732710998
 mas "Flighty", id: 1358823008
 mas "GarageBand", id: 682658836
 mas "Gemini 2", id: 1090488118
+mas "iMovie", id: 408981434
+mas "Keynote", id: 409183694
 mas "Keynote", id: 361285480
 mas "LINE", id: 539883307
 mas "Mactracker", id: 430255202
@@ -129,11 +136,13 @@ vscode "mhutchie.git-graph"
 vscode "ms-vscode-remote.remote-containers"
 vscode "ms-vscode-remote.remote-ssh"
 vscode "ms-vscode-remote.remote-ssh-edit"
+vscode "ms-vscode.remote-explorer"
 vscode "openai.chatgpt"
 vscode "pkief.material-icon-theme"
 vscode "quarto.quarto"
 vscode "rdebugger.r-debugger"
 vscode "reditorsupport.r"
+vscode "reditorsupport.r-syntax"
 vscode "rlivings39.fzf-quick-open"
 vscode "streetsidesoftware.code-spell-checker"
 vscode "tomoki1207.pdf"
