@@ -68,3 +68,12 @@ fi
 # ghq — keep official gh CLI intact
 alias ghbrowse='hub browse $(ghq list | peco | cut -d "/" -f 2,3)'
 
+
+alias pull-mini='
+rsync -av --delete --dry-run mac-mini:/Volumes/ThunderDrive/DataVault/Workspace/ ~/Workspace/ &&
+rsync -av --delete mac-mini:/Volumes/ThunderDrive/DataVault/Workspace/ ~/Workspace/
+'
+alias push-mini='
+rsync -av --delete --dry-run ~/Workspace/ macmini:/Volumes/ThunderDrive/DataVault/Workspace/ &&
+rsync -av --delete ~/Workspace/ macmini:/Volumes/ThunderDrive/DataVault/Workspace/
+
