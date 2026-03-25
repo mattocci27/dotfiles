@@ -55,7 +55,6 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-	{ "xiyaowong/fast-cursor-move.nvim" },
 	{
 		"kylechui/nvim-surround",
 		version = "*",
