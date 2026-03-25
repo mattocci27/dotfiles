@@ -216,3 +216,59 @@ un_stub() {
     return 1
   fi
 }
+
+
+mini-host() {
+  if ssh -o ConnectTimeout=1 mac-mini-local exit >/dev/null 2>&1; then
+    echo "mac-mini-local"
+  else
+    echo "mac-mini-sakura"
+  fi
+}
+
+
+
+push-mini() {
+  local host ans
+  host=$(mini-host)
+  echo "Using host: $host"
+
+  echo "🔍 DRY RUN (Air → $host)"
+  rsync -av --dry-run \
+    --exclude '.DS_Store' \
+    ~/Workspace/ \
+    ${host}:/Volumes/ThunderDrive/DataVault/Workspace/ || return 1
+
+  echo
+  read "ans?🚀 Execute? (y/N): "
+  [[ "$ans" != "y" ]] && echo "❌ Cancelled" && return 0
+
+  echo "🚀 EXECUTE (Air → $host)"
+  rsync -av \
+    --exclude '.DS_Store' \
+    ~/Workspace/ \
+    ${host}:/Volumes/ThunderDrive/DataVault/Workspace/
+}
+
+pull-mini() {
+  local host
+  host=$(mini-host)
+  echo "Using host: $host"
+
+  echo "🔍 DRY RUN ($host → Air)"
+  rsync -av --dry-run \
+    --exclude '.DS_Store' \
+    ${host}:/Volumes/ThunderDrive/DataVault/Workspace/ \
+    ~/Workspace/ || return 1
+
+  echo ""
+  read "ans?🚀 Execute? (y/N): "
+  [[ "$ans" != "y" ]] && echo "❌ Cancelled" && return 0
+
+
+  echo "🚀 EXECUTE ($host → Air)"
+  rsync -av \
+    --exclude '.DS_Store' \
+    ${host}:/Volumes/ThunderDrive/DataVault/Workspace/ \
+    ~/Workspace/
+}
