@@ -9,6 +9,7 @@ rm -f "$TARGET/.DS_Store"
 # List directories to stow
 DOTFILES_DIRS=$(
   find "$DOTFILES" -mindepth 1 -maxdepth 1 -type d \
+    ! -name '.*' \
     ! -name tests \
     ! -name deps \
     ! -name fonts \
