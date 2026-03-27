@@ -6,7 +6,7 @@ tomorrow=$(gdate -d "tomorrow" '+%Y-%m-%d')
 yesterday=$(gdate -d "yesterday" '+%Y-%m-%d')
 
 # Path setup
-note_dir="$SECOND_BRAIN/8-Daily Notes"
+note_dir="$SECOND_BRAIN/7-Daily Notes"
 file="$note_dir/$today.md"
 
 # Create directory if it doesn't exist (safety check)
@@ -16,10 +16,10 @@ cd "$SECOND_BRAIN" || exit
 
 # Function to generate the template
 new_note() {
-	touch "$file"
+  touch "$file"
 
-	# Writing the template to the file
-	cat <<EOF >"$file"
+  # Writing the template to the file
+  cat <<EOF >"$file"
 # $today
 
 [[$yesterday]] - [[$tomorrow]]
@@ -39,8 +39,8 @@ EOF
 
 # Only execute creation logic if the file does NOT exist
 if [ ! -f "$file" ]; then
-	echo "Creating new daily note: $file"
-	new_note
+  echo "Creating new daily note: $file"
+  new_note
 fi
 
 # Open nvim (This runs regardless of whether the file is new or old)
