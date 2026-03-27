@@ -183,3 +183,105 @@ gdrive-backup() {
 gdrive-sync-once() {
   gdrive-run-all sync "${1:-ask}"
 }
+
+realpath_safe() {
+  python -c 'import os,sys; print(os.path.abspath(os.path.expanduser(sys.argv[1])))' "$1"
+}
+
+make_stub() {
+  local name="$1"
+  local arg2="$2"
+  local arg3="$3"
+  local arg4="$4"
+
+  if [[ -z "$name" ]]; then
+    echo "Usage:"
+    echo "  make_stub <name> [real_path] [status] [stub_root]"
+    echo "  make_stub <name> <status> <stub_root>"
+    return 1
+  fi
+
+  local real_path stub_status stub_root
+
+  if [[ -d "$arg2" || "$arg2" == /* || "$arg2" == ~* || "$arg2" == .* ]]; then
+    real_path="$arg2"
+    stub_status="${arg3:-unknown}"
+    stub_root="${arg4:-.}"
+  else
+    real_path="./$name"
+    stub_status="${arg2:-unknown}"
+    stub_root="${arg3:-.}"
+  fi
+
+  stub_root="$(realpath_safe "$stub_root")"
+  real_path="$(realpath_safe "$real_path")"
+
+  local stub_dir="$stub_root/${name%.stub}.stub"
+
+  if [[ -e "$stub_dir/README.md" ]]; then
+    echo "Error: stub already exists: $stub_dir"
+    return 1
+  fi
+
+  mkdir -p "$stub_dir"
+
+  local size="missing"
+  if [[ -e "$real_path" ]]; then
+    size=$(du -sh "$real_path" 2>/dev/null | awk '{print $1}')
+  fi
+
+  local created
+  created=$(date "+%Y-%m-%d")
+
+  cat > "$stub_dir/README.md" <<EOF
+# $name
+
+Location: $real_path
+Status: $stub_status
+Created: $created
+Size: $size
+EOF
+
+  touch "$stub_dir/.stub"
+
+  echo "✅ Created: $stub_dir"
+}
+
+un_stub() {
+  local stub_dir="$1"
+
+  stub_dir="${stub_dir%%/}"
+
+  if [[ ! -f "$stub_dir/README.md" ]]; then
+    echo "Error: README.md not found"
+    return 1
+  fi
+
+  local real_path remote_path
+
+  real_path=$(grep "^Location: " "$stub_dir/README.md" | sed 's/^Location: //')
+  remote_path=$(grep "^Remote: " "$stub_dir/README.md" | sed 's/^Remote: //')
+
+  if [[ -z "$real_path" || -z "$remote_path" ]]; then
+    echo "Error: Missing metadata"
+    return 1
+  fi
+
+  if [[ -e "$real_path" ]]; then
+    echo "⚠️  Target exists: $real_path"
+    return 1
+  fi
+
+  mkdir -p "$(dirname "$real_path")"
+
+  echo "⏳ Downloading..."
+  rclone copy "$remote_path" "$real_path" --progress
+
+  if [[ $? -eq 0 ]]; then
+    rm -rf "$stub_dir"
+    echo "✅ Restored & stub removed"
+  else
+    echo "❌ Failed"
+    return 1
+  fi
+}
