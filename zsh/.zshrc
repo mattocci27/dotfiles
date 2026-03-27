@@ -41,15 +41,14 @@ zinit light sindresorhus/pure
 # Zoxide initialization
 eval "$(zoxide init zsh)"
 
-# Keybindings
-set_fzf_history_widget_keybinding() {
+# Keybindings — run after zsh-vi-mode initializes
+zvm_after_init() {
   bindkey '^R' fzf-history-widget
   bindkey '^t' fzf-tmux
   bindkey '^g' fzf-src
   bindkey '^x' fzf-cdr
   bindkey '^f' fzf-z-search
 }
-add-zsh-hook precmd set_fzf_history_widget_keybinding
 
 # Added by flyctl installer
 export FLYCTL_INSTALL="$HOME/.fly"

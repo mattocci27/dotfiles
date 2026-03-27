@@ -3,6 +3,15 @@ command_exists() {
   command -v "$1" &>/dev/null
 }
 
+ghq_repo_paths() {
+  ghq list -p
+}
+
+
+# Enable recent-directory widgets used by fzf-cdr.
+autoload -Uz add-zsh-hook chpwd_recent_dirs cdr
+add-zsh-hook chpwd chpwd_recent_dirs
+
 # Enhance shell history search with fzf
 fzf-history-widget() {
   local tac_command=$(command_exists tac && echo "tac" || echo "tail -r")
@@ -15,10 +24,12 @@ bindkey '^R' fzf-history-widget
 
 # Navigate directories using cdr and fzf
 fzf-get-destination-from-cdr() {
+  autoload -Uz chpwd_recent_dirs cdr
   cdr -l | sed -e 's/^[[:digit:]]*[[:blank:]]*//' | awk '{c=gsub("/","/"); print c,length($0),$0}' | sort -n | cut -d' ' -f1- | fzf --query="$LBUFFER" --height 40% --reverse
 }
 
 fzf-cdr() {
+  autoload -Uz chpwd_recent_dirs cdr
   local destination="$(fzf-get-destination-from-cdr)"
   if [ -n "$destination" ]; then
     BUFFER="cd '$destination'"
@@ -48,7 +59,15 @@ bindkey '^t' fzf-tmux
 # Navigate to repositories using ghq and fzf
 fzf-src() {
   local dir
-  dir=$(ghq list -p | fzf --query="$LBUFFER" --height 40% --reverse)
+  local entries
+  entries=$(ghq_repo_paths)
+  if [ -z "$entries" ]; then
+    zle -M "ghq repositories not found"
+    zle reset-prompt
+    return
+  fi
+
+  dir=$(print -r -- "$entries" | fzf --query="$LBUFFER" --height 40% --reverse)
   if [ -n "$dir" ]; then
     BUFFER="cd '$dir'"
     zle accept-line
@@ -97,8 +116,16 @@ add-zsh-hook preexec update-x11-forwarding
 
 # Search directories with enhanced sorting using fzf
 fzf-z-search() {
-  if command_exists z; then
-    local result=$(z | sort -rn | cut -c 12- | fzf --query="$LBUFFER" --height 40% --reverse)
+  if command_exists zoxide; then
+    local entries
+    entries=$(zoxide query -l 2>/dev/null)
+    if [ -z "$entries" ]; then
+      zle -M "zoxide database is empty"
+      zle reset-prompt
+      return
+    fi
+
+    local result=$(print -r -- "$entries" | fzf --query="$LBUFFER" --height 40% --reverse)
     if [ -n "$result" ]; then
         BUFFER="cd '$result'"
         zle accept-line
@@ -106,7 +133,7 @@ fzf-z-search() {
         zle reset-prompt
     fi
   else
-    echo "z command not found."
+    echo "zoxide not found."
   fi
 }
 zle -N fzf-z-search
