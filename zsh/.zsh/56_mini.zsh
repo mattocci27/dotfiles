@@ -48,8 +48,6 @@ pull-mini() {
     --exclude '.DS_Store' \
     --exclude '2-Areas/Research/MS/On-hold/' \
     --exclude '2-Areas/Research/MS/Published/' \
-    --exclude '2-Areas/Research/MS/On-hold.stub/' \
-    --exclude '2-Areas/Research/MS/Published.stub/' \
     --exclude '4-Archives/' \
     "${host}:/Volumes/ThunderDrive/DataVault/Workspace/" \
     ~/Workspace/ || return 1
@@ -63,8 +61,6 @@ pull-mini() {
     --exclude '.DS_Store' \
     --exclude '2-Areas/Research/MS/On-hold/' \
     --exclude '2-Areas/Research/MS/Published/' \
-    --exclude '2-Areas/Research/MS/On-hold.stub/' \
-    --exclude '2-Areas/Research/MS/Published.stub/' \
     --exclude '4-Archives/' \
     "${host}:/Volumes/ThunderDrive/DataVault/Workspace/" \
     ~/Workspace/

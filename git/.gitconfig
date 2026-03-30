@@ -13,6 +13,7 @@
     editor = vi ; Ensure vi is your preferred editor
     excludesfile = $HOME/.gitignore_global
     ignorecase = true ; Set to true for compatibility with case-insensitive filesystems
+    filemode = false
 
 # Uncomment the sections below if you're using delta for diffs and have it configured
 # [pager]
