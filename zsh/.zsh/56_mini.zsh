@@ -1,5 +1,5 @@
 mini-host() {
-  if ssh -o ConnectTimeout=1 mac-mini-local exit >/dev/null 2>&1; then
+  if ssh -q -o ConnectTimeout=1 -o BatchMode=yes mac-mini-local exit >/dev/null 2>&1; then
     echo "mac-mini-local"
   else
     echo "mac-mini-sakura"
@@ -83,7 +83,7 @@ push-ms() {
 
   case "$section" in
     On-hold|Published) ;;
-    *)っj
+    *)
       echo "Error: section must be 'On-hold' or 'Published'"
       return 1
       ;;

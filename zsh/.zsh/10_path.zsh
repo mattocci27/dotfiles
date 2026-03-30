@@ -26,6 +26,7 @@ if [[ "$(uname)" == "Darwin" ]]; then
     add_to_path "$HOME/bin/context/tex/texmf-osx-arm64/bin"
     add_to_path "$HOME/Library/TinyTeX/bin/universal-darwin"
     add_to_path "$HOME/context/tex/texmf-osx-arm64/bin"
+    add_to_path "/Applications/quarto/bin"
 add_to_path "/opt/podman/bin"
     add_to_path "/opt/homebrew/bin"
     if command -v brew >/dev/null 2>&1 && brew_prefix="$(brew --prefix 2>/dev/null)"; then

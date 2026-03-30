@@ -8,15 +8,14 @@
   "lastSavedStatusID": 15998139,
   "currentSyncStatusID": 0,
   "refreshBooks": false,
-  "booksToRefresh": [
-    "39350825",
-    "39350824"
-  ],
+  "booksToRefresh": [],
   "failedBooks": [],
   "booksIDsMap": {
     "Readwise/Articles/生態学データ解析 - Faq 一般化線形モデル.md": "39017063",
     "Readwise/Articles/A No-Nonsense Guide to the PARA Method.md": "39017478",
-    "Readwise/Articles/Why I Banned PARA From My Second Brain.md": "39017765"
+    "Readwise/Articles/Why I Banned PARA From My Second Brain.md": "39017765",
+    "6-Literature Notes/Readwise/Articles/From Apple Notes to Notion to Obsidian to Craft.md": "39350825",
+    "6-Literature Notes/Readwise/Articles/Why Did I Stop Taking Meeting Notes With Obsidian.md": "39350824"
   },
   "reimportShowConfirmation": true
 }
