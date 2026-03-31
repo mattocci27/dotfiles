@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-DOT_DIRECTORY="${HOME}/dotfiles"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd -P)"
+DOT_DIRECTORY="$SCRIPT_DIR"
 
-if [[ ! -e "${DOT_DIRECTORY}/$(basename "$0")" ]]; then
+if [[ ! -f "${DOT_DIRECTORY}/setup.sh" ]]; then
   echo "Script not called from within repository directory. Aborting."
   exit 2
 fi
@@ -26,7 +27,7 @@ if [[ "$os" == "linux" ]]; then
   fi
 fi
 
-dep_file="./deps/dependencies-${distro}"
+dep_file="${DOT_DIRECTORY}/deps/dependencies-${distro}"
 
 if [[ ! -f "$dep_file" ]]; then
   echo "Could not find dependency file: ${dep_file}. Aborting."
@@ -108,7 +109,7 @@ install_packages() {
 }
 
 install_symlinks() {
-  bash "./scripts/.dotscripts/deploy.sh"
+  bash "${DOT_DIRECTORY}/scripts/.dotscripts/deploy.sh"
 }
 
 install_rust_deps() {
@@ -117,7 +118,7 @@ install_rust_deps() {
 }
 
 install_fonts() {
-  mkdir -p ./fonts/Cousine
+  mkdir -p "${DOT_DIRECTORY}/fonts/Cousine"
 
   font_urls=(
     "https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Cousine/Regular/CousineNerdFont-Regular.ttf"
@@ -127,15 +128,15 @@ install_fonts() {
   )
 
   for url in "${font_urls[@]}"; do
-    wget -P ./fonts/Cousine "$url"
+    wget -P "${DOT_DIRECTORY}/fonts/Cousine" "$url"
   done
 
   if [[ "$os" == "darwin" ]]; then
     mkdir -p "$HOME/Library/Fonts"
-    cp -f ./fonts/Cousine/* "$HOME/Library/Fonts/"
+    cp -f "${DOT_DIRECTORY}/fonts/Cousine/"* "$HOME/Library/Fonts/"
   elif [[ "$os" == "linux" ]]; then
     sudo mkdir -p /usr/share/fonts/Cousine
-    sudo cp -f ./fonts/Cousine/* /usr/share/fonts/Cousine/
+    sudo cp -f "${DOT_DIRECTORY}/fonts/Cousine/"* /usr/share/fonts/Cousine/
     fc-cache -vf
   fi
 }

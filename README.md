@@ -44,6 +44,11 @@ sh setup.sh
 
 Supports macOS (Darwin) and Ubuntu with platform-specific dependency scripts.
 
+# Sync Excludes
+
+- `scripts/.sync/mini-rsync.excludes`: exclude list for `push-mini` / `pull-mini` / `push-ms` / `pull-ms`
+- `scripts/.sync/gdrive-rclone.excludes`: exclude list for `gdrive-*` commands
+
 # Homebrew
 
 Homebrew mirror at [tsinghua uni](https://mirror.tuna.tsinghua.edu.cn/help/homebrew/)

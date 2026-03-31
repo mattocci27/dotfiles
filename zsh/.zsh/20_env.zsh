@@ -8,6 +8,7 @@ export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
 export SECOND_BRAIN="$HOME/Obsidian"
+export DOTFILES_ROOT="${DOTFILES_ROOT:-$HOME/dotfiles}"
 
 # default editor
 export VISUAL='nvim'
@@ -46,12 +47,11 @@ IS_LINUX_CONTAINER=$([ -f /.dockerenv ] || [ -f /run/.containerenv ] && echo tru
 HOSTNAME_SHORT=$(hostname -s)
 
 if [ "${HOSTNAME_SHORT}" = "big-nose" ] && {
-  { [ "${HOST_PLATFORM}" = "linux" ] && [ "${IS_LINUX_CONTAINER}" = "true" ]; } || \
-  { [ "${OS_NAME}" = "Linux" ] && [ -z "${HOST_PLATFORM}" ]; }
+  { [ "${HOST_PLATFORM:-}" = "linux" ] && [ "${IS_LINUX_CONTAINER}" = "true" ]; } || \
+  { [ "${OS_NAME}" = "Linux" ] && [ -z "${HOST_PLATFORM:-}" ]; }
 }; then
   export HTTP_PROXY="${HTTP_PROXY:-http://127.0.0.1:18089}"
   export HTTPS_PROXY="${HTTPS_PROXY:-http://127.0.0.1:18089}"
   export NO_PROXY="${NO_PROXY:-localhost,127.0.0.1,::1}"
 fi
-
 

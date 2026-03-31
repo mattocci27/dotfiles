@@ -6,19 +6,43 @@ mini-host() {
   fi
 }
 
+mini-rsync-build-opts() {
+  local stamp="$1"
+  local exclude_file="${DOTFILES_ROOT:-$HOME/dotfiles}/scripts/.sync/mini-rsync.excludes"
+
+  MINI_RSYNC_OPTS=(
+    -a
+    -v
+    --delete
+    --itemize-changes
+    --human-readable
+    --partial
+    --backup
+    "--backup-dir=.rsync-trash/${stamp}"
+  )
+
+  if [[ -f "$exclude_file" ]]; then
+    MINI_RSYNC_OPTS+=(--exclude-from "$exclude_file")
+  else
+    MINI_RSYNC_OPTS+=(
+      --exclude '.DS_Store'
+      --exclude '.rsync-trash/'
+      --exclude '2-Areas/Research/MS/On-hold/'
+      --exclude '2-Areas/Research/MS/Published/'
+      --exclude '4-Archives/'
+    )
+  fi
+}
+
 push-mini() {
-  local host ans
+  local host ans stamp
   host=$(mini-host)
+  stamp=$(date "+%Y%m%d-%H%M%S")
+  mini-rsync-build-opts "$stamp"
   echo "Using host: $host"
 
   echo "🔍 DRY RUN (Air → $host)"
-  rsync -av --delete --dry-run \
-    --exclude '.DS_Store' \
-    --exclude '2-Areas/Research/MS/On-hold/' \
-    --exclude '2-Areas/Research/MS/Published/' \
-    --exclude '2-Areas/Research/MS/On-hold.stub/' \
-    --exclude '2-Areas/Research/MS/Published.stub/' \
-    --exclude '4-Archives/' \
+  rsync "${MINI_RSYNC_OPTS[@]}" --dry-run \
     ~/Workspace/ \
     "${host}:/Volumes/ThunderDrive/DataVault/Workspace/" || return 1
 
@@ -27,28 +51,20 @@ push-mini() {
   [[ "$ans" != "y" ]] && echo "❌ Cancelled" && return 0
 
   echo "🚀 EXECUTE (Air → $host)"
-  rsync -av --delete \
-    --exclude '.DS_Store' \
-    --exclude '2-Areas/Research/MS/On-hold/' \
-    --exclude '2-Areas/Research/MS/Published/' \
-    --exclude '2-Areas/Research/MS/On-hold.stub/' \
-    --exclude '2-Areas/Research/MS/Published.stub/' \
-    --exclude '4-Archives/' \
+  rsync "${MINI_RSYNC_OPTS[@]}" \
     ~/Workspace/ \
     "${host}:/Volumes/ThunderDrive/DataVault/Workspace/"
 }
 
 pull-mini() {
-  local host ans
+  local host ans stamp
   host=$(mini-host)
+  stamp=$(date "+%Y%m%d-%H%M%S")
+  mini-rsync-build-opts "$stamp"
   echo "Using host: $host"
 
   echo "🔍 DRY RUN ($host → Air)"
-  rsync -av --delete --dry-run \
-    --exclude '.DS_Store' \
-    --exclude '2-Areas/Research/MS/On-hold/' \
-    --exclude '2-Areas/Research/MS/Published/' \
-    --exclude '4-Archives/' \
+  rsync "${MINI_RSYNC_OPTS[@]}" --dry-run \
     "${host}:/Volumes/ThunderDrive/DataVault/Workspace/" \
     ~/Workspace/ || return 1
 
@@ -57,17 +73,13 @@ pull-mini() {
   [[ "$ans" != "y" ]] && echo "❌ Cancelled" && return 0
 
   echo "🚀 EXECUTE ($host → Air)"
-  rsync -av --delete \
-    --exclude '.DS_Store' \
-    --exclude '2-Areas/Research/MS/On-hold/' \
-    --exclude '2-Areas/Research/MS/Published/' \
-    --exclude '4-Archives/' \
+  rsync "${MINI_RSYNC_OPTS[@]}" \
     "${host}:/Volumes/ThunderDrive/DataVault/Workspace/" \
     ~/Workspace/
 }
 
 push-ms() {
-  local host ans section name src dst
+  local host ans section name src dst stamp
 
   section="$1"
   name="$2"
@@ -86,9 +98,11 @@ push-ms() {
   esac
 
   host=$(mini-host)
+  stamp=$(date "+%Y%m%d-%H%M%S")
+  mini-rsync-build-opts "$stamp"
 
-  src="$HOME/Workspace/2-Areas/Research/MS/${section}.stub/${name}.stub/"
-  dst="/Volumes/ThunderDrive/DataVault/Workspace/2-Areas/Research/MS/${section}.stub/${name}.stub/"
+  src="$HOME/Workspace/2-Areas/Research/MS/${section}/${name}.stub/"
+  dst="/Volumes/ThunderDrive/DataVault/Workspace/2-Areas/Research/MS/${section}/${name}.stub/"
 
   if [[ ! -d "$src" ]]; then
     echo "Error: source not found: $src"
@@ -97,8 +111,7 @@ push-ms() {
 
   echo "Using host: $host"
   echo "🔍 DRY RUN (Air → $host)"
-  rsync -av --delete --dry-run \
-    --exclude '.DS_Store' \
+  rsync "${MINI_RSYNC_OPTS[@]}" --dry-run \
     "$src" \
     "${host}:$dst" || return 1
 
@@ -107,15 +120,14 @@ push-ms() {
   [[ "$ans" != "y" ]] && echo "❌ Cancelled" && return 0
 
   echo "🚀 EXECUTE (Air → $host)"
-  rsync -av --delete \
-    --exclude '.DS_Store' \
+  rsync "${MINI_RSYNC_OPTS[@]}" \
     "$src" \
     "${host}:$dst"
 }
 
 
 pull-ms() {
-  local host ans section name src dst
+  local host ans section name src dst stamp
 
   section="$1"
   name="$2"
@@ -134,14 +146,15 @@ pull-ms() {
   esac
 
   host=$(mini-host)
+  stamp=$(date "+%Y%m%d-%H%M%S")
+  mini-rsync-build-opts "$stamp"
 
-  src="/Volumes/ThunderDrive/DataVault/Workspace/2-Areas/Research/MS/${section}.stub/${name}.stub/"
-  dst="$HOME/Workspace/2-Areas/Research/MS/${section}.stub/${name}.stub/"
+  src="/Volumes/ThunderDrive/DataVault/Workspace/2-Areas/Research/MS/${section}/${name}.stub/"
+  dst="$HOME/Workspace/2-Areas/Research/MS/${section}/${name}.stub/"
 
   echo "Using host: $host"
   echo "🔍 DRY RUN ($host → Air)"
-  rsync -av --delete --dry-run \
-    --exclude '.DS_Store' \
+  rsync "${MINI_RSYNC_OPTS[@]}" --dry-run \
     "${host}:$src" \
     "$dst" || return 1
 
@@ -150,8 +163,7 @@ pull-ms() {
   [[ "$ans" != "y" ]] && echo "❌ Cancelled" && return 0
 
   echo "🚀 EXECUTE ($host → Air)"
-  rsync -av --delete \
-    --exclude '.DS_Store' \
+  rsync "${MINI_RSYNC_OPTS[@]}" \
     "${host}:$src" \
     "$dst"
 }

@@ -1,5 +1,6 @@
 # Load zsh fragments in lexical order
-for file in "$HOME/dotfiles/zsh/.zsh/"*.zsh(.N); do
+DOTFILES_ROOT="${DOTFILES_ROOT:-$HOME/dotfiles}"
+for file in "$DOTFILES_ROOT/zsh/.zsh/"*.zsh(.N); do
   source "$file"
 done
 

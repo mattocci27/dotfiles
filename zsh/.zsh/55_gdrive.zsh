@@ -1,19 +1,32 @@
 rclone-common-opts() {
-  echo \
-    --exclude ".DS_Store" \
-    --exclude "Docs/**" \
-    --exclude "Shared/**" \
-    --exclude "tmp/**" \
-    --exclude "**/renv/**" \
-    --exclude "**/.git/**" \
-    --exclude "**/.Rproj.user/**" \
-    --exclude "**/*.tmp" \
-    --transfers=8 \
-    --checkers=8 \
-    --fast-list \
-    --progress \
-    --stats=10s \
-    --create-empty-src-dirs
+  local exclude_file="${DOTFILES_ROOT:-$HOME/dotfiles}/scripts/.sync/gdrive-rclone.excludes"
+
+  if [[ -f "$exclude_file" ]]; then
+    echo \
+      --exclude-from "$exclude_file" \
+      --transfers=8 \
+      --checkers=8 \
+      --fast-list \
+      --progress \
+      --stats=10s \
+      --create-empty-src-dirs
+  else
+    echo \
+      --exclude ".DS_Store" \
+      --exclude "Docs/**" \
+      --exclude "Shared/**" \
+      --exclude "tmp/**" \
+      --exclude "**/renv/**" \
+      --exclude "**/.git/**" \
+      --exclude "**/.Rproj.user/**" \
+      --exclude "**/*.tmp" \
+      --transfers=8 \
+      --checkers=8 \
+      --fast-list \
+      --progress \
+      --stats=10s \
+      --create-empty-src-dirs
+  fi
 }
 
 
