@@ -8,7 +8,7 @@ mini-host() {
 
 mini-rsync-build-opts() {
   local stamp="$1"
-  local exclude_file="${DOTFILES_ROOT:-$HOME/dotfiles}/scripts/.sync/mini-rsync.excludes"
+  local exclude_file="$MINI_RSYNC_EXCLUDES"
 
   MINI_RSYNC_OPTS=(
     -a
@@ -22,10 +22,10 @@ mini-rsync-build-opts() {
   )
 
   if [[ -f "$exclude_file" ]]; then
-    MINI_RSYNC_OPTS+=(--exclude-from "$exclude_file")
+    MINI_RSYNC_OPTS+=("--filter=. $exclude_file")
   else
     MINI_RSYNC_OPTS+=(
-      --exclude '.DS_Store'
+      "--filter=H .DS_Store"
       --exclude '.rsync-trash/'
       --exclude '2-Areas/Research/MS/On-hold/'
       --exclude '2-Areas/Research/MS/Published/'
@@ -43,8 +43,8 @@ push-mini() {
 
   echo "🔍 DRY RUN (Air → $host)"
   rsync "${MINI_RSYNC_OPTS[@]}" --dry-run \
-    ~/Workspace/ \
-    "${host}:/Volumes/ThunderDrive/DataVault/Workspace/" || return 1
+    "$WORKSPACE_ROOT/" \
+    "${host}:$THUNDER_WORKSPACE/" || return 1
 
   echo
   read "ans?🚀 Execute? (y/N): "
@@ -52,8 +52,8 @@ push-mini() {
 
   echo "🚀 EXECUTE (Air → $host)"
   rsync "${MINI_RSYNC_OPTS[@]}" \
-    ~/Workspace/ \
-    "${host}:/Volumes/ThunderDrive/DataVault/Workspace/"
+    "$WORKSPACE_ROOT/" \
+    "${host}:$THUNDER_WORKSPACE/"
 }
 
 pull-mini() {
@@ -65,8 +65,8 @@ pull-mini() {
 
   echo "🔍 DRY RUN ($host → Air)"
   rsync "${MINI_RSYNC_OPTS[@]}" --dry-run \
-    "${host}:/Volumes/ThunderDrive/DataVault/Workspace/" \
-    ~/Workspace/ || return 1
+    "${host}:$THUNDER_WORKSPACE/" \
+    "$WORKSPACE_ROOT/" || return 1
 
   echo
   read "ans?🚀 Execute? (y/N): "
@@ -74,8 +74,8 @@ pull-mini() {
 
   echo "🚀 EXECUTE ($host → Air)"
   rsync "${MINI_RSYNC_OPTS[@]}" \
-    "${host}:/Volumes/ThunderDrive/DataVault/Workspace/" \
-    ~/Workspace/
+    "${host}:$THUNDER_WORKSPACE/" \
+    "$WORKSPACE_ROOT/"
 }
 
 push-ms() {
@@ -101,8 +101,8 @@ push-ms() {
   stamp=$(date "+%Y%m%d-%H%M%S")
   mini-rsync-build-opts "$stamp"
 
-  src="$HOME/Workspace/2-Areas/Research/MS/${section}/${name}.stub/"
-  dst="/Volumes/ThunderDrive/DataVault/Workspace/2-Areas/Research/MS/${section}/${name}.stub/"
+  src="$WORKSPACE_ROOT/2-Areas/Research/MS/${section}/${name}.stub/"
+  dst="$THUNDER_WORKSPACE/2-Areas/Research/MS/${section}/${name}.stub/"
 
   if [[ ! -d "$src" ]]; then
     echo "Error: source not found: $src"
@@ -149,8 +149,8 @@ pull-ms() {
   stamp=$(date "+%Y%m%d-%H%M%S")
   mini-rsync-build-opts "$stamp"
 
-  src="/Volumes/ThunderDrive/DataVault/Workspace/2-Areas/Research/MS/${section}/${name}.stub/"
-  dst="$HOME/Workspace/2-Areas/Research/MS/${section}/${name}.stub/"
+  src="$THUNDER_WORKSPACE/2-Areas/Research/MS/${section}/${name}.stub/"
+  dst="$WORKSPACE_ROOT/2-Areas/Research/MS/${section}/${name}.stub/"
 
   echo "Using host: $host"
   echo "🔍 DRY RUN ($host → Air)"
@@ -165,5 +165,98 @@ pull-ms() {
   echo "🚀 EXECUTE ($host → Air)"
   rsync "${MINI_RSYNC_OPTS[@]}" \
     "${host}:$src" \
+    "$dst"
+}
+
+vault-rsync-build-opts() {
+  local stamp="$1"
+  local exclude_file="$VAULT_RSYNC_EXCLUDES"
+
+  VAULT_RSYNC_OPTS=(
+    -a
+    -v
+    --delete
+    --itemize-changes
+    --human-readable
+    --partial
+    --backup
+    "--backup-dir=.rsync-trash/${stamp}"
+  )
+
+  if [[ -f "$exclude_file" ]]; then
+    VAULT_RSYNC_OPTS+=("--filter=. $exclude_file")
+  else
+    VAULT_RSYNC_OPTS+=(
+      "--filter=H .DS_Store"
+      --exclude '.rsync-trash/'
+    )
+  fi
+}
+
+push-vault-backup() {
+  local ans stamp
+  local src="$THUNDER_ROOT/"
+  local dst="$VAULT_BACKUP/"
+
+  if [[ ! -d "$src" ]]; then
+    echo "❌ Source not found: $src"
+    return 1
+  fi
+
+  if [[ ! -d "$VAULT_ROOT" ]]; then
+    echo "❌ Vault is not mounted: $VAULT_ROOT"
+    return 1
+  fi
+
+  mkdir -p "$dst"
+
+  stamp=$(date "+%Y%m%d-%H%M%S")
+  vault-rsync-build-opts "$stamp"
+
+  echo "🔍 DRY RUN (ThunderDrive → Vault/Backup)"
+  rsync "${VAULT_RSYNC_OPTS[@]}" --dry-run \
+    "$src" \
+    "$dst" || return 1
+
+  echo
+  read "ans?🚀 Execute backup sync? (y/N): "
+  [[ "$ans" != "y" ]] && echo "❌ Cancelled" && return 0
+
+  echo "🚀 EXECUTE (ThunderDrive → Vault/Backup)"
+  rsync "${VAULT_RSYNC_OPTS[@]}" \
+    "$src" \
+    "$dst"
+}
+
+pull-vault-backup() {
+  local ans stamp
+  local src="$VAULT_BACKUP/"
+  local dst="$THUNDER_ROOT/"
+
+  if [[ ! -d "$src" ]]; then
+    echo "❌ Source not found: $src"
+    return 1
+  fi
+
+  if [[ ! -d "$dst" ]]; then
+    echo "❌ ThunderDrive is not mounted: $dst"
+    return 1
+  fi
+
+  stamp=$(date "+%Y%m%d-%H%M%S")
+  vault-rsync-build-opts "$stamp"
+
+  echo "🔍 DRY RUN (Vault/Backup → ThunderDrive)"
+  rsync "${VAULT_RSYNC_OPTS[@]}" --dry-run \
+    "$src" \
+    "$dst" || return 1
+
+  echo
+  read "ans?🚨 Restore from Vault/Backup to ThunderDrive? (y/N): "
+  [[ "$ans" != "y" ]] && echo "❌ Cancelled" && return 0
+
+  echo "🚀 EXECUTE (Vault/Backup → ThunderDrive)"
+  rsync "${VAULT_RSYNC_OPTS[@]}" \
+    "$src" \
     "$dst"
 }

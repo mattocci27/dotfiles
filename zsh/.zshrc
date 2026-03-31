@@ -1,6 +1,10 @@
-# Load zsh fragments in lexical order
+# Load secrets first when present, then the remaining zsh fragments in lexical order.
 DOTFILES_ROOT="${DOTFILES_ROOT:-$HOME/dotfiles}"
+if [[ -f "$DOTFILES_ROOT/zsh/.zsh/99_secrets.zsh" ]]; then
+  source "$DOTFILES_ROOT/zsh/.zsh/99_secrets.zsh"
+fi
 for file in "$DOTFILES_ROOT/zsh/.zsh/"*.zsh(.N); do
+  [[ "$file" == "$DOTFILES_ROOT/zsh/.zsh/99_secrets.zsh" ]] && continue
   source "$file"
 done
 

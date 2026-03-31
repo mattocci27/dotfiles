@@ -1,5 +1,5 @@
 rclone-common-opts() {
-  local exclude_file="${DOTFILES_ROOT:-$HOME/dotfiles}/scripts/.sync/gdrive-rclone.excludes"
+  local exclude_file="$GDRIVE_RCLONE_EXCLUDES"
 
   if [[ -f "$exclude_file" ]]; then
     echo \
@@ -57,8 +57,13 @@ gdrive-run-dir() {
     return 1
   }
 
-  [[ ! -d "$LOCAL/$dir" ]] && {
-    echo "❌ Directory not found: $LOCAL/$dir"
+  [[ -z "$GDRIVE_REMOTE_DIR" ]] && {
+    echo "❌ GDRIVE_REMOTE_DIR is not set"
+    return 1
+  }
+
+  [[ ! -d "$GDRIVE_LOCAL/$dir" ]] && {
+    echo "❌ Directory not found: $GDRIVE_LOCAL/$dir"
     return 1
   }
 
@@ -66,13 +71,13 @@ gdrive-run-dir() {
 
   echo "$banner"
   echo "   Dir    : $dir"
-  echo "   Source : $LOCAL/$dir"
-  echo "   Target : $REMOTE_DIR/$dir"
+  echo "   Source : $GDRIVE_LOCAL/$dir"
+  echo "   Target : $GDRIVE_REMOTE_DIR/$dir"
   echo
 
   local -a cmd=(
     rclone "$action"
-    "$LOCAL/$dir" "$REMOTE_DIR/$dir"
+    "$GDRIVE_LOCAL/$dir" "$GDRIVE_REMOTE_DIR/$dir"
     "${opts[@]}"
   )
 
@@ -131,8 +136,8 @@ gdrive-run-all() {
 
   echo "$header"
   [[ "$action" == "sync" ]] && echo "   This will DELETE files on remote!"
-  echo "   Source : $LOCAL"
-  echo "   Target : $REMOTE_DIR"
+  echo "   Source : $GDRIVE_LOCAL"
+  echo "   Target : $GDRIVE_REMOTE_DIR"
   echo "   Mode   : $mode"
   echo
 
