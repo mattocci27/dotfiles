@@ -2,11 +2,13 @@
 workspace.json
 workspace-mobile.json
 
+# plugin/runtime artifacts
+plugins/*
+
 # tokens / secrets
 **/.token.json
 **/token.json
 **/*.key
 **/*.secret
 
-plugins/obsidian-google-mail/data.json
 plugins/obsidian-google-mail/.token.json
