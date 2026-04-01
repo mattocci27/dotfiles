@@ -55,3 +55,5 @@ if [ "${HOSTNAME_SHORT}" = "big-nose" ] && {
   export NO_PROXY="${NO_PROXY:-localhost,127.0.0.1,::1}"
 fi
 
+
+export JAVA_HOME="/Applications/Android Studio.app/Contents/jbr/Contents/Home"
