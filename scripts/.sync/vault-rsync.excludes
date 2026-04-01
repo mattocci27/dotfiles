@@ -1,6 +1,8 @@
 # Sender-only hide so stale .DS_Store files don't keep deleted dirs alive.
 H .DS_Store
-.rsync-trash/
-.Spotlight-V100/
-.Trashes/
-.fseventsd/
+- .rsync-trash/
+- .DocumentRevisions-V100/
+- .TemporaryItems/
+- .Spotlight-V100/
+- .Trashes/
+- .fseventsd/
