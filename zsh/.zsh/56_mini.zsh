@@ -43,7 +43,7 @@ push-mini() {
 
   echo "🔍 DRY RUN (Air → $host)"
   rsync "${MINI_RSYNC_OPTS[@]}" --dry-run \
-    "$WORKSPACE_ROOT/" \
+    "$WORKSPACE/" \
     "${host}:$THUNDER_WORKSPACE/" || return 1
 
   echo
@@ -52,7 +52,7 @@ push-mini() {
 
   echo "🚀 EXECUTE (Air → $host)"
   rsync "${MINI_RSYNC_OPTS[@]}" \
-    "$WORKSPACE_ROOT/" \
+    "$WORKSPACE/" \
     "${host}:$THUNDER_WORKSPACE/"
 }
 
@@ -66,7 +66,7 @@ pull-mini() {
   echo "🔍 DRY RUN ($host → Air)"
   rsync "${MINI_RSYNC_OPTS[@]}" --dry-run \
     "${host}:$THUNDER_WORKSPACE/" \
-    "$WORKSPACE_ROOT/" || return 1
+    "$WORKSPACE/" || return 1
 
   echo
   read "ans?🚀 Execute? (y/N): "
@@ -75,7 +75,7 @@ pull-mini() {
   echo "🚀 EXECUTE ($host → Air)"
   rsync "${MINI_RSYNC_OPTS[@]}" \
     "${host}:$THUNDER_WORKSPACE/" \
-    "$WORKSPACE_ROOT/"
+    "$WORKSPACE/"
 }
 
 push-ms() {
@@ -101,7 +101,7 @@ push-ms() {
   stamp=$(date "+%Y%m%d-%H%M%S")
   mini-rsync-build-opts "$stamp"
 
-  src="$WORKSPACE_ROOT/2-Areas/Research/MS/${section}/${name}.stub/"
+  src="$WORKSPACE/2-Areas/Research/MS/${section}/${name}.stub/"
   dst="$THUNDER_WORKSPACE/2-Areas/Research/MS/${section}/${name}.stub/"
 
   if [[ ! -d "$src" ]]; then
@@ -150,7 +150,7 @@ pull-ms() {
   mini-rsync-build-opts "$stamp"
 
   src="$THUNDER_WORKSPACE/2-Areas/Research/MS/${section}/${name}.stub/"
-  dst="$WORKSPACE_ROOT/2-Areas/Research/MS/${section}/${name}.stub/"
+  dst="$WORKSPACE/2-Areas/Research/MS/${section}/${name}.stub/"
 
   echo "Using host: $host"
   echo "🔍 DRY RUN ($host → Air)"

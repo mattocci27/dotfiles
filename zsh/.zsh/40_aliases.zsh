@@ -31,7 +31,10 @@ alias gd='cd $HOME/Cloud/GDrive'
 alias db='cd $HOME/Cloud/Dropbox'
 alias sb="cd \$SECOND_BRAIN"
 alias in="cd \$SECOND_BRAIN/0-Inbox/"
-alias ms="$HOME/Workspace/2-Areas/Research/MS/"
+
+ms() {
+  cd "$WORKSPACE/2-Areas/Research/MS" || return
+}
 
 alias fp="fzf --preview 'bat --style=numbers --color=always --line-range :500 {}'"
 # search for a file with fzf and open it in vim
@@ -67,4 +70,3 @@ fi
 
 # ghq — keep official gh CLI intact
 alias ghbrowse='hub browse $(ghq list | peco | cut -d "/" -f 2,3)'
-
