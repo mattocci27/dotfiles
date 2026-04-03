@@ -1,5 +1,5 @@
-# Sender-only hide so stale .DS_Store files don't keep deleted dirs alive.
-H .DS_Store
+# Exclude .DS_Store on both sides so delete+backup does not choke on macOS Unicode paths.
+- .DS_Store
 - .rsync-trash/
 - .DocumentRevisions-V100/
 - .TemporaryItems/
