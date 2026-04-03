@@ -13,6 +13,8 @@ mini-rsync-build-opts() {
   MINI_RSYNC_OPTS=(
     -a
     -v
+    --no-owner
+    --no-group
     --delete
     --itemize-changes
     --human-readable
@@ -175,6 +177,8 @@ vault-rsync-build-opts() {
   VAULT_RSYNC_OPTS=(
     -a
     -v
+    --no-owner
+    --no-group
     --delete
     --itemize-changes
     --human-readable
