@@ -48,4 +48,5 @@ fi
 # zz: Center screen
 # o: Open new line below and enter Insert mode
 echo "Opening note: $file"
-nvim '+normal Gzzo' "$file" -c :NoNeckPain
+# Replace the wrapper shell with nvim so its child --embed process exits with the UI.
+exec nvim '+normal Gzzo' "$file" -c :NoNeckPain

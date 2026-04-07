@@ -35,8 +35,8 @@ open_file() {
 		echo "# References"
 	} >>"$1/$filename.md"
 
-	# Open the file in Neovim
-	nvim '+ normal ggzzi' "$1/$filename.md" -c :NoNeckPain
+	# Replace the wrapper shell with nvim so its child --embed process exits with the UI.
+	exec nvim '+ normal ggzzi' "$1/$filename.md" -c :NoNeckPain
 }
 
 # Prompt the user if no filename is provided
