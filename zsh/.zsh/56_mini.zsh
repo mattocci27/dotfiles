@@ -15,12 +15,12 @@ mini-rsync-build-opts() {
     -v
     --no-owner
     --no-group
+    --no-perms
+    --omit-dir-times
     --delete
     --itemize-changes
     --human-readable
     --partial
-    --backup
-    "--backup-dir=.rsync-trash/${stamp}"
   )
 
   if [[ -f "$exclude_file" ]]; then
@@ -179,12 +179,12 @@ vault-rsync-build-opts() {
     -v
     --no-owner
     --no-group
+    --no-perms
+    --omit-dir-times
     --delete
     --itemize-changes
     --human-readable
     --partial
-    --backup
-    "--backup-dir=.rsync-trash/${stamp}"
   )
 
   if [[ -f "$exclude_file" ]]; then
