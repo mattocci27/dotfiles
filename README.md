@@ -47,6 +47,7 @@ Supports macOS (Darwin) and Ubuntu with platform-specific dependency scripts.
 # Sync Excludes
 
 - `scripts/.sync/mini-rsync.excludes`: exclude list for `push-mini` / `pull-mini` / `push-ms` / `pull-ms`
+- `scripts/.sync/air-archives.include`: allowlist for `pull-mini-archives` subset sync from `mini/4-Archives` to `Air/4-Archives`
 - `scripts/.sync/vault-rsync.excludes`: exclude list for `push-vault-backup` / `pull-vault-backup`
 - `scripts/.sync/gdrive-rclone.excludes`: exclude list for `gdrive-*` commands
 

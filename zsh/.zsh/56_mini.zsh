@@ -1,5 +1,64 @@
+mini-local-ip() {
+  ssh -G mac-mini-local 2>/dev/null | awk '/^hostname / { print $2; exit }'
+}
+
+mini-current-ip() {
+  local iface ip
+
+  if is_mac; then
+    iface=$(route -n get default 2>/dev/null | awk '/interface: / { print $2; exit }')
+    if [[ -n "$iface" ]]; then
+      ip=$(ipconfig getifaddr "$iface" 2>/dev/null)
+      [[ -n "$ip" ]] && {
+        echo "$ip"
+        return
+      }
+    fi
+
+    ifconfig 2>/dev/null | awk '
+      /^[a-z0-9]+:/ {
+        iface = substr($1, 1, length($1) - 1)
+        active = 0
+        ip = ""
+      }
+      $1 == "inet" && iface ~ /^en[0-9]+$/ {
+        ip = $2
+      }
+      $1 == "status:" && $2 == "active" && iface ~ /^en[0-9]+$/ && ip != "" {
+        print ip
+        exit
+      }
+    '
+    return
+  fi
+
+  if is_linux && command -v ip >/dev/null 2>&1; then
+    ip route get 1.1.1.1 2>/dev/null | awk '
+      /src/ {
+        for (i = 1; i <= NF; i++) {
+          if ($i == "src") {
+            print $(i + 1)
+            exit
+          }
+        }
+      }
+    '
+  fi
+}
+
+mini-on-home-lan() {
+  local local_ip current_ip
+
+  local_ip=$(mini-local-ip)
+  current_ip=$(mini-current-ip)
+
+  [[ "$local_ip" == <->.<->.<->.<-> ]] || return 1
+  [[ "$current_ip" == <->.<->.<->.<-> ]] || return 1
+  [[ "${local_ip%.*}" == "${current_ip%.*}" ]]
+}
+
 mini-host() {
-  if ssh -q -o ConnectTimeout=1 -o BatchMode=yes mac-mini-local exit >/dev/null 2>&1; then
+  if mini-on-home-lan && ssh -q -o ConnectTimeout=1 -o BatchMode=yes mac-mini-local exit >/dev/null 2>&1; then
     echo "mac-mini-local"
   else
     echo "mac-mini-sakura"

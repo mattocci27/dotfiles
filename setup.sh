@@ -43,7 +43,7 @@ menu() {
   echo "2) Install symlinks using stow"
   echo "3) Install Rust deps"
   echo "4) Install font"
-  echo "5) Install Python stuffs"
+  echo "5) Install Python tools"
   echo "6) Install R deps"
   echo "7) Install tmux plugin manager"
   echo "8) Setup cloud symlinks (macOS only)"
@@ -142,31 +142,23 @@ install_fonts() {
 }
 
 install_python_stuff() {
-  if ! command -v pyenv >/dev/null 2>&1; then
-    curl -fsSL https://pyenv.run | bash
-  fi
-
-  export PYENV_ROOT="$HOME/.pyenv"
-  export PATH="$PYENV_ROOT/bin:$PATH"
-
-  if command -v pyenv >/dev/null 2>&1; then
-    eval "$(pyenv init -)"
-    pyenv install -s 3.12
-    pyenv shell 3.12
-
-    python -m pip install --upgrade pip pynvim
-
-    if ! command -v pipx >/dev/null 2>&1; then
-      echo "pipx is not installed. Install it first with Homebrew."
-      exit 1
-    fi
-
-    pipx ensurepath
-    pipx install --force radian
-  else
-    echo "pyenv installation seems incomplete. Restart shell and retry."
+  if ! command -v python3 >/dev/null 2>&1; then
+    echo "python3 is not installed. Run package installation first."
     exit 1
   fi
+
+  if ! command -v pipx >/dev/null 2>&1; then
+    if [[ "$os" == "darwin" ]] && command -v brew >/dev/null 2>&1; then
+      brew install pipx
+    else
+      echo "pipx is not installed. Install it first, then rerun this step."
+      exit 1
+    fi
+  fi
+
+  python3 -m pip install --user --upgrade pip pynvim
+  pipx ensurepath
+  pipx install --force radian
 }
 
 install_r_deps() {
