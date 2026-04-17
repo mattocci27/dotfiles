@@ -58,7 +58,7 @@ mini-on-home-lan() {
 }
 
 mini-host() {
-  if mini-on-home-lan && ssh -q -o ConnectTimeout=1 -o BatchMode=yes mac-mini-local exit >/dev/null 2>&1; then
+  if mini-on-home-lan; then
     echo "mac-mini-local"
   else
     echo "mac-mini-sakura"
