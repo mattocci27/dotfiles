@@ -17,7 +17,7 @@ sudo apt install -y xsel \
   curl \
   wget \
   cargo \
-  fastfetch \
+  neofetch \
   ripgrep \
   libopenblas-dev \
   snapd \
