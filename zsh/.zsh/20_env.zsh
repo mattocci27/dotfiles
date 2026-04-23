@@ -50,8 +50,8 @@ if [ "${HOSTNAME_SHORT}" = "big-nose" ] && {
   { [ "${HOST_PLATFORM:-}" = "linux" ] && [ "${IS_LINUX_CONTAINER}" = "true" ]; } || \
   { [ "${OS_NAME}" = "Linux" ] && [ -z "${HOST_PLATFORM:-}" ]; }
 }; then
-  export HTTP_PROXY="${HTTP_PROXY:-http://127.0.0.1:18089}"
-  export HTTPS_PROXY="${HTTPS_PROXY:-http://127.0.0.1:18089}"
+  export HTTP_PROXY="${HTTP_PROXY:-http://127.0.0.1:2080}"
+  export HTTPS_PROXY="${HTTPS_PROXY:-http://127.0.0.1:2080}"
   export NO_PROXY="${NO_PROXY:-localhost,127.0.0.1,::1}"
 fi
 
