@@ -158,7 +158,7 @@ install_python_stuff() {
 
   python3 -m pip install --user --upgrade pip pynvim
   pipx ensurepath
-  pipx install --force radian
+  (cd / && pipx install --force radian)
 }
 
 install_r_deps() {
