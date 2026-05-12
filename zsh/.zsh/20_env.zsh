@@ -53,7 +53,9 @@ if [ "${HOSTNAME_SHORT}" = "big-nose" ] && {
   export HTTP_PROXY="${HTTP_PROXY:-http://127.0.0.1:2080}"
   export HTTPS_PROXY="${HTTPS_PROXY:-http://127.0.0.1:2080}"
   export NO_PROXY="${NO_PROXY:-localhost,127.0.0.1,::1}"
+  export TARGETS_VIEWER_ONLY=false
+else
+  export TARGETS_VIEWER_ONLY=true
 fi
 
-export TARGETS_VIEWER_ONLY="true"
 export JAVA_HOME="/Applications/Android Studio.app/Contents/jbr/Contents/Home"
