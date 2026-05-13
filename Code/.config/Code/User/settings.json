@@ -1147,7 +1147,6 @@
     "qmd",
     "quarto"
   ],
-  "r.plot.useHttpgd": true,
   "zenMode.hideLineNumbers": false,
   "diffEditor.ignoreTrimWhitespace": false,
   "dev.containers.cacheVolume": false,
@@ -1155,5 +1154,6 @@
   "geminicodeassist.displayInlineContextHint": false,
   "r.lsp.multiServer": false,
   "diffEditor.codeLens": true,
-  "claudeCode.preferredLocation": "panel"
+  "claudeCode.preferredLocation": "panel",
+  "r.plot.useHttpgd": true
 }
