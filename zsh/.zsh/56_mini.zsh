@@ -58,11 +58,18 @@ mini-on-home-lan() {
 }
 
 mini-host() {
-  if mini-on-home-lan; then
-    echo "mac-mini-local"
-  else
-    echo "mac-mini-sakura"
-  fi
+  case "$1" in
+    -a)
+      echo "mac-mini-ali"
+      return 0
+      ;;
+    -s)
+      echo "mac-mini-sakura"
+      return 0
+      ;;
+  esac
+
+  echo "mac-mini-local"
 }
 
 mini-rsync-build-opts() {
@@ -97,7 +104,7 @@ mini-rsync-build-opts() {
 
 push-mini() {
   local host ans stamp
-  host=$(mini-host)
+  host=$(mini-host "$1")
   stamp=$(date "+%Y%m%d-%H%M%S")
   mini-rsync-build-opts "$stamp"
   echo "Using host: $host"
@@ -119,7 +126,7 @@ push-mini() {
 
 pull-mini() {
   local host ans stamp
-  host=$(mini-host)
+  host=$(mini-host "$1")
   stamp=$(date "+%Y%m%d-%H%M%S")
   mini-rsync-build-opts "$stamp"
   echo "Using host: $host"
@@ -140,13 +147,21 @@ pull-mini() {
 }
 
 push-ms() {
-  local host ans section name src dst stamp
+  local host ans host_arg section name src dst stamp
+
+  # Consume an optional host selector before reading the MS section and name.
+  case "$1" in
+    -a|-s)
+      host_arg="$1"
+      shift
+      ;;
+  esac
 
   section="$1"
   name="$2"
 
   if [[ -z "$section" || -z "$name" ]]; then
-    echo "Usage: push-ms <On-hold|Published> <name>"
+    echo "Usage: push-ms [-a|-s] <On-hold|Published> <name>"
     return 1
   fi
 
@@ -158,7 +173,7 @@ push-ms() {
       ;;
   esac
 
-  host=$(mini-host)
+  host=$(mini-host "$host_arg")
   stamp=$(date "+%Y%m%d-%H%M%S")
   mini-rsync-build-opts "$stamp"
 
@@ -188,13 +203,21 @@ push-ms() {
 
 
 pull-ms() {
-  local host ans section name src dst stamp
+  local host ans host_arg section name src dst stamp
+
+  # Consume an optional host selector before reading the MS section and name.
+  case "$1" in
+    -a|-s)
+      host_arg="$1"
+      shift
+      ;;
+  esac
 
   section="$1"
   name="$2"
 
   if [[ -z "$section" || -z "$name" ]]; then
-    echo "Usage: pull-ms <On-hold|Published> <name>"
+    echo "Usage: pull-ms [-a|-s] <On-hold|Published> <name>"
     return 1
   fi
 
@@ -206,7 +229,7 @@ pull-ms() {
       ;;
   esac
 
-  host=$(mini-host)
+  host=$(mini-host "$host_arg")
   stamp=$(date "+%Y%m%d-%H%M%S")
   mini-rsync-build-opts "$stamp"
 
