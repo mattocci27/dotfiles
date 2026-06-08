@@ -70,3 +70,5 @@ fi
 
 # ghq — keep official gh CLI intact
 alias ghbrowse='hub browse $(ghq list | peco | cut -d "/" -f 2,3)'
+
+alias s3s='sync-workspace-to-s3'  # S3 Sync
