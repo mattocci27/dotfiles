@@ -72,7 +72,7 @@ prefix = "ctrl+a"
 # workspace_picker = "prefix+w"
 # goto = "prefix+g"
 # tmux: bind C-c new-session
-new_workspace = "prefix+ctrl+c"
+#new_workspace = "prefix+ctrl+c"
 # new_worktree = "prefix+shift+g"
 # open_worktree = ""    # optional, unset by default
 # remove_worktree = ""  # optional, unset by default; opens confirmation
@@ -107,9 +107,9 @@ focus_pane_right = "ctrl+l"
 # cycle_pane_previous = "prefix+shift+tab"
 # last_pane = ""          # optional, unset by default; bind e.g. "prefix+tab" for global back-and-forth
 # tmux: bind | split-window -h
-split_vertical = "prefix+h"
+split_vertical = "prefix+v"
 # tmux: bind - split-window -v
-split_horizontal = "prefix+v"
+split_horizontal = "prefix+h"
 # tmux: prefix+x close-pane
 close_pane = "prefix+x"
 # tmux: prefix+z zoom
