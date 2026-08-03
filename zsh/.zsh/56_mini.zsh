@@ -84,6 +84,7 @@ mini-rsync-build-opts() {
     --no-perms
     --omit-dir-times
     --delete
+    --prune-empty-dirs
     --itemize-changes
     --human-readable
     --partial
