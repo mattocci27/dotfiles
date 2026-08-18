@@ -11,5 +11,6 @@
   "newFileLocation": "folder",
   "newFileFolderPath": "0-Inbox",
   "promptDelete": false,
-  "vimMode": true
+  "vimMode": true,
+  "autoConvertHtml": false
 }
