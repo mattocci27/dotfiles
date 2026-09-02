@@ -7,5 +7,8 @@
       "Bash(grep -rn \"{ ''s''\" /Users/mattocci/dotfiles/nvim --include=\"*.lua\")",
       "Bash(grep -rn \"keys\\\\|map\" /Users/mattocci/dotfiles/nvim/.config/nvim/lua/plugins/*.lua)"
     ]
+  },
+  "skillOverrides": {
+    "project-log": "name-only"
   }
 }
