@@ -13,6 +13,7 @@ DOTFILES_DIRS=$(
     ! -name tests \
     ! -name deps \
     ! -name fonts \
+    ! -name agent-skills \
     -exec basename {} \;
 )
 
@@ -24,6 +25,19 @@ for F in $DOTFILES_DIRS; do
 
   # Install new links
   stow --dotfiles --dir "$DOTFILES" --target "$TARGET" "$F"
+done
+
+# Link shared agent skills for both Codex and Claude Code.
+for skill_dir in "$DOTFILES"/agent-skills/*/; do
+  [ -d "$skill_dir" ] || continue
+
+  skill_dir=${skill_dir%/}
+  skill_name=$(basename "$skill_dir")
+
+  for skills_dir in "$HOME/.agents/skills" "$HOME/.claude/skills"; do
+    mkdir -p "$skills_dir"
+    ln -sfn "$skill_dir" "$skills_dir/$skill_name"
+  done
 done
 
 distro=$(uname -s | tr '[:upper:]' '[:lower:]')
