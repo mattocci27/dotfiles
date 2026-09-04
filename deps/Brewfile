@@ -96,6 +96,7 @@ cask "slack", args: { appdir: "/Applications" }
 cask "tailscale-app"
 cask "the-unarchiver", args: { appdir: "/Applications" }
 cask "visual-studio-code", args: { appdir: "/Applications" }
+cask "zed", args: { appdir: "/Applications" }
 cask "zoom", args: { appdir: "/Applications" }
 cask "zotero", args: { appdir: "/Applications" }
 mas "AdGuard Mini", id: 1440147259

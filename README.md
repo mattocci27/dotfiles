@@ -1,6 +1,6 @@
 # Dotfiles
 
-This repository contains configuration files for R, Visual Studio Code, tmux, Neovim (LazyVim), Zsh, Alacritty, and Radian. It also includes Cousine Nerd Fonts.
+This repository contains configuration files for R, Visual Studio Code, Zed, tmux, Neovim (LazyVim), Zsh, Alacritty, and Radian. It also includes Cousine Nerd Fonts.
 
 # Requirement
 
@@ -38,7 +38,20 @@ sh setup.sh
 - **radian/**: Enhanced R console configuration
 - **scripts/**: Stow deployment and utility scripts
 - **tmux/**: Terminal multiplexer configuration
+- **zed/**: Zed settings, native Vim keymap, tasks, and Markdown snippets
 - **zsh/**: Zsh shell configuration and aliases
+
+# Zed
+
+On macOS, the Brew bundle installs Zed; the `zed/` package is stowed to `~/.config/zed` by the existing deployment scripts. It uses Zed's native Vim mode with `Space` as the normal-mode leader and native which-key with no display delay; standalone Neovim remains independent.
+
+Zed auto-installs the `R`, `Air`, `Quarto`, and `Gruvbox Material` extensions. R uses Air for formatting and `r_language_server` for language intelligence; setup option 6 installs the required `languageserver` and `lintr` R packages. `SPC t r` starts the existing `radian` command in a Zed terminal.
+
+`.qmd` uses the young, grammar-only Quarto extension (currently `0.0.1`); `.Rmd` and `.rmd` use Markdown. Fenced R code is highlighted when the R extension is installed, and global tasks provide Quarto preview/render plus R Markdown render (`SPC q`). Zed does not provide Quarto's full notebook/chunk execution workflow. The bundled snippets are scoped separately for Quarto and Markdown.
+
+GitHub Copilot is selected as the edit-prediction provider. Predictions are disabled for ordinary Markdown (including `.Rmd`), YAML, and text files while remaining enabled for `.qmd` and programming languages. Sign in to GitHub from Zed when prompted.
+
+Remote SSH and Dev Containers use Zed's native remote project flow. No VS Code Remote settings are copied; Zed reads SSH configuration through the system `ssh` command, and Dev Containers use each project's existing `.devcontainer/devcontainer.json`.
 
 # Platform Support
 
