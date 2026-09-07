@@ -131,7 +131,18 @@
       "ctrl-h": "workspace::ActivatePaneLeft",
       "ctrl-j": "terminal_panel::ToggleFocus",
       "ctrl-k": "workspace::ActivatePaneUp",
-      "ctrl-l": "workspace::FocusCenterPane"
+      "ctrl-l": "workspace::FocusCenterPane",
+      "a": "project_panel::NewFile",
+      "shift-a": "project_panel::NewDirectory",
+      "r": "project_panel::Rename",
+      "d": "project_panel::Delete",
+      "x": "project_panel::Cut",
+      "y": "project_panel::Copy",
+      "p": "project_panel::Paste",
+      "o": "project_panel::OpenPermanent",
+      "enter": "project_panel::OpenPermanent",
+      "/": "project_panel::NewSearchInDirectory",
+      "q": "workspace::FocusCenterPane"
     }
   },
   {

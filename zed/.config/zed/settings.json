@@ -1,4 +1,23 @@
 {
+  "agent": {
+    "sandbox_permissions": {
+      "network_hosts": [
+        "raw.githubusercontent.com",
+        "zed.dev"
+      ]
+    },
+    "default_model": {
+      "provider": "openai-subscribed",
+      "model": "gpt-5.6-luna",
+      "enable_thinking": true,
+      "effort": "high"
+    },
+    "favorite_models": [],
+    "model_parameters": []
+  },
+  "agent_ui_font_size": 16.0,
+  "ui_font_size": 15.0,
+  "buffer_font_size": 13.0,
   "$schema": "zed://schemas/settings",
   "vim_mode": true,
   "which_key": {
@@ -42,6 +61,7 @@
     "starts_open": false
   },
   "terminal": {
+    "font_size": 13.0,
     "button": false,
     "dock": "bottom",
     "starts_open": false,
