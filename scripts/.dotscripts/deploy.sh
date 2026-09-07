@@ -14,6 +14,7 @@ DOTFILES_DIRS=$(
     ! -name deps \
     ! -name fonts \
     ! -name agent-skills \
+    ! -name logs \
     -exec basename {} \;
 )
 
