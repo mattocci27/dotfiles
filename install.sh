@@ -19,6 +19,17 @@ backup_and_remove_conflict() {
     fi
 }
 
+stow_package() {
+    package="$1"
+    shift
+
+    if [ "$package" = "zed" ]; then
+        stow --ignore='(^|/)(settings\.json|sync-settings\.sh)$' "$@" "$package"
+    else
+        stow "$@" "$package"
+    fi
+}
+
 # Iterate over directories and use stow to manage symlinks
 for dir in "$DOT_DIRECTORY"/*/; do
     dir_base=$(basename "$dir")
@@ -31,14 +42,14 @@ for dir in "$DOT_DIRECTORY"/*/; do
     echo "~ Installing :: $dir_base"
 
     # Check for potential conflicts before removing
-    stow --dir "$DOT_DIRECTORY" --target "$HOME" --no 2>/dev/null "$dir_base" | grep "^LINK:" | awk '{print $2}' | while read -r file; do
+    stow_package "$dir_base" --dir "$DOT_DIRECTORY" --target "$HOME" --no 2>/dev/null | grep "^LINK:" | awk '{print $2}' | while read -r file; do
         backup_and_remove_conflict "$HOME/$file"
     done
 
     # Remove previous symlinks
-    stow -D --dir "$DOT_DIRECTORY" --target "$HOME" "$dir_base" 2>/dev/null || true
+    stow_package "$dir_base" -D --dir "$DOT_DIRECTORY" --target "$HOME" 2>/dev/null || true
     # Install new symlinks
-    stow --dir "$DOT_DIRECTORY" --target "$HOME" "$dir_base"
+    stow_package "$dir_base" --dir "$DOT_DIRECTORY" --target "$HOME"
     echo "done: $dir_base"
 done
 

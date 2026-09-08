@@ -21,11 +21,16 @@ DOTFILES_DIRS=$(
 for F in $DOTFILES_DIRS; do
   echo "~ Installing :: $F"
 
+  stow_options=()
+  if [ "$F" = "zed" ]; then
+    stow_options+=(--ignore='(^|/)(settings\.json|sync-settings\.sh)$')
+  fi
+
   # Remove previous links
-  stow -D --dotfiles --dir "$DOTFILES" --target "$TARGET" "$F" 2>/dev/null || true
+  stow -D --dotfiles --dir "$DOTFILES" --target "$TARGET" "${stow_options[@]}" "$F" 2>/dev/null || true
 
   # Install new links
-  stow --dotfiles --dir "$DOTFILES" --target "$TARGET" "$F"
+  stow --dotfiles --dir "$DOTFILES" --target "$TARGET" "${stow_options[@]}" "$F"
 done
 
 # Link shared agent skills for both Codex and Claude Code.

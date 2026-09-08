@@ -1,6 +1,12 @@
 {
   "agent": {
     "sandbox_permissions": {
+      "write_paths": [
+        {
+          "requested": "/Users/mattocci/.config/zed",
+          "resolved": "/Users/mattocci/.config/zed"
+        }
+      ],
       "network_hosts": [
         "raw.githubusercontent.com",
         "zed.dev"
@@ -12,7 +18,20 @@
       "enable_thinking": true,
       "effort": "high"
     },
-    "favorite_models": [],
+    "favorite_models": [
+      {
+        "provider": "openai-subscribed",
+        "model": "gpt-5.6-luna",
+        "enable_thinking": true,
+        "effort": "high"
+      },
+      {
+        "provider": "openai-subscribed",
+        "model": "gpt-5.6-sol",
+        "enable_thinking": true,
+        "effort": "low"
+      }
+    ],
     "model_parameters": []
   },
   "agent_ui_font_size": 16.0,

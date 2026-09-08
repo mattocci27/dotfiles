@@ -3,6 +3,14 @@
     "context": "Editor && vim_mode == normal && !menu",
     "bindings": {
       "space": null,
+      "space e": "project_panel::Toggle",
+      "space a a": "agent::Toggle",
+      "space a n": "agent::NewThread",
+      "space a f": "agent::ToggleFocus",
+      "space a m": "agent::ToggleModelSelector",
+      "space a c": "agent::AddSelectionToThread",
+      "space a d": "agent::OpenAgentDiff",
+      "space a s": "agent::OpenSettings",
       "space ;": "command_palette::Toggle",
       "space /": "project_search::ToggleFocus",
 
@@ -27,7 +35,6 @@
       "space d x": "debugger::Stop",
       "space d p": "debug_panel::Toggle",
 
-      "space e": "project_panel::Toggle",
       "space f": "file_finder::Toggle",
 
       "space g g": "git_panel::Toggle",
@@ -83,12 +90,7 @@
         }
       ],
 
-      "space r e": "project_panel::Toggle",
-      "space r g": "git_panel::Toggle",
-      "space r o": "outline_panel::Toggle",
       "space r p": "diagnostics::Deploy",
-      "space r s": "project_search::ToggleFocus",
-      "space r t": "terminal_panel::Toggle",
 
       "space t t": "terminal_panel::Toggle",
       "space t f": "terminal_panel::ToggleFocus",
@@ -132,6 +134,7 @@
       "ctrl-j": "terminal_panel::ToggleFocus",
       "ctrl-k": "workspace::ActivatePaneUp",
       "ctrl-l": "workspace::FocusCenterPane",
+      "space e": "project_panel::Toggle",
       "a": "project_panel::NewFile",
       "shift-a": "project_panel::NewDirectory",
       "r": "project_panel::Rename",
@@ -151,6 +154,15 @@
       "ctrl-h": "project_panel::ToggleFocus",
       "ctrl-j": "workspace::ActivatePaneDown",
       "ctrl-k": "workspace::FocusCenterPane",
+      "ctrl-l": "workspace::ActivatePaneRight"
+    }
+  },
+  {
+    "context": "AgentPanel",
+    "bindings": {
+      "ctrl-h": "workspace::FocusCenterPane",
+      "ctrl-j": "workspace::ActivatePaneDown",
+      "ctrl-k": "workspace::ActivatePaneUp",
       "ctrl-l": "workspace::ActivatePaneRight"
     }
   }
