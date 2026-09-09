@@ -208,3 +208,32 @@ autossh-ali-log() {
   echo "----------------------------------------"
   tail -n 50 "$AUTOSSH_ALI_LOG_ERR" 2>/dev/null || true
 }
+
+# ------------------------------
+# launchd helpers (Alibaba Cloud)
+# ------------------------------
+autossh-ali-plist-load() {
+  echo "🚀 Loading Alibaba autossh plist"
+  launchctl load "$AUTOSSH_ALI_PLIST"
+}
+
+autossh-ali-plist-unload() {
+  echo "🛑 Unloading Alibaba autossh plist"
+  launchctl unload "$AUTOSSH_ALI_PLIST"
+}
+
+autossh-ali-plist-reload() {
+  echo "🔄 Reloading Alibaba autossh plist"
+  launchctl unload "$AUTOSSH_ALI_PLIST" 2>/dev/null
+  launchctl load "$AUTOSSH_ALI_PLIST"
+  echo "✅ Done"
+}
+
+autossh-ali-plist-status() {
+  echo "🔍 Checking Alibaba autossh plist status"
+  launchctl list | grep "$AUTOSSH_ALI_LABEL" || echo "❌ Not running"
+}
+
+autossh-ali-plist-log() {
+  autossh-ali-log
+}
