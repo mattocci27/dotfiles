@@ -36,6 +36,9 @@ zinit light zsh-users/zsh-completions
 
 # Must come before loading plugin
 ZVM_VI_INSERT_ESCAPE_BINDKEY=jj
+# Use Zsh's stable line editor; the default NEX engine can redraw
+# characters incorrectly in macOS SSH sessions.
+ZVM_READKEY_ENGINE=zle
 zinit light jeffreytse/zsh-vi-mode
 
 # Pure theme and settings
