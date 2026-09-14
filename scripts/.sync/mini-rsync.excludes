@@ -1,6 +1,6 @@
 # Exclude .DS_Store on both sides so delete+backup does not choke on macOS Unicode paths.
-- .DS_Store
-- .rsync-trash/
+-p .DS_Store
+-p .rsync-trash/
 - 2-Areas/Research/MS/On-hold/
 - 2-Areas/Research/MS/Published/
 - 4-Archives/

@@ -84,10 +84,10 @@ mini-rsync-build-opts() {
     --no-perms
     --omit-dir-times
     --delete
-    --prune-empty-dirs
     --itemize-changes
     --human-readable
     --partial
+    --rsync-path=/opt/homebrew/bin/rsync
   )
 
   if [[ -f "$exclude_file" ]]; then
