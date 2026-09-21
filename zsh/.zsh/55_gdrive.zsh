@@ -57,8 +57,19 @@ gdrive-run-dir() {
     return 1
   }
 
-  [[ -z "$GDRIVE_REMOTE_DIR" ]] && {
-    echo "❌ GDRIVE_REMOTE_DIR is not set"
+  case "$GDRIVE_REMOTE_DIR" in
+    GDrive:WorkspaceBackup|GDrive:WorkspaceBackup/*) ;;
+    *)
+      echo "❌ Unsafe GDRIVE_REMOTE_DIR: $GDRIVE_REMOTE_DIR"
+      echo "   Backup destination must be under GDrive:WorkspaceBackup"
+      return 1
+      ;;
+  esac
+
+  # Reject traversal in both the configured root and the directory argument.
+  [[ "/$GDRIVE_REMOTE_DIR/" == */../* || "/$GDRIVE_REMOTE_DIR/" == */./* ||
+     "$dir" == /* || "/$dir/" == */../* || "/$dir/" == */./* ]] && {
+    echo "❌ Unsafe backup path: $GDRIVE_REMOTE_DIR/$dir"
     return 1
   }
 
@@ -68,6 +79,7 @@ gdrive-run-dir() {
   }
 
   opts=($(rclone-common-opts))
+  [[ "$action" == "sync" ]] && opts+=(--drive-use-trash=true --drive-skip-gdocs)
 
   echo "$banner"
   echo "   Dir    : $dir"
@@ -95,14 +107,7 @@ gdrive-run-dir() {
       "${cmd[@]}" --dry-run || return 1
       echo
       read "ans?$prompt"
-      case "$action" in
-        copy)
-          [[ "$ans" != "y" ]] && echo "❌ Cancelled" && return 0
-          ;;
-        sync)
-          [[ "$ans" != "yes" ]] && echo "❌ Cancelled" && return 0
-          ;;
-      esac
+      [[ "$ans" != "y" ]] && echo "❌ Cancelled" && return 0
       echo "🚀 EXECUTE ${action:u} ($dir)"
       "${cmd[@]}" || return 1
       ;;
@@ -129,13 +134,13 @@ gdrive-run-all() {
     prompt="🚀 Execute backup for all dirs? (y/N): "
     banner="☁️ Copy"
   else
-    header="⚠️ ONE-TIME SYNC (destructive)"
-    prompt="🚨 REALLY sync ALL dirs? type 'yes': "
-    banner="⚠️ ONE-TIME SYNC (destructive)"
+    header="☁️ Backup Workspace → Google Drive (sync)"
+    prompt="🚀 Execute backup for all dirs? (y/N): "
+    banner="☁️ Sync"
   fi
 
   echo "$header"
-  [[ "$action" == "sync" ]] && echo "   This will DELETE files on remote!"
+  [[ "$action" == "sync" ]] && echo "   Files removed locally will be moved to Google Drive Trash."
   echo "   Source : $GDRIVE_LOCAL"
   echo "   Target : $GDRIVE_REMOTE_DIR"
   echo "   Mode   : $mode"
@@ -165,11 +170,7 @@ gdrive-run-all() {
       done
 
       read "ans?$prompt"
-      if [[ "$action" == "copy" ]]; then
-        [[ "$ans" != "y" ]] && echo "❌ Cancelled" && return 0
-      else
-        [[ "$ans" != "yes" ]] && echo "❌ Cancelled" && return 0
-      fi
+      [[ "$ans" != "y" ]] && echo "❌ Cancelled" && return 0
 
       echo "🚀 EXECUTE ${action:u} (all dirs)"
       for dir in "${GDRIVE_DIRS[@]}"; do
@@ -191,15 +192,15 @@ gdrive-copy-dir() {
 }
 
 gdrive-sync-dir() {
-  gdrive-run-dir sync "$1" "${2:-ask}" "🚨 REALLY sync '$1'? type 'yes': " "⚠️ ONE-TIME SYNC (destructive)"
+  gdrive-run-dir sync "$1" "${2:-ask}" "🚀 Execute sync '$1'? (y/N): " "☁️ Sync (removed files go to Google Drive Trash)"
 }
 
 gdrive-backup() {
-  gdrive-run-all copy "${1:-ask}"
+  gdrive-run-all sync "${1:-ask}"
 }
 
 gdrive-sync-once() {
-  gdrive-run-all sync "${1:-ask}"
+  gdrive-backup "${1:-ask}"
 }
 
 realpath_safe() {
