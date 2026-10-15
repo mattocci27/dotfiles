@@ -31,6 +31,8 @@ alias gd='cd $HOME/Cloud/GDrive'
 alias db='cd $HOME/Cloud/Dropbox'
 alias sb="cd \$SECOND_BRAIN"
 alias in="cd \$SECOND_BRAIN/0-Inbox/"
+alias wd='cd $WORKSPACE'
+
 
 ms() {
   cd "$WORKSPACE/2-Areas/Research/MS" || return
